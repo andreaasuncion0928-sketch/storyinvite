@@ -15,7 +15,7 @@
        DESIGN SYSTEM & WARM CREAM / LAVENDER PALETTE
        ========================================================================== */
     :root {
-      --story-bg-cream: #F8F6F0;          /* Warm Cream Foundation from Image */
+      --story-bg-cream: #F8F6F0;          /* Warm Cream Foundation */
       --story-lavender-light: #F1EFF9;    /* Light Brand Lavender */
       --story-lavender-deep: #E3DFEE;     /* Deeper Lavender Accent */
       --story-soft-neutral: #FAF9FC;     /* Card Background Fill */
@@ -237,11 +237,11 @@
     .bg-light { background-color: var(--story-lavender-light); }
 
     /* ==========================================================================
-       PANEL 1: HERO VIEW (ASPIRED FROM IMAGE MATCH)
+       PANEL 1: HERO VIEW & EMBEDDABLE MOCKUP SCREENS
        ========================================================================== */
     .hero-grid-layout {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
+      grid-template-columns: 1fr 1.25fr;
       gap: 3rem;
       align-items: center;
       position: relative;
@@ -266,14 +266,12 @@
       max-width: 480px;
     }
 
-    /* Decorative Doodle Icons from Image */
     .doodle-icon {
       position: absolute;
       pointer-events: none;
       opacity: 0.85;
     }
 
-    /* Hero Multi-Device Mockup Stage (Image Inspiration) */
     .hero-visual-col {
       position: relative;
       height: 480px;
@@ -282,7 +280,15 @@
       justify-content: center;
     }
 
-    /* Browser Mockup Layer */
+    /* Embedded Screen Image Handler Utility */
+    .device-screen-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Layer 1: Desktop Browser Mockup (ws5) */
     .mockup-browser-window {
       position: absolute;
       top: 20px;
@@ -299,17 +305,17 @@
     }
 
     .mockup-browser-body {
-      padding: 3rem 1.5rem;
-      text-align: center;
+      padding: 0;
       background-color: var(--story-soft-neutral);
       height: calc(100% - 36px);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
 
-    /* Tablet Mockup Layer */
+    /* Layer 2: Tablet Mockup (ws3) */
     .mockup-tablet {
       position: absolute;
       top: 60px;
@@ -322,12 +328,12 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.12);
       z-index: 2;
       overflow: hidden;
-      padding: 0.5rem;
       background-color: var(--story-soft-neutral);
-      text-align: center;
+      cursor: pointer;
+      position: absolute;
     }
 
-    /* Phone Mockup Layer */
+    /* Layer 3: Smartphone Mockup (ws1) */
     .mockup-phone {
       position: absolute;
       bottom: 20px;
@@ -340,12 +346,11 @@
       box-shadow: 0 25px 45px rgba(0,0,0,0.15);
       z-index: 3;
       overflow: hidden;
-      padding: 0.4rem;
       background-color: var(--story-soft-neutral);
-      text-align: center;
+      cursor: pointer;
     }
 
-    /* Laptop Video Mockup Layer */
+    /* Layer 4: Laptop Video Mockup (ws4 with Play Button) */
     .mockup-laptop-video {
       position: absolute;
       bottom: 0px;
@@ -364,9 +369,6 @@
     .video-thumbnail-bg {
       width: 100%;
       height: 100%;
-      background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80');
-      background-size: cover;
-      background-position: center;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -377,13 +379,14 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 1;
     }
 
     .play-btn-circle {
       width: 50px;
       height: 50px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -401,7 +404,7 @@
       margin-left: 3px;
     }
 
-    /* 4-Step How It Works Bar (Matching Image Bottom Strip) */
+    /* 4-Step How It Works Bar */
     .how-it-works-strip {
       margin-top: 4rem;
       padding-top: 2.5rem;
@@ -419,12 +422,10 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
-      position: relative;
     }
 
     .step-col-item {
       text-align: center;
-      position: relative;
     }
 
     .step-icon-wrap {
@@ -808,6 +809,7 @@
         <span class="brand-logo-placeholder" style="display: none;">StoryInvites</span>
       </a>
 
+      <!-- Direct Tab Navigation Buttons -->
       <ul class="nav-links">
         <li><button class="nav-tab-btn active" data-target="panel-hero">Home</button></li>
         <li><button class="nav-tab-btn" data-target="panel-about">Philosophy</button></li>
@@ -825,7 +827,7 @@
      ========================================================================== -->
   <div class="view-stage-wrapper">
 
-    <!-- PANEL 1: HERO VIEW (EXACT IMAGE MATCHING LAYOUT) -->
+    <!-- PANEL 1: HERO VIEW (EXACT IMAGE MATCHING LAYOUT WITH SPECIFIC DOMAIN MAPPINGS) -->
     <div class="view-panel bg-cream active-panel" id="panel-hero">
       <div class="container">
         
@@ -849,7 +851,7 @@
             </div>
           </div>
 
-          <!-- Asymmetric Multi-Device Visual Column Inspired by Image -->
+          <!-- Asymmetric Multi-Device Visual Column -->
           <div class="hero-visual-col">
             
             <!-- Doodle Wedding Rings -->
@@ -859,41 +861,69 @@
               <polygon points="20,2 23,8 17,8" fill="#B9B1D3"/>
             </svg>
 
-            <!-- Layer 1: Desktop Browser Mockup -->
-            <div class="mockup-browser-window open-sample-modal" data-sample-url="https://ws1.storyinvites.com">
+            <!-- Layer 1: Browser Window -> WS5 Sample -->
+            <div class="mockup-browser-window open-sample-modal" data-sample-url="https://ws5.storyinvites.com">
               <div class="browser-bar">
                 <div class="browser-dot"></div>
                 <div class="browser-dot"></div>
                 <div class="browser-dot"></div>
               </div>
               <div class="mockup-browser-body">
-                <span class="label-uppercase" style="font-size: 0.6rem;">Featured Live Sample · ws1</span>
-                <div class="serif" style="font-size: 2.2rem;">A New Chapter</div>
-                <p style="font-family: var(--font-serif); font-style: italic; font-size: 0.9rem; color: var(--story-plum); margin: 0.5rem 0 1rem 0;">
-                  "Your Wedding Celebration Starts Here"
-                </p>
-                <span class="btn" style="padding: 0.4rem 0.9rem; font-size: 0.6rem;">Tap To Open</span>
+                <!-- Embedded Image Asset with Fallback Card -->
+                <img 
+                  src="public/images/mockups/browser-preview.png" 
+                  alt="Browser Preview" 
+                  class="device-screen-img"
+                  onerror="this.style.display='none';"
+                >
+                <div style="text-align:center; padding: 1.5rem;">
+                  <span class="label-uppercase" style="font-size: 0.6rem;">Featured Live Sample · ws5.storyinvites.com</span>
+                  <div class="serif" style="font-size: 2rem;">A New Chapter</div>
+                  <p style="font-family: var(--font-serif); font-style: italic; font-size: 0.85rem; color: var(--story-plum); margin-top: 0.5rem;">
+                    "Tap to Open Live Invitation"
+                  </p>
+                </div>
               </div>
             </div>
 
-            <!-- Layer 2: Tablet Mockup -->
-            <div class="mockup-tablet open-sample-modal" data-sample-url="https://ws2.storyinvites.com">
-              <span class="label-uppercase" style="font-size: 0.55rem;">Gallery View</span>
-              <div class="serif" style="font-size: 1.1rem; margin-top: 1rem;">Elena &amp; Adrian</div>
-              <div style="width: 20px; height: 1px; background: var(--story-border); margin: 0.8rem auto;"></div>
-              <p style="font-size: 0.65rem; color: var(--story-plum);">Interactive Details</p>
+            <!-- Layer 2: Tablet Mockup -> WS3 Gallery Sample -->
+            <div class="mockup-tablet open-sample-modal" data-sample-url="https://ws3.storyinvites.com">
+              <img 
+                src="public/images/mockups/tablet-preview.png" 
+                alt="Tablet Preview" 
+                class="device-screen-img"
+                onerror="this.style.display='none';"
+              >
+              <div style="text-align: center; padding: 1rem;">
+                <span class="label-uppercase" style="font-size: 0.55rem;">Gallery View · ws3</span>
+                <div class="serif" style="font-size: 1.1rem; margin-top: 0.5rem;">Gallery Showcase</div>
+              </div>
             </div>
 
-            <!-- Layer 3: Smartphone Mockup -->
+            <!-- Layer 3: Smartphone Mockup -> WS1 Sample -->
             <div class="mockup-phone open-sample-modal" data-sample-url="https://ws1.storyinvites.com">
-              <span class="label-uppercase" style="font-size: 0.5rem; margin-top: 0.5rem;">Mobile Preview</span>
-              <div class="serif" style="font-size: 1rem; margin-top: 1.5rem;">A New Chapter</div>
-              <p style="font-size: 0.6rem; margin-top: 0.5rem;">Tap to Experience</p>
+              <img 
+                src="public/images/mockups/phone-preview.png" 
+                alt="Phone Preview" 
+                class="device-screen-img"
+                onerror="this.style.display='none';"
+              >
+              <div style="text-align: center; padding: 0.5rem;">
+                <span class="label-uppercase" style="font-size: 0.5rem; margin-top: 0.5rem;">Mobile View</span>
+                <div class="serif" style="font-size: 0.95rem; margin-top: 0.8rem;">A New Chapter</div>
+              </div>
             </div>
 
-            <!-- Layer 4: Laptop Video Play Mockup -->
-            <div class="mockup-laptop-video open-sample-modal" data-sample-url="https://ws1.storyinvites.com">
+            <!-- Layer 4: Laptop Video Mockup -> WS4 Sample with Play Button -->
+            <div class="mockup-laptop-video open-sample-modal" data-sample-url="https://ws4.storyinvites.com">
               <div class="video-thumbnail-bg">
+                <img 
+                  src="public/images/mockups/video-preview.jpg" 
+                  alt="Video Preview" 
+                  class="device-screen-img"
+                  style="position: absolute; inset: 0;"
+                  onerror="this.style.display='none';"
+                >
                 <div class="play-btn-circle"></div>
               </div>
             </div>
@@ -901,7 +931,7 @@
           </div>
         </div>
 
-        <!-- 4-Step How It Works Bar (Direct Image Match) -->
+        <!-- 4-Step How It Works Bar -->
         <div class="how-it-works-strip">
           <h2 class="strip-title">How it Works</h2>
           
@@ -909,7 +939,6 @@
             <!-- Step 1 -->
             <div class="step-col-item">
               <div class="step-icon-wrap">
-                <!-- Feather Doodle -->
                 <svg width="36" height="36" viewBox="0 0 40 40" fill="none" stroke="#514A63" stroke-width="1.5">
                   <path d="M8 32 C 15 16, 28 8, 35 4 C 32 16, 20 28, 8 32 Z"/>
                   <line x1="8" y1="32" x2="35" y2="4"/>
@@ -923,7 +952,6 @@
             <!-- Step 2 -->
             <div class="step-col-item">
               <div class="step-icon-wrap">
-                <!-- Rings Doodle -->
                 <svg width="38" height="36" viewBox="0 0 50 40" fill="none" stroke="#514A63" stroke-width="1.5">
                   <circle cx="18" cy="20" r="12"/>
                   <circle cx="32" cy="20" r="12"/>
@@ -937,7 +965,6 @@
             <!-- Step 3 -->
             <div class="step-col-item">
               <div class="step-icon-wrap">
-                <!-- Share Nodes Doodle -->
                 <svg width="36" height="36" viewBox="0 0 40 40" fill="none" stroke="#514A63" stroke-width="1.5">
                   <circle cx="10" cy="20" r="4"/>
                   <circle cx="30" cy="10" r="4"/>
@@ -954,7 +981,6 @@
             <!-- Step 4 -->
             <div class="step-col-item">
               <div class="step-icon-wrap">
-                <!-- Compass / Treasure Doodle -->
                 <svg width="36" height="36" viewBox="0 0 40 40" fill="none" stroke="#514A63" stroke-width="1.5">
                   <circle cx="20" cy="20" r="15"/>
                   <polygon points="20,9 24,20 20,31 16,20" fill="#B9B1D3"/>
@@ -970,7 +996,7 @@
       </div>
     </div>
 
-    <!-- PANEL 2: PHILOSOPHY & EVENTS (DEEPER LAVENDER) -->
+    <!-- PANEL 2: PHILOSOPHY & EVENTS -->
     <div class="view-panel bg-deep" id="panel-about">
       <div class="container">
         <div class="intro-statement-max">
@@ -1226,7 +1252,7 @@
   </div>
 
   <!-- ==========================================================================
-     DYNAMIC PREVIEW MODAL (DESKTOP VS MOBILE TOGGLES)
+     DYNAMIC PREVIEW MODAL
      ========================================================================== -->
   <div class="iframe-modal-overlay" id="iframeModal">
     <div class="modal-viewport-bar">
@@ -1287,7 +1313,6 @@
           e.preventDefault();
           const targetId = btn.getAttribute('data-target');
 
-          // Update active navigation state
           document.querySelectorAll('.nav-tab-btn').forEach(b => {
             if (b.getAttribute('data-target') === targetId) {
               b.classList.add('active');
@@ -1296,7 +1321,6 @@
             }
           });
 
-          // Transition panel viewports smoothly
           viewPanels.forEach(panel => {
             if (panel.id === targetId) {
               panel.classList.add('active-panel');
@@ -1308,7 +1332,7 @@
         });
       });
 
-      // Portfolio Filtering Logic (Wedding, Debut, Birthday, All)
+      // Portfolio Filtering Logic
       const catTabBtns = document.querySelectorAll('.cat-tab-btn');
       const portfolioItems = document.querySelectorAll('.portfolio-item');
 

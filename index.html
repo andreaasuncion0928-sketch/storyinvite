@@ -6,22 +6,25 @@
 <title>STORYINVITES — Your Story, Beautifully Invited</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    /* Lavender Color Hierarchy */
-    --bg-lavender-light: #f1eff9;
-    --bg-lavender-soft: #e5e0f3;
-    --bg-lavender-deep: #d8d0ed;
-    --color-ink: #221c35;
-    --color-charcoal: #48405e;
-    --color-taupe: #847a9c;
-    --color-accent: #6c52a1;
-    --border-light: #dcd6eb;
+    /* Refined Lavender Palette Hierarchy */
+    --bg-lavender-1: #f1eff9; /* Primary Light */
+    --bg-lavender-2: #e5e0f3; /* Soft Contrast */
+    --bg-lavender-3: #d8d0ed; /* Accent Shade */
+    --bg-lavender-card: #FAF8FC;
+    
+    --color-ink: #1e1730;
+    --color-charcoal: #433b57;
+    --color-taupe: #786d91;
+    --color-accent: #624898;
+    --border-light: #d8d2e7;
     
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Montserrat', sans-serif;
+    --font-script: 'Pinyon Script', cursive;
   }
 
   * {
@@ -32,50 +35,53 @@
 
   html {
     scroll-behavior: smooth;
-    background-color: var(--bg-lavender-light);
+    background-color: var(--bg-lavender-1);
   }
 
   body {
-    background-color: var(--bg-lavender-light);
+    background-color: var(--bg-lavender-1);
     color: var(--color-ink);
     font-family: var(--font-sans);
     line-height: 1.8;
     overflow-x: hidden;
   }
 
-  /* Alternating Lavender Sections */
-  .section-lavender-1 { background-color: var(--bg-lavender-light); }
-  .section-lavender-2 { background-color: var(--bg-lavender-soft); }
-  .section-lavender-3 { background-color: var(--bg-lavender-deep); }
+  /* Alternating Lavender Section Styles */
+  .section-l1 { background-color: var(--bg-lavender-1); }
+  .section-l2 { background-color: var(--bg-lavender-2); }
+  .section-l3 { background-color: var(--bg-lavender-3); }
 
   /* Typography Utilities */
   .serif { font-family: var(--font-serif); }
   .sans { font-family: var(--font-sans); }
-  .uppercase { text-transform: uppercase; letter-spacing: 0.2em; }
+  .script { font-family: var(--font-script); }
+  .uppercase { text-transform: uppercase; letter-spacing: 0.22em; }
 
-  /* Buttons & CTA */
+  /* Interactive Buttons */
   .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 16px 32px;
+    padding: 18px 36px;
     background-color: var(--color-ink);
-    color: var(--bg-lavender-light);
+    color: var(--bg-lavender-1);
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     border: 1px solid var(--color-ink);
     cursor: pointer;
     transition: all 0.4s ease;
     text-decoration: none;
+    box-shadow: 0 10px 25px rgba(30, 23, 48, 0.1);
   }
 
   .btn-primary:hover {
     background-color: var(--color-accent);
     border-color: var(--color-accent);
     color: #FFF;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(98, 72, 152, 0.25);
   }
 
   .btn-secondary {
@@ -87,32 +93,33 @@
     color: var(--color-accent);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
   }
 
   .btn-secondary:hover {
     color: var(--color-ink);
+    transform: translateX(5px);
   }
 
-  /* Header Navigation */
+  /* Sticky Navigation */
   header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 50px;
+    padding: 22px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: rgba(241, 239, 249, 0.9);
-    backdrop-filter: blur(10px);
+    background: rgba(241, 239, 249, 0.92);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-light);
   }
 
   .logo {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
     letter-spacing: 0.35em;
     color: var(--color-ink);
     text-decoration: none;
@@ -120,7 +127,7 @@
 
   .nav-menu {
     display: flex;
-    gap: 30px;
+    gap: 35px;
     list-style: none;
   }
 
@@ -129,77 +136,138 @@
     color: var(--color-charcoal);
     font-size: 10px;
     letter-spacing: 0.2em;
+    font-weight: 500;
+    transition: color 0.3s;
   }
 
-  /* HERO SECTION (Lavender #f1eff9) */
+  .nav-menu a:hover {
+    color: var(--color-accent);
+  }
+
+  /* 01. ENHANCED HERO INTRO PAGE */
   .hero-container {
     min-height: 100vh;
-    padding: 140px 50px 80px;
+    padding: 150px 50px 100px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(98, 72, 152, 0.08);
+    border: 1px solid rgba(98, 72, 152, 0.2);
+    border-radius: 30px;
+    font-size: 10px;
+    color: var(--color-accent);
+    margin-bottom: 25px;
   }
 
   .hero-title {
-    font-size: clamp(44px, 5vw, 72px);
+    font-size: clamp(48px, 5.5vw, 76px);
     font-weight: 300;
-    line-height: 1.1;
+    line-height: 1.05;
     margin-bottom: 24px;
     color: var(--color-ink);
   }
 
-  .hero-description {
-    font-size: 14px;
-    color: var(--color-charcoal);
-    margin-bottom: 40px;
+  .hero-title span {
+    font-family: var(--font-script);
+    font-size: 1.2em;
+    color: var(--color-accent);
+    display: inline-block;
   }
 
-  /* PREVIEW CANVAS (Hero visual) */
-  .hero-visual-stage {
+  .hero-description {
+    font-size: 15px;
+    color: var(--color-charcoal);
+    margin-bottom: 40px;
+    max-width: 500px;
+  }
+
+  /* Dual Device Mockup Stage */
+  .hero-device-stage {
     position: relative;
-    height: 500px;
+    height: 520px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .device-frame-desktop {
-    width: 380px;
-    height: 260px;
-    background: #FFF;
-    border-radius: 8px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    border: 1px solid var(--border-light);
-    overflow: hidden;
+  .device-mockup {
     position: absolute;
+    box-shadow: 0 30px 60px rgba(30, 23, 48, 0.12);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .device-mockup:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  .device-desktop {
+    width: 440px;
+    height: 280px;
     top: 40px;
-    left: 20px;
-  }
-
-  .device-frame-mobile {
-    width: 160px;
-    height: 310px;
+    left: 10px;
     background: #FFF;
-    border-radius: 20px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.12);
-    border: 4px solid var(--color-ink);
-    position: absolute;
-    bottom: 20px;
-    right: 40px;
-    z-index: 2;
-    overflow: hidden;
+    border: 8px solid #2d2640;
+    border-bottom-width: 16px;
+    z-index: 1;
   }
 
-  .iframe-preview {
+  .device-mobile {
+    width: 170px;
+    height: 340px;
+    bottom: 20px;
+    right: 30px;
+    background: #FFF;
+    border: 6px solid #2d2640;
+    border-radius: 28px;
+    z-index: 2;
+  }
+
+  .mockup-img {
     width: 100%;
     height: 100%;
-    border: none;
+    object-fit: cover;
+    display: block;
   }
 
-  /* CATEGORIZED SAMPLES SECTION (Soft Lavender #e5e0f3) */
+  /* Device Feature Floating Badge */
+  .device-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(30, 23, 48, 0.85);
+    color: var(--bg-lavender-1);
+    backdrop-filter: blur(8px);
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  .device-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #4EED97;
+    border-radius: 50%;
+  }
+
+  /* 02. CATEGORIZED SAMPLES SECTION */
   .portfolio-section {
     padding: 120px 50px;
     border-top: 1px solid var(--border-light);
@@ -208,95 +276,125 @@
 
   .portfolio-header {
     text-align: center;
-    max-width: 700px;
-    margin: 0 auto 60px;
+    max-width: 750px;
+    margin: 0 auto 80px;
   }
 
   .sample-category-block {
     max-width: 1300px;
-    margin: 0 auto 100px;
+    margin: 0 auto 120px;
   }
 
-  .category-title {
-    font-size: 28px;
-    font-weight: 300;
-    margin-bottom: 10px;
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     border-bottom: 1px solid var(--border-light);
-    padding-bottom: 10px;
-  }
-
-  .category-subtitle {
-    font-size: 12px;
-    color: var(--color-taupe);
+    padding-bottom: 15px;
     margin-bottom: 40px;
   }
 
-  /* Dual Preview Grid (Desktop + Mobile side-by-side) */
-  .sample-dual-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
-    background: rgba(255,255,255,0.4);
-    border: 1px solid var(--border-light);
-    padding: 40px;
-    border-radius: 4px;
+  .category-title {
+    font-size: 32px;
+    font-weight: 300;
   }
 
-  .preview-box {
+  .category-subtitle {
+    font-size: 11px;
+    color: var(--color-taupe);
+  }
+
+  /* Dual Device Showcase Grid */
+  .sample-showcase-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 40px;
+    background: var(--bg-lavender-card);
+    border: 1px solid var(--border-light);
+    padding: 45px;
+    border-radius: 8px;
+  }
+
+  .preview-wrapper {
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
 
-  .preview-label {
+  .view-label {
     font-size: 10px;
     color: var(--color-taupe);
     letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
-  .screen-container-desktop {
+  .img-frame-desktop {
     width: 100%;
-    height: 420px;
+    height: 380px;
     background: #FFF;
     border: 1px solid var(--border-light);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border-radius: 6px;
     overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
   }
 
-  .screen-container-mobile {
+  .img-frame-mobile {
     width: 100%;
-    max-width: 240px;
-    height: 420px;
+    max-width: 220px;
+    height: 380px;
     background: #FFF;
     border: 6px solid var(--color-ink);
-    border-radius: 24px;
+    border-radius: 28px;
     margin: 0 auto;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
     overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
   }
 
-  .sample-info {
+  .showcase-info {
     grid-column: span 2;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
-    padding-top: 20px;
+    padding-top: 25px;
     border-top: 1px dashed var(--border-light);
   }
 
-  /* FEATURE SECTION (Lavender #f1eff9) */
-  .statement-section {
+  /* 03. CLIENT BUY-IN / WHY STORYINVITES */
+  .buyin-section {
     padding: 120px 50px;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
   }
 
-  /* PROCESS SECTION (Deep Lavender #d8d0ed) */
+  .buyin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+  }
+
+  .buyin-card {
+    background: var(--bg-lavender-card);
+    border: 1px solid var(--border-light);
+    padding: 40px 30px;
+    border-radius: 6px;
+    transition: transform 0.4s ease;
+  }
+
+  .buyin-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .buyin-icon {
+    font-size: 28px;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+  }
+
+  /* 04. PROCESS SECTION (#d8d0ed) */
   .process-section {
     padding: 120px 50px;
   }
@@ -309,7 +407,7 @@
     margin: 60px auto 0;
   }
 
-  /* PRICING SECTION (Lavender #f1eff9) */
+  /* 05. PRICING OFFER SECTION (#f1eff9) */
   .offer-section {
     padding: 120px 50px;
     max-width: 1100px;
@@ -317,217 +415,261 @@
   }
 
   .offer-box {
-    background: #FFF;
+    background: var(--bg-lavender-card);
     border: 1px solid var(--border-light);
     padding: 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.03);
   }
 
   /* FOOTER */
   footer {
     background: var(--color-ink);
-    color: var(--bg-lavender-light);
+    color: var(--bg-lavender-1);
     padding: 80px 50px 40px;
   }
 
   @media (max-width: 992px) {
-    .hero-container, 
-    .statement-section,
-    .offer-box { grid-template-columns: 1fr; }
+    header { padding: 20px 25px; }
+    .nav-menu { display: none; }
+    .hero-container { grid-template-columns: 1fr; padding: 120px 25px 60px; text-align: center; }
+    .hero-description { margin: 0 auto 40px; }
+    .hero-device-stage { height: 420px; }
+    .device-desktop { width: 300px; height: 200px; left: 5%; }
+    .device-mobile { width: 130px; height: 260px; right: 5%; }
     
-    .sample-dual-grid { grid-template-columns: 1fr; }
-    .sample-info { grid-column: span 1; flex-direction: column; gap: 20px; align-items: flex-start; }
-    .process-grid { grid-template-columns: 1fr; }
+    .sample-showcase-grid { grid-template-columns: 1fr; }
+    .showcase-info { grid-column: span 1; flex-direction: column; gap: 20px; align-items: flex-start; }
+    .buyin-grid, .process-grid, .offer-box { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- NAVIGATION HEADER -->
   <header>
     <a href="#" class="logo uppercase">STORYINVITES</a>
     <ul class="nav-menu uppercase">
-      <li><a href="#samples">Samples</a></li>
+      <li><a href="#samples">Templates</a></li>
+      <li><a href="#why-us">Why Us</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#pricing">Pricing</a></li>
     </ul>
-    <a href="#pricing" class="btn-primary" style="padding: 10px 20px; font-size: 9px;">Create Yours</a>
+    <a href="#pricing" class="btn-primary" style="padding: 12px 24px; font-size: 9px;">Create Yours</a>
   </header>
 
-  <!-- SECTION 1: HERO (#f1eff9) -->
-  <div class="section-lavender-1">
+  <!-- 01. ENHANCED HERO INTRO PAGE (#f1eff9) -->
+  <div class="section-l1">
     <section class="hero-container">
       <div>
+        <span class="hero-tag uppercase">Digital Wedding Experience</span>
         <h1 class="hero-title serif">
-          YOUR STORY,<br>
-          BEAUTIFULLY<br>
-          INVITED.
+          Your story,<br>
+          <span>beautifully</span> invited.
         </h1>
         <p class="hero-description">
-          Personalized digital wedding invitations designed around your story, your personality, and the little details that make your day unforgettable.
+          Turn your love story into a breathtaking digital invitation your guests can open, explore, and remember — seamless on both mobile and desktop.
         </p>
-        <a href="#pricing" class="btn-primary">Create Your Invitation &rarr;</a>
+        <div style="display:flex; gap:20px; align-items:center;">
+          <a href="#pricing" class="btn-primary">Create Your Invitation &rarr;</a>
+          <a href="#samples" class="btn-secondary uppercase">View Templates &darr;</a>
+        </div>
       </div>
 
-      <!-- Live Dual Hero Preview -->
-      <div class="hero-visual-stage">
-        <div class="device-frame-desktop">
-          <iframe src="https://ws1.storyinvite.com" class="iframe-preview" title="Desktop Preview"></iframe>
+      <!-- Highlighting Desktop & Mobile Dual Compatibility -->
+      <div class="hero-device-stage">
+        <div class="device-badge uppercase">
+          <span>Seamless on Desktop & Mobile</span>
         </div>
-        <div class="device-frame-mobile">
-          <iframe src="https://ws1.storyinvite.com" class="iframe-preview" title="Mobile Preview"></iframe>
+
+        <!-- Desktop Mockup Image -->
+        <div class="device-mockup device-desktop">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" alt="Desktop Invitation View" class="mockup-img">
+        </div>
+
+        <!-- Mobile Mockup Image -->
+        <div class="device-mockup device-mobile">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Mobile Invitation View" class="mockup-img">
         </div>
       </div>
     </section>
   </div>
 
-  <!-- SECTION 2: CATEGORIZED SAMPLES GALLERY (#e5e0f3) -->
-  <div class="section-lavender-2" id="samples">
+  <!-- 02. CATEGORIZED SAMPLES SECTION (#e5e0f3) -->
+  <div class="section-l2" id="samples">
     <section class="portfolio-section">
       <div class="portfolio-header">
         <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">The Collection</span>
-        <h2 class="serif" style="font-size:42px; font-weight:300; margin-top:10px;">Explore Our Live Invitation Templates</h2>
-        <p style="font-size:13px; color:var(--color-charcoal); margin-top:15px;">Experience live previews across mobile and desktop devices.</p>
+        <h2 class="serif" style="font-size:44px; font-weight:300; margin-top:10px;">Explore Our Curated Template Worlds</h2>
+        <p style="font-size:14px; color:var(--color-charcoal); margin-top:15px;">
+          Every couple is unique. Browse our digital invitation styles across high-definition desktop and responsive mobile previews.
+        </p>
       </div>
 
       <!-- CATEGORY 1: ROMANTIC & EDITORIAL -->
       <div class="sample-category-block">
-        <h3 class="category-title serif">01. Romantic & Editorial</h3>
-        <p class="category-subtitle uppercase">Cinematic typography, rich story reveals, and timeless layouts.</p>
+        <div class="category-header">
+          <div>
+            <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Category 01</span>
+            <h3 class="category-title serif">Romantic & Editorial</h3>
+          </div>
+          <p class="category-subtitle uppercase">Cinematic typography, rich story reveals, and timeless layouts.</p>
+        </div>
         
-        <div class="sample-dual-grid">
-          <div class="preview-box">
-            <span class="preview-label uppercase">Desktop View</span>
-            <div class="screen-container-desktop">
-              <iframe src="https://ws1.storyinvite.com" class="iframe-preview" title="ws1 desktop"></iframe>
+        <div class="sample-showcase-grid">
+          <div class="preview-wrapper">
+            <span class="view-label uppercase">💻 Desktop View — ws1.storyinvite.com</span>
+            <div class="img-frame-desktop">
+              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="ws1 Desktop View" class="mockup-img">
             </div>
           </div>
-          <div class="preview-box">
-            <span class="preview-label uppercase">Mobile View</span>
-            <div class="screen-container-mobile">
-              <iframe src="https://ws1.storyinvite.com" class="iframe-preview" title="ws1 mobile"></iframe>
+          <div class="preview-wrapper">
+            <span class="view-label uppercase">📱 Mobile View</span>
+            <div class="img-frame-mobile">
+              <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="ws1 Mobile View" class="mockup-img">
             </div>
           </div>
-          <div class="sample-info">
+          <div class="showcase-info">
             <div>
-              <h4 class="serif" style="font-size:24px;">The Classic Story (ws1)</h4>
-              <p style="font-size:12px; color:var(--color-taupe);">Features custom story chapters, soft animations, and inline gallery.</p>
+              <h4 class="serif" style="font-size:26px;">The Classic Story (ws1)</h4>
+              <p style="font-size:13px; color:var(--color-taupe);">Custom story chapters, elegant music integration, and photo gallery reveal.</p>
             </div>
-            <a href="https://ws1.storyinvite.com" target="_blank" class="btn-secondary uppercase">Open Full Live Site &rarr;</a>
+            <a href="https://ws1.storyinvite.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Demo &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- CATEGORY 2: MODERN MINIMALIST -->
       <div class="sample-category-block">
-        <h3 class="category-title serif">02. Modern Minimalist</h3>
-        <p class="category-subtitle uppercase">Clean lines, spacious composition, and effortless guest navigation.</p>
+        <div class="category-header">
+          <div>
+            <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Category 02</span>
+            <h3 class="category-title serif">Modern Minimalist</h3>
+          </div>
+          <p class="category-subtitle uppercase">Clean typography, spacious structure, and seamless guest clarity.</p>
+        </div>
         
-        <div class="sample-dual-grid">
-          <div class="preview-box">
-            <span class="preview-label uppercase">Desktop View</span>
-            <div class="screen-container-desktop">
-              <iframe src="https://ws2.storyinvite.com" class="iframe-preview" title="ws2 desktop"></iframe>
+        <div class="sample-showcase-grid">
+          <div class="preview-wrapper">
+            <span class="view-label uppercase">💻 Desktop View — ws2.storyinvite.com</span>
+            <div class="img-frame-desktop">
+              <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80" alt="ws2 Desktop View" class="mockup-img">
             </div>
           </div>
-          <div class="preview-box">
-            <span class="preview-label uppercase">Mobile View</span>
-            <div class="screen-container-mobile">
-              <iframe src="https://ws2.storyinvite.com" class="iframe-preview" title="ws2 mobile"></iframe>
+          <div class="preview-wrapper">
+            <span class="view-label uppercase">📱 Mobile View</span>
+            <div class="img-frame-mobile">
+              <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=600&q=80" alt="ws2 Mobile View" class="mockup-img">
             </div>
           </div>
-          <div class="sample-info">
+          <div class="showcase-info">
             <div>
-              <h4 class="serif" style="font-size:24px;">The Minimalist Luxe (ws2)</h4>
-              <p style="font-size:12px; color:var(--color-taupe);">Ideal for contemporary couples looking for elegant clarity.</p>
+              <h4 class="serif" style="font-size:26px;">The Minimalist Luxe (ws2)</h4>
+              <p style="font-size:13px; color:var(--color-taupe);">Designed for contemporary couples looking for effortless elegance and clarity.</p>
             </div>
-            <a href="https://ws2.storyinvite.com" target="_blank" class="btn-secondary uppercase">Open Full Live Site &rarr;</a>
+            <a href="https://ws2.storyinvite.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Demo &rarr;</a>
           </div>
         </div>
       </div>
 
-      <!-- CATEGORY 3: ELEGANT JOURNAL & GAZETTE -->
+      <!-- CATEGORY 3: EDITORIAL JOURNAL & GAZETTE -->
       <div class="sample-category-block">
-        <h3 class="category-title serif">03. Editorial Journal & Gazette</h3>
-        <p class="category-subtitle uppercase">Magazine-inspired spreads designed to tell a captivating journey.</p>
+        <div class="category-header">
+          <div>
+            <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Category 03</span>
+            <h3 class="category-title serif">Editorial Journal & Gazette</h3>
+          </div>
+          <p class="category-subtitle uppercase">Magazine-style spreads and newspaper headlines for bold storytelling.</p>
+        </div>
         
-        <div class="sample-dual-grid">
-          <div class="preview-box">
-            <span class="preview-label uppercase">Desktop View</span>
-            <div class="screen-container-desktop">
-              <iframe src="https://ws3.storyinvite.com" class="iframe-preview" title="ws3 desktop"></iframe>
+        <div class="sample-showcase-grid">
+          <div class="preview-wrapper">
+            <span class="view-label uppercase">💻 Desktop View — ws3.storyinvite.com</span>
+            <div class="img-frame-desktop">
+              <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1200&q=80" alt="ws3 Desktop View" class="mockup-img">
             </div>
           </div>
-          <div class="preview-box">
-            <span class="preview-label uppercase">Mobile View</span>
-            <div class="screen-container-mobile">
-              <iframe src="https://ws3.storyinvite.com" class="iframe-preview" title="ws3 mobile"></iframe>
+          <div class="preview-wrapper">
+            <span class="view-label uppercase">📱 Mobile View</span>
+            <div class="img-frame-mobile">
+              <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80" alt="ws3 Mobile View" class="mockup-img">
             </div>
           </div>
-          <div class="sample-info">
+          <div class="showcase-info">
             <div>
-              <h4 class="serif" style="font-size:24px;">The Chronicle (ws3)</h4>
-              <p style="font-size:12px; color:var(--color-taupe);">Magazine style layouts highlighting photos and entourage list.</p>
+              <h4 class="serif" style="font-size:26px;">The Chronicle (ws3)</h4>
+              <p style="font-size:13px; color:var(--color-taupe);">Editorial spreads highlighting entourage details, schedule timelines, and photos.</p>
             </div>
-            <a href="https://ws3.storyinvite.com" target="_blank" class="btn-secondary uppercase">Open Full Live Site &rarr;</a>
+            <a href="https://ws3.storyinvite.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Demo &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- CATEGORY 4: DESTINATION & ADVENTURE -->
       <div class="sample-category-block">
-        <h3 class="category-title serif">04. Destination & Adventure</h3>
-        <p class="category-subtitle uppercase">Interactive maps, dress code guides, and event schedules.</p>
+        <div class="category-header">
+          <div>
+            <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Category 04</span>
+            <h3 class="category-title serif">Destination & Adventure</h3>
+          </div>
+          <p class="category-subtitle uppercase">Interactive maps, weekend itineraries, and travel details.</p>
+        </div>
         
-        <div class="sample-dual-grid">
-          <div class="preview-box">
-            <span class="preview-label uppercase">Desktop View</span>
-            <div class="screen-container-desktop">
-              <iframe src="https://ws4.storyinvite.com" class="iframe-preview" title="ws4 desktop"></iframe>
+        <div class="sample-showcase-grid">
+          <div class="preview-wrapper">
+            <span class="view-label uppercase">💻 Desktop View — ws4.storyinvite.com</span>
+            <div class="img-frame-desktop">
+              <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1200&q=80" alt="ws4 Desktop View" class="mockup-img">
             </div>
           </div>
-          <div class="preview-box">
-            <span class="preview-label uppercase">Mobile View</span>
-            <div class="screen-container-mobile">
-              <iframe src="https://ws4.storyinvite.com" class="iframe-preview" title="ws4 mobile"></iframe>
+          <div class="preview-wrapper">
+            <span class="view-label uppercase">📱 Mobile View</span>
+            <div class="img-frame-mobile">
+              <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80" alt="ws4 Mobile View" class="mockup-img">
             </div>
           </div>
-          <div class="sample-info">
+          <div class="showcase-info">
             <div>
-              <h4 class="serif" style="font-size:24px;">The Journey (ws4)</h4>
-              <p style="font-size:12px; color:var(--color-taupe);">Designed for weekend celebrations, travel details, and RSVP tracking.</p>
+              <h4 class="serif" style="font-size:26px;">The Journey (ws4)</h4>
+              <p style="font-size:13px; color:var(--color-taupe);">Perfect for weekend celebrations, venue maps, travel guides, and instant RSVP.</p>
             </div>
-            <a href="https://ws4.storyinvite.com" target="_blank" class="btn-secondary uppercase">Open Full Live Site &rarr;</a>
+            <a href="https://ws4.storyinvite.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Demo &rarr;</a>
           </div>
         </div>
       </div>
 
       <!-- CATEGORY 5: VIBRANT & CELEBRATORY -->
       <div class="sample-category-block" style="margin-bottom:0;">
-        <h3 class="category-title serif">05. Vibrant & Celebratory</h3>
-        <p class="category-subtitle uppercase">Bold typography, motion details, and music playback features.</p>
+        <div class="category-header">
+          <div>
+            <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Category 05</span>
+            <h3 class="category-title serif">Vibrant & Celebratory</h3>
+          </div>
+          <p class="category-subtitle uppercase">Dynamic animations, live countdowns, and party soundscapes.</p>
+        </div>
         
-        <div class="sample-dual-grid">
-          <div class="preview-box">
-            <span class="preview-label uppercase">Desktop View</span>
-            <div class="screen-container-desktop">
-              <iframe src="https://ws5.storyinvite.com" class="iframe-preview" title="ws5 desktop"></iframe>
+        <div class="sample-showcase-grid">
+          <div class="preview-wrapper">
+            <span class="view-label uppercase">💻 Desktop View — ws5.storyinvite.com</span>
+            <div class="img-frame-desktop">
+              <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80" alt="ws5 Desktop View" class="mockup-img">
             </div>
           </div>
-          <div class="preview-box">
-            <span class="preview-label uppercase">Mobile View</span>
-            <div class="screen-container-mobile">
-              <iframe src="https://ws5.storyinvite.com" class="iframe-preview" title="ws5 mobile"></iframe>
+          <div class="preview-wrapper">
+            <span class="view-label uppercase">📱 Mobile View</span>
+            <div class="img-frame-mobile">
+              <img src="https://images.unsplash.com/photo-1545232979-fbf34f5ce947?auto=format&fit=crop&w=600&q=80" alt="ws5 Mobile View" class="mockup-img">
             </div>
           </div>
-          <div class="sample-info">
+          <div class="showcase-info">
             <div>
-              <h4 class="serif" style="font-size:24px;">The Celebration (ws5)</h4>
-              <p style="font-size:12px; color:var(--color-taupe);">Rich background colors and interactive countdown ticker.</p>
+              <h4 class="serif" style="font-size:26px;">The Celebration (ws5)</h4>
+              <p style="font-size:13px; color:var(--color-taupe);">Rich visual motion, live wedding countdowns, and gift registry details.</p>
             </div>
-            <a href="https://ws5.storyinvite.com" target="_blank" class="btn-secondary uppercase">Open Full Live Site &rarr;</a>
+            <a href="https://ws5.storyinvite.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Demo &rarr;</a>
           </div>
         </div>
       </div>
@@ -535,31 +677,44 @@
     </section>
   </div>
 
-  <!-- SECTION 3: STATEMENT (#f1eff9) -->
-  <div class="section-lavender-1">
-    <section class="statement-section">
-      <div>
-        <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">Not Just A Template</span>
-        <h2 class="serif" style="font-size:42px; font-weight:300; margin:15px 0 20px;">It’s the first glimpse of your celebration.</h2>
-        <p style="font-size:14px; color:var(--color-charcoal);">
-          Before your guests arrive at the venue, they experience your invitation. We help you create a digital experience that reflects your story, style, and essential event details.
-        </p>
+  <!-- 03. CLIENT BUY-IN SECTION (#f1eff9) -->
+  <div class="section-l1" id="why-us">
+    <section class="buyin-section">
+      <div style="text-align:center; max-width:700px; margin:0 auto;">
+        <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">The StoryInvites Advantage</span>
+        <h2 class="serif" style="font-size:42px; font-weight:300; margin-top:10px;">Why Couples Choose StoryInvites</h2>
       </div>
-      <div style="background:var(--bg-lavender-soft); padding:40px; border:1px solid var(--border-light);">
-        <h3 class="serif" style="font-size:24px; margin-bottom:15px;">Every Invitation Includes:</h3>
-        <ul style="list-style:none; font-size:13px; color:var(--color-charcoal); line-height:2.2;">
-          <li>✓ Custom Music & Story Reveal</li>
-          <li>✓ Interactive Venue Map & Schedule</li>
-          <li>✓ Instant Online RSVP with QR Code</li>
-          <li>✓ Photo Gallery (Up to 10 photos)</li>
-          <li>✓ Digital Gift Registry / GCash Details</li>
-        </ul>
+
+      <div class="buyin-grid">
+        <div class="buyin-card">
+          <div class="buyin-icon">📱💻</div>
+          <h3 class="serif" style="font-size:22px; margin-bottom:10px;">Dual Desktop & Mobile Excellence</h3>
+          <p style="font-size:13px; color:var(--color-charcoal);">
+            Whether your guests open your link on a phone or desktop computer, your invitation looks flawless, high-resolution, and perfectly tailored.
+          </p>
+        </div>
+
+        <div class="buyin-card">
+          <div class="buyin-icon">💌</div>
+          <h3 class="serif" style="font-size:22px; margin-bottom:10px;">Effortless Guest RSVP</h3>
+          <p style="font-size:13px; color:var(--color-charcoal);">
+            Ditch paper cards. Guests can confirm attendance instantly online, complete with digital QR codes for easy check-in.
+          </p>
+        </div>
+
+        <div class="buyin-card">
+          <div class="buyin-icon">✨</div>
+          <h3 class="serif" style="font-size:22px; margin-bottom:10px;">Tailored Storytelling</h3>
+          <p style="font-size:13px; color:var(--color-charcoal);">
+            We incorporate your favorite music, memory timeline, photo galleries, maps, dress codes, and gift registry options into one link.
+          </p>
+        </div>
       </div>
     </section>
   </div>
 
-  <!-- SECTION 4: PROCESS (#d8d0ed) -->
-  <div class="section-lavender-3" id="process">
+  <!-- 04. PROCESS SECTION (#d8d0ed) -->
+  <div class="section-l3" id="process">
     <section class="process-section">
       <div style="text-align:center;">
         <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">How It Works</span>
@@ -567,27 +722,27 @@
       </div>
 
       <div class="process-grid">
-        <div style="background:rgba(255,255,255,0.5); padding:30px; border:1px solid var(--border-light);">
+        <div style="background:rgba(255,255,255,0.6); padding:35px; border:1px solid var(--border-light); border-radius:6px;">
           <div class="uppercase" style="font-size:10px; color:var(--color-accent);">01</div>
           <h3 class="serif" style="font-size:22px; margin:10px 0;">Tell Us Your Story</h3>
-          <p style="font-size:12px; color:var(--color-charcoal);">Share your photos, event details, and preferred style from our collection.</p>
+          <p style="font-size:13px; color:var(--color-charcoal);">Share your photos, event details, and preferred template style from our collection.</p>
         </div>
-        <div style="background:rgba(255,255,255,0.5); padding:30px; border:1px solid var(--border-light);">
+        <div style="background:rgba(255,255,255,0.6); padding:35px; border:1px solid var(--border-light); border-radius:6px;">
           <div class="uppercase" style="font-size:10px; color:var(--color-accent);">02</div>
           <h3 class="serif" style="font-size:22px; margin:10px 0;">We Create Your Design</h3>
-          <p style="font-size:12px; color:var(--color-charcoal);">We build your personalized digital invitation space with up to 2 rounds of revisions.</p>
+          <p style="font-size:13px; color:var(--color-charcoal);">We build your personalized digital invitation space with up to 2 rounds of revisions.</p>
         </div>
-        <div style="background:rgba(255,255,255,0.5); padding:30px; border:1px solid var(--border-light);">
+        <div style="background:rgba(255,255,255,0.6); padding:35px; border:1px solid var(--border-light); border-radius:6px;">
           <div class="uppercase" style="font-size:10px; color:var(--color-accent);">03</div>
           <h3 class="serif" style="font-size:22px; margin:10px 0;">Share With Guests</h3>
-          <p style="font-size:12px; color:var(--color-charcoal);">Receive your custom link ready to send across messaging apps and social media.</p>
+          <p style="font-size:13px; color:var(--color-charcoal);">Receive your custom web link ready to send across chat apps, SMS, or social media.</p>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- SECTION 5: PRICING (#f1eff9) -->
-  <div class="section-lavender-1" id="pricing">
+  <!-- 05. PRICING OFFER SECTION (#f1eff9) -->
+  <div class="section-l1" id="pricing">
     <section class="offer-section">
       <div class="offer-box">
         <div>
@@ -604,10 +759,10 @@
 
         <div>
           <ul style="list-style:none; font-size:13px; color:var(--color-charcoal); line-height:2.2;">
-            <li>✓ Mobile-friendly interactive design[cite: 1]</li>
-            <li>✓ Shareable invitation website link[cite: 1]</li>
-            <li>✓ Complete setup & launch[cite: 1]</li>
-            <li>✓ Tailored story placement & details[cite: 1]</li>
+            <li>✓ Mobile & Desktop optimized design[cite: 1]</li>
+            <li>✓ Custom shareable website link[cite: 1]</li>
+            <li>✓ Full website setup & launch[cite: 1]</li>
+            <li>✓ Personalized content & story placement[cite: 1]</li>
             <li>✓ Up to 2 rounds of revisions[cite: 1]</li>
           </ul>
         </div>

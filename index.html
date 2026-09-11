@@ -264,7 +264,7 @@
     .bg-light { background-color: var(--story-lavender-light); }
 
     /* ==========================================================================
-       PANEL 1: MAXIMIZED HERO VIEW WITH ENLARGED TEXT & MULTI-DEVICE MOCKUPS
+       PANEL 1: HERO VIEW
        ========================================================================== */
     .hero-grid-layout {
       display: grid;
@@ -278,6 +278,14 @@
     .hero-text-col {
       position: relative;
       z-index: 2;
+    }
+
+    .hero-logo-element {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 1.25rem;
+      display: block;
     }
 
     .hero-main-heading {
@@ -301,7 +309,6 @@
       opacity: 0.85;
     }
 
-    /* Scaled Up Hero Multi-Device Mockup Stage */
     .hero-visual-col {
       position: relative;
       height: 540px;
@@ -317,7 +324,7 @@
       display: block;
     }
 
-    /* Enlarged Layer 1: Desktop Browser Mockup (ws5) */
+    /* Layer 1: Desktop Browser Mockup (ws5.png) */
     .mockup-browser-window {
       position: absolute;
       top: 10px;
@@ -344,7 +351,7 @@
       position: relative;
     }
 
-    /* Enlarged Layer 2: Tablet Mockup (ws3) */
+    /* Layer 2: Tablet Mockup (ws3.png) */
     .mockup-tablet {
       position: absolute;
       top: 50px;
@@ -361,7 +368,7 @@
       cursor: pointer;
     }
 
-    /* Enlarged Layer 3: Smartphone Mockup (ws1) */
+    /* Layer 3: Smartphone Mockup (ws1.png) */
     .mockup-phone {
       position: absolute;
       bottom: 10px;
@@ -378,7 +385,7 @@
       cursor: pointer;
     }
 
-    /* Enlarged Layer 4: Laptop Video Mockup (ws4 with Play Button) */
+    /* Layer 4: Laptop Video Mockup (ws4.png) */
     .mockup-laptop-video {
       position: absolute;
       bottom: -10px;
@@ -432,7 +439,7 @@
       margin-left: 3px;
     }
 
-    /* 4-Step How It Works Bar - Distinct Lavender Shade Section */
+    /* 4-Step How It Works Bar */
     .how-it-works-strip {
       margin-top: 5rem;
       padding: 4rem 2rem;
@@ -826,7 +833,7 @@
 <body>
 
   <!-- ==========================================================================
-     NAVIGATION (LOGO FIXED TOP LEFT & UNBOXED CTA LINK)
+     NAVIGATION (LOGO STRICTLY PINNED TOP LEFT)
      ========================================================================== -->
   <nav class="navbar">
     <div class="container navbar-container">
@@ -859,18 +866,20 @@
      ========================================================================== -->
   <div class="view-stage-wrapper">
 
-    <!-- PANEL 1: HERO VIEW (MAXIMIZED SPACE & ENLARGED VISUALS) -->
+    <!-- PANEL 1: HERO VIEW -->
     <div class="view-panel bg-cream active-panel" id="panel-hero">
       <div class="container">
         
         <div class="hero-grid-layout">
-          <!-- Text Column -->
+          <!-- Text Column with Official Logo Image -->
           <div class="hero-text-col">
-            <!-- Doodle Feather Icon -->
-            <svg class="doodle-icon" style="top: -25px; right: 20px; width: 48px;" viewBox="0 0 50 50" fill="none" stroke="#514A63" stroke-width="1.5">
-              <path d="M10 40 C 20 20, 35 10, 45 5 C 40 20, 25 35, 10 40 Z"/>
-              <line x1="10" y1="40" x2="45" y2="5"/>
-            </svg>
+            <!-- Official Brand Logo Replacing Feather Icon -->
+            <img 
+              src="public/images/brand/logo.png" 
+              alt="StoryInvites" 
+              class="hero-logo-element"
+              onerror="this.style.display='none';"
+            >
 
             <span class="label-uppercase">Digital Wedding Invitation Studio</span>
             <h1 class="hero-main-heading">Invitations<br>with a story.</h1>
@@ -893,7 +902,7 @@
               <polygon points="20,2 23,8 17,8" fill="#B9B1D3"/>
             </svg>
 
-            <!-- Layer 1: Browser Window -> WS5 Sample -->
+            <!-- Layer 1: Browser Window -> WS5 Sample (src="ws5.png") -->
             <div class="mockup-browser-window open-sample-modal" data-sample-url="https://ws5.storyinvites.com">
               <div class="browser-bar">
                 <div class="browser-dot"></div>
@@ -902,7 +911,7 @@
               </div>
               <div class="mockup-browser-body">
                 <img 
-                  src="public/images/mockups/browser-preview.png" 
+                  src="ws5.png" 
                   alt="Browser Preview" 
                   class="device-screen-img"
                   onerror="this.style.display='none';"
@@ -917,10 +926,10 @@
               </div>
             </div>
 
-            <!-- Layer 2: Tablet Mockup -> WS3 Gallery Sample -->
+            <!-- Layer 2: Tablet Mockup -> WS3 Sample (src="ws3.png") -->
             <div class="mockup-tablet open-sample-modal" data-sample-url="https://ws3.storyinvites.com">
               <img 
-                src="public/images/mockups/tablet-preview.png" 
+                src="ws3.png" 
                 alt="Tablet Preview" 
                 class="device-screen-img"
                 onerror="this.style.display='none';"
@@ -931,10 +940,10 @@
               </div>
             </div>
 
-            <!-- Layer 3: Smartphone Mockup -> WS1 Sample -->
+            <!-- Layer 3: Smartphone Mockup -> WS1 Sample (src="ws1.png") -->
             <div class="mockup-phone open-sample-modal" data-sample-url="https://ws1.storyinvites.com">
               <img 
-                src="public/images/mockups/phone-preview.png" 
+                src="ws1.png" 
                 alt="Phone Preview" 
                 class="device-screen-img"
                 onerror="this.style.display='none';"
@@ -945,11 +954,11 @@
               </div>
             </div>
 
-            <!-- Layer 4: Laptop Video Mockup -> WS4 Sample with Play Button -->
+            <!-- Layer 4: Laptop Video Mockup -> WS4 Sample with Play Button (src="ws4.png") -->
             <div class="mockup-laptop-video open-sample-modal" data-sample-url="https://ws4.storyinvites.com">
               <div class="video-thumbnail-bg">
                 <img 
-                  src="public/images/mockups/video-preview.jpg" 
+                  src="ws4.png" 
                   alt="Video Preview" 
                   class="device-screen-img"
                   style="position: absolute; inset: 0;"
@@ -962,7 +971,7 @@
           </div>
         </div>
 
-        <!-- 4-Step How It Works Bar - Distinct Deep Lavender Background Container -->
+        <!-- 4-Step How It Works Bar - Distinct Deep Lavender Container -->
         <div class="how-it-works-strip">
           <h2 class="strip-title">How it Works</h2>
           
@@ -1090,7 +1099,7 @@
           <!-- Sample 1 -> ws1 -->
           <article class="sample-card open-sample-modal portfolio-item" data-category="wedding" data-sample-url="https://ws1.storyinvites.com">
             <div class="sample-img-wrap">
-              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Cinematic Wedding Story" class="sample-img">
+              <img src="ws1.png" alt="Cinematic Wedding Story" class="sample-img">
             </div>
             <div class="sample-card-body">
               <div>
@@ -1120,7 +1129,7 @@
           <!-- Sample 3 -> ws3 -->
           <article class="sample-card open-sample-modal portfolio-item" data-category="wedding" data-sample-url="https://ws3.storyinvites.com">
             <div class="sample-img-wrap">
-              <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Minimalist Editorial Wedding" class="sample-img">
+              <img src="ws3.png" alt="Minimalist Editorial Wedding" class="sample-img">
             </div>
             <div class="sample-card-body">
               <div>
@@ -1135,7 +1144,7 @@
           <!-- Sample 4 -> ws4 -->
           <article class="sample-card open-sample-modal portfolio-item" data-category="wedding" data-sample-url="https://ws4.storyinvites.com">
             <div class="sample-img-wrap">
-              <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Contemporary Wedding" class="sample-img">
+              <img src="ws4.png" alt="Contemporary Wedding" class="sample-img">
             </div>
             <div class="sample-card-body">
               <div>
@@ -1150,7 +1159,7 @@
           <!-- Sample 5 -> ws5 -->
           <article class="sample-card open-sample-modal portfolio-item" data-category="wedding" data-sample-url="https://ws5.storyinvites.com">
             <div class="sample-img-wrap">
-              <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Fine Art Wedding" class="sample-img">
+              <img src="ws5.png" alt="Fine Art Wedding" class="sample-img">
             </div>
             <div class="sample-card-body">
               <div>

@@ -147,7 +147,7 @@
     }
 
     /* ==========================================================================
-       1. HEADER & LOGO PLACEMENT
+       1. HEADER & LOGO
        ========================================================================== */
     .navbar {
       position: fixed;
@@ -174,14 +174,12 @@
       align-items: center;
     }
 
-    /* Official Logo Asset Styling */
     .brand-logo {
       height: 38px;
       width: auto;
       object-fit: contain;
     }
 
-    /* Fallback Text Badge if image asset is not found */
     .brand-logo-placeholder {
       font-family: var(--font-serif);
       font-size: 1.6rem;
@@ -239,7 +237,6 @@
       margin: 6px 0;
     }
 
-    /* Mobile Drawer */
     .mobile-drawer {
       position: fixed;
       inset: 0;
@@ -343,7 +340,7 @@
     }
 
     /* ==========================================================================
-       3. BRAND INTRO (PHILOSOPHY)
+       3. BRAND PHILOSOPHY
        ========================================================================== */
     .brand-intro-section {
       background-color: var(--story-soft-neutral);
@@ -415,7 +412,7 @@
     }
 
     /* ==========================================================================
-       5. GALLERY (ASYMMETRIC EDITORIAL)
+       5. GALLERY (WITH LIVE SAMPLE DOMAIN URLS)
        ========================================================================== */
     .gallery-section {
       background-color: var(--story-lavender);
@@ -468,8 +465,9 @@
 
     .gallery-item-1 { grid-column: span 7; }
     .gallery-item-2 { grid-column: span 5; }
-    .gallery-item-3 { grid-column: span 5; }
-    .gallery-item-4 { grid-column: span 7; }
+    .gallery-item-3 { grid-column: span 4; }
+    .gallery-item-4 { grid-column: span 4; }
+    .gallery-item-5 { grid-column: span 4; }
 
     .gallery-thumb-box {
       width: 100%;
@@ -539,7 +537,7 @@
     }
 
     /* ==========================================================================
-       7. IMAGINE YOURS
+       7. IMAGINE YOURS & INCLUSIONS
        ========================================================================== */
     .imagine-section {
       background-color: var(--story-lavender);
@@ -561,9 +559,6 @@
       color: var(--story-plum);
     }
 
-    /* ==========================================================================
-       8. INCLUSIONS
-       ========================================================================== */
     .inclusions-section {
       background-color: var(--story-soft-neutral);
       border-top: 1px solid var(--story-border);
@@ -589,7 +584,7 @@
     }
 
     /* ==========================================================================
-       9. PACKAGES (DARK CONTRAST)
+       8. PACKAGES & JOURNEY
        ========================================================================== */
     .package-section {
       background-color: var(--story-charcoal);
@@ -628,9 +623,6 @@
       color: var(--story-mauve);
     }
 
-    /* ==========================================================================
-       10. JOURNEY & TRUST
-       ========================================================================== */
     .journey-section {
       background-color: var(--story-lavender);
     }
@@ -675,7 +667,7 @@
     }
 
     /* ==========================================================================
-       11. FINAL CTA & FOOTER
+       9. FINAL CTA & FOOTER
        ========================================================================== */
     .final-cta {
       background-color: var(--story-lavender);
@@ -716,13 +708,92 @@
       border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* MODAL */
+    /* ==========================================================================
+       10. LIVE PREVIEW IFRAME MODAL
+       ========================================================================== */
+    .iframe-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(38, 36, 43, 0.92);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .iframe-modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .iframe-modal-frame {
+      background: #FFFFFF;
+      width: 92%;
+      max-width: 440px;
+      height: 85vh;
+      border-radius: 36px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      border: 8px solid #E3DFEE;
+      display: flex;
+      flex-direction: column;
+      transition: max-width 0.4s ease;
+    }
+
+    .iframe-modal-frame.desktop-width {
+      max-width: 1100px;
+      border-radius: 12px;
+      border: 2px solid var(--story-border);
+    }
+
+    .iframe-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--story-charcoal);
+      color: #FFFFFF;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .sample-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      flex: 1;
+    }
+
+    .iframe-modal-bar {
+      padding: 1rem 1.5rem;
+      background: var(--story-lavender);
+      border-top: 1px solid var(--story-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    /* FORM MODAL */
     .modal-overlay {
       position: fixed;
       inset: 0;
       background: rgba(38, 36, 43, 0.88);
       backdrop-filter: blur(8px);
-      z-index: 2000;
+      z-index: 2500;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -800,7 +871,6 @@
   <nav class="navbar">
     <div class="container navbar-container">
       <a href="#" class="brand-logo-wrap">
-        <!-- Target Official StoryInvites Logo Asset -->
         <img 
           src="/public/images/brand/logo.png" 
           alt="StoryInvites" 
@@ -854,8 +924,8 @@
           </div>
         </div>
 
-        <!-- Interactive Neutral Hero Opener Stage -->
-        <div class="hero-stage fade-in open-preview-trigger" data-title="A New Chapter" data-subtitle="Your Celebration Starts Here">
+        <!-- Hero Stage Loading Sample WS1 -->
+        <div class="hero-stage fade-in open-sample-modal" data-sample-url="https://ws1.storyinvites.com">
           <div class="hero-device-browser">
             <div class="browser-bar">
               <div class="browser-dot"></div>
@@ -863,13 +933,13 @@
               <div class="browser-dot"></div>
             </div>
             <div class="browser-screen-content">
-              <span class="label-uppercase">Interactive Preview</span>
+              <span class="label-uppercase">Interactive Preview · WS1</span>
               <div class="serif" style="font-size: 3.2rem; margin-bottom: 0.5rem; color: var(--story-charcoal);">A New Chapter</div>
               <p style="font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; color: var(--story-plum); margin-bottom: 2rem;">
                 "Your Celebration Starts Here"
               </p>
               <div style="width: 40px; height: 1px; background: var(--story-border); margin: 0 auto 2rem auto;"></div>
-              <span class="btn" style="padding: 0.8rem 1.8rem; font-size: 0.7rem;">Tap To Explore Invitation</span>
+              <span class="btn" style="padding: 0.8rem 1.8rem; font-size: 0.7rem;">Tap To Open Live Invitation</span>
             </div>
           </div>
           <div class="hero-footnote">Designed around your story. Made to be experienced.</div>
@@ -946,7 +1016,7 @@
     </section>
 
     <!-- ==========================================================================
-       5. GALLERY (EDITORIALLY ASYMMETRIC)
+       5. GALLERY (CONNECTED TO LIVE DOMAINS WS1 TO WS5)
        ========================================================================== -->
     <section id="invitations" class="gallery-section section-padding">
       <div class="container">
@@ -963,53 +1033,67 @@
         </div>
 
         <div class="asymmetric-grid">
-          <article class="gallery-item gallery-item-1 fade-in open-preview-trigger" data-cat="wedding" data-title="The Cinematic Direction" data-subtitle="Full-Bleed Storytelling & Audio">
+          <!-- Card 1 -> ws1.storyinvites.com -->
+          <article class="gallery-item gallery-item-1 fade-in open-sample-modal" data-cat="wedding" data-sample-url="https://ws1.storyinvites.com">
             <div class="gallery-thumb-box">
-              <div class="serif" style="font-size: 2.2rem;">The Cinematic</div>
+              <div class="serif" style="font-size: 2.2rem;">Sample Story I</div>
             </div>
             <h3 class="serif" style="font-size: 1.8rem;">Cinematic Wedding</h3>
             <p style="font-size: 0.9rem; color: var(--story-plum); margin-bottom: 1rem;">Rich storytelling, full-bleed photography, and music.</p>
-            <span class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">View Invitation →</span>
+            <span class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">View Live Invitation →</span>
           </article>
 
-          <article class="gallery-item gallery-item-2 fade-in open-preview-trigger" data-cat="debut" data-title="The Enchanted Debut" data-subtitle="Ethereal & Magical Direction">
+          <!-- Card 2 -> ws2.storyinvites.com -->
+          <article class="gallery-item gallery-item-2 fade-in open-sample-modal" data-cat="wedding" data-sample-url="https://ws2.storyinvites.com">
             <div class="gallery-thumb-box">
-              <div class="serif" style="font-size: 2.2rem;">The Enchanted</div>
+              <div class="serif" style="font-size: 2.2rem;">Sample Story II</div>
+            </div>
+            <h3 class="serif" style="font-size: 1.8rem;">Romantic Wedding</h3>
+            <p style="font-size: 0.9rem; color: var(--story-plum); margin-bottom: 1rem;">Soft, timeless, and intimate editorial layout.</p>
+            <span class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">View Live Invitation →</span>
+          </article>
+
+          <!-- Card 3 -> ws3.storyinvites.com -->
+          <article class="gallery-item gallery-item-3 fade-in open-sample-modal" data-cat="debut" data-sample-url="https://ws3.storyinvites.com">
+            <div class="gallery-thumb-box">
+              <div class="serif" style="font-size: 2.2rem;">Sample Story III</div>
             </div>
             <h3 class="serif" style="font-size: 1.8rem;">Enchanted Debut</h3>
-            <p style="font-size: 0.9rem; color: var(--story-plum); margin-bottom: 1rem;">Soft, dreamy, and editorial milestone story.</p>
-            <span class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">View Invitation →</span>
+            <p style="font-size: 0.9rem; color: var(--story-plum); margin-bottom: 1rem;">Ethereal, magical, and dreamlike milestone story.</p>
+            <span class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">View Live Invitation →</span>
           </article>
 
-          <article class="gallery-item gallery-item-3 fade-in open-preview-trigger" data-cat="birthday" data-title="The Statement Birthday" data-subtitle="Bold Typographic Expression">
+          <!-- Card 4 -> ws4.storyinvites.com -->
+          <article class="gallery-item gallery-item-4 fade-in open-sample-modal" data-cat="birthday" data-sample-url="https://ws4.storyinvites.com">
             <div class="gallery-thumb-box">
-              <div class="serif" style="font-size: 2.2rem;">The Statement</div>
+              <div class="serif" style="font-size: 2.2rem;">Sample Story IV</div>
             </div>
             <h3 class="serif" style="font-size: 1.8rem;">Statement Birthday</h3>
-            <p style="font-size: 0.9rem; color: var(--story-plum); margin-bottom: 1rem;">Bold, refined, and contemporary celebration.</p>
-            <span class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">View Invitation →</span>
+            <p style="font-size: 0.9rem; color: var(--story-plum); margin-bottom: 1rem;">Bold, modern, and high-energy celebration.</p>
+            <span class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">View Live Invitation →</span>
           </article>
 
-          <article class="gallery-item gallery-item-4 fade-in open-preview-trigger" data-cat="wedding" data-title="The Editorial Direction" data-subtitle="Minimalist Magazine Layout">
+          <!-- Card 5 -> ws5.storyinvites.com -->
+          <article class="gallery-item gallery-item-5 fade-in open-sample-modal" data-cat="wedding" data-sample-url="https://ws5.storyinvites.com">
             <div class="gallery-thumb-box">
-              <div class="serif" style="font-size: 2.2rem;">The Editorial</div>
+              <div class="serif" style="font-size: 2.2rem;">Sample Story V</div>
             </div>
-            <h3 class="serif" style="font-size: 1.8rem;">Editorial Wedding</h3>
-            <p style="font-size: 0.9rem; color: var(--story-plum); margin-bottom: 1rem;">Clean, timeless, and sophisticated balance.</p>
-            <span class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">View Invitation →</span>
+            <h3 class="serif" style="font-size: 1.8rem;">Editorial Collection</h3>
+            <p style="font-size: 0.9rem; color: var(--story-plum); margin-bottom: 1rem;">Clean, typographic, and architectural balance.</p>
+            <span class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">View Live Invitation →</span>
           </article>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-       6. LIVE INTERACTIVE EXPERIENCE
+       6. LIVE DEMONSTRATION
        ========================================================================== -->
     <section class="experience-section section-padding">
       <div class="container fade-in">
         <span class="label-uppercase">Interactive Demonstration</span>
         <h2 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 1rem;">Experience a StoryInvite</h2>
-        <p style="margin-bottom: 2.5rem;">Toggle view modes to test responsiveness across desktop and mobile.</p>
+        <p style="margin-bottom: 2.5rem;">Toggle view modes to test responsiveness across desktop and mobile frames.</p>
 
         <div class="device-toggle-bar">
           <button class="toggle-device-btn active" id="btnDesktopView">Desktop View</button>
@@ -1018,19 +1102,19 @@
 
         <div class="preview-stage-container" id="stageContainer">
           <div class="interactive-viewport">
-            <span class="label-uppercase">Live Invitation Showcase</span>
-            <div class="serif" style="font-size: 2.8rem; margin-bottom: 0.5rem;" id="stageTitle">A Celebration Story</div>
-            <p style="font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; color: var(--story-plum); margin-bottom: 2rem;" id="stageSubtitle">
+            <span class="label-uppercase">Live Sample · ws1.storyinvites.com</span>
+            <div class="serif" style="font-size: 2.8rem; margin-bottom: 0.5rem;">A Celebration Story</div>
+            <p style="font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; color: var(--story-plum); margin-bottom: 2rem;">
               Custom Audio · Story Timeline · Details · Digital RSVP
             </p>
-            <button class="btn open-modal-btn">Explore Invitation <span class="btn-arrow">→</span></button>
+            <button class="btn open-sample-modal" data-sample-url="https://ws1.storyinvites.com">Launch Live Sample <span class="btn-arrow">→</span></button>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-       7. IMAGINE YOURS
+       7. IMAGINE YOURS & INCLUSIONS
        ========================================================================== -->
     <section class="imagine-section section-padding">
       <div class="container fade-in">
@@ -1054,9 +1138,6 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-       8. INCLUSIONS
-       ========================================================================== -->
     <section class="inclusions-section section-padding">
       <div class="container">
         <div style="text-align: center; max-width: 640px; margin: 0 auto;" class="fade-in">
@@ -1099,7 +1180,7 @@
     </section>
 
     <!-- ==========================================================================
-       9. PACKAGES
+       8. PACKAGES & JOURNEY
        ========================================================================== -->
     <section id="packages" class="package-section section-padding">
       <div class="container fade-in">
@@ -1126,9 +1207,6 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-       10. JOURNEY & TRUST
-       ========================================================================== -->
     <section id="how-it-works" class="journey-section section-padding">
       <div class="container">
         <div style="text-align: center; max-width: 640px; margin: 0 auto;" class="fade-in">
@@ -1201,7 +1279,7 @@
     </section>
 
     <!-- ==========================================================================
-       11. FINAL CTA & FOOTER
+       9. FINAL CTA & FOOTER
        ========================================================================== -->
     <section class="final-cta">
       <div class="container fade-in" style="max-width: 760px;">
@@ -1211,7 +1289,6 @@
         
         <button class="btn btn-plum open-modal-btn">CREATE YOUR STORYINVITE <span class="btn-arrow">→</span></button>
 
-        <!-- Official Logo Placement in Footer CTA -->
         <div style="margin-top: 4rem;">
           <img 
             src="/public/images/brand/logo.png" 
@@ -1230,7 +1307,6 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <!-- Logo Target in Main Footer -->
           <img 
             src="/public/images/brand/logo.png" 
             alt="StoryInvites" 
@@ -1260,6 +1336,23 @@
 
   <div class="mobile-sticky-bar">
     <button class="btn btn-plum open-modal-btn" style="width: 100%; padding: 0.8rem;">CREATE YOUR STORYINVITE →</button>
+  </div>
+
+  <!-- ==========================================================================
+     10. LIVE SAMPLE IFRAME MODAL (LOADS WS1 - WS5)
+     ========================================================================== -->
+  <div class="iframe-modal-overlay" id="iframeModal">
+    <div class="iframe-modal-frame" id="iframeFrame">
+      <button class="iframe-modal-close" id="closeIframeBtn">&times;</button>
+      
+      <!-- Dynamic Live Subdomain Frame -->
+      <iframe id="sampleIframe" class="sample-iframe" src="about:blank" title="Live StoryInvite Preview"></iframe>
+
+      <div class="iframe-modal-bar">
+        <span style="font-size: 0.85rem; font-family: var(--font-serif); color: var(--story-plum); font-style: italic;" id="iframeDomainLabel">ws1.storyinvites.com</span>
+        <button class="btn btn-plum open-modal-btn" style="padding: 0.6rem 1.4rem; font-size: 0.7rem;">Create Your StoryInvite →</button>
+      </div>
+    </div>
   </div>
 
   <!-- INQUIRY FORM MODAL -->
@@ -1295,8 +1388,12 @@
     </div>
   </div>
 
+  <!-- ==========================================================================
+     JAVASCRIPT INTERACTIONS
+     ========================================================================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Fade-in Observer
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -1307,6 +1404,7 @@
 
       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+      // Mobile Menu Drawer
       const menuToggle = document.querySelector('.menu-toggle');
       const mobileDrawer = document.getElementById('mobileDrawer');
       menuToggle.addEventListener('click', () => {
@@ -1317,6 +1415,7 @@
         link.addEventListener('click', () => mobileDrawer.classList.remove('open'));
       });
 
+      // Gallery Filtering
       const filterBtns = document.querySelectorAll('.filter-btn');
       const galleryItems = document.querySelectorAll('.gallery-item');
 
@@ -1344,6 +1443,7 @@
         });
       });
 
+      // Frame Device Mode Toggle (Homepage Viewport)
       const stageContainer = document.getElementById('stageContainer');
       const btnDesktopView = document.getElementById('btnDesktopView');
       const btnMobileView = document.getElementById('btnMobileView');
@@ -1360,19 +1460,36 @@
         stageContainer.classList.add('mobile-mode');
       });
 
-      const modal = document.getElementById('inquiryModal');
-      const closeModalBtn = document.getElementById('closeModalBtn');
-      const modalHeading = document.getElementById('modalHeading');
+      // Live Sample iFrame Modal Handler
+      const iframeModal = document.getElementById('iframeModal');
+      const sampleIframe = document.getElementById('sampleIframe');
+      const closeIframeBtn = document.getElementById('closeIframeBtn');
+      const iframeDomainLabel = document.getElementById('iframeDomainLabel');
 
-      document.querySelectorAll('.open-modal-btn, .open-preview-trigger').forEach(trigger => {
+      document.querySelectorAll('.open-sample-modal').forEach(trigger => {
         trigger.addEventListener('click', (e) => {
           e.preventDefault();
-          const title = trigger.getAttribute('data-title');
-          if (title) {
-            modalHeading.textContent = `Create: ${title}`;
-          } else {
-            modalHeading.textContent = 'Create Your StoryInvite';
-          }
+          const sampleUrl = trigger.getAttribute('data-sample-url') || 'https://ws1.storyinvites.com';
+          sampleIframe.src = sampleUrl;
+          iframeDomainLabel.textContent = sampleUrl.replace('https://', '');
+          iframeModal.classList.add('open');
+        });
+      });
+
+      closeIframeBtn.addEventListener('click', () => {
+        iframeModal.classList.remove('open');
+        sampleIframe.src = 'about:blank';
+      });
+
+      // Form Modal Handler
+      const modal = document.getElementById('inquiryModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+
+      document.querySelectorAll('.open-modal-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          iframeModal.classList.remove('open');
+          sampleIframe.src = 'about:blank';
           modal.classList.add('open');
         });
       });

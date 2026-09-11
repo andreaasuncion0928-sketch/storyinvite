@@ -12,15 +12,15 @@
 
   <style>
     /* ==========================================================================
-       DESIGN SYSTEM & COLOR DIRECTION
+       DESIGN SYSTEM & COLOR PALETTE
        ========================================================================== */
     :root {
-      --story-ivory: #FBF9F5;            /* Base: Warm Ivory / Cream */
-      --story-espresso: #1C1A17;         /* Primary: Deep Espresso / Near-Black */
-      --story-plum: #4A2E35;             /* Signature Accent: Muted Plum / Wine */
-      --story-mauve: #8C6D75;            /* Secondary Accent: Dusty Rose / Mauve */
-      --story-soft-neutral: #F3EFEA;     /* Card & Contrast Fill */
-      --story-border: #E2DAD0;           /* Restrained Borders & Lines */
+      --story-lavender: #F1EFF9;         /* Core Visual Foundation / Main Page Background */
+      --story-soft-neutral: #FAF9FC;     /* Warm Neutral Section Background & Card Fill */
+      --story-charcoal: #26242B;         /* Soft Deep Charcoal Typography & Accent Sections */
+      --story-plum: #514A63;             /* Signature Accent: Deep Lavender-Plum */
+      --story-mauve: #B9B1D3;            /* Secondary Accent: Muted Lavender / Mauve */
+      --story-border: #DED8EC;           /* Restrained Lines & Borders */
       
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -37,8 +37,8 @@
 
     html {
       scroll-behavior: smooth;
-      background-color: var(--story-ivory);
-      color: var(--story-espresso);
+      background-color: var(--story-lavender);
+      color: var(--story-charcoal);
       font-family: var(--font-sans);
       font-size: 16px;
       line-height: 1.7;
@@ -46,7 +46,7 @@
     }
 
     body {
-      background-color: var(--story-ivory);
+      background-color: var(--story-lavender);
       overflow-x: hidden;
       padding-bottom: 0;
     }
@@ -61,7 +61,7 @@
     p {
       font-size: 1.05rem;
       font-weight: 300;
-      color: rgba(28, 26, 23, 0.85);
+      color: rgba(38, 36, 43, 0.88);
     }
 
     a {
@@ -102,16 +102,16 @@
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      border: 1px solid var(--story-espresso);
+      border: 1px solid var(--story-charcoal);
       background: transparent;
-      color: var(--story-espresso);
+      color: var(--story-charcoal);
       cursor: pointer;
       transition: all 0.4s var(--transition-smooth);
     }
 
     .btn:hover {
-      background: var(--story-espresso);
-      color: var(--story-ivory);
+      background: var(--story-charcoal);
+      color: var(--story-lavender);
     }
 
     .btn-arrow {
@@ -124,14 +124,14 @@
 
     .btn-plum {
       background: var(--story-plum);
-      color: var(--story-ivory);
+      color: var(--story-lavender);
       border-color: var(--story-plum);
     }
 
     .btn-plum:hover {
-      background: var(--story-espresso);
-      border-color: var(--story-espresso);
-      color: var(--story-ivory);
+      background: var(--story-charcoal);
+      border-color: var(--story-charcoal);
+      color: var(--story-lavender);
     }
 
     /* Scroll Reveal */
@@ -147,7 +147,7 @@
     }
 
     /* ==========================================================================
-       1. HEADER
+       1. HEADER & LOGO PLACEMENT
        ========================================================================== */
     .navbar {
       position: fixed;
@@ -155,10 +155,10 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background-color: rgba(251, 249, 245, 0.9);
+      background-color: rgba(241, 239, 249, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(226, 218, 208, 0.5);
+      border-bottom: 1px solid rgba(222, 216, 236, 0.6);
       transition: all 0.3s ease;
     }
 
@@ -174,19 +174,21 @@
       align-items: center;
     }
 
+    /* Official Logo Asset Styling */
     .brand-logo {
-      height: 36px;
+      height: 38px;
       width: auto;
       object-fit: contain;
     }
 
+    /* Fallback Text Badge if image asset is not found */
     .brand-logo-placeholder {
       font-family: var(--font-serif);
       font-size: 1.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       font-weight: 500;
-      color: var(--story-espresso);
+      color: var(--story-charcoal);
     }
 
     .nav-links {
@@ -201,7 +203,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       font-weight: 400;
-      color: var(--story-espresso);
+      color: var(--story-charcoal);
       position: relative;
       padding-bottom: 4px;
     }
@@ -213,7 +215,7 @@
       left: 0;
       width: 0%;
       height: 1px;
-      background-color: var(--story-espresso);
+      background-color: var(--story-charcoal);
       transition: width 0.3s ease;
     }
 
@@ -233,15 +235,15 @@
       display: block;
       width: 24px;
       height: 1px;
-      background-color: var(--story-espresso);
+      background-color: var(--story-charcoal);
       margin: 6px 0;
     }
 
-    /* Mobile Navigation Drawer */
+    /* Mobile Drawer */
     .mobile-drawer {
       position: fixed;
       inset: 0;
-      background: var(--story-ivory);
+      background: var(--story-lavender);
       z-index: 999;
       display: flex;
       flex-direction: column;
@@ -261,16 +263,17 @@
     .mobile-drawer a {
       font-family: var(--font-serif);
       font-size: 2rem;
-      color: var(--story-espresso);
+      color: var(--story-charcoal);
     }
 
     /* ==========================================================================
-       2 & 3. HERO — THE FIRST IMPRESSION & INTERACTION
+       2. HERO SECTION
        ========================================================================== */
     .hero {
       padding-top: 160px;
       padding-bottom: 6rem;
       text-align: center;
+      background-color: var(--story-lavender);
     }
 
     .hero-content-max {
@@ -282,16 +285,16 @@
       font-size: clamp(3.2rem, 6vw, 5.2rem);
       margin-bottom: 1.5rem;
       letter-spacing: -0.01em;
+      color: var(--story-charcoal);
     }
 
     .hero-subtitle {
       font-size: 1.2rem;
       margin-bottom: 2.5rem;
-      color: rgba(28, 26, 23, 0.8);
+      color: rgba(38, 36, 43, 0.8);
       font-weight: 300;
     }
 
-    /* Hero Editorial Stage Visual */
     .hero-stage {
       max-width: 960px;
       margin: 0 auto;
@@ -302,7 +305,7 @@
     .hero-device-browser {
       background: #FFFFFF;
       border: 1px solid var(--story-border);
-      box-shadow: 0 30px 70px rgba(28, 26, 23, 0.08);
+      box-shadow: 0 30px 70px rgba(38, 36, 43, 0.08);
       border-radius: 4px;
       overflow: hidden;
       padding-bottom: 2rem;
@@ -328,7 +331,7 @@
     .browser-screen-content {
       padding: 5rem 2rem;
       text-align: center;
-      background-color: var(--story-ivory);
+      background-color: var(--story-lavender);
     }
 
     .hero-footnote {
@@ -336,11 +339,11 @@
       font-size: 0.85rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--story-mauve);
+      color: var(--story-plum);
     }
 
     /* ==========================================================================
-       4. INTRODUCE STORYINVITES (PHILOSOPHY)
+       3. BRAND INTRO (PHILOSOPHY)
        ========================================================================== */
     .brand-intro-section {
       background-color: var(--story-soft-neutral);
@@ -371,10 +374,10 @@
     }
 
     /* ==========================================================================
-       5. THE THREE WORLDS OF STORYINVITES
+       4. OCCASIONS
        ========================================================================== */
     .worlds-section {
-      background-color: var(--story-ivory);
+      background-color: var(--story-lavender);
     }
 
     .worlds-grid {
@@ -401,7 +404,7 @@
 
     .world-card-visual {
       height: 220px;
-      background: var(--story-ivory);
+      background: var(--story-lavender);
       border: 1px solid var(--story-border);
       margin-bottom: 2rem;
       display: flex;
@@ -412,10 +415,10 @@
     }
 
     /* ==========================================================================
-       6. INVITATION GALLERY (EDITORIAL ASYMMETRIC)
+       5. GALLERY (ASYMMETRIC EDITORIAL)
        ========================================================================== */
     .gallery-section {
-      background-color: var(--story-ivory);
+      background-color: var(--story-lavender);
       border-top: 1px solid var(--story-border);
     }
 
@@ -433,7 +436,7 @@
       font-size: 0.78rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(28, 26, 23, 0.5);
+      color: rgba(38, 36, 43, 0.5);
       cursor: pointer;
       padding-bottom: 0.5rem;
       border-bottom: 1px solid transparent;
@@ -441,11 +444,10 @@
     }
 
     .filter-btn.active, .filter-btn:hover {
-      color: var(--story-espresso);
-      border-color: var(--story-espresso);
+      color: var(--story-charcoal);
+      border-color: var(--story-charcoal);
     }
 
-    /* Editorial Asymmetrical Layout */
     .asymmetric-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -472,7 +474,7 @@
     .gallery-thumb-box {
       width: 100%;
       height: 320px;
-      background: var(--story-ivory);
+      background: var(--story-lavender);
       border: 1px solid var(--story-border);
       margin-bottom: 1.5rem;
       display: flex;
@@ -483,7 +485,7 @@
     }
 
     /* ==========================================================================
-       7. LIVE SAMPLE EXPERIENCE (DESKTOP & MOBILE FRAME TOGGLES)
+       6. LIVE INTERACTIVE EXPERIENCE
        ========================================================================== */
     .experience-section {
       background-color: var(--story-soft-neutral);
@@ -494,7 +496,7 @@
 
     .device-toggle-bar {
       display: inline-flex;
-      background: var(--story-ivory);
+      background: var(--story-lavender);
       padding: 0.35rem;
       border: 1px solid var(--story-border);
       margin-bottom: 3rem;
@@ -510,16 +512,15 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       cursor: pointer;
-      color: var(--story-espresso);
+      color: var(--story-charcoal);
       transition: background 0.3s ease;
     }
 
     .toggle-device-btn.active {
-      background: var(--story-espresso);
-      color: var(--story-ivory);
+      background: var(--story-charcoal);
+      color: var(--story-lavender);
     }
 
-    /* Dynamic Interactive Frame Container */
     .preview-stage-container {
       max-width: 820px;
       margin: 0 auto;
@@ -531,17 +532,17 @@
     }
 
     .interactive-viewport {
-      background: var(--story-ivory);
+      background: var(--story-lavender);
       border: 1px solid var(--story-border);
       padding: 4rem 2rem;
-      box-shadow: 0 20px 50px rgba(28, 26, 23, 0.06);
+      box-shadow: 0 20px 50px rgba(38, 36, 43, 0.06);
     }
 
     /* ==========================================================================
-       8. "IMAGINE YOURS" (EMOTIONAL TURNING POINT)
+       7. IMAGINE YOURS
        ========================================================================== */
     .imagine-section {
-      background-color: var(--story-ivory);
+      background-color: var(--story-lavender);
       text-align: center;
     }
 
@@ -561,7 +562,7 @@
     }
 
     /* ==========================================================================
-       9. WHAT YOU CAN INCLUDE
+       8. INCLUSIONS
        ========================================================================== */
     .inclusions-section {
       background-color: var(--story-soft-neutral);
@@ -577,7 +578,7 @@
     }
 
     .inclusion-card {
-      background: var(--story-ivory);
+      background: var(--story-lavender);
       border: 1px solid var(--story-border);
       padding: 2.25rem 2rem;
     }
@@ -588,11 +589,11 @@
     }
 
     /* ==========================================================================
-       10. PACKAGES
+       9. PACKAGES (DARK CONTRAST)
        ========================================================================== */
     .package-section {
-      background-color: var(--story-espresso);
-      color: var(--story-ivory);
+      background-color: var(--story-charcoal);
+      color: var(--story-lavender);
       text-align: center;
     }
 
@@ -619,7 +620,7 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      color: rgba(251, 249, 245, 0.9);
+      color: rgba(241, 239, 249, 0.9);
     }
 
     .package-list-item::before {
@@ -628,10 +629,10 @@
     }
 
     /* ==========================================================================
-       11. THE JOURNEY (HORIZONTAL DESKTOP / VERTICAL MOBILE)
+       10. JOURNEY & TRUST
        ========================================================================== */
     .journey-section {
-      background-color: var(--story-ivory);
+      background-color: var(--story-lavender);
     }
 
     .journey-flow {
@@ -639,7 +640,6 @@
       grid-template-columns: repeat(5, 1fr);
       gap: 1.5rem;
       margin-top: 4rem;
-      position: relative;
     }
 
     .journey-step-card {
@@ -654,9 +654,6 @@
       margin-bottom: 0.5rem;
     }
 
-    /* ==========================================================================
-       12. TRUST SECTION
-       ========================================================================== */
     .trust-section {
       background-color: var(--story-soft-neutral);
       border-top: 1px solid var(--story-border);
@@ -671,24 +668,24 @@
     }
 
     .trust-column {
-      background: var(--story-ivory);
+      background: var(--story-lavender);
       padding: 3rem 2rem;
       border: 1px solid var(--story-border);
       text-align: center;
     }
 
     /* ==========================================================================
-       13. FINAL CTA & FOOTER
+       11. FINAL CTA & FOOTER
        ========================================================================== */
     .final-cta {
-      background-color: var(--story-ivory);
+      background-color: var(--story-lavender);
       text-align: center;
       padding: 10rem 0;
     }
 
     .site-footer {
-      background-color: var(--story-espresso);
-      color: var(--story-ivory);
+      background-color: var(--story-charcoal);
+      color: var(--story-lavender);
       padding: 5rem 0 3rem 0;
     }
 
@@ -705,28 +702,25 @@
       filter: brightness(0) invert(1);
     }
 
-    /* Persistent Mobile Bottom CTA Strip */
     .mobile-sticky-bar {
       display: none;
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      background: var(--story-espresso);
-      color: var(--story-ivory);
+      background: var(--story-charcoal);
+      color: var(--story-lavender);
       padding: 1rem;
       text-align: center;
       z-index: 900;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* ==========================================================================
-       INTERACTIVE MODAL
-       ========================================================================== */
+    /* MODAL */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(28, 26, 23, 0.88);
+      background: rgba(38, 36, 43, 0.88);
       backdrop-filter: blur(8px);
       z-index: 2000;
       display: flex;
@@ -743,7 +737,7 @@
     }
 
     .modal-card {
-      background: var(--story-ivory);
+      background: var(--story-lavender);
       width: 90%;
       max-width: 480px;
       padding: 3.5rem 2.5rem;
@@ -759,7 +753,7 @@
       border: none;
       font-size: 1.5rem;
       cursor: pointer;
-      color: var(--story-espresso);
+      color: var(--story-charcoal);
     }
 
     .form-group {
@@ -784,49 +778,31 @@
       border: 1px solid var(--story-border);
       font-family: var(--font-sans);
       font-size: 0.95rem;
-      color: var(--story-espresso);
+      color: var(--story-charcoal);
       outline: none;
     }
 
-    /* RESPONSIVE LAYOUT */
     @media (max-width: 900px) {
-      .asymmetric-grid {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .worlds-grid, .inclusions-grid, .journey-flow, .trust-grid, .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .mobile-sticky-bar {
-        display: block;
-      }
-
-      .package-list {
-        grid-template-columns: 1fr;
-      }
+      .asymmetric-grid { display: flex; flex-direction: column; }
+      .worlds-grid, .inclusions-grid, .journey-flow, .trust-grid, .footer-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+      .mobile-sticky-bar { display: block; }
+      .package-list { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
   <!-- ==========================================================================
-     1. HEADER
+     1. HEADER & LOGO
      ========================================================================== -->
   <nav class="navbar">
     <div class="container navbar-container">
       <a href="#" class="brand-logo-wrap">
+        <!-- Target Official StoryInvites Logo Asset -->
         <img 
-          src="/public/images/brand/logo-placeholder.png" 
+          src="/public/images/brand/logo.png" 
           alt="StoryInvites" 
           class="brand-logo"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
@@ -861,7 +837,7 @@
 
   <main>
     <!-- ==========================================================================
-       2 & 3. HERO — THE FIRST IMPRESSION & INTERACTION
+       2. HERO SECTION
        ========================================================================== -->
     <section class="hero">
       <div class="container">
@@ -878,7 +854,7 @@
           </div>
         </div>
 
-        <!-- Neutral Interactive Hero Stage -->
+        <!-- Interactive Neutral Hero Opener Stage -->
         <div class="hero-stage fade-in open-preview-trigger" data-title="A New Chapter" data-subtitle="Your Celebration Starts Here">
           <div class="hero-device-browser">
             <div class="browser-bar">
@@ -888,7 +864,7 @@
             </div>
             <div class="browser-screen-content">
               <span class="label-uppercase">Interactive Preview</span>
-              <div class="serif" style="font-size: 3.2rem; margin-bottom: 0.5rem; color: var(--story-espresso);">A New Chapter</div>
+              <div class="serif" style="font-size: 3.2rem; margin-bottom: 0.5rem; color: var(--story-charcoal);">A New Chapter</div>
               <p style="font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; color: var(--story-plum); margin-bottom: 2rem;">
                 "Your Celebration Starts Here"
               </p>
@@ -902,13 +878,13 @@
     </section>
 
     <!-- ==========================================================================
-       4. INTRODUCE STORYINVITES (BRAND PHILOSOPHY)
+       3. BRAND PHILOSOPHY
        ========================================================================== -->
     <section id="about" class="brand-intro-section section-padding">
       <div class="container intro-statement-max fade-in">
         <span class="label-uppercase">The Studio Philosophy</span>
         <h2 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 1.5rem;">More than an invitation.</h2>
-        <p style="font-size: 1.2rem; line-height: 1.8; color: rgba(28, 26, 23, 0.85);">
+        <p style="font-size: 1.2rem; line-height: 1.8; color: rgba(38, 36, 43, 0.85);">
           Your celebration has its own story, personality, and style. StoryInvites turns those details into a personalized digital invitation — bringing together your photos, words, music, event details, and creative direction in one seamless experience.
         </p>
 
@@ -923,7 +899,7 @@
     </section>
 
     <!-- ==========================================================================
-       5. THE THREE WORLDS OF STORYINVITES
+       4. OCCASIONS
        ========================================================================== -->
     <section class="worlds-section section-padding">
       <div class="container">
@@ -933,38 +909,35 @@
         </div>
 
         <div class="worlds-grid">
-          <!-- Card 1: Weddings -->
           <article class="world-card fade-in">
             <div>
               <div class="world-card-visual">
                 <div class="serif" style="font-size: 2rem;">Weddings</div>
               </div>
               <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Weddings</h3>
-              <p style="font-size: 0.95rem; color: rgba(28,26,23,0.75);">A beautiful beginning to your next chapter.</p>
+              <p style="font-size: 0.95rem; color: rgba(38,36,43,0.75);">A beautiful beginning to your next chapter.</p>
             </div>
             <a href="#invitations" class="btn filter-trigger" data-cat="wedding" style="margin-top: 2rem;">Explore Weddings <span class="btn-arrow">→</span></a>
           </article>
 
-          <!-- Card 2: Debuts -->
           <article class="world-card fade-in">
             <div>
               <div class="world-card-visual">
                 <div class="serif" style="font-size: 2rem;">Debuts</div>
               </div>
               <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Debuts</h3>
-              <p style="font-size: 0.95rem; color: rgba(28,26,23,0.75);">A celebration of becoming.</p>
+              <p style="font-size: 0.95rem; color: rgba(38,36,43,0.75);">A celebration of becoming.</p>
             </div>
             <a href="#invitations" class="btn filter-trigger" data-cat="debut" style="margin-top: 2rem;">Explore Debuts <span class="btn-arrow">→</span></a>
           </article>
 
-          <!-- Card 3: Birthdays -->
           <article class="world-card fade-in">
             <div>
               <div class="world-card-visual">
                 <div class="serif" style="font-size: 2rem;">Birthdays</div>
               </div>
               <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 0.5rem;">Birthdays</h3>
-              <p style="font-size: 0.95rem; color: rgba(28,26,23,0.75);">A celebration made completely yours.</p>
+              <p style="font-size: 0.95rem; color: rgba(38,36,43,0.75);">A celebration made completely yours.</p>
             </div>
             <a href="#invitations" class="btn filter-trigger" data-cat="birthday" style="margin-top: 2rem;">Explore Birthdays <span class="btn-arrow">→</span></a>
           </article>
@@ -973,7 +946,7 @@
     </section>
 
     <!-- ==========================================================================
-       6. INVITATION GALLERY (EDITORIAL ASYMMETRIC)
+       5. GALLERY (EDITORIALLY ASYMMETRIC)
        ========================================================================== -->
     <section id="invitations" class="gallery-section section-padding">
       <div class="container">
@@ -990,7 +963,6 @@
         </div>
 
         <div class="asymmetric-grid">
-          <!-- Sample 1 -->
           <article class="gallery-item gallery-item-1 fade-in open-preview-trigger" data-cat="wedding" data-title="The Cinematic Direction" data-subtitle="Full-Bleed Storytelling & Audio">
             <div class="gallery-thumb-box">
               <div class="serif" style="font-size: 2.2rem;">The Cinematic</div>
@@ -1000,7 +972,6 @@
             <span class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">View Invitation →</span>
           </article>
 
-          <!-- Sample 2 -->
           <article class="gallery-item gallery-item-2 fade-in open-preview-trigger" data-cat="debut" data-title="The Enchanted Debut" data-subtitle="Ethereal & Magical Direction">
             <div class="gallery-thumb-box">
               <div class="serif" style="font-size: 2.2rem;">The Enchanted</div>
@@ -1010,7 +981,6 @@
             <span class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">View Invitation →</span>
           </article>
 
-          <!-- Sample 3 -->
           <article class="gallery-item gallery-item-3 fade-in open-preview-trigger" data-cat="birthday" data-title="The Statement Birthday" data-subtitle="Bold Typographic Expression">
             <div class="gallery-thumb-box">
               <div class="serif" style="font-size: 2.2rem;">The Statement</div>
@@ -1020,7 +990,6 @@
             <span class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">View Invitation →</span>
           </article>
 
-          <!-- Sample 4 -->
           <article class="gallery-item gallery-item-4 fade-in open-preview-trigger" data-cat="wedding" data-title="The Editorial Direction" data-subtitle="Minimalist Magazine Layout">
             <div class="gallery-thumb-box">
               <div class="serif" style="font-size: 2.2rem;">The Editorial</div>
@@ -1034,7 +1003,7 @@
     </section>
 
     <!-- ==========================================================================
-       7. LIVE SAMPLE EXPERIENCE (DESKTOP & MOBILE TOGGLES)
+       6. LIVE INTERACTIVE EXPERIENCE
        ========================================================================== -->
     <section class="experience-section section-padding">
       <div class="container fade-in">
@@ -1061,7 +1030,7 @@
     </section>
 
     <!-- ==========================================================================
-       8. "IMAGINE YOURS" (EMOTIONAL TURNING POINT)
+       7. IMAGINE YOURS
        ========================================================================== -->
     <section class="imagine-section section-padding">
       <div class="container fade-in">
@@ -1077,7 +1046,7 @@
           <li class="imagine-item">Your celebration.</li>
         </ul>
 
-        <div style="font-size: 1.8rem; font-family: var(--font-serif); color: var(--story-espresso); margin-bottom: 2.5rem;">
+        <div style="font-size: 1.8rem; font-family: var(--font-serif); color: var(--story-charcoal); margin-bottom: 2.5rem;">
           ↓<br>Your StoryInvite.
         </div>
 
@@ -1086,7 +1055,7 @@
     </section>
 
     <!-- ==========================================================================
-       9. WHAT YOU CAN INCLUDE
+       8. INCLUSIONS
        ========================================================================== -->
     <section class="inclusions-section section-padding">
       <div class="container">
@@ -1098,49 +1067,49 @@
         <div class="inclusions-grid">
           <div class="inclusion-card fade-in">
             <h3 class="inclusion-card-title">Your Story</h3>
-            <p style="font-size: 0.9rem; color: rgba(28,26,23,0.75);">Tell your guests how it all began.</p>
+            <p style="font-size: 0.9rem; color: rgba(38,36,43,0.75);">Tell your guests how it all began.</p>
           </div>
 
           <div class="inclusion-card fade-in">
             <h3 class="inclusion-card-title">Your Photos</h3>
-            <p style="font-size: 0.9rem; color: rgba(28,26,23,0.75);">Bring your favorite memories into the experience.</p>
+            <p style="font-size: 0.9rem; color: rgba(38,36,43,0.75);">Bring your favorite memories into the experience.</p>
           </div>
 
           <div class="inclusion-card fade-in">
             <h3 class="inclusion-card-title">Your Details</h3>
-            <p style="font-size: 0.9rem; color: rgba(28,26,23,0.75);">Schedule, venues, dress code, and interactive maps.</p>
+            <p style="font-size: 0.9rem; color: rgba(38,36,43,0.75);">Schedule, venues, dress code, and interactive maps.</p>
           </div>
 
           <div class="inclusion-card fade-in">
             <h3 class="inclusion-card-title">Your RSVP</h3>
-            <p style="font-size: 0.9rem; color: rgba(28,26,23,0.75);">Make responding simple for your guests.</p>
+            <p style="font-size: 0.9rem; color: rgba(38,36,43,0.75);">Make responding simple for your guests.</p>
           </div>
 
           <div class="inclusion-card fade-in">
             <h3 class="inclusion-card-title">Your People</h3>
-            <p style="font-size: 0.9rem; color: rgba(28,26,23,0.75);">Entourage, family, friends, and special roles.</p>
+            <p style="font-size: 0.9rem; color: rgba(38,36,43,0.75);">Entourage, family, friends, and special roles.</p>
           </div>
 
           <div class="inclusion-card fade-in">
             <h3 class="inclusion-card-title">Your Music</h3>
-            <p style="font-size: 0.9rem; color: rgba(28,26,23,0.75);">Set the mood from the moment the invitation opens.</p>
+            <p style="font-size: 0.9rem; color: rgba(38,36,43,0.75);">Set the mood from the moment the invitation opens.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-       10. PACKAGES
+       9. PACKAGES
        ========================================================================== -->
     <section id="packages" class="package-section section-padding">
       <div class="container fade-in">
         <span class="label-uppercase" style="color: var(--story-mauve);">The Signature Offering</span>
-        <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); color: var(--story-ivory);">Choose your invitation.</h2>
+        <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); color: var(--story-lavender);">Choose your invitation.</h2>
         
-        <div style="font-family: var(--font-serif); font-size: 2.2rem; margin-top: 2rem; color: var(--story-ivory);">THE SIGNATURE INVITATION</div>
+        <div style="font-family: var(--font-serif); font-size: 2.2rem; margin-top: 2rem; color: var(--story-lavender);">THE SIGNATURE INVITATION</div>
         <div class="package-price">₱2,500</div>
         
-        <p style="max-width: 640px; margin: 0 auto 3rem auto; color: rgba(251,249,245,0.85); font-size: 1.1rem; line-height: 1.8;">
+        <p style="max-width: 640px; margin: 0 auto 3rem auto; color: rgba(241,239,249,0.85); font-size: 1.1rem; line-height: 1.8;">
           Your story. Your style. Your invitation. A personalized, interactive digital invitation created around your celebration.
         </p>
 
@@ -1153,12 +1122,12 @@
           <li class="package-list-item">Countdown &amp; QR code sharing</li>
         </ul>
 
-        <button class="btn open-modal-btn" style="border-color: var(--story-ivory); color: var(--story-ivory);">Get Started <span class="btn-arrow">→</span></button>
+        <button class="btn open-modal-btn" style="border-color: var(--story-lavender); color: var(--story-lavender);">Get Started <span class="btn-arrow">→</span></button>
       </div>
     </section>
 
     <!-- ==========================================================================
-       11. THE JOURNEY
+       10. JOURNEY & TRUST
        ========================================================================== -->
     <section id="how-it-works" class="journey-section section-padding">
       <div class="container">
@@ -1171,31 +1140,31 @@
           <div class="journey-step-card fade-in">
             <div class="journey-step-num">01</div>
             <h3 class="serif" style="font-size: 1.3rem;">TELL US</h3>
-            <p style="font-size: 0.88rem; color: rgba(28,26,23,0.75); margin-top: 0.5rem;">Share your story, ideas, photos &amp; details.</p>
+            <p style="font-size: 0.88rem; color: rgba(38,36,43,0.75); margin-top: 0.5rem;">Share your story, ideas, photos &amp; details.</p>
           </div>
 
           <div class="journey-step-card fade-in">
             <div class="journey-step-num">02</div>
             <h3 class="serif" style="font-size: 1.3rem;">CREATE</h3>
-            <p style="font-size: 0.88rem; color: rgba(28,26,23,0.75); margin-top: 0.5rem;">We turn them into your invitation.</p>
+            <p style="font-size: 0.88rem; color: rgba(38,36,43,0.75); margin-top: 0.5rem;">We turn them into your invitation.</p>
           </div>
 
           <div class="journey-step-card fade-in">
             <div class="journey-step-num">03</div>
             <h3 class="serif" style="font-size: 1.3rem;">REVIEW</h3>
-            <p style="font-size: 0.88rem; color: rgba(28,26,23,0.75); margin-top: 0.5rem;">You see the first version.</p>
+            <p style="font-size: 0.88rem; color: rgba(38,36,43,0.75); margin-top: 0.5rem;">You see the first version.</p>
           </div>
 
           <div class="journey-step-card fade-in">
             <div class="journey-step-num">04</div>
             <h3 class="serif" style="font-size: 1.3rem;">REFINE</h3>
-            <p style="font-size: 0.88rem; color: rgba(28,26,23,0.75); margin-top: 0.5rem;">We make the agreed revisions.</p>
+            <p style="font-size: 0.88rem; color: rgba(38,36,43,0.75); margin-top: 0.5rem;">We make the agreed revisions.</p>
           </div>
 
           <div class="journey-step-card fade-in">
             <div class="journey-step-num">05</div>
             <h3 class="serif" style="font-size: 1.3rem;">SHARE</h3>
-            <p style="font-size: 0.88rem; color: rgba(28,26,23,0.75); margin-top: 0.5rem;">Your StoryInvite is ready.</p>
+            <p style="font-size: 0.88rem; color: rgba(38,36,43,0.75); margin-top: 0.5rem;">Your StoryInvite is ready.</p>
           </div>
         </div>
 
@@ -1205,9 +1174,6 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-       12. TRUST SECTION
-       ========================================================================== -->
     <section class="trust-section section-padding">
       <div class="container">
         <div style="text-align: center; max-width: 640px; margin: 0 auto;" class="fade-in">
@@ -1218,24 +1184,24 @@
         <div class="trust-grid">
           <div class="trust-column fade-in">
             <h3 class="label-uppercase">PERSONALIZED</h3>
-            <p style="font-size: 0.95rem; color: rgba(28,26,23,0.75);">Your invitation is created around your celebration, not simply filled into a template.</p>
+            <p style="font-size: 0.95rem; color: rgba(38,36,43,0.75);">Your invitation is created around your celebration, not simply filled into a template.</p>
           </div>
 
           <div class="trust-column fade-in">
             <h3 class="label-uppercase">CLEAR</h3>
-            <p style="font-size: 0.95rem; color: rgba(28,26,23,0.75);">You'll know what we need, what happens next, and where your invitation is in the process.</p>
+            <p style="font-size: 0.95rem; color: rgba(38,36,43,0.75);">You'll know what we need, what happens next, and where your invitation is in the process.</p>
           </div>
 
           <div class="trust-column fade-in">
             <h3 class="label-uppercase">CAREFULLY MADE</h3>
-            <p style="font-size: 0.95rem; color: rgba(28,26,23,0.75);">Every invitation is reviewed and refined before it is ready to share.</p>
+            <p style="font-size: 0.95rem; color: rgba(38,36,43,0.75);">Every invitation is reviewed and refined before it is ready to share.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-       13. FINAL CTA
+       11. FINAL CTA & FOOTER
        ========================================================================== -->
     <section class="final-cta">
       <div class="container fade-in" style="max-width: 760px;">
@@ -1245,9 +1211,10 @@
         
         <button class="btn btn-plum open-modal-btn">CREATE YOUR STORYINVITE <span class="btn-arrow">→</span></button>
 
+        <!-- Official Logo Placement in Footer CTA -->
         <div style="margin-top: 4rem;">
           <img 
-            src="/public/images/brand/logo-placeholder.png" 
+            src="/public/images/brand/logo.png" 
             alt="StoryInvites" 
             style="height: 32px; margin-bottom: 1rem;"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
@@ -1259,20 +1226,18 @@
     </section>
   </main>
 
-  <!-- ==========================================================================
-     FOOTER & STICKY MOBILE BAR
-     ========================================================================== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
+          <!-- Logo Target in Main Footer -->
           <img 
-            src="/public/images/brand/logo-placeholder.png" 
+            src="/public/images/brand/logo.png" 
             alt="StoryInvites" 
             class="footer-logo"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
           >
-          <span class="brand-logo-placeholder" style="display: none; color: var(--story-ivory); margin-bottom: 1.5rem;">StoryInvites</span>
+          <span class="brand-logo-placeholder" style="display: none; color: var(--story-lavender); margin-bottom: 1.5rem;">StoryInvites</span>
           <p style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--story-mauve);">Your story. Your style. Your invitation.</p>
         </div>
 
@@ -1286,21 +1251,18 @@
         </div>
       </div>
 
-      <div style="padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 0.8rem; color: rgba(251,249,245,0.4);">
+      <div style="padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 0.8rem; color: rgba(241,239,249,0.4);">
         <div>&copy; 2026 StoryInvites. All rights reserved.</div>
         <div>Editorial Invitation Studio</div>
       </div>
     </div>
   </footer>
 
-  <!-- Persistent Sticky Bottom CTA Strip for Mobile -->
   <div class="mobile-sticky-bar">
     <button class="btn btn-plum open-modal-btn" style="width: 100%; padding: 0.8rem;">CREATE YOUR STORYINVITE →</button>
   </div>
 
-  <!-- ==========================================================================
-     INQUIRY FORM MODAL
-     ========================================================================== -->
+  <!-- INQUIRY FORM MODAL -->
   <div class="modal-overlay" id="inquiryModal">
     <div class="modal-card">
       <button class="modal-close" id="closeModalBtn">&times;</button>
@@ -1333,12 +1295,8 @@
     </div>
   </div>
 
-  <!-- ==========================================================================
-     JAVASCRIPT INTERACTIONS
-     ========================================================================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Fade-in observer
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -1349,7 +1307,6 @@
 
       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-      // Mobile Menu Drawer Toggle
       const menuToggle = document.querySelector('.menu-toggle');
       const mobileDrawer = document.getElementById('mobileDrawer');
       menuToggle.addEventListener('click', () => {
@@ -1360,7 +1317,6 @@
         link.addEventListener('click', () => mobileDrawer.classList.remove('open'));
       });
 
-      // Gallery Filtering
       const filterBtns = document.querySelectorAll('.filter-btn');
       const galleryItems = document.querySelectorAll('.gallery-item');
 
@@ -1388,7 +1344,6 @@
         });
       });
 
-      // Frame Device Mode Toggle
       const stageContainer = document.getElementById('stageContainer');
       const btnDesktopView = document.getElementById('btnDesktopView');
       const btnMobileView = document.getElementById('btnMobileView');
@@ -1405,7 +1360,6 @@
         stageContainer.classList.add('mobile-mode');
       });
 
-      // Modal Handling
       const modal = document.getElementById('inquiryModal');
       const closeModalBtn = document.getElementById('closeModalBtn');
       const modalHeading = document.getElementById('modalHeading');

@@ -3,26 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STORYINVITES — The Living Invitation</title>
+<title>STORYINVITES — Your Story, Beautifully Invited</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Montserrat:wght@200;300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --bg-ivory: #F7F4EE;
-    --bg-paper: #FCFAF6;
+    --bg-warm-ivory: #F7F4EE;
+    --bg-soft-paper: #FCFAF6;
     --color-ink: #171614;
+    --color-charcoal: #4A4742;
     --color-taupe: #A49A8C;
     --color-champagne: #B8A58A;
+    --color-deep-editorial: #25221F;
     --border-light: #E8E2D9;
     
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Montserrat', sans-serif;
-    --font-script: 'Pinyon Script', cursive;
-
-    --theme-accent: var(--color-champagne);
-    --theme-bg-override: transparent;
+    --font-accent: 'Alex Brush', cursive; /* Used sparingly as Brittany alternative */
   }
 
   * {
@@ -33,768 +32,1006 @@
 
   html {
     scroll-behavior: smooth;
-    background-color: var(--bg-ivory);
+    background-color: var(--bg-warm-ivory);
   }
 
   body {
-    background-color: var(--bg-ivory);
+    background-color: var(--bg-warm-ivory);
     color: var(--color-ink);
     font-family: var(--font-sans);
     line-height: 1.8;
     overflow-x: hidden;
-    transition: background-color 0.8s ease;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* Dynamic Theme Overlays */
-  .color-overlay {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0;
-    transition: opacity 0.8s ease, background-color 0.8s ease;
-  }
-
-  /* Utility Classes */
+  /* Typography Rules */
   .serif { font-family: var(--font-serif); }
   .sans { font-family: var(--font-sans); }
-  .script { font-family: var(--font-script); }
-  .uppercase { text-transform: uppercase; letter-spacing: 0.25em; }
+  .accent { font-family: var(--font-accent); }
+  .uppercase { text-transform: uppercase; letter-spacing: 0.2em; }
 
-  /* Interactive Micro-Surprises */
-  .surprise {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-  }
-
-  .surprise::after {
-    content: attr(data-note);
-    position: absolute;
-    bottom: 110%;
-    left: 50%;
-    transform: translateX(-50%) translateY(5px);
-    font-family: var(--font-script);
-    font-size: 18px;
-    color: var(--color-champagne);
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-
-  .surprise:hover::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  /* 01 — THE FIRST 3 SECONDS (ARRIVAL STAGE) */
-  #stage-arrival {
-    position: fixed;
-    inset: 0;
-    background-color: var(--bg-ivory);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: opacity 1s cubic-bezier(0.77, 0, 0.175, 1), visibility 1s;
-    background-image: radial-gradient(#E8E2D9 0.75px, transparent 0.75px);
-    background-size: 24px 24px;
-  }
-
-  #stage-arrival.unfolded {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-
-  .arrival-note {
-    font-size: 22px;
-    color: var(--color-taupe);
-    margin-bottom: 30px;
-    animation: fadeIn 1.5s ease;
-  }
-
-  .envelope-wrapper {
-    position: relative;
-    cursor: pointer;
-    perspective: 1000px;
-    animation: floatBreathing 4s ease-in-out infinite;
-  }
-
-  .envelope {
-    width: 280px;
-    height: 180px;
-    background: var(--bg-paper);
-    border: 1px solid var(--border-light);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.04);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: transform 0.6s ease;
-  }
-
-  .envelope::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 90px;
-    background: var(--bg-ivory);
-    border-bottom: 1px solid var(--border-light);
-    clip-path: polygon(0 0, 50% 100%, 100% 0);
-  }
-
-  .envelope-seal {
-    width: 32px;
-    height: 32px;
-    background: var(--color-champagne);
-    border-radius: 50%;
-    position: absolute;
-    top: 74px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFF;
-    font-size: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-
-  .envelope-title {
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    margin-top: 40px;
-    color: var(--color-ink);
-  }
-
-  .tap-instruction {
-    margin-top: 35px;
-    font-size: 20px;
-    color: var(--color-taupe);
-  }
-
-  /* 02 — THE LIVING HERO */
-  nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 25px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    mix-blend-mode: opacity;
-  }
-
-  .brand-header {
-    font-size: 12px;
-    letter-spacing: 0.3em;
-    font-weight: 400;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: var(--color-ink);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    transition: color 0.3s;
-  }
-
-  .hero-section {
-    min-height: 100vh;
-    padding: 140px 20px 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-  }
-
-  .hero-subtitle {
-    font-size: 18px;
-    color: var(--color-taupe);
-    margin-bottom: 20px;
-  }
-
-  .hero-title {
-    font-size: clamp(42px, 6vw, 78px);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 30px;
-    max-width: 900px;
-  }
-
-  .kinetic-text {
-    display: inline-block;
-    transition: transform 0.3s ease-out;
-  }
-
-  .btn-experience {
+  /* Buttons & CTA */
+  .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 12px;
     padding: 18px 36px;
-    border: 1px solid var(--color-ink);
-    background: transparent;
-    color: var(--color-ink);
+    background-color: var(--color-ink);
+    color: var(--bg-warm-ivory);
+    font-family: var(--font-sans);
     font-size: 11px;
+    font-weight: 500;
     letter-spacing: 0.25em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-ink);
     cursor: pointer;
-    transition: all 0.4s ease;
-    margin-top: 20px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-decoration: none;
   }
 
-  .btn-experience:hover {
-    background: var(--color-ink);
-    color: var(--bg-ivory);
+  .btn-primary:hover {
+    background-color: var(--color-champagne);
+    border-color: var(--color-champagne);
+    color: #FFF;
     transform: translateY(-2px);
   }
 
-  /* 03 & 04 — GUEST EXPERIENCE TAKEOVER */
-  #notification-banner {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: var(--bg-paper);
-    border: 1px solid var(--border-light);
-    padding: 20px 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    z-index: 500;
-    display: flex;
+  .btn-primary .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .btn-primary:hover .arrow {
+    transform: translateX(6px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
     align-items: center;
-    gap: 20px;
-    cursor: pointer;
-    transform: translateY(150%);
-    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--color-charcoal);
+    text-decoration: none;
+    transition: color 0.3s ease;
   }
 
-  #notification-banner.visible {
-    transform: translateY(0);
-    animation: vibrate 0.5s ease 1s;
+  .btn-secondary:hover {
+    color: var(--color-champagne);
   }
 
-  .takeover-overlay {
+  /* Header Navigation */
+  header {
     position: fixed;
-    inset: 0;
-    background: var(--bg-paper);
-    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 50px;
     display: flex;
-    flex-direction: column;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.8s ease;
-    overflow-y: auto;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(247, 244, 238, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(232, 226, 217, 0.5);
   }
 
-  .takeover-overlay.active {
-    opacity: 1;
-    visibility: visible;
+  .logo {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    color: var(--color-ink);
+    text-decoration: none;
   }
 
-  .takeover-close {
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    z-index: 2100;
-    background: var(--color-ink);
-    color: var(--bg-ivory);
-    border: none;
-    padding: 10px 20px;
+  .nav-menu {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-menu a {
+    text-decoration: none;
+    color: var(--color-charcoal);
     font-size: 10px;
     letter-spacing: 0.2em;
+    transition: color 0.3s ease;
+  }
+
+  .nav-menu a:hover {
+    color: var(--color-ink);
+  }
+
+  .hamburger {
+    display: none;
+    font-size: 18px;
     cursor: pointer;
   }
 
-  /* Sample Canvas inside Takeover */
-  .sample-container {
-    max-width: 700px;
-    margin: 80px auto;
-    padding: 40px 20px;
+  /* 1. HERO SECTION */
+  .hero-container {
+    min-height: 100vh;
+    padding: 140px 50px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-content {
+    max-width: 550px;
+  }
+
+  .hero-title {
+    font-size: clamp(48px, 5vw, 76px);
+    font-weight: 300;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    color: var(--color-ink);
+  }
+
+  .hero-description {
+    font-size: 14px;
+    color: var(--color-charcoal);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  /* Layered Invitation Canvas */
+  .hero-visual-stage {
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .preview-layer {
+    position: absolute;
+    background: var(--bg-soft-paper);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+  }
+
+  .layer-desktop {
+    width: 360px;
+    height: 480px;
+    z-index: 2;
+    top: 40px;
+    left: 20px;
+    padding: 30px;
     text-align: center;
   }
 
-  /* 06 — INTERACTIVE STORY (WHAT HAPPENS WHEN THEY OPEN) */
-  .story-timeline {
-    max-width: 800px;
-    margin: 100px auto;
-    padding: 0 20px;
+  .layer-mobile {
+    width: 180px;
+    height: 360px;
+    z-index: 3;
+    bottom: 20px;
+    right: 30px;
+    border-radius: 20px;
+    border: 4px solid var(--color-deep-editorial);
+    padding: 15px;
+    background: #FFF;
   }
 
-  .timeline-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-    margin-bottom: 60px;
-    opacity: 0.4;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+  .layer-photo {
+    width: 220px;
+    height: 280px;
+    z-index: 1;
+    top: 10px;
+    right: 40px;
+    background-size: cover;
+    background-position: center;
+    filter: sepia(10%);
   }
 
-  .timeline-step:hover, .timeline-step.active {
-    opacity: 1;
-    transform: translateX(10px);
+  .layer-detail-card {
+    width: 160px;
+    height: 120px;
+    z-index: 4;
+    bottom: 80px;
+    left: -10px;
+    padding: 15px;
+    background: var(--color-deep-editorial);
+    color: var(--bg-warm-ivory);
   }
 
-  .step-index {
-    font-size: 14px;
-    color: var(--color-champagne);
-    letter-spacing: 0.2em;
-  }
-
-  .step-content h3 {
-    font-size: 24px;
-    font-weight: 300;
-    margin-bottom: 8px;
-  }
-
-  .step-content p {
-    font-size: 14px;
+  .scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    letter-spacing: 0.25em;
     color: var(--color-taupe);
   }
 
-  /* 07 & 08 — WALL OF STORIES GALLERY */
-  .gallery-wall {
+  /* 4. FIRST FEATURE SECTION */
+  .statement-section {
+    padding: 120px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .statement-image-frame {
+    position: relative;
+    background: var(--bg-soft-paper);
+    border: 1px solid var(--border-light);
+    padding: 40px;
+  }
+
+  .statement-image-placeholder {
+    width: 100%;
+    height: 500px;
+    background: #EFECE6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .statement-tag {
+    font-size: 10px;
+    color: var(--color-champagne);
+    letter-spacing: 0.3em;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .statement-headline {
+    font-size: 42px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .statement-body {
+    font-size: 14px;
+    color: var(--color-charcoal);
+    margin-bottom: 30px;
+  }
+
+  .statement-pillars {
+    list-style: none;
+    border-top: 1px solid var(--border-light);
+    padding-top: 20px;
+  }
+
+  .statement-pillars li {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--color-ink);
+    margin-bottom: 10px;
+  }
+
+  /* 5 & 6. EDITORIAL GALLERY WALL (SAMPLES) */
+  .portfolio-section {
+    padding: 120px 50px;
+    background: var(--bg-soft-paper);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .portfolio-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 80px;
+  }
+
+  .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    margin: 100px auto;
-    padding: 0 20px;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
   }
 
-  .gallery-card {
-    background: var(--bg-paper);
+  .sample-card {
+    position: relative;
+    background: var(--bg-warm-ivory);
     border: 1px solid var(--border-light);
-    padding: 40px 30px;
+    padding: 30px;
+    transition: transform 0.5s ease;
+  }
+
+  .sample-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .sample-card-1 { grid-column: span 7; }
+  .sample-card-2 { grid-column: span 5; margin-top: 60px; }
+  .sample-card-3 { grid-column: span 5; }
+  .sample-card-4 { grid-column: span 7; margin-top: -40px; }
+
+  .sample-visual {
+    width: 100%;
+    height: 380px;
+    background: #EAE6DF;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .preview-toggle {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .toggle-btn {
+    border: none;
+    background: transparent;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--color-taupe);
+    cursor: pointer;
+  }
+
+  .toggle-btn.active {
+    color: var(--color-ink);
+    border-bottom: 1px solid var(--color-ink);
+  }
+
+  .sample-title {
+    font-size: 28px;
+    font-weight: 300;
+  }
+
+  .sample-subtitle {
+    font-size: 12px;
+    color: var(--color-taupe);
+    margin-bottom: 15px;
+  }
+
+  /* 7. MADE AROUND YOU (DARK SECTION) */
+  .dark-break-section {
+    background: var(--color-ink);
+    color: var(--bg-warm-ivory);
+    padding: 160px 50px;
     text-align: center;
     position: relative;
-    cursor: pointer;
-    transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+    overflow: hidden;
   }
 
-  .gallery-card:hover {
-    transform: scale(1.03) translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-    z-index: 10;
+  .drifting-words-container {
+    max-width: 900px;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 40px;
   }
 
-  /* Asymmetric Grid Spans */
-  .card-1 { grid-column: span 7; }
-  .card-2 { grid-column: span 5; margin-top: 40px; }
-  .card-3 { grid-column: span 4; }
-  .card-4 { grid-column: span 4; margin-top: -30px; }
-  .card-5 { grid-column: span 4; }
+  .drift-word {
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 3vw, 36px);
+    font-style: italic;
+    color: var(--color-taupe);
+    opacity: 0.6;
+    transition: opacity 0.4s ease, color 0.4s ease;
+  }
 
-  /* 12 — NOW IMAGINE YOURS */
-  .imagine-section {
-    min-height: 80vh;
+  .drift-word:hover {
+    opacity: 1;
+    color: var(--color-champagne);
+  }
+
+  /* 8. WHAT'S INCLUDED (EDITORIAL GRID) */
+  .inclusions-section {
+    padding: 140px 50px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+  }
+
+  .editorial-item {
+    border-top: 1px solid var(--color-ink);
+    padding-top: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .editorial-item:hover {
+    transform: translateY(-4px);
+  }
+
+  .item-label {
+    font-size: 10px;
+    color: var(--color-champagne);
+    letter-spacing: 0.25em;
+    margin-bottom: 8px;
+  }
+
+  .item-title {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .item-desc {
+    font-size: 12px;
+    color: var(--color-charcoal);
+  }
+
+  /* 9. THE PROCESS */
+  .process-section {
+    padding: 120px 50px;
+    background: var(--bg-soft-paper);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .process-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    max-width: 1200px;
+    margin: 80px auto 0;
+    position: relative;
+  }
+
+  .process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--border-light);
+    z-index: 1;
+  }
+
+  .process-step {
+    padding-top: 30px;
+    position: relative;
+  }
+
+  .step-num {
+    font-size: 12px;
+    color: var(--color-champagne);
+    letter-spacing: 0.2em;
+    margin-bottom: 15px;
+  }
+
+  .step-title {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+
+  /* 10. THE SIGNATURE INVITATION (OFFER) */
+  .offer-section {
+    padding: 140px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .offer-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    background: var(--bg-soft-paper);
+    border: 1px solid var(--border-light);
+    padding: 60px;
+    align-items: center;
+  }
+
+  .price-tag {
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--color-ink);
+    margin: 20px 0;
+  }
+
+  .offer-list {
+    list-style: none;
+    margin: 30px 0;
+  }
+
+  .offer-list li {
+    font-size: 13px;
+    color: var(--color-charcoal);
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-light);
+  }
+
+  /* 11. WHAT YOUR GUESTS SEE */
+  .guests-view-section {
+    padding: 120px 50px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .phones-trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .phone-screen {
+    background: #FFF;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.03);
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* 12. FINAL VISUAL STATEMENT */
+  .final-statement-section {
+    height: 80vh;
+    background: linear-gradient(rgba(23, 22, 20, 0.7), rgba(23, 22, 20, 0.7)), #3A3532;
+    background-size: cover;
+    background-position: center;
+    color: var(--bg-warm-ivory);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
     text-align: center;
-    padding: 100px 20px;
-    overflow: hidden;
+    padding: 0 20px;
   }
 
-  .floating-element {
-    position: absolute;
-    font-size: 12px;
+  /* 13 & 14. FOOTER */
+  footer {
+    background: var(--bg-warm-ivory);
+    border-top: 1px solid var(--border-light);
+    padding: 80px 50px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    color: var(--color-charcoal);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-light);
+    padding-top: 30px;
+    font-size: 10px;
     color: var(--color-taupe);
-    opacity: 0.3;
-    pointer-events: none;
-    transition: transform 0.8s ease-out;
+    letter-spacing: 0.15em;
   }
 
-  /* 13 & 16 — PACKAGE & DEVICE SWITCHER */
-  .package-card {
-    background: var(--bg-paper);
-    border: 1px solid var(--border-light);
-    max-width: 550px;
-    margin: 60px auto;
-    padding: 60px 40px;
-    text-align: center;
-    position: relative;
+  /* 17. MOBILE RESPONSIVE DESIGN */
+  @media (max-width: 992px) {
+    header { padding: 20px 25px; }
+    .nav-menu { display: none; }
+    .hamburger { display: block; }
+    
+    .hero-container {
+      grid-template-columns: 1fr;
+      padding: 120px 25px 60px;
+      text-align: center;
+    }
+    
+    .hero-actions { justify-content: center; }
+    .hero-visual-stage { height: 450px; }
+    .layer-desktop { width: 280px; height: 380px; left: 10%; }
+    .layer-mobile { width: 140px; height: 280px; right: 10%; }
+
+    .statement-section, 
+    .offer-split { 
+      grid-template-columns: 1fr; 
+      gap: 40px;
+      padding: 40px 25px;
+    }
+
+    .portfolio-grid { display: flex; flex-direction: column; }
+    .sample-card-1, .sample-card-2, .sample-card-3, .sample-card-4 { 
+      grid-column: span 12; 
+      margin-top: 0;
+    }
+
+    .editorial-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-timeline { grid-template-columns: 1fr; gap: 30px; }
+    .phones-trio { grid-template-columns: 1fr; }
+    
+    .footer-top { flex-direction: column; gap: 30px; }
   }
 
-  .device-switcher {
-    display: inline-flex;
-    gap: 10px;
-    margin-bottom: 30px;
-    border: 1px solid var(--border-light);
-    padding: 4px;
-    background: var(--bg-ivory);
-  }
-
-  .switch-btn {
-    border: none;
-    background: transparent;
-    padding: 8px 16px;
-    font-size: 9px;
-    letter-spacing: 0.2em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .switch-btn.active {
-    background: var(--color-ink);
-    color: var(--bg-ivory);
-  }
-
-  /* 17 — FINAL MOMENT */
-  .final-stage {
-    background: #0E0D0C;
-    color: #F7F4EE;
-    padding: 160px 20px 80px;
-    text-align: center;
-    transition: background-color 1s ease;
-  }
-
-  .final-stage .script {
-    color: var(--color-champagne);
-    font-size: 32px;
-  }
-
-  /* Keyframe Animations */
-  @keyframes floatBreathing {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-8px) rotate(0.5deg); }
-  }
-
-  @keyframes vibrate {
-    0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-4px); }
-    40%, 80% { transform: translateX(4px); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @media (max-width: 768px) {
-    .gallery-wall { display: flex; flex-direction: column; }
-    .card-2, .card-4 { margin-top: 0; }
-    .timeline-step { flex-direction: column; gap: 10px; }
-    nav { padding: 20px; }
-    .nav-links { display: none; }
+  @media (max-width: 576px) {
+    .editorial-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-  <div class="color-overlay" id="color-overlay"></div>
-
-  <!-- 01 — THE FIRST 3 SECONDS -->
-  <div id="stage-arrival">
-    <p class="arrival-note script">Someone sent you something.</p>
-    <div class="envelope-wrapper" onclick="unfoldWebsite()">
-      <div class="envelope">
-        <div class="envelope-seal">✦</div>
-        <div class="envelope-title uppercase sans">STORYINVITES</div>
-      </div>
-    </div>
-    <p class="tap-instruction script">tap to open</p>
-  </div>
-
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="brand-header uppercase sans">STORYINVITES</div>
-    <ul class="nav-links uppercase">
-      <li><a href="#experience">Experience</a></li>
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="logo uppercase">STORYINVITES</a>
+    <ul class="nav-menu uppercase">
       <li><a href="#stories">Stories</a></li>
-      <li><a href="#signature">Signature</a></li>
-      <li><a href="#begin">Begin</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
     </ul>
-  </nav>
+    <a href="#pricing" class="btn-primary" style="padding: 10px 20px; font-size: 9px;">Create Yours</a>
+    <div class="hamburger">☰</div>
+  </header>
 
-  <!-- 02 — THE LIVING HERO -->
-  <section class="hero-section" id="experience">
-    <p class="hero-subtitle script">You're invited to something worth remembering.</p>
-    <h1 class="hero-title serif">
-      Imagine you’re a guest. <br>
-      You receive a link from <span class="kinetic-text surprise" data-note="someone special">someone you love.</span>
-    </h1>
-    <button class="btn-experience uppercase" onclick="triggerGuestNotification()">
-      <span>Open the experience</span> &rarr;
-    </button>
-  </section>
-
-  <!-- 03 — GUEST NOTIFICATION POPUP -->
-  <div id="notification-banner" onclick="launchTakeover('Elena & Adrian')">
-    <div style="font-size:20px;">💌</div>
-    <div style="text-align:left;">
-      <div class="serif" style="font-size:16px;">Elena & Adrian</div>
-      <div style="font-size:10px; color:var(--color-taupe);" class="uppercase">We've been waiting to share this with you.</div>
-    </div>
-    <div class="uppercase" style="font-size:9px; color:var(--color-champagne); letter-spacing:0.15em;">View Invitation</div>
-  </div>
-
-  <!-- 04 & 05 — FULLSCREEN INVITATION TAKEOVER (Dissolves back) -->
-  <div class="takeover-overlay" id="takeover-overlay">
-    <button class="takeover-close uppercase" onclick="closeTakeover()">Return to StoryInvites ✕</button>
-    <div class="sample-container">
-      <p class="script" style="font-size:28px; color:var(--color-champagne);">A Love Story</p>
-      <h2 class="serif" style="font-size:54px; font-weight:300; margin:20px 0;" id="takeover-title">Elena & Adrian</h2>
-      <div class="serif" style="font-size:20px; font-style:italic; color:var(--color-taupe); margin-bottom:40px;">
-        "It started with coffee. And somehow, it became everything."
-      </div>
-      <div style="padding:60px; background:var(--bg-ivory); border:1px solid var(--border-light); margin-bottom:40px;">
-        <p class="uppercase" style="font-size:11px; letter-spacing:0.25em;">Manila · January 31, 2028</p>
-      </div>
-      <p style="font-size:12px; color:var(--color-taupe);" class="uppercase">Scroll to explore details · RSVP · Story · Entourage</p>
-    </div>
-  </div>
-
-  <!-- 06 — WHAT HAPPENS WHEN THEY OPEN -->
-  <section class="story-timeline">
-    <div style="text-align:center; margin-bottom:80px;">
-      <span class="uppercase" style="font-size:10px; letter-spacing:0.3em; color:var(--color-champagne);">The Journey</span>
-      <h2 class="serif" style="font-size:36px; font-weight:300; margin-top:10px;">What happens when they open?</h2>
-    </div>
-
-    <div class="timeline-step">
-      <div class="step-index uppercase">01</div>
-      <div class="step-content">
-        <h3 class="serif">They receive it.</h3>
-        <p>A little notification arrives on their phone. Personal, quiet, and intriguing.</p>
+  <!-- 1 & 2. HERO SECTION -->
+  <section class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title serif">
+        YOUR STORY,<br>
+        BEAUTIFULLY<br>
+        INVITED.
+      </h1>
+      <p class="hero-description">
+        Personalized digital wedding invitations designed around your story, your personality, and the little things that make you — you.
+      </p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn-primary">
+          <span>Create Your Invitation</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a href="#stories" class="btn-secondary uppercase">Explore Stories &darr;</a>
       </div>
     </div>
 
-    <div class="timeline-step">
-      <div class="step-index uppercase">02</div>
-      <div class="step-content">
-        <h3 class="serif">They open it.</h3>
-        <p>A digital envelope unfolds smoothly, revealing your personalized space.</p>
-      </div>
-    </div>
-
-    <div class="timeline-step">
-      <div class="step-index uppercase">03</div>
-      <div class="step-content">
-        <h3 class="serif">They discover you.</h3>
-        <p>Photos float into view. Your shared moments tell a story rather than listing facts.</p>
-      </div>
-    </div>
-
-    <div class="timeline-step">
-      <div class="step-index uppercase">04</div>
-      <div class="step-content">
-        <h3 class="serif">They find the details.</h3>
-        <p>Interactive maps, dress code palettes, and countdowns reveal seamlessly.</p>
-      </div>
-    </div>
-
-    <div class="timeline-step">
-      <div class="step-index uppercase">05</div>
-      <div class="step-content">
-        <h3 class="serif">They become part of it.</h3>
-        <p>A simple RSVP confirmation: <em>“We’ll see you there. ♡”</em></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 07, 08 & 09 — WALL OF STORIES WITH COLOR MOMENTS -->
-  <section id="stories" style="padding:80px 0;">
-    <div style="text-align:center; margin-bottom:40px;">
-      <span class="uppercase" style="font-size:10px; letter-spacing:0.3em; color:var(--color-champagne);">The Collection</span>
-      <h2 class="serif" style="font-size:38px; font-weight:300;">Every story has its own world.</h2>
-    </div>
-
-    <div class="gallery-wall">
-      <div class="gallery-card card-1" 
-           onmouseenter="setTheme('#8C7A6B', 'rgba(140, 122, 107, 0.08)')" 
-           onmouseleave="resetTheme()"
-           onclick="launchTakeover('Elena & Adrian')">
-        <p class="script" style="font-size:22px; color:var(--color-champagne);">Romantic / Cinematic</p>
-        <h3 class="serif" style="font-size:32px; font-weight:300;">Elena & Adrian</h3>
-        <p class="uppercase" style="font-size:9px; letter-spacing:0.2em; color:var(--color-taupe); margin-top:10px;">The Coffee Date</p>
-      </div>
-
-      <div class="gallery-card card-2" 
-           onmouseenter="setTheme('#C47B5E', 'rgba(196, 123, 94, 0.08)')" 
-           onmouseleave="resetTheme()"
-           onclick="launchTakeover('The Next Adventure')">
-        <p class="script" style="font-size:22px; color:#C47B5E;">Travel / Scrapbook</p>
-        <h3 class="serif" style="font-size:28px; font-weight:300;">The Next Adventure</h3>
-        <p class="uppercase" style="font-size:9px; letter-spacing:0.2em; color:var(--color-taupe); margin-top:10px;">Maya & Liam</p>
-      </div>
-
-      <div class="gallery-card card-3" 
-           onmouseenter="setTheme('#7A8B7B', 'rgba(122, 139, 123, 0.08)')" 
-           onmouseleave="resetTheme()"
-           onclick="launchTakeover('At Home')">
-        <p class="script" style="font-size:22px; color:#7A8B7B;">Warm / Intimate</p>
-        <h3 class="serif" style="font-size:28px; font-weight:300;">At Home</h3>
-        <p class="uppercase" style="font-size:9px; letter-spacing:0.2em; color:var(--color-taupe); margin-top:10px;">Chloe & Noah</p>
-      </div>
-
-      <div class="gallery-card card-4" 
-           onmouseenter="setTheme('#6B2D39', 'rgba(107, 45, 57, 0.08)')" 
-           onmouseleave="resetTheme()"
-           onclick="launchTakeover('The Gazette')">
-        <p class="script" style="font-size:22px; color:#6B2D39;">Editorial / Witty</p>
-        <h3 class="serif" style="font-size:28px; font-weight:300;">The Gazette</h3>
-        <p class="uppercase" style="font-size:9px; letter-spacing:0.2em; color:var(--color-taupe); margin-top:10px;">Sophia & Mateo</p>
-      </div>
-
-      <div class="gallery-card card-5" 
-           onmouseenter="setTheme('#2B4C7E', 'rgba(43, 76, 126, 0.08)')" 
-           onmouseleave="resetTheme()"
-           onclick="launchTakeover('The Concert')">
-        <p class="script" style="font-size:22px; color:#2B4C7E;">Energetic / Bold</p>
-        <h3 class="serif" style="font-size:28px; font-weight:300;">The Concert</h3>
-        <p class="uppercase" style="font-size:9px; letter-spacing:0.2em; color:var(--color-taupe); margin-top:10px;">Isla & Kai</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 12 — NOW IMAGINE YOURS -->
-  <section class="imagine-section" id="begin">
-    <div class="floating-element script" style="top:20%; left:15%; font-size:24px;">Manila, 2028</div>
-    <div class="floating-element serif" style="bottom:25%; right:18%; font-size:18px;">Our favorite song...</div>
-    <div class="floating-element uppercase" style="top:30%; right:20%; letter-spacing:0.2em;">01.31.28</div>
-
-    <span class="uppercase" style="font-size:10px; letter-spacing:0.3em; color:var(--color-champagne);">Personalization</span>
-    <h2 class="serif" style="font-size:clamp(36px, 5vw, 64px); font-weight:300; margin:20px 0;">Now, imagine yours.</h2>
-    <p style="font-size:14px; color:var(--color-taupe); max-width:500px;">
-      Your wedding doesn't need to look like anyone else's. Tell us your story, your style, your little details — and we'll turn them into an invitation made for you.
-    </p>
-  </section>
-
-  <!-- 13 & 16 — SIGNATURE INVITATION PACKAGE WITH DEVICE SWITCHER -->
-  <section id="signature" style="padding:60px 20px;">
-    <div class="package-card">
+    <!-- Layered Interactive Preview Canvas -->
+    <div class="hero-visual-stage">
+      <div class="preview-layer layer-photo" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80');"></div>
       
-      <!-- Mobile/Desktop View Switcher -->
-      <div class="device-switcher uppercase">
-        <button class="switch-btn active" onclick="switchDevice('mobile', this)">Mobile View</button>
-        <button class="switch-btn" onclick="switchDevice('desktop', this)">Canvas View</button>
+      <div class="preview-layer layer-desktop">
+        <span class="uppercase" style="font-size:8px; letter-spacing:0.3em; color:var(--color-taupe);">Save The Date</span>
+        <h3 class="serif" style="font-size:24px; margin: 15px 0 5px;">Elena & Adrian</h3>
+        <p class="serif" style="font-style:italic; font-size:12px; color:var(--color-taupe);">"It started with coffee..."</p>
+        <div style="margin-top:40px; padding: 15px; border: 1px solid var(--border-light); font-size:9px;" class="uppercase">
+          Open Invitation
+        </div>
       </div>
 
-      <div id="package-preview-frame">
-        <span class="uppercase" style="font-size:10px; letter-spacing:0.25em; color:var(--color-champagne);">The Package</span>
-        <h3 class="serif" style="font-size:32px; font-weight:300; margin-top:10px;">THE SIGNATURE INVITATION</h3>
-        <div class="serif" style="font-size:36px; color:var(--color-ink); margin:15px 0;">₱2,500</div>
-        
-        <p class="script" style="font-size:22px; color:var(--color-taupe); margin-bottom:30px;">
-          A little piece of your story, made for your guests.
-        </p>
+      <div class="preview-layer layer-mobile">
+        <div style="font-size:8px;" class="uppercase">Elena & Adrian</div>
+        <div style="height:120px; background:#EFECE6; margin:10px 0;"></div>
+        <div style="font-size:7px; color:var(--color-taupe);">01.31.2028</div>
+      </div>
 
-        <ul style="list-style:none; text-align:left; font-size:12px; color:var(--color-taupe); max-width:320px; margin:0 auto 40px; line-height:2.2;">
-          <li>✓ Personalized design & story reveal</li>
-          <li>✓ Event details, map & dress code</li>
-          <li>✓ RSVP tracking & digital QR code</li>
-          <li>✓ Entourage & photo gallery (up to 10 photos)</li>
-          <li>✓ Live countdown & gift options</li>
-          <li>✓ Shareable custom web link</li>
-          <li>✓ 2 rounds of revisions included</li>
-        </ul>
+      <div class="preview-layer layer-detail-card">
+        <div style="font-size:8px;" class="uppercase">Details</div>
+        <div class="serif" style="font-size:14px; margin-top:5px;">The Ceremony & Reception</div>
+      </div>
+    </div>
 
-        <button class="btn-experience uppercase" style="width:100%; justify-content:center;">
-          <span>Create My Invitation</span> &rarr;
-        </button>
+    <div class="scroll-indicator uppercase">Scroll to explore &darr;</div>
+  </section>
+
+  <!-- 4. FIRST FEATURE SECTION -->
+  <section class="statement-section">
+    <div class="statement-image-frame">
+      <div class="statement-image-placeholder">
+        <div class="serif" style="font-size:28px; font-style:italic; color:var(--color-taupe);">Elena & Adrian — Invitation Preview</div>
+      </div>
+    </div>
+    <div>
+      <span class="statement-tag uppercase">NOT JUST AN INVITATION</span>
+      <h2 class="statement-headline serif">It’s the first glimpse of your day.</h2>
+      <p class="statement-body">
+        Before your guests see the venue, the flowers, the dress, or the celebration, they experience your invitation. So make it feel like you.
+      </p>
+      <ul class="statement-pillars uppercase">
+        <li>✦ Beautifully designed.</li>
+        <li>✦ Thoughtfully personalized.</li>
+        <li>✦ Made to be remembered.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 & 6. SAMPLES EDITORIAL GALLERY -->
+  <section class="portfolio-section" id="stories">
+    <div class="portfolio-header">
+      <span class="statement-tag uppercase">Different Stories. Different Worlds.</span>
+      <h2 class="serif" style="font-size:42px; font-weight:300;">No two couples are the same. Your invitation shouldn’t be either.</h2>
+    </div>
+
+    <div class="portfolio-grid">
+      <!-- Sample 1 -->
+      <div class="sample-card sample-card-1">
+        <div class="sample-visual">
+          <div class="serif" style="font-size:32px;">Elena & Adrian</div>
+        </div>
+        <div class="preview-toggle uppercase">
+          <button class="toggle-btn active">Desktop</button>
+          <button class="toggle-btn">Mobile</button>
+        </div>
+        <h3 class="sample-title serif">Elena & Adrian</h3>
+        <p class="sample-subtitle uppercase">A Love Story · Romantic. Personal. Cinematic.</p>
+        <a href="#" class="btn-secondary uppercase">View Full Invitation &rarr;</a>
+      </div>
+
+      <!-- Sample 2 -->
+      <div class="sample-card sample-card-2">
+        <div class="sample-visual">
+          <div class="serif" style="font-size:28px;">The Next Adventure</div>
+        </div>
+        <div class="preview-toggle uppercase">
+          <button class="toggle-btn active">Desktop</button>
+          <button class="toggle-btn">Mobile</button>
+        </div>
+        <h3 class="sample-title serif">The Next Adventure</h3>
+        <p class="sample-subtitle uppercase">Maya & Liam · Travel. Scrapbook. Playful.</p>
+        <a href="#" class="btn-secondary uppercase">View Full Invitation &rarr;</a>
+      </div>
+
+      <!-- Sample 3 -->
+      <div class="sample-card sample-card-3">
+        <div class="sample-visual">
+          <div class="serif" style="font-size:28px;">At Home</div>
+        </div>
+        <div class="preview-toggle uppercase">
+          <button class="toggle-btn active">Desktop</button>
+          <button class="toggle-btn">Mobile</button>
+        </div>
+        <h3 class="sample-title serif">At Home</h3>
+        <p class="sample-subtitle uppercase">Chloe & Noah · Warm. Intimate. Minimalist.</p>
+        <a href="#" class="btn-secondary uppercase">View Full Invitation &rarr;</a>
+      </div>
+
+      <!-- Sample 4 -->
+      <div class="sample-card sample-card-4">
+        <div class="sample-visual">
+          <div class="serif" style="font-size:28px;">The Gazette</div>
+        </div>
+        <div class="preview-toggle uppercase">
+          <button class="toggle-btn active">Desktop</button>
+          <button class="toggle-btn">Mobile</button>
+        </div>
+        <h3 class="sample-title serif">The Gazette</h3>
+        <p class="sample-subtitle uppercase">Sophia & Mateo · Editorial. Bold. Witty.</p>
+        <a href="#" class="btn-secondary uppercase">View Full Invitation &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- 17 — THE FINAL MOMENT -->
-  <footer class="final-stage">
-    <p class="serif" style="font-size:28px; font-weight:300; margin-bottom:10px;">
-      Don’t just send an invitation.
+  <!-- 7. MADE AROUND YOU -->
+  <section class="dark-break-section">
+    <span class="statement-tag uppercase" style="color:var(--color-champagne);">MADE AROUND YOU</span>
+    <h2 class="serif" style="font-size:clamp(32px, 4vw, 56px); font-weight:300;">
+      Because your love story doesn’t come in a template.
+    </h2>
+
+    <div class="drifting-words-container">
+      <span class="drift-word">coffee dates</span>
+      <span class="drift-word">road trips</span>
+      <span class="drift-word">inside jokes</span>
+      <span class="drift-word">favorite places</span>
+      <span class="drift-word">family</span>
+      <span class="drift-word">music</span>
+      <span class="drift-word">late-night talks</span>
+      <span class="drift-word">adventures</span>
+    </div>
+
+    <p style="font-size:14px; color:var(--color-taupe); max-width:600px; margin:0 auto;" class="sans">
+      We take the details that make your story yours and turn them into an invitation that feels unmistakably you.
     </p>
-    <p class="script">Give them a moment.</p>
+  </section>
 
-    <div style="width:30px; height:1px; background:var(--color-champagne); margin:40px auto;"></div>
+  <!-- 8. WHAT'S INCLUDED -->
+  <section class="inclusions-section">
+    <span class="statement-tag uppercase">EACH INVITATION INCLUDES</span>
+    <h2 class="serif" style="font-size:38px; font-weight:300;">Thoughtfully designed for your story & your guests.</h2>
 
-    <div class="uppercase sans" style="font-size:12px; letter-spacing:0.3em; margin-bottom:15px;">STORYINVITES</div>
-    <p class="serif" style="font-style:italic; font-size:16px; color:var(--color-taupe); margin-bottom:40px;">
-      Your story. Your style. Your invitation.
+    <div class="editorial-grid">
+      <div class="editorial-item">
+        <div class="item-label uppercase">01</div>
+        <div class="item-title serif">YOUR STORY</div>
+        <div class="item-desc">Tell it your way with tailored photo reveals and music.</div>
+      </div>
+      <div class="editorial-item">
+        <div class="item-label uppercase">02</div>
+        <div class="item-title serif">YOUR PEOPLE</div>
+        <div class="item-desc">Introduce family, entourage, and principal sponsors.</div>
+      </div>
+      <div class="editorial-item">
+        <div class="item-label uppercase">03</div>
+        <div class="item-title serif">YOUR DETAILS</div>
+        <div class="item-desc">Interactive venue maps, schedules, and dress codes.</div>
+      </div>
+      <div class="editorial-item">
+        <div class="item-label uppercase">04</div>
+        <div class="item-title serif">YOUR MEMORIES</div>
+        <div class="item-desc">Up to 10 curated photos in a custom-built gallery.</div>
+      </div>
+      <div class="editorial-item">
+        <div class="item-label uppercase">05</div>
+        <div class="item-title serif">YOUR RSVP</div>
+        <div class="item-desc">Simple online responses accompanied by a custom QR code.</div>
+      </div>
+      <div class="editorial-item">
+        <div class="item-label uppercase">06</div>
+        <div class="item-title serif">YOUR COUNTDOWN</div>
+        <div class="item-desc">Real-time ticker counting down to your special day.</div>
+      </div>
+      <div class="editorial-item">
+        <div class="item-label uppercase">07</div>
+        <div class="item-title serif">YOUR GIFTS</div>
+        <div class="item-desc">GCash, bank details, registry, or gift information.</div>
+      </div>
+      <div class="editorial-item">
+        <div class="item-label uppercase">08</div>
+        <div class="item-title serif">YOUR LINK</div>
+        <div class="item-desc">A personalized, shareable website link for all your guests.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. THE PROCESS -->
+  <section class="process-section" id="how-it-works">
+    <div style="text-align:center;">
+      <span class="statement-tag uppercase">THE PROCESS</span>
+      <h2 class="serif" style="font-size:38px; font-weight:300;">From idea to invitation.</h2>
+    </div>
+
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="step-num uppercase">01</div>
+        <h3 class="step-title serif">Tell us your story.</h3>
+        <p style="font-size:13px; color:var(--color-charcoal);">
+          Share your details, photos, inspiration, and what you want your invitation to feel like.
+        </p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-num uppercase">02</div>
+        <h3 class="step-title serif">We bring it to life.</h3>
+        <p style="font-size:13px; color:var(--color-charcoal);">
+          We turn your story into a personalized digital experience with up to 2 rounds of revisions.
+        </p>
+      </div>
+
+      <div class="process-step">
+        <div class="step-num uppercase">03</div>
+        <h3 class="step-title serif">Share the moment.</h3>
+        <p style="font-size:13px; color:var(--color-charcoal);">
+          Your invitation link is live and ready to send to everyone you love.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. THE SIGNATURE INVITATION (PRICING OFFER) -->
+  <section class="offer-section" id="pricing">
+    <div class="offer-split">
+      <div>
+        <span class="statement-tag uppercase">THE PACKAGE</span>
+        <h2 class="serif" style="font-size:36px; font-weight:300;">THE SIGNATURE INVITATION</h2>
+        <div class="price-tag serif">₱2,500[cite: 1]</div>
+        <p class="serif" style="font-style:italic; color:var(--color-taupe); font-size:18px;">
+          Your story. Your style. Your invitation.[cite: 1]
+        </p>
+        <div style="margin-top:30px;">
+          <a href="#" class="btn-primary">
+            <span>Create Yours</span>
+            <span class="arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <ul class="offer-list">
+          <li>✓ Personalized interactive design</li>
+          <li>✓ Tailored opening story & music</li>
+          <li>✓ Ceremony, reception & map details</li>
+          <li>✓ Wedding entourage roster</li>
+          <li>✓ Up to 10-photo gallery</li>
+          <li>✓ Online RSVP with QR code</li>
+          <li>✓ Live countdown & gift details</li>
+          <li>✓ Fully mobile-optimized link</li>
+          <li>✓ Up to 2 rounds of revisions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. WHAT YOUR GUESTS SEE -->
+  <section class="guests-view-section">
+    <span class="statement-tag uppercase">GUEST EXPERIENCE</span>
+    <h2 class="serif" style="font-size:38px; font-weight:300;">Designed for the people you’re inviting.</h2>
+
+    <div class="phones-trio">
+      <div class="phone-screen">
+        <div class="statement-tag uppercase">BEFORE</div>
+        <div class="serif" style="font-size:20px; margin-top:10px;">They receive your invitation.</div>
+        <p style="font-size:11px; color:var(--color-taupe); margin-top:10px;">A elegant link opening seamlessly on mobile.</p>
+      </div>
+
+      <div class="phone-screen">
+        <div class="statement-tag uppercase">DURING</div>
+        <div class="serif" style="font-size:20px; margin-top:10px;">They discover your story.</div>
+        <p style="font-size:11px; color:var(--color-taupe); margin-top:10px;">Music, photos, and interactive details unfold.</p>
+      </div>
+
+      <div class="phone-screen">
+        <div class="statement-tag uppercase">AFTER</div>
+        <div class="serif" style="font-size:20px; margin-top:10px;">They have everything they need.</div>
+        <p style="font-size:11px; color:var(--color-taupe); margin-top:10px;">Maps, calendar reminders, and instant RSVP.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. FINAL VISUAL STATEMENT -->
+  <section class="final-statement-section">
+    <h2 class="serif" style="font-size:clamp(36px, 5vw, 64px); font-weight:300; margin-bottom:15px;">
+      Your story deserves more than a template.
+    </h2>
+    <p class="serif" style="font-style:italic; font-size:24px; color:var(--color-champagne); margin-bottom:40px;">
+      Let’s make it yours.
     </p>
+    <a href="#pricing" class="btn-primary" style="background:transparent; border-color:var(--bg-warm-ivory); color:var(--bg-warm-ivory);">
+      <span>Start Your Invitation</span>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </section>
 
-    <button class="btn-experience uppercase" style="border-color:#F7F4EE; color:#F7F4EE;">
-      <span>Start Your Story</span> &rarr;
-    </button>
+  <!-- 13 & 14. FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="logo uppercase" style="font-size:16px;">STORYINVITES</div>
+        <p style="font-size:12px; color:var(--color-taupe); margin-top:80px;">Digital invitations made personal.</p>
+      </div>
 
-    <p class="script" style="margin-top:20px; font-size:20px; color:var(--color-champagne);">We'll take it from here.</p>
+      <ul class="footer-links uppercase">
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#pricing">The Signature Invitation</a></li>
+        <li><a href="#pricing">Start Yours</a></li>
+      </ul>
+    </div>
 
-    <p class="uppercase" style="font-size:9px; letter-spacing:0.2em; color:var(--color-taupe); margin-top:80px;">
-      © 2026 STORYINVITES. ALL RIGHTS RESERVED.
-    </p>
+    <div class="footer-bottom uppercase">
+      <div>© 2026 STORYINVITES. ALL RIGHTS RESERVED.</div>
+      <div>YOUR STORY, BEAUTIFULLY INVITED.</div>
+    </div>
   </footer>
 
-  <script>
-    // 01 — Unfold Arrival Envelope
-    function unfoldWebsite() {
-      const arrival = document.getElementById('stage-arrival');
-      arrival.classList.add('unfolded');
-    }
-
-    // 03 — Trigger Guest Notification Pop-up
-    function triggerGuestNotification() {
-      const banner = document.getElementById('notification-banner');
-      banner.classList.add('visible');
-    }
-
-    // 04 — Takeover Sample Viewer
-    function launchTakeover(title) {
-      const takeover = document.getElementById('takeover-overlay');
-      document.getElementById('takeover-title').innerText = title;
-      takeover.classList.add('active');
-    }
-
-    function closeTakeover() {
-      const takeover = document.getElementById('takeover-overlay');
-      takeover.classList.remove('active');
-    }
-
-    // 09 — Dynamic Theme Color Shifts
-    function setTheme(accentColor, bgColor) {
-      const overlay = document.getElementById('color-overlay');
-      overlay.style.backgroundColor = bgColor;
-      overlay.style.opacity = '1';
-    }
-
-    function resetTheme() {
-      const overlay = document.getElementById('color-overlay');
-      overlay.style.opacity = '0';
-    }
-
-    // 16 — Device View Switcher
-    function switchDevice(view, btn) {
-      const buttons = document.querySelectorAll('.switch-btn');
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const frame = document.getElementById('package-preview-frame');
-      if (view === 'mobile') {
-        frame.style.maxWidth = '100%';
-        frame.style.transition = 'all 0.4s ease';
-      } else {
-        frame.style.maxWidth = '100%';
-        frame.style.transition = 'all 0.4s ease';
-      }
-    }
-
-    // Kinetic cursor interaction on hero text
-    document.addEventListener('mousemove', (e) => {
-      const kinetic = document.querySelector('.kinetic-text');
-      if (kinetic) {
-        const x = (e.clientX / window.innerWidth - 0.5) * 15;
-        const y = (e.clientY / window.innerHeight - 0.5) * 15;
-        kinetic.style.transform = `translate(${x}px, ${y}px)`;
-      }
-    });
-  </script>
 </body>
 </html>

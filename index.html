@@ -3,32 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StoryInvites — Digital Wedding Invitations</title>
+  <title>StoryInvites — Personalized Digital Wedding Invitations</title>
 
   <!-- Typography: Cormorant Garamond & Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
-       18. DESIGN SYSTEM & TOKENS
+       DESIGN TOKENS & BRAND PALETTE
        ========================================================================== */
     :root {
-      --story-lavender: #F1EFF9;         /* Main Brand Background */
-      --story-charcoal: #26242B;         /* Dark Contrast & Typography */
-      --story-soft: #FAF9FC;             /* Neutral Section Contrast */
-      --story-muted-lavender: #B9B1D3;   /* Secondary Accents & Borders */
-      --story-plum: #514A63;             /* Accent Typography & Subtitles */
+      --story-lavender: #F1EFF9;         /* Dominant Brand Background */
+      --story-charcoal: #26242B;         /* Dark Contrast & Core Typography */
+      --story-soft: #FAF9FC;             /* Off-white Section Neutral */
+      --story-muted-lavender: #B9B1D3;   /* Secondary Borders & Accents */
+      --story-plum: #514A63;             /* Deep Lavender Accent Headlines */
       
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
 
       --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
-      --container-max: 1280px;
+      --container-max: 1240px;
     }
 
-    /* CSS Reset & General Rules */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -54,7 +53,7 @@
     h1, h2, h3, h4, .serif {
       font-family: var(--font-serif);
       font-weight: 400;
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
     p {
@@ -72,7 +71,7 @@
       font-family: var(--font-sans);
       font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       color: var(--story-plum);
       font-weight: 600;
       display: inline-block;
@@ -81,14 +80,13 @@
 
     .divider-dots {
       text-align: center;
-      letter-spacing: 0.5em;
+      letter-spacing: 0.6em;
       color: var(--story-muted-lavender);
-      font-size: 1.2rem;
-      margin: 2rem 0;
+      font-size: 1.1rem;
+      margin: 2.5rem 0;
       user-select: none;
     }
 
-    /* Layout Components */
     .container {
       max-width: var(--container-max);
       margin: 0 auto;
@@ -96,25 +94,27 @@
     }
 
     .section-padding {
-      padding: 8rem 0;
+      padding: 7.5rem 0;
     }
 
     /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.75rem;
-      padding: 1rem 2.25rem;
+      padding: 1.1rem 2.25rem;
       font-family: var(--font-sans);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 500;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       border: 1px solid var(--story-charcoal);
       background: transparent;
       color: var(--story-charcoal);
       cursor: pointer;
       transition: all 0.4s var(--transition-smooth);
+      border-radius: 0px;
     }
 
     .btn:hover {
@@ -127,7 +127,7 @@
     }
 
     .btn:hover .btn-arrow {
-      transform: translateX(4px);
+      transform: translateX(5px);
     }
 
     .btn-light {
@@ -143,8 +143,8 @@
     /* Scroll Animations */
     .fade-in {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s var(--transition-smooth), transform 1s var(--transition-smooth);
+      transform: translateY(25px);
+      transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
     }
 
     .fade-in.visible {
@@ -153,7 +153,7 @@
     }
 
     /* ==========================================================================
-       5. LOGO + NAVIGATION
+       HEADER & NAVIGATION
        ========================================================================== */
     .navbar {
       position: fixed;
@@ -161,10 +161,10 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background-color: rgba(241, 239, 249, 0.85);
+      background-color: rgba(241, 239, 249, 0.88);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(185, 177, 211, 0.2);
+      border-bottom: 1px solid rgba(185, 177, 211, 0.25);
       transition: all 0.3s ease;
     }
 
@@ -181,17 +181,15 @@
     }
 
     .brand-logo {
-      height: 36px;
+      height: 38px;
       width: auto;
       object-fit: contain;
-      transition: opacity 0.3s ease;
     }
 
-    /* Fallback placeholder styling when image fails to load */
     .brand-logo-placeholder {
       font-family: var(--font-serif);
-      font-size: 1.5rem;
-      letter-spacing: 0.1em;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 500;
       color: var(--story-charcoal);
@@ -200,13 +198,13 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 3rem;
+      gap: 2.75rem;
       list-style: none;
     }
 
     .nav-link a {
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 400;
       color: var(--story-charcoal);
@@ -248,13 +246,13 @@
     }
 
     /* ==========================================================================
-       6. HERO SECTION
+       HERO SECTION
        ========================================================================== */
     .hero {
-      min-height: 100vh;
+      min-height: 92vh;
       background-color: var(--story-lavender);
-      padding-top: 140px;
-      padding-bottom: 6rem;
+      padding-top: 150px;
+      padding-bottom: 5rem;
       display: flex;
       align-items: center;
       position: relative;
@@ -262,161 +260,255 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 4rem;
       align-items: center;
     }
 
     .hero-content {
-      max-width: 580px;
+      max-width: 620px;
     }
 
     .hero-headline {
-      font-size: clamp(3rem, 5.5vw, 4.75rem);
-      margin-bottom: 2rem;
+      font-size: clamp(3rem, 5.2vw, 4.6rem);
+      margin-bottom: 1.75rem;
       color: var(--story-charcoal);
+      letter-spacing: -0.01em;
     }
 
     .hero-headline span {
       display: block;
       font-style: italic;
+      color: var(--story-plum);
     }
 
     .hero-copy {
-      font-size: 1.1rem;
-      margin-bottom: 3rem;
+      font-size: 1.12rem;
+      margin-bottom: 2.75rem;
       color: rgba(38, 36, 43, 0.85);
       line-height: 1.8;
+      font-weight: 300;
     }
 
     .hero-ctas {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.25rem;
       align-items: center;
       flex-wrap: wrap;
     }
 
-    /* 10. Phone Frame Mockup */
+    /* Hero Preview Phone Display */
     .phone-mockup-wrapper {
       position: relative;
       display: flex;
       justify-content: center;
+      align-items: center;
     }
 
     .phone-frame {
-      width: 320px;
-      height: 640px;
+      width: 310px;
+      height: 620px;
       background-color: #fff;
-      border-radius: 40px;
-      border: 8px solid #E2DEED;
-      box-shadow: 0 30px 60px rgba(38, 36, 43, 0.08);
+      border-radius: 44px;
+      border: 8px solid #E3DFEE;
+      box-shadow: 0 25px 50px -12px rgba(38, 36, 43, 0.12);
       overflow: hidden;
       position: relative;
+      transition: transform 0.5s ease;
+    }
+
+    .phone-frame:hover {
+      transform: translateY(-6px);
     }
 
     .phone-screen {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       display: block;
     }
 
-    /* ==========================================================================
-       INTRO SECTION
-       ========================================================================== */
-    .intro-section {
-      background-color: var(--story-lavender);
-      text-align: center;
-      padding: 6rem 0;
+    /* Floating Pill Badge */
+    .floating-badge {
+      position: absolute;
+      bottom: 40px;
+      left: -20px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 0.85rem 1.5rem;
+      box-shadow: 0 10px 30px rgba(38, 36, 43, 0.08);
+      border: 1px solid var(--story-lavender);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 10;
     }
 
-    .intro-statement {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
+    .floating-badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--story-plum);
+      border-radius: 50%;
+    }
+
+    .floating-badge-text {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
       color: var(--story-charcoal);
-      line-height: 1.4;
     }
 
     /* ==========================================================================
-       8 & 9. SAMPLE SECTION (STORIES WE CAN TELL)
+       FEATURED HIGHLIGHT SECTION (ELENA & ADRIAN AS FEATURED EXAMPLE)
+       ========================================================================== */
+    .featured-highlight {
+      background-color: var(--story-soft);
+      border-top: 1px solid rgba(185, 177, 211, 0.3);
+      border-bottom: 1px solid rgba(185, 177, 211, 0.3);
+    }
+
+    .highlight-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      background: var(--story-lavender);
+      padding: 4rem;
+      border: 1px solid rgba(185, 177, 211, 0.4);
+    }
+
+    .highlight-meta {
+      max-width: 480px;
+    }
+
+    .highlight-preview-box {
+      width: 100%;
+      height: 480px;
+      background: #EAE6F4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border: 1px solid var(--story-muted-lavender);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .highlight-preview-box::before {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px stroke var(--story-muted-lavender);
+      border: 1px solid rgba(81, 74, 99, 0.15);
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       EXPERIENCE & FEATURES STRIP
+       ========================================================================== */
+    .features-strip {
+      background-color: var(--story-lavender);
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(185, 177, 211, 0.2);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .feature-item {
+      padding: 1.5rem 1rem;
+    }
+
+    .feature-icon-text {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--story-plum);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-desc {
+      font-size: 0.9rem;
+      color: rgba(38, 36, 43, 0.75);
+    }
+
+    /* ==========================================================================
+       SAMPLES PORTFOLIO GRID
        ========================================================================== */
     .samples-section {
-      background-color: var(--story-soft);
+      background-color: var(--story-lavender);
     }
 
     .samples-header {
       text-align: center;
-      max-width: 680px;
-      margin: 0 auto 5rem auto;
+      max-width: 640px;
+      margin: 0 auto 4rem auto;
     }
 
     .samples-header h2 {
       font-size: clamp(2.5rem, 4vw, 3.5rem);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
-    /* Portfolio Editorial Grid */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 3rem;
-      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
     }
 
     .sample-card {
-      position: relative;
+      background: var(--story-soft);
+      border: 1px solid rgba(185, 177, 211, 0.3);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .sample-card-1 {
-      grid-column: 1 / span 7;
+    .sample-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(38, 36, 43, 0.05);
     }
 
-    .sample-card-2 {
-      grid-column: 8 / span 5;
-      margin-top: 4rem;
-    }
-
-    .sample-card-3 {
-      grid-column: 2 / span 10;
-      margin-top: 3rem;
-    }
-
-    .sample-image-container {
+    .sample-thumb {
       width: 100%;
-      overflow: hidden;
-      background-color: var(--story-lavender);
-      border-radius: 2px;
+      height: 320px;
+      background-color: #E2DEED;
       margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
+      overflow: hidden;
     }
 
-    .sample-image {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.8s var(--transition-smooth);
-    }
-
-    .sample-card:hover .sample-image {
-      transform: scale(1.03);
-    }
-
-    .sample-info {
-      padding: 0.5rem 0;
+    .sample-thumb-inner {
+      text-align: center;
+      padding: 1.5rem;
     }
 
     .sample-couple {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 0.25rem;
     }
 
     .sample-subtitle {
-      font-family: var(--font-sans);
       font-size: 0.85rem;
       color: var(--story-plum);
       margin-bottom: 0.75rem;
-      font-weight: 400;
     }
 
     .sample-tags {
@@ -427,32 +519,21 @@
       margin-bottom: 1.25rem;
     }
 
-    .link-action {
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--story-charcoal);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
     /* ==========================================================================
-       HOW IT WORKS / CONCEPT
+       HOW IT WORKS / PROCESS
        ========================================================================== */
-    .concept-section {
-      background-color: var(--story-lavender);
+    .process-section {
+      background-color: var(--story-soft);
     }
 
-    .concept-grid {
+    .process-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 3rem;
       margin-top: 4rem;
     }
 
-    .concept-step {
+    .process-step {
       padding-top: 2rem;
       border-top: 1px solid var(--story-muted-lavender);
     }
@@ -465,21 +546,16 @@
     }
 
     .step-title {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       margin-bottom: 0.75rem;
     }
 
     /* ==========================================================================
-       14 & 15. PACKAGE / DARK CONTRAST SECTION
+       PACKAGE SECTION (DARK CONTRAST)
        ========================================================================== */
     .package-section {
       background-color: var(--story-charcoal);
       color: var(--story-lavender);
-      position: relative;
-    }
-
-    .package-section p {
-      color: rgba(241, 239, 249, 0.8);
     }
 
     .package-container {
@@ -490,32 +566,33 @@
 
     .package-title {
       font-size: clamp(2.5rem, 4vw, 3.5rem);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       color: var(--story-lavender);
     }
 
     .package-price {
       font-family: var(--font-serif);
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       color: var(--story-muted-lavender);
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
 
     .package-description {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       line-height: 1.8;
-      margin-bottom: 3rem;
+      margin-bottom: 2.75rem;
+      color: rgba(241, 239, 249, 0.85);
     }
 
     /* ==========================================================================
        FAQ SECTION
        ========================================================================== */
     .faq-section {
-      background-color: var(--story-soft);
+      background-color: var(--story-lavender);
     }
 
     .faq-container {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
     }
 
@@ -536,7 +613,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.5rem 0;
     }
 
     .faq-toggle-icon {
@@ -554,6 +630,7 @@
       padding: 1rem 0 0.5rem 0;
       font-size: 1rem;
       line-height: 1.7;
+      color: rgba(38, 36, 43, 0.85);
     }
 
     .faq-item.active .faq-toggle-icon {
@@ -561,27 +638,28 @@
     }
 
     /* ==========================================================================
-       16. FINAL CTA SECTION
+       FINAL CTA
        ========================================================================== */
     .final-cta {
       background-color: var(--story-lavender);
       text-align: center;
-      padding: 10rem 0;
+      padding: 9rem 0;
+      border-top: 1px solid rgba(185, 177, 211, 0.25);
     }
 
     .final-cta-container {
-      max-width: 750px;
+      max-width: 760px;
       margin: 0 auto;
     }
 
     .final-cta-headline {
       font-size: clamp(2.8rem, 4.5vw, 4rem);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .final-cta-copy {
-      font-size: 1.25rem;
-      margin-bottom: 3rem;
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
     }
 
     .final-cta-tagline {
@@ -589,17 +667,16 @@
       font-size: 1.8rem;
       font-style: italic;
       color: var(--story-plum);
-      margin-bottom: 3rem;
+      margin-bottom: 2.75rem;
     }
 
     /* ==========================================================================
-       17. FOOTER
+       FOOTER
        ========================================================================== */
     .site-footer {
       background-color: var(--story-charcoal);
       color: var(--story-lavender);
       padding: 5rem 0 3rem 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .footer-grid {
@@ -609,14 +686,10 @@
       margin-bottom: 4rem;
     }
 
-    .footer-brand {
-      max-width: 400px;
-    }
-
     .footer-logo {
-      height: 32px;
+      height: 34px;
       margin-bottom: 1.5rem;
-      filter: brightness(0) invert(1); /* Ensures logo visibility if asset is dark */
+      filter: brightness(0) invert(1);
     }
 
     .footer-tagline {
@@ -633,8 +706,8 @@
     }
 
     .footer-nav-list a {
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: rgba(241, 239, 249, 0.7);
       transition: color 0.3s ease;
@@ -655,15 +728,87 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE DESIGN (MOBILE)
+       DEMO PREVIEW MODAL (INTERACTIVE LIVE SAMPLE PREVIEW)
        ========================================================================== */
+    .preview-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(38, 36, 43, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .preview-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content-container {
+      background: var(--story-lavender);
+      width: 90%;
+      max-width: 420px;
+      height: 82vh;
+      border-radius: 32px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      border: 6px solid #E3DFEE;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(38, 36, 43, 0.8);
+      color: #fff;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .modal-body {
+      flex: 1;
+      padding: 3rem 2rem;
+      text-align: center;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* RESPONSIVE STYLES */
     @media (max-width: 900px) {
-      .hero-grid {
+      .hero-grid, .highlight-card, .footer-grid {
         grid-template-columns: 1fr;
-        text-align: center;
+        gap: 3rem;
+      }
+
+      .highlight-card {
+        padding: 2rem;
+      }
+
+      .portfolio-grid, .process-grid, .features-grid {
+        grid-template-columns: 1fr;
       }
 
       .hero-content {
+        text-align: center;
         margin: 0 auto;
       }
 
@@ -671,32 +816,19 @@
         justify-content: center;
       }
 
-      .portfolio-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 4rem;
-      }
-
-      .sample-card-2 {
-        margin-top: 0;
-      }
-
-      .concept-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+      .floating-badge {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -20px;
+        white-space: nowrap;
       }
 
       .nav-links {
-        display: none; /* Can be hooked up to mobile toggle JS */
+        display: none;
       }
 
       .menu-toggle {
         display: block;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
       }
     }
   </style>
@@ -704,12 +836,12 @@
 <body>
 
   <!-- ==========================================================================
-     5. NAVIGATION
+     NAVIGATION
      ========================================================================== -->
   <nav class="navbar">
     <div class="container navbar-container">
       <a href="#" class="brand-logo-wrap">
-        <!-- Official Logo Asset Placeholder Target -->
+        <!-- Logo file location ready -->
         <img 
           src="/public/images/brand/logo-placeholder.png" 
           alt="StoryInvites" 
@@ -720,7 +852,8 @@
       </a>
 
       <ul class="nav-links">
-        <li class="nav-link"><a href="#samples">Samples</a></li>
+        <li class="nav-link"><a href="#featured">Featured Story</a></li>
+        <li class="nav-link"><a href="#samples">Sample Stories</a></li>
         <li class="nav-link"><a href="#invitation">The Invitation</a></li>
         <li class="nav-link"><a href="#how-it-works">How It Works</a></li>
         <li class="nav-link"><a href="#faq">FAQ</a></li>
@@ -728,7 +861,7 @@
 
       <a href="#start" class="btn">Start Your Story <span class="btn-arrow">→</span></a>
 
-      <button class="menu-toggle" aria-label="Toggle navigation">
+      <button class="menu-toggle" aria-label="Toggle Navigation">
         <span></span>
         <span></span>
       </button>
@@ -737,7 +870,7 @@
 
   <main>
     <!-- ==========================================================================
-       6. HERO SECTION
+       HERO SECTION
        ========================================================================== -->
     <section class="hero">
       <div class="container">
@@ -754,25 +887,28 @@
             </p>
             <div class="hero-ctas">
               <a href="#start" class="btn">Start Your Story <span class="btn-arrow">→</span></a>
-              <a href="#samples" class="btn" style="border-color: transparent;">Explore Samples <span class="btn-arrow">→</span></a>
+              <a href="#samples" class="btn" style="border-color: transparent;">Explore Story Samples <span class="btn-arrow">→</span></a>
             </div>
           </div>
 
-          <!-- Mobile Phone Frame Preview -->
+          <!-- Hero Phone Mockup -->
           <div class="phone-mockup-wrapper fade-in">
             <div class="phone-frame">
-              <!-- Inline Visual Placeholder representing dynamic mobile invitation preview -->
-              <svg class="phone-screen" viewBox="0 0 320 640" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="320" height="640" fill="#FAF9FC"/>
-                <circle cx="160" cy="180" r="70" fill="#F1EFF9"/>
-                <path d="M120 180 C 140 140, 180 140, 200 180" stroke="#514A63" stroke-width="1.5" fill="none"/>
-                <text x="160" y="290" font-family="Cormorant Garamond" font-size="22" fill="#26242B" text-anchor="middle">Elena &amp; Adrian</text>
-                <text x="160" y="315" font-family="Montserrat" font-size="9" letter-spacing="2" fill="#514A63" text-anchor="middle">ARE GETTING MARRIED</text>
-                <line x1="120" y1="340" x2="200" y2="340" stroke="#B9B1D3" stroke-width="0.75"/>
-                <text x="160" y="370" font-family="Cormorant Garamond" font-size="14" font-style="italic" fill="#26242B" text-anchor="middle">"From a city coffee shop to forever."</text>
-                <rect x="80" y="420" width="160" height="36" rx="0" fill="#26242B"/>
-                <text x="160" y="442" font-family="Montserrat" font-size="8" letter-spacing="2" fill="#F1EFF9" text-anchor="middle">OPEN INVITATION</text>
+              <svg class="phone-screen" viewBox="0 0 310 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="310" height="620" fill="#FAF9FC"/>
+                <circle cx="155" cy="180" r="65" fill="#F1EFF9"/>
+                <path d="M115 180 C 135 140, 175 140, 195 180" stroke="#514A63" stroke-width="1.5" fill="none"/>
+                <text x="155" y="285" font-family="Cormorant Garamond" font-size="22" fill="#26242B" text-anchor="middle">Your Names Here</text>
+                <text x="155" y="310" font-family="Montserrat" font-size="9" letter-spacing="2" fill="#514A63" text-anchor="middle">ARE GETTING MARRIED</text>
+                <line x1="115" y1="335" x2="195" y2="335" stroke="#B9B1D3" stroke-width="0.75"/>
+                <text x="155" y="365" font-family="Cormorant Garamond" font-size="14" font-style="italic" fill="#26242B" text-anchor="middle">"A celebration crafted around your journey."</text>
+                <rect x="75" y="420" width="160" height="38" fill="#26242B"/>
+                <text x="155" y="443" font-family="Montserrat" font-size="8" letter-spacing="2" fill="#F1EFF9" text-anchor="middle">ENTER EXPERIENCE</text>
               </svg>
+            </div>
+            <div class="floating-badge">
+              <div class="floating-badge-dot"></div>
+              <span class="floating-badge-text">Interactive Digital Experience</span>
             </div>
           </div>
         </div>
@@ -780,25 +916,81 @@
     </section>
 
     <!-- ==========================================================================
-       7. INTRO STATEMENT
+       FEATURES / CAPABILITIES STRIP
        ========================================================================== -->
-    <section class="intro-section">
+    <section class="features-strip">
       <div class="container">
-        <div class="divider-dots">· · ·</div>
-        <p class="intro-statement fade-in">
-          We believe an invitation shouldn’t just convey details—it should evoke the feeling of your union before the day even begins.
-        </p>
-        <div class="divider-dots">· · ·</div>
+        <div class="features-grid fade-in">
+          <div class="feature-item">
+            <div class="feature-icon-text">♪</div>
+            <div class="feature-title">Custom Soundtrack</div>
+            <div class="feature-desc">Play your song softly as guests open your invitation.</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon-text">❖</div>
+            <div class="feature-title">Story Timeline</div>
+            <div class="feature-desc">Share how you met and key milestones along the way.</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon-text">✉</div>
+            <div class="feature-title">Seamless RSVP</div>
+            <div class="feature-desc">Collect guest confirmations and dietary notes easily.</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon-text">✦</div>
+            <div class="feature-title">Location &amp; Audio</div>
+            <div class="feature-desc">Interactive Google Maps navigation and ceremony details.</div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-       8 & 9. SAMPLES SECTION
+       FEATURED SHOWCASE (ELENA & ADRIAN AS HIGHLIGHTED EXAMPLE)
+       ========================================================================== -->
+    <section id="featured" class="featured-highlight section-padding">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 3.5rem;" class="fade-in">
+          <span class="label-uppercase">Featured Design Showcase</span>
+          <h2>A Preview of What We Can Craft</h2>
+        </div>
+
+        <div class="highlight-card fade-in">
+          <div class="highlight-preview-box">
+            <span class="label-uppercase" style="margin-bottom: 1.5rem;">Sample Invitation Spotlight</span>
+            <h3 style="font-size: 2.8rem; margin-bottom: 0.5rem;">Elena &amp; Adrian</h3>
+            <p style="font-style: italic; font-family: var(--font-serif); font-size: 1.25rem; color: var(--story-plum); margin-bottom: 1.5rem;">
+              "From a quiet coffee shop in the rain to forever."
+            </p>
+            <div style="font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--story-muted-lavender);">
+              CINEMATIC · MUSIC · STORY-LED
+            </div>
+          </div>
+
+          <div class="highlight-meta">
+            <span class="label-uppercase">Example Concept</span>
+            <h3 style="font-size: 2.2rem; margin-bottom: 1rem;">The Cinematic Couple</h3>
+            <p style="margin-bottom: 1.5rem; line-height: 1.8;">
+              This highlighted sample illustrates how we weave real couple memories, custom audio, and subtle scroll animation together. Rather than just listing wedding dates, guests are guided through a intimate visual journey.
+            </p>
+            <p style="margin-bottom: 2rem; font-size: 0.95rem; color: var(--story-plum);">
+              * Note: Elena &amp; Adrian represent one of many creative directions. Your invitation will be built entirely around your own aesthetic and story.
+            </p>
+            <button class="btn open-modal-btn" data-title="Elena & Adrian" data-subtitle="Cinematic Storytelling Direction">
+              Experience Sample <span class="btn-arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       SAMPLES PORTFOLIO GRID
        ========================================================================== -->
     <section id="samples" class="samples-section section-padding">
       <div class="container">
         <div class="samples-header fade-in">
-          <span class="label-uppercase">Portfolio</span>
+          <span class="label-uppercase">Inspiration Library</span>
           <h2>Stories We Can Tell</h2>
           <p>
             Every couple has a different story. Your invitation can be romantic, cinematic, playful, nostalgic, music-filled, inspired by a favorite place — or something completely your own.
@@ -806,55 +998,63 @@
         </div>
 
         <div class="portfolio-grid">
-          <!-- Sample 1 -->
-          <article class="sample-card sample-card-1 fade-in">
-            <div class="sample-image-container">
-              <svg viewBox="0 0 700 450" class="sample-image" xmlns="http://www.w3.org/2000/svg">
-                <rect width="700" height="450" fill="#F1EFF9"/>
-                <text x="350" y="210" font-family="Cormorant Garamond" font-size="36" fill="#26242B" text-anchor="middle">Elena &amp; Adrian</text>
-                <text x="350" y="245" font-family="Montserrat" font-size="10" letter-spacing="3" fill="#514A63" text-anchor="middle">CHAPTER I · THE BEGINNING</text>
-              </svg>
+          <!-- Sample Card 1 -->
+          <article class="sample-card fade-in">
+            <div class="sample-thumb">
+              <div class="sample-thumb-inner">
+                <div class="serif" style="font-size: 2rem;">Maya &amp; Julian</div>
+                <div style="font-family: var(--font-sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.5rem; color: var(--story-plum);">
+                  Midnights in Paris
+                </div>
+              </div>
             </div>
-            <div class="sample-info">
-              <h3 class="sample-couple">Elena &amp; Adrian</h3>
-              <p class="sample-subtitle">A Love Story</p>
-              <p class="sample-tags">CINEMATIC · STORY-LED · MUSIC</p>
-              <a href="#" class="link-action">Open Invitation <span>→</span></a>
-            </div>
-          </article>
-
-          <!-- Sample 2 -->
-          <article class="sample-card sample-card-2 fade-in">
-            <div class="sample-image-container">
-              <svg viewBox="0 0 500 600" class="sample-image" xmlns="http://www.w3.org/2000/svg">
-                <rect width="500" height="600" fill="#26242B"/>
-                <text x="250" y="290" font-family="Cormorant Garamond" font-size="32" fill="#F1EFF9" text-anchor="middle">Maya &amp; Julian</text>
-                <text x="250" y="320" font-family="Montserrat" font-size="9" letter-spacing="3" fill="#B9B1D3" text-anchor="middle">MIDNIGHT IN PARIS</text>
-              </svg>
-            </div>
-            <div class="sample-info">
+            <div>
               <h3 class="sample-couple">Maya &amp; Julian</h3>
               <p class="sample-subtitle">Nostalgic &amp; Intimate</p>
               <p class="sample-tags">EDITORIAL · ELEGANT · MEMORIES</p>
-              <a href="#" class="link-action">Open Invitation <span>→</span></a>
+              <button class="btn open-modal-btn" data-title="Maya & Julian" data-subtitle="Nostalgic & Intimate Style" style="width: 100%; padding: 0.85rem;">
+                Preview Story <span class="btn-arrow">→</span>
+              </button>
             </div>
           </article>
 
-          <!-- Sample 3 -->
-          <article class="sample-card sample-card-3 fade-in">
-            <div class="sample-image-container">
-              <svg viewBox="0 0 1000 400" class="sample-image" xmlns="http://www.w3.org/2000/svg">
-                <rect width="1000" height="400" fill="#FAF9FC"/>
-                <circle cx="500" cy="200" r="120" stroke="#B9B1D3" stroke-width="1" fill="none"/>
-                <text x="500" y="195" font-family="Cormorant Garamond" font-size="40" fill="#26242B" text-anchor="middle">Chloe &amp; Liam</text>
-                <text x="500" y="225" font-family="Montserrat" font-size="10" letter-spacing="4" fill="#514A63" text-anchor="middle">COASTAL ROMANCE</text>
-              </svg>
+          <!-- Sample Card 2 -->
+          <article class="sample-card fade-in">
+            <div class="sample-thumb" style="background-color: #26242B; color: #F1EFF9;">
+              <div class="sample-thumb-inner">
+                <div class="serif" style="font-size: 2rem;">Chloe &amp; Liam</div>
+                <div style="font-family: var(--font-sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.5rem; color: var(--story-muted-lavender);">
+                  Coastal Sunset
+                </div>
+              </div>
             </div>
-            <div class="sample-info">
+            <div>
               <h3 class="sample-couple">Chloe &amp; Liam</h3>
               <p class="sample-subtitle">Soft &amp; Atmospheric</p>
               <p class="sample-tags">PLAYFUL · DESTINATION · AUDIO</p>
-              <a href="#" class="link-action">Open Invitation <span>→</span></a>
+              <button class="btn open-modal-btn" data-title="Chloe & Liam" data-subtitle="Coastal & Atmospheric" style="width: 100%; padding: 0.85rem;">
+                Preview Story <span class="btn-arrow">→</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Sample Card 3 -->
+          <article class="sample-card fade-in">
+            <div class="sample-thumb" style="background-color: #FAF9FC;">
+              <div class="sample-thumb-inner">
+                <div class="serif" style="font-size: 2rem;">Sophia &amp; Marcus</div>
+                <div style="font-family: var(--font-sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.5rem; color: var(--story-plum);">
+                  Modern Gallery
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="sample-couple">Sophia &amp; Marcus</h3>
+              <p class="sample-subtitle">Minimalist &amp; Contemporary</p>
+              <p class="sample-tags">CLEAN · TYPOGRAPHIC · MODERN</p>
+              <button class="btn open-modal-btn" data-title="Sophia & Marcus" data-subtitle="Minimalist Gallery Style" style="width: 100%; padding: 0.85rem;">
+                Preview Story <span class="btn-arrow">→</span>
+              </button>
             </div>
           </article>
         </div>
@@ -862,27 +1062,27 @@
     </section>
 
     <!-- ==========================================================================
-       HOW IT WORKS / CONCEPT
+       HOW IT WORKS
        ========================================================================== -->
-    <section id="how-it-works" class="concept-section section-padding">
+    <section id="how-it-works" class="process-section section-padding">
       <div class="container">
-        <span class="label-uppercase">Process</span>
-        <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1rem;">How We Build Your Story</h2>
-        
-        <div class="concept-grid">
-          <div class="concept-step fade-in">
+        <span class="label-uppercase">Simple Process</span>
+        <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem);">How We Create Your Invitation</h2>
+
+        <div class="process-grid">
+          <div class="process-step fade-in">
             <div class="step-number">01</div>
             <h3 class="step-title">Share Your Journey</h3>
             <p>Tell us how you met, your favorite memories, your song, and the subtle details that define your bond.</p>
           </div>
 
-          <div class="concept-step fade-in">
+          <div class="process-step fade-in">
             <div class="step-number">02</div>
             <h3 class="step-title">Curated Design</h3>
             <p>We craft an editorial digital invitation bespoke to your aesthetic—incorporating music, motion, and interactive story elements.</p>
           </div>
 
-          <div class="concept-step fade-in">
+          <div class="process-step fade-in">
             <div class="step-number">03</div>
             <h3 class="step-title">Share With Guests</h3>
             <p>Receive your personalized link ready to be delivered seamlessly to your loved ones around the world.</p>
@@ -892,11 +1092,11 @@
     </section>
 
     <!-- ==========================================================================
-       14 & 15. PACKAGE / DARK CONTRAST SECTION
+       PACKAGE SECTION (DARK CONTRAST)
        ========================================================================== -->
     <section id="invitation" class="package-section section-padding">
       <div class="container package-container fade-in">
-        <span class="label-uppercase" style="color: var(--story-muted-lavender);">Exclusive Offering</span>
+        <span class="label-uppercase" style="color: var(--story-muted-lavender);">The Signature Offering</span>
         <h2 class="package-title">THE SIGNATURE INVITATION</h2>
         <div class="package-price">₱2,500</div>
         
@@ -913,44 +1113,44 @@
        ========================================================================== -->
     <section id="faq" class="faq-section section-padding">
       <div class="container faq-container">
-        <div style="text-align: center; margin-bottom: 4rem;" class="fade-in">
+        <div style="text-align: center; margin-bottom: 3.5rem;" class="fade-in">
           <span class="label-uppercase">Questions</span>
-          <h2 style="font-size: 2.5rem;">Frequently Asked</h2>
+          <h2 style="font-size: 2.5rem;">Everything You Need To Know</h2>
         </div>
 
         <div class="faq-accordion fade-in">
           <div class="faq-item">
             <button class="faq-question">
-              <span>How does the digital invitation work?</span>
+              <span>How do guests receive our invitation?</span>
               <span class="faq-toggle-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-content">
-                Your invitation is hosted on a private, dedicated link. Guests open it on any mobile or desktop browser to experience an interactive, multimedia presentation of your story and event details.
+                Your invitation is hosted on a unique, private web link. You can easily send it via WhatsApp, iMessage, email, or digital QR codes on physical cards.
               </div>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question">
-              <span>Can we include background music or audio?</span>
+              <span>Can we customize the music and photos?</span>
               <span class="faq-toggle-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-content">
-                Yes. Audio integration is one of our signature features. You can choose a song that holds meaning for both of you to play softly as guests experience the invitation.
+                Absolutely. Every invitation is custom tailored. You provide your chosen soundtrack, photos, story text, and event details.
               </div>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question">
-              <span>How long does it take to create our invitation?</span>
+              <span>How fast is the turnaround time?</span>
               <span class="faq-toggle-icon">+</span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-content">
-                Once we receive your story details and photos, initial design previews are usually ready within 3 to 5 business days.
+                Once we receive your photos and details, your initial interactive draft is delivered within 3 to 5 business days.
               </div>
             </div>
           </div>
@@ -959,7 +1159,7 @@
     </section>
 
     <!-- ==========================================================================
-       16. FINAL CTA SECTION
+       FINAL CTA SECTION
        ========================================================================== -->
     <section id="start" class="final-cta">
       <div class="container final-cta-container fade-in">
@@ -979,13 +1179,12 @@
   </main>
 
   <!-- ==========================================================================
-     17. FOOTER
+     FOOTER
      ========================================================================== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <!-- Official Logo Footer Placement -->
+        <div>
           <img 
             src="/public/images/brand/logo-placeholder.png" 
             alt="StoryInvites" 
@@ -998,11 +1197,11 @@
 
         <div>
           <ul class="footer-nav-list">
+            <li><a href="#featured">Featured Story</a></li>
             <li><a href="#samples">Samples</a></li>
             <li><a href="#invitation">The Invitation</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="#start">Start Your Story</a></li>
           </ul>
         </div>
       </div>
@@ -1015,49 +1214,90 @@
   </footer>
 
   <!-- ==========================================================================
-     11. INTERACTIONS & JS
+     DEMO SAMPLE MODAL (INTERACTIVE PREVIEW)
+     ========================================================================== -->
+  <div class="preview-modal" id="demoModal">
+    <div class="modal-content-container">
+      <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+      <div class="modal-body">
+        <span class="label-uppercase" style="margin-bottom: 1rem;">Live Invitation Concept</span>
+        <h3 id="modalTitle" style="font-size: 2.2rem; margin-bottom: 0.5rem;">Couple Story</h3>
+        <p id="modalSubtitle" style="font-size: 0.9rem; color: var(--story-plum); margin-bottom: 2rem;">Sample Direction</p>
+        
+        <div style="background: rgba(81, 74, 99, 0.08); padding: 1.5rem; width: 100%; margin-bottom: 2rem;">
+          <p style="font-size: 0.95rem; font-style: italic;">
+            "We met under the summer rain in 2021..."
+          </p>
+        </div>
+
+        <p style="font-size: 0.85rem; color: rgba(38,36,43,0.7); margin-bottom: 2rem;">
+          This interactive preview demonstrates how your audio, gallery, and schedule will feel for your guests.
+        </p>
+
+        <a href="#start" class="btn closeModalLink" style="width: 100%;">Create Your Version <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+     INTERACTIONS & JS
      ========================================================================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Intersection Observer for graceful fade-in transitions
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-      };
-
-      const observer = new IntersectionObserver((entries, observer) => {
+      // Scroll Fade-In Observer
+      const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
           }
         });
-      }, observerOptions);
+      }, { threshold: 0.1 });
 
       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-      // FAQ Accordion Toggle
+      // Accordion JS
       const faqItems = document.querySelectorAll('.faq-item');
       faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-
         question.addEventListener('click', () => {
           const isOpen = item.classList.contains('active');
-          
-          // Close all answers
-          faqItems.forEach(otherItem => {
-            otherItem.classList.remove('active');
-            otherItem.querySelector('.faq-answer').style.maxHeight = null;
+          faqItems.forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.faq-answer').style.maxHeight = null;
           });
-
-          // Open clicked answer if it was not already open
           if (!isOpen) {
             item.classList.add('active');
-            answer.style.maxHeight = answer.scrollHeight + "px";
+            const answer = item.querySelector('.faq-answer');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
           }
         });
+      });
+
+      // Sample Preview Modal Handler
+      const modal = document.getElementById('demoModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const openModalBtns = document.querySelectorAll('.open-modal-btn');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalSubtitle = document.getElementById('modalSubtitle');
+
+      openModalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const title = btn.getAttribute('data-title') || 'Couple Preview';
+          const subtitle = btn.getAttribute('data-subtitle') || 'Custom Invitation Concept';
+          modalTitle.textContent = title;
+          modalSubtitle.textContent = subtitle;
+          modal.classList.add('open');
+        });
+      });
+
+      const closeModal = () => modal.classList.remove('open');
+      closeModalBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.querySelectorAll('.closeModalLink').forEach(link => {
+        link.addEventListener('click', closeModal);
       });
     });
   </script>

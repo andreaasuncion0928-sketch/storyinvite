@@ -53,11 +53,11 @@
     h1, h2, h3, h4, .serif {
       font-family: var(--font-serif);
       font-weight: 400;
-      line-height: 1.12;
+      line-height: 1.15;
     }
 
     p {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 300;
       color: rgba(38, 36, 43, 0.88);
     }
@@ -69,13 +69,13 @@
 
     .label-uppercase {
       font-family: var(--font-sans);
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.25em;
       color: var(--story-plum);
       font-weight: 600;
       display: inline-block;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.75rem;
     }
 
     .container {
@@ -90,12 +90,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.85rem;
-      padding: 1.25rem 2.8rem;
+      gap: 0.75rem;
+      padding: 1.15rem 2.6rem;
       font-family: var(--font-sans);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 500;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       border: 1px solid var(--story-charcoal);
       background: transparent;
@@ -114,7 +114,7 @@
     }
 
     .btn:hover .btn-arrow {
-      transform: translateX(6px);
+      transform: translateX(5px);
     }
 
     .btn-plum {
@@ -129,12 +129,13 @@
       color: #FFFFFF;
     }
 
+    /* Unboxed Nav Link CTA */
     .nav-cta-textlink {
       background: none;
       border: none;
       font-family: var(--font-sans);
-      font-size: 0.8rem;
-      letter-spacing: 0.22em;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       font-weight: 600;
       color: var(--story-charcoal);
@@ -155,14 +156,14 @@
     }
 
     /* ==========================================================================
-       1. NAVIGATION & LOGO
+       1. NAVIGATION & TOP LEFT LOGO
        ========================================================================== */
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 90px;
+      height: 85px;
       z-index: 1000;
       background-color: rgba(248, 246, 240, 0.96);
       backdrop-filter: blur(12px);
@@ -185,7 +186,7 @@
     }
 
     .brand-logo {
-      height: 44px;
+      height: 42px;
       width: auto;
       object-fit: contain;
     }
@@ -228,7 +229,7 @@
     }
 
     /* ==========================================================================
-       LOCKED VIEWPORT SYSTEM
+       LOCKED VIEWPORT STAGE
        ========================================================================== */
     .view-stage-wrapper {
       position: absolute;
@@ -263,12 +264,12 @@
     .bg-light { background-color: var(--story-lavender-light); }
 
     /* ==========================================================================
-       PANEL 1: MAXIMIZED HERO VIEW WITH ENLARGED DEVICES & TYPOGRAPHY
+       PANEL 1: HERO VIEW (ELEGANT INVITATION PREVIEW STAGE)
        ========================================================================== */
     .hero-grid-layout {
       display: grid;
-      grid-template-columns: 0.95fr 1.35fr;
-      gap: 4rem;
+      grid-template-columns: 0.9fr 1.4fr;
+      gap: 3.5rem;
       align-items: center;
       position: relative;
       padding-top: 1rem;
@@ -280,7 +281,7 @@
     }
 
     .hero-logo-element {
-      height: 54px;
+      height: 52px;
       width: auto;
       object-fit: contain;
       margin-bottom: 1.5rem;
@@ -288,22 +289,22 @@
     }
 
     .hero-main-heading {
-      font-size: clamp(4rem, 7vw, 6.2rem);
+      font-size: clamp(3.8rem, 6.5vw, 5.8rem);
       margin-bottom: 1.5rem;
       color: var(--story-charcoal);
       letter-spacing: -0.025em;
     }
 
     .hero-sub-text {
-      font-size: 1.35rem;
-      margin-bottom: 3rem;
-      color: rgba(38, 36, 43, 0.9);
-      max-width: 540px;
+      font-size: 1.3rem;
+      margin-bottom: 2.8rem;
+      color: rgba(38, 36, 43, 0.88);
+      max-width: 500px;
       line-height: 1.7;
       font-weight: 300;
     }
 
-    /* Scaled-Up Hero Multi-Device Stage */
+    /* Multi-Device Mockup Stage */
     .hero-visual-col {
       position: relative;
       height: 580px;
@@ -319,17 +320,32 @@
       display: block;
     }
 
-    /* Layer 1: Desktop Browser Window (ws2.png) */
+    /* Dynamic Invitation Card Renderers for Mockups */
+    .invitation-card-render {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Layer 1: Desktop Browser Mockup (ws2) */
     .mockup-browser-window {
       position: absolute;
       top: 0px;
-      right: 10px;
-      width: 620px;
-      height: 410px;
-      background: #FFFFFF;
+      right: 20px;
+      width: 580px;
+      height: 380px;
+      background: #FFF;
       border: 1px solid var(--story-border);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.09);
-      border-radius: 10px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+      border-radius: 8px;
       overflow: hidden;
       z-index: 1;
       cursor: pointer;
@@ -337,7 +353,7 @@
 
     .mockup-browser-body {
       padding: 0;
-      background-color: var(--story-soft-neutral);
+      background-color: #FAF4F5;
       height: calc(100% - 36px);
       display: flex;
       flex-direction: column;
@@ -363,11 +379,11 @@
       background: var(--story-border);
     }
 
-    /* Layer 2: Tablet Mockup (ws3.png) */
+    /* Layer 2: Tablet Mockup (ws3) */
     .mockup-tablet {
       position: absolute;
       top: 40px;
-      left: 60px;
+      left: 70px;
       width: 270px;
       height: 370px;
       background: #FFFFFF;
@@ -376,32 +392,34 @@
       box-shadow: 0 30px 50px rgba(0,0,0,0.15);
       z-index: 2;
       overflow: hidden;
-      background-color: var(--story-soft-neutral);
+      background-color: #212025;
+      color: #FFF;
       cursor: pointer;
     }
 
-    /* Layer 3: Smartphone Mockup (ws1.png) */
+    /* Layer 3: Smartphone Mockup (ws1) */
     .mockup-phone {
       position: absolute;
       bottom: -10px;
-      left: -20px;
-      width: 180px;
-      height: 340px;
+      left: -15px;
+      width: 185px;
+      height: 350px;
       background: #FFFFFF;
       border: 8px solid #26242B;
-      border-radius: 30px;
-      box-shadow: 0 35px 60px rgba(0,0,0,0.2);
+      border-radius: 32px;
+      box-shadow: 0 35px 60px rgba(0,0,0,0.22);
       z-index: 3;
       overflow: hidden;
-      background-color: var(--story-soft-neutral);
+      background-color: #1A191D;
+      color: #FFF;
       cursor: pointer;
     }
 
-    /* Layer 4: Laptop Video Mockup (ws4.png) */
+    /* Layer 4: Laptop Video Mockup (ws4) */
     .mockup-laptop-video {
       position: absolute;
       bottom: -20px;
-      right: -20px;
+      right: -10px;
       width: 410px;
       height: 255px;
       background: #000000;
@@ -420,14 +438,6 @@
       align-items: center;
       justify-content: center;
       position: relative;
-    }
-
-    .video-thumbnail-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      z-index: 1;
     }
 
     .play-btn-circle {
@@ -451,9 +461,9 @@
       margin-left: 4px;
     }
 
-    /* 4-Step How It Works Section */
+    /* How It Works Section */
     .how-it-works-strip {
-      margin-top: 6rem;
+      margin-top: 5rem;
       padding: 4.5rem 2.5rem;
       background-color: var(--story-lavender-deep);
       border-radius: 16px;
@@ -508,7 +518,7 @@
     }
 
     /* ==========================================================================
-       PANEL 2: REALIGNED PHILOSOPHY SECTION
+       PANEL 2: PHILOSOPHY
        ========================================================================== */
     .intro-statement-max {
       max-width: 980px;
@@ -893,12 +903,12 @@
      ========================================================================== -->
   <div class="view-stage-wrapper">
 
-    <!-- PANEL 1: HERO VIEW (MAXIMIZED & ENLARGED) -->
+    <!-- PANEL 1: HERO VIEW -->
     <div class="view-panel bg-cream active-panel" id="panel-hero">
       <div class="container">
         
         <div class="hero-grid-layout">
-          <!-- Text Column with Logo File Placement -->
+          <!-- Text Column -->
           <div class="hero-text-col">
             <img 
               src="public/images/brand/logo.png" 
@@ -918,17 +928,10 @@
             </div>
           </div>
 
-          <!-- Scaled Up Asymmetric Multi-Device Visual Column -->
+          <!-- Asymmetric Multi-Device Visual Column with Embedded Digital Invitation Renderers -->
           <div class="hero-visual-col">
             
-            <!-- Doodle Wedding Rings -->
-            <svg class="doodle-icon" style="top: -10px; left: 160px; width: 50px; z-index: 5;" viewBox="0 0 60 40" fill="none" stroke="#B9B1D3" stroke-width="1.5">
-              <circle cx="20" cy="20" r="14"/>
-              <circle cx="38" cy="20" r="14"/>
-              <polygon points="20,2 23,8 17,8" fill="#B9B1D3"/>
-            </svg>
-
-            <!-- Layer 1: Desktop Browser Mockup (ws2.png) -->
+            <!-- Layer 1: Desktop Browser Mockup (ws2) -->
             <div class="mockup-browser-window open-sample-modal" data-sample-url="https://ws2.storyinvites.com">
               <div class="browser-bar">
                 <div class="browser-dot"></div>
@@ -938,49 +941,50 @@
               <div class="mockup-browser-body">
                 <img 
                   src="ws2.png" 
-                  alt="Browser Preview" 
+                  alt="Desktop Invitation" 
                   class="device-screen-img"
-                  onerror="this.style.display='none';"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                 >
-                <div style="text-align:center; padding: 2rem;">
-                  <span class="label-uppercase" style="font-size: 0.65rem;">Featured Live Sample · ws2.storyinvites.com</span>
-                  <div class="serif" style="font-size: 2.6rem;">A New Chapter</div>
-                  <p style="font-family: var(--font-serif); font-style: italic; font-size: 1rem; color: var(--story-plum); margin-top: 0.5rem;">
-                    "Tap to Open Live Invitation"
-                  </p>
+                <!-- Rendered Fallback if image asset is not loaded -->
+                <div class="invitation-card-render" style="display: none; background: #F8F3F4;">
+                  <span class="label-uppercase" style="font-size: 0.6rem;">A Personal Invitation</span>
+                  <div class="serif" style="font-size: 2.2rem; color: #4B435C; margin-top: 0.5rem;">A &amp; A</div>
+                  <p style="font-family: var(--font-serif); font-style: italic; font-size: 0.85rem; color: #8C6D75;">"Tap to Open Story"</p>
                 </div>
               </div>
             </div>
 
-            <!-- Layer 2: Tablet Mockup (ws3.png) -->
+            <!-- Layer 2: Tablet Mockup (ws3) -->
             <div class="mockup-tablet open-sample-modal" data-sample-url="https://ws3.storyinvites.com">
               <img 
                 src="ws3.png" 
-                alt="Tablet Preview" 
+                alt="Tablet Invitation" 
                 class="device-screen-img"
-                onerror="this.style.display='none';"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
               >
-              <div style="text-align: center; padding: 1.25rem;">
-                <span class="label-uppercase" style="font-size: 0.65rem;">Gallery View · ws3</span>
-                <div class="serif" style="font-size: 1.3rem; margin-top: 0.5rem;">Gallery Showcase</div>
+              <div class="invitation-card-render" style="display: none; background: #212025; color: #FFF;">
+                <span class="label-uppercase" style="font-size: 0.55rem; color: #B9B1D3;">ON THE GUEST LIST</span>
+                <div class="serif" style="font-size: 1.6rem; letter-spacing: 0.05em; margin: 1rem 0;">WE'RE GETTING MARRIED.</div>
+                <span style="font-size: 0.6rem; border: 1px solid #FFF; padding: 0.3rem 0.6rem;">RSVP NOW</span>
               </div>
             </div>
 
-            <!-- Layer 3: Smartphone Mockup (ws1.png) -->
+            <!-- Layer 3: Smartphone Mockup (ws1) -->
             <div class="mockup-phone open-sample-modal" data-sample-url="https://ws1.storyinvites.com">
               <img 
                 src="ws1.png" 
-                alt="Phone Preview" 
+                alt="Mobile Invitation" 
                 class="device-screen-img"
-                onerror="this.style.display='none';"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
               >
-              <div style="text-align: center; padding: 0.75rem;">
-                <span class="label-uppercase" style="font-size: 0.55rem; margin-top: 0.5rem;">Mobile View</span>
-                <div class="serif" style="font-size: 1.1rem; margin-top: 1rem;">A New Chapter</div>
+              <div class="invitation-card-render" style="display: none; background: #18171C; color: #FFF;">
+                <span class="label-uppercase" style="font-size: 0.5rem; color: #B9B1D3;">AN INVITATION TO CELEBRATE</span>
+                <div class="serif" style="font-size: 1.8rem; margin: 1.2rem 0;">A &amp; A</div>
+                <p style="font-size: 0.6rem; font-family: var(--font-serif); font-style: italic;">Open Our Story —</p>
               </div>
             </div>
 
-            <!-- Layer 4: Laptop Video Mockup (ws4.png) -->
+            <!-- Layer 4: Laptop Video Mockup (ws4) -->
             <div class="mockup-laptop-video open-sample-modal" data-sample-url="https://ws4.storyinvites.com">
               <div class="video-thumbnail-bg">
                 <img 
@@ -997,7 +1001,7 @@
           </div>
         </div>
 
-        <!-- 4-Step How It Works Bar - Distinct Deep Lavender Container -->
+        <!-- 4-Step How It Works Bar -->
         <div class="how-it-works-strip">
           <h2 class="strip-title">How it Works</h2>
           
@@ -1431,7 +1435,7 @@
         });
       });
 
-      // Sample iFrame Modal Logic with Desktop vs Mobile Viewport Toggling
+      // Sample iFrame Modal Logic
       const iframeModal = document.getElementById('iframeModal');
       const iframeFrame = document.getElementById('iframeFrame');
       const sampleIframe = document.getElementById('sampleIframe');

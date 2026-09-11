@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StoryInvites — Personalized Digital Wedding Invitations</title>
+  <title>StoryInvites — Digital Invitations for Life's Special Moments</title>
 
-  <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+  <!-- Typography: Cormorant Garamond & Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
     h1, h2, h3, h4, .serif {
       font-family: var(--font-serif);
       font-weight: 400;
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
     p {
@@ -139,7 +139,7 @@
       color: var(--story-charcoal);
     }
 
-    /* Scroll Reveal Animations */
+    /* Scroll Animations */
     .fade-in {
       opacity: 0;
       transform: translateY(25px);
@@ -152,7 +152,7 @@
     }
 
     /* ==========================================================================
-       1. NAVIGATION
+       NAVIGATION
        ========================================================================== */
     .navbar {
       position: fixed;
@@ -244,7 +244,7 @@
     }
 
     /* ==========================================================================
-       1. HERO SECTION & INTERACTIVE ENVELOPE OPENER
+       01 — HERO SECTION
        ========================================================================== */
     .hero {
       min-height: 100vh;
@@ -295,7 +295,7 @@
       flex-wrap: wrap;
     }
 
-    /* Interactive Hero Envelope Mockup */
+    /* Interactive Hero Visual Opener */
     .envelope-stage {
       position: relative;
       width: 320px;
@@ -352,7 +352,7 @@
     }
 
     /* ==========================================================================
-       2. THE CONCEPT SECTION
+       02 — WHAT IS STORYINVITES?
        ========================================================================== */
     .concept-section {
       background-color: var(--story-soft);
@@ -362,7 +362,7 @@
     }
 
     .concept-container {
-      max-width: 820px;
+      max-width: 840px;
       margin: 0 auto;
     }
 
@@ -378,114 +378,92 @@
       color: rgba(38, 36, 43, 0.85);
     }
 
-    /* Vertical Word Progression */
-    .progression-flow {
+    .words-banner {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 1.25rem;
-      margin-bottom: 4rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
     }
 
-    .progression-item {
+    .word-item {
       font-family: var(--font-serif);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      color: var(--story-charcoal);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      opacity: 0.3;
-      transform: translateY(15px);
-      transition: all 0.6s var(--transition-smooth);
-    }
-
-    .progression-item.active {
-      opacity: 1;
-      transform: translateY(0);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
       color: var(--story-plum);
+      letter-spacing: 0.05em;
     }
 
-    .progression-arrow {
+    .word-dot {
       color: var(--story-muted-lavender);
       font-size: 1.2rem;
     }
 
     /* ==========================================================================
-       3. EXPLORE THE STORIES (SHOWCASE)
+       03 — WHAT CAN STORYINVITES CREATE?
        ========================================================================== */
-    .stories-section {
+    .occasions-section {
       background-color: var(--story-lavender);
     }
 
-    .stories-header {
+    .occasions-header {
       text-align: center;
       max-width: 680px;
       margin: 0 auto 4.5rem auto;
     }
 
-    .stories-header h2 {
+    .occasions-header h2 {
       font-size: clamp(2.5rem, 4vw, 3.5rem);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
 
-    .stories-grid {
+    .occasions-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2.5rem;
     }
 
-    .story-card {
+    .occasion-card {
       background: var(--story-soft);
       border: 1px solid rgba(185, 177, 211, 0.35);
-      padding: 2rem;
+      padding: 2.5rem 2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
-      cursor: pointer;
     }
 
-    .story-card:hover {
+    .occasion-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 20px 40px rgba(38, 36, 43, 0.06);
     }
 
-    .story-visual-preview {
+    .occasion-visual {
       width: 100%;
-      height: 300px;
+      height: 240px;
       background-color: #E6E1F2;
-      margin-bottom: 1.75rem;
+      margin-bottom: 2rem;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 1.5rem;
       position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(185, 177, 211, 0.3);
     }
 
-    .story-visual-preview::after {
-      content: '';
-      position: absolute;
-      inset: 10px;
-      border: 1px solid rgba(81, 74, 99, 0.15);
-      pointer-events: none;
+    .occasion-title {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
     }
 
-    .story-card-title {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .story-card-desc {
-      font-size: 0.92rem;
+    .occasion-desc {
+      font-size: 0.95rem;
       color: rgba(38, 36, 43, 0.75);
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
     }
 
-    .story-card-link {
+    .occasion-link {
       font-size: 0.75rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -497,142 +475,118 @@
     }
 
     /* ==========================================================================
-       5. PERSONALIZATION SECTION (MADE AROUND YOUR STORY)
+       04 — EXPLORE THE INVITATIONS (TABBED GALLERY)
        ========================================================================== */
-    .personalization-section {
+    .gallery-section {
       background-color: var(--story-soft);
       border-top: 1px solid rgba(185, 177, 211, 0.3);
       border-bottom: 1px solid rgba(185, 177, 211, 0.3);
     }
 
-    .personalization-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .transform-box {
-      background: var(--story-lavender);
-      padding: 3rem 2.5rem;
-      border: 1px solid var(--story-muted-lavender);
-      position: relative;
-    }
-
-    .raw-moments-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .raw-moment-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
-      color: var(--story-plum);
-    }
-
-    .raw-moment-dot {
-      width: 6px;
-      height: 6px;
-      background-color: var(--story-muted-lavender);
-      border-radius: 50%;
-    }
-
-    .transform-arrow {
+    .gallery-header {
       text-align: center;
-      font-size: 1.8rem;
-      color: var(--story-plum);
-      margin: 1.5rem 0;
+      max-width: 640px;
+      margin: 0 auto 3rem auto;
+    }
+
+    /* Category Tabs */
+    .gallery-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 0.8rem 2rem;
+      background: transparent;
+      border: 1px solid var(--story-muted-lavender);
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--story-charcoal);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--story-charcoal);
+      color: var(--story-lavender);
+      border-color: var(--story-charcoal);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .gallery-card {
+      background: var(--story-lavender);
+      border: 1px solid rgba(185, 177, 211, 0.35);
+      padding: 1.75rem;
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .gallery-thumb {
+      width: 100%;
+      height: 280px;
+      background-color: #E2DEED;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
     }
 
     /* ==========================================================================
-       6. WHAT'S INCLUDED
+       06 — HOW YOUR OWN STORYINVITE BEGINS (PERSONALIZATION)
        ========================================================================== */
-    .features-section {
+    .personalization-section {
       background-color: var(--story-lavender);
     }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 3.5rem;
+    .personalization-container {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto;
     }
 
-    .feature-card {
+    .flow-sequence {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 3.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .flow-node {
       background: var(--story-soft);
-      padding: 2.25rem 2rem;
-      border: 1px solid rgba(185, 177, 211, 0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .feature-icon {
+      padding: 1.25rem 2rem;
+      border: 1px solid var(--story-muted-lavender);
       font-family: var(--font-serif);
-      font-size: 2rem;
+      font-size: 1.5rem;
       color: var(--story-plum);
-      margin-bottom: 1rem;
     }
 
-    .feature-title {
-      font-size: 1.25rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .feature-desc {
-      font-size: 0.95rem;
-      color: rgba(38, 36, 43, 0.75);
-    }
-
-    /* ==========================================================================
-       7. HOW IT WORKS
-       ========================================================================== */
-    .process-section {
-      background-color: var(--story-soft);
-      border-top: 1px solid rgba(185, 177, 211, 0.3);
-      border-bottom: 1px solid rgba(185, 177, 211, 0.3);
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-top: 4rem;
-    }
-
-    .process-step {
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--story-muted-lavender);
-    }
-
-    .step-num {
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
-      color: var(--story-plum);
-      margin-bottom: 0.75rem;
-    }
-
-    .step-title {
+    .flow-arrow {
+      color: var(--story-muted-lavender);
       font-size: 1.2rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .step-desc {
-      font-size: 0.9rem;
-      color: rgba(38, 36, 43, 0.75);
     }
 
     /* ==========================================================================
-       8. PRODUCT / PRICING SECTION (DARK CONTRAST)
+       07 — PACKAGES
        ========================================================================== */
-    .package-section {
+    .packages-section {
       background-color: var(--story-charcoal);
       color: var(--story-lavender);
       text-align: center;
@@ -657,7 +611,7 @@
       color: rgba(241, 239, 249, 0.85);
     }
 
-    .package-features-list {
+    .package-features-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1.25rem;
@@ -683,32 +637,79 @@
     }
 
     /* ==========================================================================
-       9. ABOUT SECTION
+       08 — THE JOURNEY
        ========================================================================== */
-    .about-section {
-      background-color: var(--story-lavender);
-      text-align: center;
+    .journey-section {
+      background-color: var(--story-soft);
+      border-top: 1px solid rgba(185, 177, 211, 0.3);
+      border-bottom: 1px solid rgba(185, 177, 211, 0.3);
     }
 
-    .about-container {
-      max-width: 760px;
-      margin: 0 auto;
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
     }
 
-    .about-headline {
-      font-size: clamp(2.2rem, 3.5vw, 3rem);
-      margin-bottom: 1.75rem;
+    .journey-step {
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--story-muted-lavender);
     }
 
-    .about-copy {
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: rgba(38, 36, 43, 0.85);
-      margin-bottom: 2.5rem;
+    .journey-num {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--story-plum);
+      margin-bottom: 0.75rem;
+    }
+
+    .journey-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .journey-desc {
+      font-size: 0.88rem;
+      color: rgba(38, 36, 43, 0.75);
     }
 
     /* ==========================================================================
-       10. FINAL CTA SECTION
+       09 — TRUST
+       ========================================================================== */
+    .trust-section {
+      background-color: var(--story-lavender);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: 3.5rem;
+    }
+
+    .trust-card {
+      background: var(--story-soft);
+      padding: 3rem 2rem;
+      border: 1px solid rgba(185, 177, 211, 0.3);
+      text-align: center;
+    }
+
+    .trust-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .trust-desc {
+      font-size: 0.95rem;
+      color: rgba(38, 36, 43, 0.75);
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       10 — FINAL CTA
        ========================================================================== */
     .final-cta {
       background-color: var(--story-soft);
@@ -718,13 +719,20 @@
     }
 
     .final-cta-container {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
     }
 
     .final-cta-headline {
       font-size: clamp(2.8rem, 4.5vw, 4rem);
       margin-bottom: 1.25rem;
+    }
+
+    .final-cta-occasions {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--story-plum);
+      margin-bottom: 2.5rem;
     }
 
     .final-cta-tagline {
@@ -793,7 +801,7 @@
     }
 
     /* ==========================================================================
-       4. FULL INVITATION PREVIEW MODAL (INTERACTIVE LIVE PREVIEW)
+       05 — EXPERIENCE A STORYINVITE (MODAL)
        ========================================================================== */
     .preview-modal {
       position: fixed;
@@ -853,16 +861,16 @@
       text-align: center;
     }
 
-    .invitation-demo-header {
+    .demo-header {
       margin-bottom: 2.5rem;
     }
 
-    .invitation-demo-names {
+    .demo-names {
       font-size: 2.8rem;
       margin-bottom: 0.25rem;
     }
 
-    .invitation-demo-tag {
+    .demo-tag {
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -917,9 +925,7 @@
       text-align: center;
     }
 
-    /* ==========================================================================
-       START INQUIRY FORM MODAL
-       ========================================================================== */
+    /* INQUIRY MODAL */
     .inquiry-modal {
       position: fixed;
       inset: 0;
@@ -974,18 +980,14 @@
       outline: none;
     }
 
-    .form-input:focus, .form-select:focus {
-      border-color: var(--story-charcoal);
-    }
-
     /* RESPONSIVE LAYOUT */
     @media (max-width: 900px) {
-      .hero-grid, .personalization-grid, .footer-grid {
+      .hero-grid, .footer-grid {
         grid-template-columns: 1fr;
         gap: 3.5rem;
       }
 
-      .stories-grid, .features-grid, .process-grid {
+      .occasions-grid, .gallery-grid, .trust-grid, .journey-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1006,7 +1008,7 @@
         display: block;
       }
 
-      .package-features-list {
+      .package-features-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -1015,12 +1017,11 @@
 <body>
 
   <!-- ==========================================================================
-     1. NAVIGATION
+     NAVIGATION
      ========================================================================== -->
   <nav class="navbar">
     <div class="container navbar-container">
       <a href="#" class="brand-logo-wrap">
-        <!-- Logo file placement asset -->
         <img 
           src="/public/images/brand/logo-placeholder.png" 
           alt="StoryInvites" 
@@ -1033,10 +1034,11 @@
       <ul class="nav-links">
         <li class="nav-link"><a href="#invitations">Invitations</a></li>
         <li class="nav-link"><a href="#how-it-works">How It Works</a></li>
+        <li class="nav-link"><a href="#packages">Packages</a></li>
         <li class="nav-link"><a href="#about">About</a></li>
       </ul>
 
-      <button class="btn open-inquiry-btn">Start Your Invitation <span class="btn-arrow">→</span></button>
+      <button class="btn open-inquiry-btn">Create Your Invitation <span class="btn-arrow">→</span></button>
 
       <button class="menu-toggle" aria-label="Toggle Navigation">
         <span></span>
@@ -1047,37 +1049,36 @@
 
   <main>
     <!-- ==========================================================================
-       1. HERO SECTION
+       01 — THE FIRST SCREEN (HERO)
        ========================================================================== -->
     <section class="hero">
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content fade-in">
             <h1 class="hero-headline">
-              Your story.
-              <span>Your style.</span>
-              Your invitation.
+              Invitations
+              <span>with a story.</span>
             </h1>
             <p class="hero-copy">
-              Personalized digital wedding invitations designed around you.
+              Personalized digital invitations for weddings, debuts, birthdays, and life's special moments.
             </p>
             <div class="hero-ctas">
               <a href="#invitations" class="btn">Explore Invitations <span class="btn-arrow">→</span></a>
-              <a href="#how-it-works" class="btn" style="border-color: transparent;">How It Works <span class="btn-arrow">→</span></a>
+              <a href="#how-it-works" class="btn" style="border-color: transparent;">See How It Works <span class="btn-arrow">→</span></a>
             </div>
           </div>
 
-          <!-- Interactive Envelope Hero Opener -->
-          <div class="envelope-stage fade-in open-demo-trigger" data-title="Elena & Adrian" data-direction="Cinematic Love Story">
+          <!-- Hero Visual Opener -->
+          <div class="envelope-stage fade-in open-demo-trigger" data-title="Elena & Adrian" data-tag="Wedding Experience">
             <div class="envelope-card">
               <span class="label-uppercase" style="margin-bottom: 1rem;">Tap to Open</span>
               <div class="serif" style="font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--story-charcoal);">Elena &amp; Adrian</div>
               <p style="font-size: 0.85rem; font-style: italic; font-family: var(--font-serif); color: var(--story-plum); margin-bottom: 2rem;">
-                "A cinematic celebration of our journey."
+                "A celebration of our story."
               </p>
               <div style="width: 40px; height: 1px; background: var(--story-muted-lavender); margin-bottom: 2rem;"></div>
               <p style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--story-plum);">
-                EXPERIENCE INVITATION
+                EXPERIENCE STORYINVITE
               </p>
             </div>
             <div class="tap-hint-badge">✦ Interactive Opener — Tap to Experience</div>
@@ -1087,301 +1088,285 @@
     </section>
 
     <!-- ==========================================================================
-       2. AFTER THE HERO — THE CONCEPT
+       02 — WHAT IS STORYINVITES?
        ========================================================================== -->
     <section class="concept-section section-padding">
-      <div class="container concept-container">
-        <span class="label-uppercase fade-in">The Philosophy</span>
-        <h2 class="concept-headline fade-in">What if your invitation felt like you?</h2>
-        <p class="concept-copy fade-in">
-          Your wedding invitation is the first glimpse your guests have of your celebration. StoryInvites turns your story, photos, details, and personal style into a digital invitation made especially for you.
+      <div class="container concept-container fade-in">
+        <span class="label-uppercase">The Concept</span>
+        <h2 class="concept-headline">More than an invitation.</h2>
+        <p class="concept-copy">
+          A StoryInvite brings together the details, photographs, memories, and personality behind your celebration — into one beautiful digital experience.<br><br>
+          Whether you're celebrating a wedding, an 18th birthday, or a milestone worth remembering, we design the invitation around you and your occasion.
         </p>
 
-        <!-- Dynamic Scroll Progression -->
-        <div class="progression-flow" id="progressionFlow">
-          <div class="progression-item">YOUR STORY</div>
-          <div class="progression-arrow">↓</div>
-          <div class="progression-item">YOUR STYLE</div>
-          <div class="progression-arrow">↓</div>
-          <div class="progression-item">YOUR INVITATION</div>
-        </div>
-
-        <div style="margin-top: 3rem;" class="fade-in">
-          <a href="#how-it-works" class="btn">See How It Comes Together <span class="btn-arrow">→</span></a>
+        <div class="words-banner">
+          <span class="word-item">YOUR STORY</span>
+          <span class="word-dot">·</span>
+          <span class="word-item">YOUR STYLE</span>
+          <span class="word-dot">·</span>
+          <span class="word-item">YOUR MOMENT</span>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-       3. SHOW THE INVITATIONS (EXPLORE THE STORIES)
+       03 — WHAT CAN STORYINVITES CREATE?
        ========================================================================== -->
-    <section id="invitations" class="stories-section section-padding">
+    <section class="occasions-section section-padding">
       <div class="container">
-        <div class="stories-header fade-in">
-          <span class="label-uppercase">Creative Directions</span>
-          <h2>Explore the Stories</h2>
-          <p>Find a style that feels like you. Each direction is built to adapt entirely around your personal journey.</p>
+        <div class="occasions-header fade-in">
+          <span class="label-uppercase">Occasions</span>
+          <h2>Made for the moments worth celebrating.</h2>
         </div>
 
-        <div class="stories-grid">
-          <!-- Card 1: Cinematic -->
-          <article class="story-card fade-in open-demo-trigger" data-title="Elena & Adrian" data-direction="Cinematic Direction">
-            <div class="story-visual-preview">
-              <div class="serif" style="font-size: 2rem;">Cinematic</div>
-              <p style="font-size: 0.8rem; font-style: italic; font-family: var(--font-serif); margin-top: 0.25rem;">For stories that feel like a film.</p>
-            </div>
+        <div class="occasions-grid">
+          <!-- Card 1: Weddings -->
+          <article class="occasion-card fade-in">
             <div>
-              <h3 class="story-card-title">Cinematic</h3>
-              <p class="story-card-desc">Rich storytelling, full-bleed imagery, and musical atmospheric reveals.</p>
-              <span class="story-card-link">View Invitation <span>→</span></span>
+              <div class="occasion-visual">
+                <div class="serif" style="font-size: 2.2rem;">Weddings</div>
+              </div>
+              <h3 class="occasion-title">Weddings</h3>
+              <p class="occasion-desc">Your love story, beautifully invited. Personalized wedding invitations designed around your relationship, your style, and your celebration.</p>
             </div>
+            <a href="#invitations" class="occasion-link filter-trigger" data-category="wedding">Explore Wedding Invitations <span>→</span></a>
           </article>
 
-          <!-- Card 2: Romantic -->
-          <article class="story-card fade-in open-demo-trigger" data-title="Julian & Clara" data-direction="Romantic Direction">
-            <div class="story-visual-preview" style="background-color: #FAF9FC;">
-              <div class="serif" style="font-size: 2rem;">Romantic</div>
-              <p style="font-size: 0.8rem; font-style: italic; font-family: var(--font-serif); margin-top: 0.25rem;">Soft, timeless, and intimate.</p>
-            </div>
+          <!-- Card 2: Debuts -->
+          <article class="occasion-card fade-in">
             <div>
-              <h3 class="story-card-title">Romantic</h3>
-              <p class="story-card-desc">Delicate typography, editorial spacing, and soft emotional photography.</p>
-              <span class="story-card-link">View Invitation <span>→</span></span>
+              <div class="occasion-visual" style="background-color: #FAF9FC;">
+                <div class="serif" style="font-size: 2.2rem;">Debuts</div>
+              </div>
+              <h3 class="occasion-title">Debuts</h3>
+              <p class="occasion-desc">A celebration of becoming. Personalized debut invitations created around the celebrant's personality, style, and milestone.</p>
             </div>
+            <a href="#invitations" class="occasion-link filter-trigger" data-category="debut">Explore Debut Invitations <span>→</span></a>
           </article>
 
-          <!-- Card 3: Adventure -->
-          <article class="story-card fade-in open-demo-trigger" data-title="Liam & Maya" data-direction="Adventure Direction">
-            <div class="story-visual-preview" style="background-color: #E2DEED;">
-              <div class="serif" style="font-size: 2rem;">Adventure</div>
-              <p style="font-size: 0.8rem; font-style: italic; font-family: var(--font-serif); margin-top: 0.25rem;">For lovers who discover together.</p>
-            </div>
+          <!-- Card 3: Birthdays -->
+          <article class="occasion-card fade-in">
             <div>
-              <h3 class="story-card-title">Adventure</h3>
-              <p class="story-card-desc">Scrapbook timeline aesthetics, location focus, and journey maps.</p>
-              <span class="story-card-link">View Invitation <span>→</span></span>
+              <div class="occasion-visual" style="background-color: #26242B; color: #F1EFF9;">
+                <div class="serif" style="font-size: 2.2rem;">Birthdays</div>
+              </div>
+              <h3 class="occasion-title">Birthdays</h3>
+              <p class="occasion-desc">Make the celebration feel like you. Fun, elegant, playful, or completely unexpected — designed around the person you're celebrating.</p>
             </div>
-          </article>
-
-          <!-- Card 4: Modern -->
-          <article class="story-card fade-in open-demo-trigger" data-title="Lucas & Sophia" data-direction="Modern Direction">
-            <div class="story-visual-preview" style="background-color: #26242B; color: #F1EFF9;">
-              <div class="serif" style="font-size: 2rem;">Modern</div>
-              <p style="font-size: 0.8rem; font-style: italic; font-family: var(--font-serif); color: var(--story-muted-lavender); margin-top: 0.25rem;">Clean, refined, and simple.</p>
-            </div>
-            <div>
-              <h3 class="story-card-title">Modern</h3>
-              <p class="story-card-desc">Bold layout balance, crisp typography, and architectural minimalism.</p>
-              <span class="story-card-link">View Invitation <span>→</span></span>
-            </div>
-          </article>
-
-          <!-- Card 5: Playful -->
-          <article class="story-card fade-in open-demo-trigger" data-title="Oliver & Hannah" data-direction="Playful Direction">
-            <div class="story-visual-preview">
-              <div class="serif" style="font-size: 2rem;">Playful</div>
-              <p style="font-size: 0.8rem; font-style: italic; font-family: var(--font-serif); margin-top: 0.25rem;">Let your personality shine.</p>
-            </div>
-            <div>
-              <h3 class="story-card-title">Playful</h3>
-              <p class="story-card-desc">Unconventional details, interactive touches, and joyful typography.</p>
-              <span class="story-card-link">View Invitation <span>→</span></span>
-            </div>
-          </article>
-
-          <!-- Card 6: Custom -->
-          <article class="story-card fade-in open-inquiry-btn">
-            <div class="story-visual-preview" style="background-color: var(--story-soft); border-style: dashed;">
-              <div class="serif" style="font-size: 2rem;">Custom</div>
-              <p style="font-size: 0.8rem; font-style: italic; font-family: var(--font-serif); margin-top: 0.25rem;">Something completely your own.</p>
-            </div>
-            <div>
-              <h3 class="story-card-title">Bespoke Concept</h3>
-              <p class="story-card-desc">Have a distinct vision? We build an invitation completely from scratch.</p>
-              <span class="story-card-link">Discuss Your Idea <span>→</span></span>
-            </div>
+            <a href="#invitations" class="occasion-link filter-trigger" data-category="birthday">Explore Birthday Invitations <span>→</span></a>
           </article>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-       5. PERSONALIZATION SECTION
+       04 — EXPLORE THE INVITATIONS (TABBED GALLERY)
+       ========================================================================== -->
+    <section id="invitations" class="gallery-section section-padding">
+      <div class="container">
+        <div class="gallery-header fade-in">
+          <span class="label-uppercase">Portfolio Showcase</span>
+          <h2>Explore the Invitations</h2>
+          <p>Choose a celebration to view live creative directions.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="gallery-tabs fade-in">
+          <button class="tab-btn active" data-tab="all">All Stories</button>
+          <button class="tab-btn" data-tab="wedding">Wedding</button>
+          <button class="tab-btn" data-tab="debut">Debut</button>
+          <button class="tab-btn" data-tab="birthday">Birthday</button>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Item 1: Wedding -->
+          <article class="gallery-card fade-in open-demo-trigger" data-category="wedding" data-title="Elena & Adrian" data-tag="Cinematic Wedding">
+            <div class="gallery-thumb">
+              <div class="serif" style="font-size: 1.8rem;">Elena &amp; Adrian</div>
+            </div>
+            <h3 class="serif" style="font-size: 1.6rem; margin-bottom: 0.25rem;">The Cinematic</h3>
+            <p style="font-size: 0.85rem; color: var(--story-plum); margin-bottom: 1rem;">For stories that feel like a film.</p>
+            <span class="occasion-link">View Invitation <span>→</span></span>
+          </article>
+
+          <!-- Item 2: Debut -->
+          <article class="gallery-card fade-in open-demo-trigger" data-category="debut" data-title="Sophia's 18th" data-tag="Enchanted Debut">
+            <div class="gallery-thumb" style="background-color: #FAF9FC;">
+              <div class="serif" style="font-size: 1.8rem;">Sophia at 18</div>
+            </div>
+            <h3 class="serif" style="font-size: 1.6rem; margin-bottom: 0.25rem;">The Enchanted</h3>
+            <p style="font-size: 0.85rem; color: var(--story-plum); margin-bottom: 1rem;">Dreamy, ethereal, and magical celebration.</p>
+            <span class="occasion-link">View Invitation <span>→</span></span>
+          </article>
+
+          <!-- Item 3: Birthday -->
+          <article class="gallery-card fade-in open-demo-trigger" data-category="birthday" data-title="Marcus' 30th" data-tag="Statement Birthday">
+            <div class="gallery-thumb" style="background-color: #26242B; color: #F1EFF9;">
+              <div class="serif" style="font-size: 1.8rem;">Marcus XXX</div>
+            </div>
+            <h3 class="serif" style="font-size: 1.6rem; margin-bottom: 0.25rem;">The Statement</h3>
+            <p style="font-size: 0.85rem; color: var(--story-muted-lavender); margin-bottom: 1rem;">Bold, modern, and high-energy milestone.</p>
+            <span class="occasion-link">View Invitation <span>→</span></span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       06 — HOW YOUR OWN STORYINVITE BEGINS
        ========================================================================== -->
     <section class="personalization-section section-padding">
-      <div class="container">
-        <div class="personalization-grid">
-          <div class="fade-in">
-            <span class="label-uppercase">The Differentiator</span>
-            <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1.5rem;">Made around your story.</h2>
-            <p style="line-height: 1.8; margin-bottom: 2rem;">
-              We don't simply swap text inside a rigid box. We take your personal details—your coffee dates, trip memories, favorite songs, and years together—and design an invitation experience around them.
-            </p>
-            <button class="btn open-inquiry-btn">Start Your Invitation <span class="btn-arrow">→</span></button>
-          </div>
+      <div class="container personalization-container fade-in">
+        <span class="label-uppercase">Bespoke Process</span>
+        <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1rem;">Your story becomes your invitation.</h2>
+        <p style="font-size: 1.15rem; line-height: 1.8; color: rgba(38, 36, 43, 0.85);">
+          You don't have to fit your celebration into a template. Tell us about your occasion, your style, your ideas, and the details that matter to you. We'll turn them into a digital invitation designed specifically for you.
+        </p>
 
-          <div class="transform-box fade-in">
-            <span class="label-uppercase" style="margin-bottom: 1.5rem;">Your Elements</span>
-            <ul class="raw-moments-list">
-              <li class="raw-moment-item"><span class="raw-moment-dot"></span> Coffee dates in Sunday rain</li>
-              <li class="raw-moment-item"><span class="raw-moment-dot"></span> New York weekend trip</li>
-              <li class="raw-moment-item"><span class="raw-moment-dot"></span> Our favorite acoustic song</li>
-              <li class="raw-moment-item"><span class="raw-moment-dot"></span> Seven years of growth</li>
-            </ul>
-            <div class="transform-arrow">↓</div>
-            <div style="text-align: center; font-family: var(--font-serif); font-size: 1.6rem; color: var(--story-charcoal); font-style: italic;">
-              A finished, bespoke digital invitation.
-            </div>
-          </div>
+        <div class="flow-sequence">
+          <div class="flow-node">YOUR IDEA</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node">YOUR STORY</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node">YOUR DESIGN</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node">YOUR STORYINVITE</div>
         </div>
+
+        <button class="btn open-inquiry-btn">Start Your Invitation <span class="btn-arrow">→</span></button>
       </div>
     </section>
 
     <!-- ==========================================================================
-       6. WHAT'S INCLUDED
+       07 — PACKAGES
        ========================================================================== -->
-    <section class="features-section section-padding">
-      <div class="container">
-        <div style="text-align: center; max-width: 640px; margin: 0 auto;" class="fade-in">
-          <span class="label-uppercase">Included Features</span>
-          <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem);">Everything your guests need.</h2>
-          <p>Thoughtfully organized so your guests feel welcomed and fully informed.</p>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-card fade-in">
-            <div class="feature-icon">❖</div>
-            <h3 class="feature-title">Your Story</h3>
-            <p class="feature-desc">Tell them how it all began with written notes or audio timeline moments.</p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">✦</div>
-            <h3 class="feature-title">Wedding Details</h3>
-            <p class="feature-desc">Date, venue, schedule, dress code, and interactive maps in one place.</p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">🖼</div>
-            <h3 class="feature-title">Gallery</h3>
-            <p class="feature-desc">Share your favorite photographs and memories seamlessly.</p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">✉</div>
-            <h3 class="feature-title">Digital RSVP</h3>
-            <p class="feature-desc">Collect responses, dietary requirements, and song requests effortlessly.</p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">⏳</div>
-            <h3 class="feature-title">Countdown</h3>
-            <p class="feature-desc">Build anticipation with a subtle live countdown to your celebration.</p>
-          </div>
-
-          <div class="feature-card fade-in">
-            <div class="feature-icon">♪</div>
-            <h3 class="feature-title">Music &amp; Motion</h3>
-            <p class="feature-desc">Bring the experience to life with delicate background audio and slow transitions.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-       7. HOW IT WORKS
-       ========================================================================== -->
-    <section id="how-it-works" class="process-section section-padding">
-      <div class="container">
-        <div style="text-align: center; max-width: 640px; margin: 0 auto;" class="fade-in">
-          <span class="label-uppercase">The Journey</span>
-          <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem);">From your story to your invitation.</h2>
-        </div>
-
-        <div class="process-grid">
-          <div class="process-step fade-in">
-            <div class="step-num">01</div>
-            <h3 class="step-title">Tell us your story</h3>
-            <p class="step-desc">Share your ideas, photos, wedding details, and music preferences.</p>
-          </div>
-
-          <div class="process-step fade-in">
-            <div class="step-num">02</div>
-            <h3 class="step-title">We design</h3>
-            <p class="step-desc">We turn your details into a personalized interactive invitation preview.</p>
-          </div>
-
-          <div class="process-step fade-in">
-            <div class="step-num">03</div>
-            <h3 class="step-title">Review</h3>
-            <p class="step-desc">You explore the live draft and share your feedback for refinements.</p>
-          </div>
-
-          <div class="process-step fade-in">
-            <div class="step-num">04</div>
-            <h3 class="step-title">Share</h3>
-            <p class="step-desc">Your final invitation link is ready to send to your guests.</p>
-          </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 4rem;" class="fade-in">
-          <button class="btn open-inquiry-btn">Start Your Invitation <span class="btn-arrow">→</span></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-       8. PRICE / PRODUCT (THE SIGNATURE INVITATION)
-       ========================================================================== -->
-    <section class="package-section section-padding">
+    <section id="packages" class="packages-section section-padding">
       <div class="container package-container fade-in">
-        <span class="label-uppercase" style="color: var(--story-muted-lavender);">The Offering</span>
-        <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); color: var(--story-lavender);">The Signature Invitation</h2>
+        <span class="label-uppercase" style="color: var(--story-muted-lavender);">Simple Offering</span>
+        <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem); color: var(--story-lavender);">Choose your StoryInvite</h2>
         <div class="package-price">₱2,500</div>
         
         <p class="package-desc">
-          A personalized, interactive digital wedding invitation created around who you are as a couple — your story, your personality, your favorite things, your memories, and the feeling you want to share with your guests.
+          THE SIGNATURE INVITATION — A personalized, interactive digital invitation created around your celebration.
         </p>
 
-        <ul class="package-features-list">
-          <li class="package-feature-item">Bespoke Design Storytelling</li>
-          <li class="package-feature-item">Custom Background Audio / Music</li>
-          <li class="package-feature-item">Interactive Schedule &amp; Maps</li>
-          <li class="package-feature-item">Online RSVP Tracking</li>
-          <li class="package-feature-item">Photo Gallery Showcase</li>
-          <li class="package-feature-item">Entourage Introduction</li>
+        <ul class="package-features-grid">
+          <li class="package-feature-item">Personalized design</li>
+          <li class="package-feature-item">Event details &amp; maps</li>
+          <li class="package-feature-item">Photo gallery</li>
+          <li class="package-feature-item">Story / introduction</li>
+          <li class="package-feature-item">Digital RSVP tracking</li>
+          <li class="package-feature-item">Live countdown</li>
+          <li class="package-feature-item">Custom music integration</li>
+          <li class="package-feature-item">Entourage / court list</li>
+          <li class="package-feature-item">Gift information</li>
+          <li class="package-feature-item">Interactive animations</li>
         </ul>
 
-        <button class="btn btn-light open-inquiry-btn" style="padding: 1.25rem 3rem;">Get Started <span class="btn-arrow">→</span></button>
+        <button class="btn btn-light open-inquiry-btn" style="padding: 1.25rem 3rem;">Create My Invitation <span class="btn-arrow">→</span></button>
       </div>
     </section>
 
     <!-- ==========================================================================
-       9. ABOUT STORYINVITES
+       08 — THE JOURNEY
        ========================================================================== -->
-    <section id="about" class="about-section section-padding">
-      <div class="container about-container fade-in">
-        <span class="label-uppercase">About The Studio</span>
-        <h2 class="about-headline">We believe your invitation should be personal.</h2>
-        <p class="about-copy">
-          Every couple has their own story. The places you've been. The things you love. The memories you've made. The little details that make your relationship yours.<br><br>
-          StoryInvites was created to turn those details into something your guests can experience before the wedding day even begins.
+    <section id="how-it-works" class="journey-section section-padding">
+      <div class="container">
+        <div style="text-align: center; max-width: 640px; margin: 0 auto;" class="fade-in">
+          <span class="label-uppercase">Workflow</span>
+          <h2 style="font-size: clamp(2.5rem, 4vw, 3.5rem);">From idea to invitation.</h2>
+        </div>
+
+        <div class="journey-grid">
+          <div class="journey-step fade-in">
+            <div class="journey-num">01</div>
+            <h3 class="journey-title">Tell us</h3>
+            <p class="journey-desc">Share your event details, story, ideas, photos, and preferences.</p>
+          </div>
+
+          <div class="journey-step fade-in">
+            <div class="journey-num">02</div>
+            <h3 class="journey-title">We create</h3>
+            <p class="journey-desc">We turn your information into the first version of your StoryInvite.</p>
+          </div>
+
+          <div class="journey-step fade-in">
+            <div class="journey-num">03</div>
+            <h3 class="journey-title">You review</h3>
+            <p class="journey-desc">You see your invitation draft and share your feedback.</p>
+          </div>
+
+          <div class="journey-step fade-in">
+            <div class="journey-num">04</div>
+            <h3 class="journey-title">We refine</h3>
+            <p class="journey-desc">We make agreed revisions and finalize everything seamlessly.</p>
+          </div>
+
+          <div class="journey-step fade-in">
+            <div class="journey-num">05</div>
+            <h3 class="journey-title">You share</h3>
+            <p class="journey-desc">Your invitation is ready to send to your guests.</p>
+          </div>
+        </div>
+
+        <p style="text-align: center; font-style: italic; font-family: var(--font-serif); font-size: 1.25rem; color: var(--story-plum); margin-top: 3.5rem;" class="fade-in">
+          Clear process. Personal attention. One invitation made for you.
         </p>
-        <div class="serif" style="font-size: 1.8rem; color: var(--story-plum);">StoryInvites</div>
-        <p style="font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.5rem;">Your story. Your style. Your invitation.</p>
       </div>
     </section>
 
     <!-- ==========================================================================
-       10. FINAL CTA
+       09 — TRUST
+       ========================================================================== -->
+    <section class="trust-section section-padding">
+      <div class="container">
+        <div style="text-align: center; max-width: 640px; margin: 0 auto;" class="fade-in">
+          <span class="label-uppercase">Our Standard</span>
+          <h2 style="font-size: clamp(2.2rem, 3.5vw, 3rem);">Thoughtfully designed. Clearly delivered.</h2>
+        </div>
+
+        <div class="trust-grid">
+          <div class="trust-card fade-in">
+            <h3 class="trust-title">Personalized</h3>
+            <p class="trust-desc">Every StoryInvite is created around your specific celebration.</p>
+          </div>
+
+          <div class="trust-card fade-in">
+            <h3 class="trust-title">Simple</h3>
+            <p class="trust-desc">From your first details to the final invitation, the process is clear and guided.</p>
+          </div>
+
+          <div class="trust-card fade-in">
+            <h3 class="trust-title">Personal</h3>
+            <p class="trust-desc">You work directly with us throughout the process so the final invitation feels right to you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       09.5 — ABOUT STORYINVITES
+       ========================================================================== -->
+    <section id="about" class="section-padding" style="background-color: var(--story-soft); text-align: center; border-top: 1px solid rgba(185,177,211,0.3);">
+      <div class="container" style="max-width: 760px;">
+        <span class="label-uppercase">About The Studio</span>
+        <h2 style="font-size: clamp(2.2rem, 3.5vw, 3rem); margin-bottom: 1.5rem;">A modern invitation studio for life's celebrations.</h2>
+        <p style="font-size: 1.15rem; line-height: 1.8; color: rgba(38,36,43,0.85);">
+          StoryInvites creates beautiful, personalized digital invitations for the moments people celebrate and remember—weddings, debuts, birthdays, and milestones worth holding onto.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       10 — FINAL CTA
        ========================================================================== -->
     <section class="final-cta">
       <div class="container final-cta-container fade-in">
-        <h2 class="final-cta-headline">Ready to tell your story?</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 2.5rem;">Let's create an invitation that feels like you.</p>
-        <button class="btn open-inquiry-btn">Start Your Invitation <span class="btn-arrow">→</span></button>
+        <h2 class="final-cta-headline">Your celebration deserves an invitation that feels like you.</h2>
+        <div class="final-cta-occasions">Weddings. Debuts. Birthdays.</div>
+        <button class="btn open-inquiry-btn">Create Your StoryInvite <span class="btn-arrow">→</span></button>
         <div class="final-cta-tagline">
-          StoryInvites — Your story. Your style. Your invitation.
+          STORYINVITES — Your story. Your style. Your invitation.
         </div>
       </div>
     </section>
@@ -1408,32 +1393,33 @@
           <ul class="footer-nav-list">
             <li><a href="#invitations">Invitations</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#packages">Packages</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#" class="open-inquiry-btn">Start Your Invitation</a></li>
+            <li><a href="#" class="open-inquiry-btn">Create Yours</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div>&copy; 2026 StoryInvites. All rights reserved.</div>
-        <div>Personalized Digital Wedding Invitation Studio</div>
+        <div>Studio for Life's Celebrations</div>
       </div>
     </div>
   </footer>
 
   <!-- ==========================================================================
-     4. INVITATION PREVIEW MODAL (LIVE DEMO EXPERIENCE)
+     05 — EXPERIENCE A STORYINVITE (LIVE DEMO MODAL)
      ========================================================================== -->
   <div class="preview-modal" id="demoModal">
     <div class="modal-frame">
       <button class="modal-close-btn" id="closeDemoBtn">&times;</button>
       <div class="modal-scroll-screen">
         
-        <div class="invitation-demo-header">
-          <span class="invitation-demo-tag" id="demoDirectionTag">Cinematic Story</span>
-          <h2 class="invitation-demo-names" id="demoCoupleNames">Elena &amp; Adrian</h2>
+        <div class="demo-header">
+          <span class="demo-tag" id="demoTag">Live Invitation Preview</span>
+          <h2 class="demo-names" id="demoTitle">Elena &amp; Adrian</h2>
           <p style="font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; color: var(--story-plum);">
-            "Are celebrating their wedding"
+            "Are celebrating their special day"
           </p>
         </div>
 
@@ -1442,66 +1428,62 @@
         </div>
 
         <div class="demo-section-box">
-          <div class="demo-box-title">Our Story</div>
+          <div class="demo-box-title">The Story / Intro</div>
           <p style="font-size: 0.88rem; line-height: 1.6; color: rgba(38,36,43,0.8);">
-            We met on a rainy Tuesday afternoon in 2021. What began as a brief coffee conversation turned into years of shared adventures, quiet mornings, and a love built to last.
+            Welcome to our celebration. We've gathered our closest friends and family to share this milestone with us.
           </p>
         </div>
 
         <div class="demo-section-box">
-          <div class="demo-box-title">Wedding Details</div>
+          <div class="demo-box-title">Event Details</div>
           <p style="font-size: 0.85rem; line-height: 1.6;">
             <strong>Date:</strong> November 18, 2026<br>
-            <strong>Ceremony:</strong> The Glasshouse Conservatory<br>
-            <strong>Reception:</strong> St. Jude Hall
+            <strong>Venue:</strong> The Glasshouse Conservatory<br>
+            <strong>Time:</strong> 4:00 PM
           </p>
         </div>
 
         <div class="demo-section-box">
           <div class="demo-box-title">RSVP</div>
-          <p style="font-size: 0.85rem; color: rgba(38,36,43,0.7);">Kindly respond by October 1st.</p>
+          <p style="font-size: 0.85rem; color: rgba(38,36,43,0.7);">Kindly confirm your attendance.</p>
           <button class="demo-rsvp-btn">Confirm Attendance</button>
         </div>
 
       </div>
 
       <div class="modal-bottom-bar">
-        <p style="font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--story-plum);">Love this direction?</p>
-        <button class="btn open-inquiry-btn close-demo-first" style="width: 100%; padding: 0.8rem;">Create Yours <span class="btn-arrow">→</span></button>
+        <p style="font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--story-plum);">Like what you see?</p>
+        <button class="btn open-inquiry-btn close-demo-first" style="width: 100%; padding: 0.8rem;">Create Your StoryInvite <span class="btn-arrow">→</span></button>
       </div>
     </div>
   </div>
 
-  <!-- ==========================================================================
-     INQUIRY FORM MODAL
-     ========================================================================== -->
+  <!-- INQUIRY FORM MODAL -->
   <div class="inquiry-modal" id="inquiryModal">
     <div class="inquiry-card">
       <button class="modal-close-btn" id="closeInquiryBtn" style="top: 20px; right: 20px;">&times;</button>
-      <span class="label-uppercase">Begin Your Journey</span>
-      <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem;">Start Your Invitation</h2>
+      <span class="label-uppercase">Get Started</span>
+      <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem;">Create Your StoryInvite</h2>
       
       <form id="inquiryForm" onsubmit="event.preventDefault(); alert('Thank you! We will get back to you shortly.'); document.getElementById('inquiryModal').classList.remove('open');">
         <div class="form-group">
-          <label class="form-label">Couples' Names</label>
-          <input type="text" class="form-input" placeholder="e.g. Elena & Adrian" required>
+          <label class="form-label">Occasion / Name(s)</label>
+          <input type="text" class="form-input" placeholder="e.g. Elena & Adrian / Sophia's 18th" required>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Target Wedding Date</label>
-          <input type="date" class="form-input">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Preferred Style Direction</label>
+          <label class="form-label">Event Type</label>
           <select class="form-select">
-            <option>Cinematic</option>
-            <option>Romantic</option>
-            <option>Adventure</option>
-            <option>Modern</option>
-            <option>Playful</option>
-            <option>Bespoke / Custom</option>
+            <option>Wedding</option>
+            <option>Debut</option>
+            <option>Birthday</option>
+            <option>Other Celebration</option>
           </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Target Date</label>
+          <input type="date" class="form-input">
         </div>
 
         <div class="form-group">
@@ -1509,13 +1491,13 @@
           <input type="email" class="form-input" placeholder="you@example.com" required>
         </div>
 
-        <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Submit Inquiry <span class="btn-arrow">→</span></button>
+        <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Start Your StoryInvite <span class="btn-arrow">→</span></button>
       </form>
     </div>
   </div>
 
   <!-- ==========================================================================
-     INTERACTION SCRIPT
+     INTERACTIONS & SCRIPT
      ========================================================================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1530,49 +1512,52 @@
 
       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-      // Progression word reveal observer
-      const progressionItems = document.querySelectorAll('.progression-item');
-      const progressionFlow = document.getElementById('progressionFlow');
+      // Tabbed Gallery Filter JS
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const galleryCards = document.querySelectorAll('.gallery-card');
 
-      if (progressionFlow) {
-        const flowObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              progressionItems.forEach((item, idx) => {
-                setTimeout(() => {
-                  item.classList.add('active');
-                }, idx * 400);
-              });
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const category = btn.getAttribute('data-tab');
+
+          galleryCards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
             }
           });
-        }, { threshold: 0.4 });
+        });
+      });
 
-        flowObserver.observe(progressionFlow);
-      }
+      // Filter Triggers from Occasion Cards
+      document.querySelectorAll('.filter-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const cat = trigger.getAttribute('data-category');
+          const targetTab = document.querySelector(`.tab-btn[data-tab="${cat}"]`);
+          if (targetTab) targetTab.click();
+        });
+      });
 
-      // Demo Invitation Modal Controls
+      // Modal Triggers
       const demoModal = document.getElementById('demoModal');
       const closeDemoBtn = document.getElementById('closeDemoBtn');
       const demoTriggers = document.querySelectorAll('.open-demo-trigger');
-      const demoCoupleNames = document.getElementById('demoCoupleNames');
-      const demoDirectionTag = document.getElementById('demoDirectionTag');
+      const demoTitle = document.getElementById('demoTitle');
+      const demoTag = document.getElementById('demoTag');
 
       demoTriggers.forEach(trigger => {
         trigger.addEventListener('click', () => {
-          const names = trigger.getAttribute('data-title') || 'Elena & Adrian';
-          const direction = trigger.getAttribute('data-direction') || 'Cinematic Story';
-          demoCoupleNames.textContent = names;
-          demoDirectionTag.textContent = direction;
+          demoTitle.textContent = trigger.getAttribute('data-title') || 'Elena & Adrian';
+          demoTag.textContent = trigger.getAttribute('data-tag') || 'Live Preview';
           demoModal.classList.add('open');
         });
       });
 
       closeDemoBtn.addEventListener('click', () => demoModal.classList.remove('open'));
-      demoModal.addEventListener('click', (e) => {
-        if (e.target === demoModal) demoModal.classList.remove('open');
-      });
 
-      // Inquiry Modal Controls
       const inquiryModal = document.getElementById('inquiryModal');
       const closeInquiryBtn = document.getElementById('closeInquiryBtn');
       const inquiryBtns = document.querySelectorAll('.open-inquiry-btn');
@@ -1586,9 +1571,6 @@
       });
 
       closeInquiryBtn.addEventListener('click', () => inquiryModal.classList.remove('open'));
-      inquiryModal.addEventListener('click', (e) => {
-        if (e.target === inquiryModal) inquiryModal.classList.remove('open');
-      });
     });
   </script>
 </body>

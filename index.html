@@ -1,113 +1,544 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STORYINVITES — You're Invited</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    color: #333333;
-    line-height: 1.25;
-    margin: 40px;
+  :root {
+    --bg-warm: #FBF9F5;
+    --card-bg: #FFFDF9;
+    --text-primary: #2C2825;
+    --text-muted: #7A726A;
+    --accent: #A38272;
+    --border-light: #E8E2D9;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Montserrat', sans-serif;
   }
-  .header-container {
-    text-align: center;
-    border-bottom: 2px solid #d3b8ae;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-  }
-  .header-title {
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 4px;
-    color: #4a3e3d;
+
+  * {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
   }
-  .header-subtitle {
-    font-size: 14px;
-    letter-spacing: 2px;
-    color: #8c736c;
-    margin-top: 5px;
-    margin-bottom: 5px;
+
+  body {
+    background-color: var(--bg-warm);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.8;
+    overflow-x: hidden;
+    /* Subtle paper texture overlay */
+    background-image: radial-gradient(#E8E2D9 0.75px, transparent 0.75px);
+    background-size: 24px 24px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Typography Utilities */
+  .serif { font-family: var(--font-serif); }
+  .sans { font-family: var(--font-sans); }
+  .uppercase { text-transform: uppercase; letter-spacing: 0.25em; }
+
+  /* Buttons & Interactions */
+  .btn-primary {
+    display: inline-block;
+    padding: 18px 36px;
+    background-color: var(--text-primary);
+    color: var(--bg-warm);
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease;
   }
-  .header-tagline {
-    font-size: 13px;
+
+  .btn-primary:hover {
+    background-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .btn-link {
+    font-family: var(--font-serif);
     font-style: italic;
-    color: #666666;
-    margin-top: 5px;
+    font-size: 18px;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
   }
-  .price-badge {
-    font-size: 22px;
-    font-weight: bold;
-    color: #8c736c;
-    margin-top: 10px;
+
+  .btn-link:hover {
+    gap: 14px;
   }
-  h2 {
-    color: #4a3e3d;
-    font-size: 16px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-    margin-top: 25px;
+
+  /* 01 — THE ARRIVAL (HERO / COVER) */
+  #arrival {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
   }
-  ul {
-    list-style-type: none;
-    padding-left: 0;
+
+  .invitation-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    padding: 80px 60px;
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.02);
+    position: relative;
   }
-  li {
+
+  .invitation-card::after {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(163, 130, 114, 0.2);
+    pointer-events: none;
+  }
+
+  .brand-logo {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .arrival-heading {
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.2;
     margin-bottom: 12px;
   }
-  .feature-title {
-    font-weight: bold;
-    color: #4a3e3d;
+
+  .arrival-sub {
+    font-size: 18px;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 50px;
   }
-  .check-list li {
-    margin-bottom: 6px;
+
+  /* Navigation Bar (Appears in main content) */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(251, 249, 245, 0.95);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--border-light);
+    padding: 20px 0;
+    z-index: 100;
+    text-align: center;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  nav a {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--text-muted);
+    transition: color 0.3s;
+  }
+
+  nav a:hover {
+    color: var(--text-primary);
+  }
+
+  /* Main Content Sections */
+  .section {
+    padding: 120px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-tag {
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .section-title {
+    font-size: 38px;
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    margin: 40px auto;
+  }
+
+  /* 02 — THE OPENING & 05 — OUR STORY */
+  .story-text {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-primary);
+  }
+
+  .story-poem {
+    margin: 60px 0;
+    font-size: 20px;
+    color: var(--text-muted);
+  }
+
+  .story-poem p {
+    margin-bottom: 8px;
+  }
+
+  /* 03 — THE DETAILS (INCLUSIONS) */
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+    text-align: left;
+  }
+
+  .detail-item {
+    background: var(--card-bg);
+    padding: 30px;
+    border: 1px solid var(--border-light);
+  }
+
+  .detail-item h4 {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+    color: var(--accent);
+  }
+
+  .detail-item p {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* 06 — THE COLLECTION (SAMPLES) */
+  .collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .envelope-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    padding: 50px 40px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .envelope-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.04);
+  }
+
+  .envelope-names {
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+
+  .envelope-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    margin-bottom: 30px;
+  }
+
+  /* 07 — THE OFFERING & 08 — THE JOURNEY */
+  .offering-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    padding: 60px 40px;
+    margin-top: 40px;
+  }
+
+  .price {
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--accent);
+    margin: 20px 0;
+  }
+
+  .inclusions-list {
+    list-style: none;
+    max-width: 400px;
+    margin: 30px auto;
+    text-align: left;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .inclusions-list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-light);
+  }
+
+  .journey-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin: 60px 0;
+    text-align: left;
+  }
+
+  .step-num {
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+  }
+
+  .step h4 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .step p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* 09 — FOOTER */
+  footer {
+    border-top: 1px solid var(--border-light);
+    padding: 80px 20px 40px;
+    text-align: center;
+    background: var(--card-bg);
+  }
+
+  .footer-tagline {
+    font-size: 20px;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  .footer-legal {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    margin-top: 60px;
+  }
+
+  @media (max-width: 768px) {
+    .invitation-card { padding: 50px 30px; }
+    .arrival-heading { font-size: 36px; }
+    .story-text { font-size: 18px; }
+    nav ul { gap: 20px; }
+    .collection-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<div class="header-container">
-  <div class="header-title">STORYINVITES</div>
-  <div class="header-subtitle">Digital Wedding Invitations</div>
-  <div class="header-tagline">Your story, beautifully invited.</div>
-</div>
+  <!-- 01 — THE ARRIVAL -->
+  <section id="arrival">
+    <div class="invitation-card">
+      <div class="brand-logo uppercase sans">S T O R Y I N V I T E S</div>
+      <h1 class="arrival-heading serif">You’re invited.</h1>
+      <p class="arrival-sub serif">to something a little more personal.</p>
+      <a href="#main-content" class="btn-primary">Tap to enter</a>
+    </div>
+  </section>
 
-<p style="text-align: center; font-size: 15px;">Turn your love story into a beautiful digital invitation your guests can open, explore, and remember.</p>
+  <!-- NAVIGATION -->
+  <div id="main-content"></div>
+  <nav class="uppercase">
+    <ul>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#collection">Stories</a></li>
+      <li><a href="#begin">Begin</a></li>
+    </ul>
+  </nav>
 
-<h2 style="text-align: center;">THE SIGNATURE INVITATION</h2>
-<div class="price-badge" style="text-align: center;">₱2,500</div>
+  <!-- 02 — THE INVITATION OPENS & 05 — OUR STORY -->
+  <section id="story" class="section">
+    <span class="section-tag uppercase">The Story</span>
+    <p class="story-text serif">
+      Every love story deserves an invitation that feels like it belongs to the two people inside it.
+    </p>
+    
+    <div class="divider"></div>
 
-<p style="text-align: center; font-style: italic; margin-bottom: 30px;">A personalized, interactive wedding invitation made around your story, your style, and your day.</p>
+    <h2 class="section-title serif">It starts with a story.</h2>
+    
+    <div class="story-poem serif">
+      <p>A first date.</p>
+      <p>A favorite place.</p>
+      <p>A song you always come back to.</p>
+      <p>A thousand little moments.</p>
+      <p style="margin-top: 16px; color: var(--text-primary);">And eventually, one very big question.</p>
+    </div>
 
-<h2>WHAT'S INCLUDED</h2>
-<ul>
-  <li><span class="feature-title">♡ Beautiful Opening</span><br>A personalized opening experience with your names, music, and an elegant “tap to open” reveal.</li>
-  <li><span class="feature-title">♡ Our Story</span><br>Share your journey, favorite moments, and memories in a way that feels uniquely yours.</li>
-  <li><span class="feature-title">♡ Wedding Details</span><br>Your date, time, ceremony, reception, venue, map, dress code, and other important details.</li>
-  <li><span class="feature-title">♡ Photo Gallery</span><br>Up to 10 photos, thoughtfully arranged to complement your invitation design.</li>
-  <li><span class="feature-title">♡ Wedding Entourage</span><br>Bridesmaids, groomsmen, principal sponsors, family, and wedding party.</li>
-  <li><span class="feature-title">♡ RSVP</span><br>A simple online RSVP with QR code for your guests.</li>
-  <li><span class="feature-title">♡ Countdown</span><br>A live countdown to your wedding day.</li>
-  <li><span class="feature-title">♡ Gifts</span><br>GCash, bank details, registry, or gift information.</li>
-  <li><span class="feature-title">♡ Music & Motion</span><br>Background music, elegant animations, transitions, and interactive details that bring your invitation to life.</li>
-  <li><span class="feature-title">♡ Your Design</span><br>A personalized visual style based on your colors, photos, mood, and wedding concept.</li>
-</ul>
+    <p class="story-text serif" style="font-style: italic;">
+      “Will you marry me?”
+    </p>
 
-<h2>YOUR INVITATION ALSO INCLUDES</h2>
-<ul class="check-list">
-  <li>✓ Mobile-friendly design</li>
-  <li>✓ Shareable invitation link</li>
-  <li>✓ Website setup & launch</li>
-  <li>✓ Personalized content placement</li>
-  <li>✓ Up to 2 rounds of revisions</li>
-</ul>
+    <div class="divider"></div>
 
-<br>
-<div style="text-align: center; margin-top: 20px; padding: 15px; background-color: #fcf8f7; border-radius: 5px;">
-  <div class="price-badge">₱2,500</div>
-  <p><strong>One complete invitation. Made uniquely yours.</strong><br>
-  <em>Introductory price for our first StoryInvites couples.</em></p>
-</div>
+    <p style="font-size: 14px; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+      We believe your invitation can tell a little bit of that story, too. We create personalized digital wedding invitations designed around the little things that make your story yours.
+    </p>
+  </section>
+
+  <!-- 03 — THE DETAILS (INCLUSIONS) -->
+  <section id="details" class="section">
+    <span class="section-tag uppercase">The Details</span>
+    <h2 class="section-title serif">Everything your guests need to know.</h2>
+    <p style="font-size: 14px; color: var(--text-muted);">
+      Personalized, interactive details built seamlessly into your digital invitation space.
+    </p>
+
+    <div class="details-grid uppercase">
+      <div class="detail-item">
+        <h4>01 — Opening Experience</h4>
+        <p>A tailored reveal with your favorite music and bespoke visual entrance.</p>
+      </div>
+      <div class="detail-item">
+        <h4>02 — Our Story</h4>
+        <p>A dedicated space sharing your journey, moments, and memories.</p>
+      </div>
+      <div class="detail-item">
+        <h4>03 — Event Details</h4>
+        <p>Interactive maps, schedules, dress code guides, and venue directions.</p>
+      </div>
+      <div class="detail-item">
+        <h4>04 — Photo Gallery</h4>
+        <p>Up to 10 curated moments integrated beautifully into your design.</p>
+      </div>
+      <div class="detail-item">
+        <h4>05 — Entourage</h4>
+        <p>Honoring family, principal sponsors, and your wedding party.</p>
+      </div>
+      <div class="detail-item">
+        <h4>06 — Seamless RSVP</h4>
+        <p>Direct guest response tracking accompanied by an instant QR code.</p>
+      </div>
+      <div class="detail-item">
+        <h4>07 — Countdown</h4>
+        <p>A real-time ticker keeping guests anticipate your special day.</p>
+      </div>
+      <div class="detail-item">
+        <h4>08 — Gift Registry</h4>
+        <p>Integrated banking details, GCash options, and gift preferences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 — THE COLLECTION (SAMPLE INVITATIONS) -->
+  <section id="collection" class="section">
+    <span class="section-tag uppercase">The Collection</span>
+    <h2 class="section-title serif">A few stories we've imagined.</h2>
+    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">
+      Explore real sample invitations built for different couples and styles.
+    </p>
+
+    <div class="collection-grid">
+      <!-- Sample Envelope 1 -->
+      <div class="envelope-card">
+        <h3 class="envelope-names serif">Elena & Adrian</h3>
+        <p class="envelope-meta uppercase">The Coffee Date · Manila · 2028</p>
+        <a href="#" class="btn-link">Open Invitation &rarr;</a>
+      </div>
+
+      <!-- Sample Envelope 2 -->
+      <div class="envelope-card">
+        <h3 class="envelope-names serif">Clara & Julian</h3>
+        <p class="envelope-meta uppercase">Minimalist Editorial · Cebu · 2027</p>
+        <a href="#" class="btn-link">Open Invitation &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 — OFFERING & 08 — JOURNEY -->
+  <section id="begin" class="section">
+    <span class="section-tag uppercase">Your Story Starts Here</span>
+    <h2 class="section-title serif">Now, imagine yours.</h2>
+    <p style="font-size: 15px; color: var(--text-muted); max-width: 550px; margin: 0 auto;">
+      Your wedding doesn't need to look like anyone else's. Tell us your story, your style, your little details — and we'll turn them into an invitation made for you.
+    </p>
+
+    <div class="offering-box">
+      <span class="uppercase" style="font-size: 11px; letter-spacing: 0.25em; color: var(--text-muted);">The Signature Invitation</span>
+      <div class="price serif">₱2,500</div>
+      <p class="serif" style="font-style: italic; font-size: 18px;">Your story. Your style. Your invitation.</p>
+      
+      <ul class="inclusions-list">
+        <li>✓ Mobile-friendly design</li>
+        <li>✓ Shareable invitation link</li>
+        <li>✓ Website setup & launch</li>
+        <li>✓ Personalized content placement</li>
+        <li>✓ Up to 2 rounds of revisions</li>
+      </ul>
+
+      <!-- 08 — Client Journey -->
+      <div class="divider"></div>
+      <span class="section-tag uppercase" style="margin-bottom: 30px;">Your Invitation Journey</span>
+
+      <div class="journey-steps">
+        <div class="step">
+          <div class="step-num uppercase">01</div>
+          <h4>Tell us your story</h4>
+          <p>Share the moments, details, photos, and feeling you want your invitation to have.</p>
+        </div>
+        <div class="step">
+          <div class="step-num uppercase">02</div>
+          <h4>The first draft</h4>
+          <p>Your unique digital space and invitation begin taking shape.</p>
+        </div>
+        <div class="step">
+          <div class="step-num uppercase">03</div>
+          <h4>Make it yours</h4>
+          <p>Review, refine, and personalize the details with two full revision rounds.</p>
+        </div>
+        <div class="step">
+          <div class="step-num uppercase">04</div>
+          <h4>Ready to share</h4>
+          <p>A seamless, elegant digital link you can send, share, and keep forever.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 50px;">
+        <a href="#contact" class="btn-primary">Create My Invitation &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 — FOOTER -->
+  <footer>
+    <div class="brand-logo uppercase sans">S T O R Y I N V I T E S</div>
+    <p class="footer-tagline serif">Made for stories worth inviting people into.</p>
+    <p class="uppercase" style="font-size: 11px; letter-spacing: 0.2em; color: var(--accent);">Your story starts here.</p>
+    
+    <p class="footer-legal uppercase">© 2026 STORYINVITES. ALL RIGHTS RESERVED.</p>
+  </footer>
 
 </body>
 </html>

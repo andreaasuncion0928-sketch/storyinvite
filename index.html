@@ -6,14 +6,14 @@
 <title>STORYINVITES — Digital Invitations for Life's Greatest Moments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
   :root {
     --bg-cream-main: #f5f0eb;
     --bg-card-light: #fefdfb;
     --bg-warm-tint: #e8dfd8;
-    --text-primary: #2c2623;
+    --text-primary: #1a1715;
     --text-secondary: #5a524c;
     --text-muted: #857b73;
     --accent-dark: #1a1715;
@@ -52,12 +52,12 @@
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background-color: rgba(245, 240, 235, 0.96);
+    background-color: rgba(245, 240, 235, 0.98);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-subtle);
   }
 
-  /* SMALLER BRAND LOGO TEXT FOR MOBILE */
+  /* BRAND LOGO TEXT */
   .logo-brand {
     display: flex;
     align-items: center;
@@ -67,15 +67,15 @@
     font-family: var(--font-serif);
     font-size: clamp(14px, 2.2vw, 20px);
     letter-spacing: clamp(0.08em, 0.12em, 0.18em);
-    font-weight: 600;
+    font-weight: 700;
     white-space: nowrap;
     flex-shrink: 0;
   }
 
-  /* RESPONSIVE NAV MENU */
+  /* RESPONSIVE NAV MENU WITH BOLD TEXT */
   .nav-menu {
     display: flex;
-    gap: clamp(8px, 1.5vw, 25px);
+    gap: clamp(10px, 1.8vw, 30px);
     list-style: none;
     overflow-x: auto;
     scrollbar-width: none; /* Firefox */
@@ -92,19 +92,20 @@
     border: none;
     cursor: pointer;
     font-family: var(--font-sans);
-    font-size: clamp(9.5px, 1.2vw, 11px);
-    letter-spacing: clamp(0.06em, 0.1em, 0.15em);
+    font-size: clamp(10px, 1.25vw, 11.5px);
+    font-weight: 800; /* BOLD MENU TEXT */
+    letter-spacing: clamp(0.08em, 0.12em, 0.16em);
     text-transform: uppercase;
-    color: var(--text-secondary);
-    transition: color 0.3s ease, border-color 0.3s ease;
-    padding: 4px 2px;
-    border-bottom: 1px solid transparent;
+    color: var(--text-primary); /* HIGH-VISIBILITY DARK COLOR */
+    transition: all 0.3s ease;
+    padding: 6px 4px;
+    border-bottom: 2px solid transparent;
     white-space: nowrap;
   }
 
   .nav-menu button.active, .nav-menu button:hover {
-    color: var(--text-primary);
-    border-bottom-color: var(--text-primary);
+    color: var(--gold-accent);
+    border-bottom-color: var(--gold-accent);
   }
 
   /* AUDIO MUTE BUTTON */
@@ -120,6 +121,7 @@
     border-radius: 40px;
     font-family: var(--font-sans);
     font-size: 9px;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     cursor: pointer;
@@ -180,7 +182,7 @@
   .hero-text-card {
     position: relative;
     z-index: 2;
-    background: rgba(254, 253, 251, 0.30); /* EXACT 30% OPACITY PANEL */
+    background: rgba(254, 253, 251, 0.30);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     padding: clamp(25px, 4vw, 60px);
@@ -228,6 +230,7 @@
     text-decoration: none;
     padding: 12px 28px;
     font-size: 10px;
+    font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     border: 1px solid var(--accent-dark);
@@ -248,7 +251,7 @@
     color: #FFF;
     padding: 9px 18px;
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-decoration: none;
@@ -439,6 +442,7 @@
     padding: 8px 20px;
     font-family: var(--font-sans);
     font-size: 10px;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-secondary);
@@ -484,7 +488,7 @@
     color: var(--gold-accent);
     margin-bottom: 4px;
     display: block;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .detailed-card-grid {
@@ -502,7 +506,7 @@
     color: var(--text-secondary);
     margin-bottom: 10px;
     display: block;
-    font-weight: 500;
+    font-weight: 700;
   }
 
   .desktop-frame-box {
@@ -542,7 +546,7 @@
   .snapshot-phase-number {
     font-family: var(--font-sans);
     font-size: 9.5px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 0.2em;
     color: var(--gold-accent);
     text-transform: uppercase;
@@ -654,7 +658,7 @@
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 700;
     color: var(--text-primary);
   }
 
@@ -685,6 +689,7 @@
 
   .contact-info-item {
     font-size: 13.5px;
+    font-weight: 600;
     color: var(--bg-warm-tint);
     display: flex;
     align-items: center;
@@ -706,6 +711,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 9.5px;
+    font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
@@ -738,14 +744,14 @@
 </head>
 <body>
 
-  <!-- FIXED RESPONSIVE NAVIGATION HEADER -->
+  <!-- FIXED RESPONSIVE NAVIGATION HEADER WITH BOLD MENU LINKS -->
   <header>
     <a href="#" onclick="showPage('page-home')" class="logo-brand">STORYINVITES</a>
     <ul class="nav-menu">
-      <li><button id="nav-home" class="active" onclick="showPage('page-home')">Home</button></li>
-      <li><button id="nav-portfolio" onclick="showPage('page-portfolio')">Portfolio</button></li>
-      <li><button id="nav-journey" onclick="showPage('page-journey')">Invitation Journey</button></li>
-      <li><button id="nav-pricing" onclick="showPage('page-pricing')">Pricing</button></li>
+      <li><button id="nav-home" class="active" onclick="showPage('page-home')">HOME</button></li>
+      <li><button id="nav-portfolio" onclick="showPage('page-portfolio')">PORTFOLIO</button></li>
+      <li><button id="nav-journey" onclick="showPage('page-journey')">INVITATION JOURNEY</button></li>
+      <li><button id="nav-pricing" onclick="showPage('page-pricing')">PRICING</button></li>
     </ul>
   </header>
 

@@ -99,11 +99,11 @@
     border: none;
     cursor: pointer;
     font-family: var(--font-sans);
-    font-size: clamp(8.5px, 1.05vw, 10px); /* SMALLER FONT SIZE */
-    font-weight: 700; /* BOLD MENU TEXT */
+    font-size: clamp(8.5px, 1.05vw, 10px);
+    font-weight: 700;
     letter-spacing: clamp(0.06em, 0.1em, 0.14em);
     text-transform: uppercase;
-    color: var(--text-primary); /* HIGH-VISIBILITY DARK COLOR */
+    color: var(--text-primary);
     transition: all 0.3s ease;
     padding: 4px 2px;
     border-bottom: 2px solid transparent;
@@ -396,45 +396,6 @@
     border: 1px solid var(--border-subtle);
   }
 
-  /* REALISTIC PHONE PREVIEW CONTAINER */
-  .realistic-phone-stage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-  }
-
-  .phone-mockup-frame {
-    width: 270px;
-    height: 540px;
-    background: #111;
-    border-radius: 36px;
-    border: 8px solid #222;
-    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .phone-notch {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 110px;
-    height: 20px;
-    background: #222;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    z-index: 10;
-  }
-
-  .phone-screen-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: #FFF;
-  }
-
   /* PORTFOLIO TABBED LAYOUT */
   .portfolio-tabs {
     display: flex;
@@ -467,7 +428,7 @@
   .portfolio-tab-content { display: none; }
   .portfolio-tab-content.active { display: block; }
 
-  /* DETAILED PORTFOLIO CARD */
+  /* DETAILED PORTFOLIO CARD - FULL BROWSER ONLY */
   .detailed-portfolio-card {
     background: var(--bg-card-light);
     border: 1px solid var(--border-subtle);
@@ -498,27 +459,13 @@
     font-weight: 700;
   }
 
-  .detailed-card-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: 24px;
+  .detailed-card-body {
     padding: clamp(20px, 3vw, 40px);
-    align-items: center;
-  }
-
-  .view-label {
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    margin-bottom: 10px;
-    display: block;
-    font-weight: 700;
   }
 
   .desktop-frame-box {
     width: 100%;
-    height: 420px;
+    height: 520px;
     border: 1px solid var(--border-subtle);
     background: #FFF;
     border-radius: 4px;
@@ -743,9 +690,9 @@
     }
     .featured-collection-grid { grid-template-columns: 1fr; }
     .about-us-container { grid-template-columns: 1fr; }
-    .detailed-card-grid { grid-template-columns: 1fr; }
     .hero-cover-block { justify-content: center; padding: 16px; }
     .pricing-grid-layout { grid-template-columns: 1fr; }
+    .desktop-frame-box { height: 380px; }
   }
 </style>
 </head>
@@ -850,12 +797,12 @@
       </footer>
     </div>
 
-    <!-- PAGE 2: PORTFOLIO -->
+    <!-- PAGE 2: PORTFOLIO (NO MOBILE VIEWS) -->
     <div id="page-portfolio" class="view-page">
       <section class="section-block">
         <div class="section-header-center">
           <h2 class="section-title">The Complete Portfolio</h2>
-          <p class="section-tagline">Immerse yourself in our live digital invitation suites across desktop and mobile views</p>
+          <p class="section-tagline">Immerse yourself in our live interactive digital invitation suites</p>
         </div>
 
         <!-- PORTFOLIO CATEGORY TABS -->
@@ -878,21 +825,9 @@
               </div>
               <a href="https://ws1.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
-            <div class="detailed-card-grid">
-              <div>
-                <span class="view-label">💻 Desktop Browser View</span>
-                <div class="desktop-frame-box">
-                  <iframe src="https://ws1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
-                </div>
-              </div>
-              <div>
-                <span class="view-label">📱 Mobile Experience</span>
-                <div class="realistic-phone-stage">
-                  <div class="phone-mockup-frame">
-                    <div class="phone-notch"></div>
-                    <iframe src="https://ws1.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
-                  </div>
-                </div>
+            <div class="detailed-card-body">
+              <div class="desktop-frame-box">
+                <iframe src="https://ws1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
               </div>
             </div>
           </div>
@@ -907,21 +842,9 @@
               </div>
               <a href="https://ws2.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
-            <div class="detailed-card-grid">
-              <div>
-                <span class="view-label">💻 Desktop Browser View</span>
-                <div class="desktop-frame-box">
-                  <iframe src="https://ws2.storyinvites.com" class="iframe-style sample-iframe"></iframe>
-                </div>
-              </div>
-              <div>
-                <span class="view-label">📱 Mobile Experience</span>
-                <div class="realistic-phone-stage">
-                  <div class="phone-mockup-frame">
-                    <div class="phone-notch"></div>
-                    <iframe src="https://ws2.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
-                  </div>
-                </div>
+            <div class="detailed-card-body">
+              <div class="desktop-frame-box">
+                <iframe src="https://ws2.storyinvites.com" class="iframe-style sample-iframe"></iframe>
               </div>
             </div>
           </div>
@@ -936,21 +859,9 @@
               </div>
               <a href="https://ws3.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
-            <div class="detailed-card-grid">
-              <div>
-                <span class="view-label">💻 Desktop Browser View</span>
-                <div class="desktop-frame-box">
-                  <iframe src="https://ws3.storyinvites.com" class="iframe-style sample-iframe"></iframe>
-                </div>
-              </div>
-              <div>
-                <span class="view-label">📱 Mobile Experience</span>
-                <div class="realistic-phone-stage">
-                  <div class="phone-mockup-frame">
-                    <div class="phone-notch"></div>
-                    <iframe src="https://ws3.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
-                  </div>
-                </div>
+            <div class="detailed-card-body">
+              <div class="desktop-frame-box">
+                <iframe src="https://ws3.storyinvites.com" class="iframe-style sample-iframe"></iframe>
               </div>
             </div>
           </div>
@@ -965,21 +876,9 @@
               </div>
               <a href="https://ws4.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
-            <div class="detailed-card-grid">
-              <div>
-                <span class="view-label">💻 Desktop Browser View</span>
-                <div class="desktop-frame-box">
-                  <iframe src="https://ws4.storyinvites.com" class="iframe-style sample-iframe"></iframe>
-                </div>
-              </div>
-              <div>
-                <span class="view-label">📱 Mobile Experience</span>
-                <div class="realistic-phone-stage">
-                  <div class="phone-mockup-frame">
-                    <div class="phone-notch"></div>
-                    <iframe src="https://ws4.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
-                  </div>
-                </div>
+            <div class="detailed-card-body">
+              <div class="desktop-frame-box">
+                <iframe src="https://ws4.storyinvites.com" class="iframe-style sample-iframe"></iframe>
               </div>
             </div>
           </div>
@@ -994,21 +893,9 @@
               </div>
               <a href="https://ws5.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
-            <div class="detailed-card-grid">
-              <div>
-                <span class="view-label">💻 Desktop Browser View</span>
-                <div class="desktop-frame-box">
-                  <iframe src="https://ws5.storyinvites.com" class="iframe-style sample-iframe"></iframe>
-                </div>
-              </div>
-              <div>
-                <span class="view-label">📱 Mobile Experience</span>
-                <div class="realistic-phone-stage">
-                  <div class="phone-mockup-frame">
-                    <div class="phone-notch"></div>
-                    <iframe src="https://ws5.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
-                  </div>
-                </div>
+            <div class="detailed-card-body">
+              <div class="desktop-frame-box">
+                <iframe src="https://ws5.storyinvites.com" class="iframe-style sample-iframe"></iframe>
               </div>
             </div>
           </div>
@@ -1026,21 +913,9 @@
               </div>
               <a href="https://ds1.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
-            <div class="detailed-card-grid">
-              <div>
-                <span class="view-label">💻 Desktop Browser View</span>
-                <div class="desktop-frame-box">
-                  <iframe src="https://ds1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
-                </div>
-              </div>
-              <div>
-                <span class="view-label">📱 Mobile Experience</span>
-                <div class="realistic-phone-stage">
-                  <div class="phone-mockup-frame">
-                    <div class="phone-notch"></div>
-                    <iframe src="https://ds1.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
-                  </div>
-                </div>
+            <div class="detailed-card-body">
+              <div class="desktop-frame-box">
+                <iframe src="https://ds1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
               </div>
             </div>
           </div>

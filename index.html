@@ -137,6 +137,51 @@
   .script { font-family: var(--font-script); }
   .uppercase { text-transform: uppercase; letter-spacing: 0.22em; }
 
+  /* UNIFIED COLLECTION HEADER PANEL */
+  .collection-unified-header {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    background: rgba(30, 21, 42, 0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(163, 140, 97, 0.35);
+    border-radius: 20px;
+    padding: 40px 40px 35px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .collection-unified-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  }
+
+  .collection-unified-header .articulate-title-block {
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .collection-unified-header .articulate-title-block::after {
+    display: none;
+  }
+
+  .collection-unified-header .section-story-intro {
+    margin-top: 15px;
+  }
+
+  .collection-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--color-gold-accent);
+    margin: 20px auto 25px;
+    opacity: 0.6;
+  }
+
   /* Section Story Intros */
   .section-story-intro {
     text-align: center;
@@ -479,6 +524,8 @@
     align-items: center;
     gap: 6px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    cursor: pointer;
+    user-select: none;
   }
 
   .device-badge::before {
@@ -1005,22 +1052,38 @@
     }
     
     .hero-description { margin: 0 auto 25px; }
+
+    /* HIDE DEVICES IN HERO IN INTRODUCTION ON MOBILE BY DEFAULT */
+    .hero-device-stage .device-desktop,
+    .hero-device-stage .device-mobile {
+      display: none;
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    /* SHOW FLOATING DEVICES WHEN PREVIEW BADGE IS CLICKED */
+    .hero-device-stage.show-mobile-devices .device-desktop {
+      display: block;
+      position: absolute;
+      width: 82%;
+      left: 0;
+      top: 20px;
+      z-index: 11;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .hero-device-stage.show-mobile-devices .device-mobile {
+      display: block;
+      position: absolute;
+      width: 48%;
+      right: 0;
+      bottom: -10px;
+      z-index: 12;
+      animation: fadeInUp 0.8s ease forwards;
+    }
     
     .hero-device-stage { 
       height: 320px; 
       width: 100%;
-    }
-    
-    .device-desktop { 
-      width: 82%; 
-      left: 0; 
-      top: 0; 
-    }
-    
-    .device-mobile { 
-      width: 48%; 
-      right: 0; 
-      bottom: 0; 
     }
     
     .category-tabs-wrapper { 
@@ -1083,14 +1146,6 @@
     .hero-device-stage {
       height: 280px;
     }
-    
-    .device-desktop {
-      width: 88%;
-    }
-    
-    .device-mobile {
-      width: 52%;
-    }
   }
 </style>
 </head>
@@ -1139,9 +1194,9 @@
         </div>
       </div>
 
-      <!-- Live Hero Preview Embed (ds1.storyinvites.com) - Prominently Scaled Devices -->
-      <div class="hero-device-stage">
-        <div class="device-badge uppercase">
+      <!-- Live Hero Preview Embed (ds1.storyinvites.com) - Interactive Trigger on Mobile -->
+      <div class="hero-device-stage" id="heroStage">
+        <div class="device-badge uppercase" onclick="toggleHeroMobileDevices()">
           <span>Live Interactive Preview</span>
         </div>
 
@@ -1219,7 +1274,7 @@
           </div>
         </div>
 
-        <!-- TEMPLATE 02: THE CINEMATIC COUPLE (UPDATED TO WS4) -->
+        <!-- TEMPLATE 02: THE CINEMATIC COUPLE (WS4) -->
         <div class="unified-template-card">
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Cinematic Couple</h3>
@@ -1281,7 +1336,7 @@
           </div>
         </div>
 
-        <!-- TEMPLATE 04: THE CLASSIC WITH A TWIST (UPDATED TO WS2) -->
+        <!-- TEMPLATE 04: THE CLASSIC WITH A TWIST (WS2) -->
         <div class="unified-template-card">
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Classic with a Twist</h3>
@@ -1604,6 +1659,14 @@
         iframe.src = '';
         iframe.src = currentSrc;
       });
+    }
+
+    // TOGGLE HERO MOBILE DEVICES DISPLAY ON CLICK
+    function toggleHeroMobileDevices() {
+      const heroStage = document.getElementById('heroStage');
+      if (window.innerWidth <= 992) {
+        heroStage.classList.toggle('show-mobile-devices');
+      }
     }
 
     // ARTICULATE-STYLE SCROLL INTERSECTION OBSERVER FOR FADE-IN TITLE BLOCKS

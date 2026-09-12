@@ -44,16 +44,28 @@
     font-family: var(--font-sans);
     line-height: 1.8;
     overflow-x: hidden;
-    /* Ultra-subtle, premium ambient mesh background texture */
+    /* Rich ambient mesh gradient background */
     background-image: 
-      radial-gradient(at 0% 0%, rgba(218, 208, 236, 0.45) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(232, 226, 243, 0.55) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, rgba(243, 240, 248, 0.85) 0px, transparent 100%);
+      radial-gradient(at 0% 0%, rgba(218, 208, 236, 0.5) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(232, 226, 243, 0.6) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(243, 240, 248, 0.9) 0px, transparent 100%);
     background-attachment: fixed;
+    position: relative;
+  }
+
+  /* VISIBLE NOISE / GRAIN OVERLAY LAYER */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.35;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
   /* Alternating Lavender Section Styles */
-  .section-l1 { background-color: var(--bg-lavender-1); }
+  .section-l1 { background-color: transparent; }
   .section-l2 { background-color: var(--bg-lavender-2); }
   .section-l3 { background-color: var(--bg-lavender-3); }
 
@@ -197,7 +209,7 @@
     color: var(--color-accent);
   }
 
-  /* HERO INTRO PAGE */
+  /* HERO INTRO PAGE WITH RADIANT GLOW & GRAIN */
   .hero-container {
     min-height: 100vh;
     padding: 160px 50px 100px;
@@ -210,6 +222,20 @@
     position: relative;
   }
 
+  /* Vibrant radiant background glow element behind hero text */
+  .hero-container::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(170, 140, 220, 0.25) 0%, rgba(218, 208, 236, 0.05) 70%, transparent 100%);
+    filter: blur(50px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
   .hero-tag {
     display: inline-block;
     padding: 8px 18px;
@@ -220,6 +246,8 @@
     font-weight: 600;
     color: var(--color-accent);
     margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
   }
 
   .hero-title {
@@ -228,6 +256,8 @@
     line-height: 1.05;
     margin-bottom: 24px;
     color: var(--color-ink);
+    position: relative;
+    z-index: 1;
   }
 
   .hero-title span {
@@ -242,6 +272,8 @@
     color: var(--color-charcoal);
     margin-bottom: 40px;
     max-width: 520px;
+    position: relative;
+    z-index: 1;
   }
 
   /* Dual Device Live Embed Stage */
@@ -251,6 +283,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
   }
 
   .device-mockup {
@@ -542,11 +575,27 @@
     margin: 0 auto;
   }
 
-  /* CLIENT BUY-IN SECTION (WHY US - GENERALIZED FOR ALL EVENTS) */
+  /* REFINED WHY US SECTION WITH RADIANT LAVENDER GLASS CARDS */
   .buyin-section {
     padding: 120px 50px;
     max-width: 1300px;
     margin: 0 auto;
+    position: relative;
+  }
+
+  /* Radiant ambient lighting sphere behind Why Us section */
+  .buyin-section::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(184, 160, 225, 0.22) 0%, rgba(232, 226, 243, 0.05) 70%, transparent 100%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
   }
 
   .buyin-grid {
@@ -554,27 +603,66 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 60px;
+    position: relative;
+    z-index: 1;
   }
 
+  /* Glassmorphic card styling matching intro page aesthetics */
   .buyin-card {
-    background: rgba(250, 248, 252, 0.65);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    padding: 40px 30px;
-    border-radius: 12px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    background: linear-gradient(
+      135deg, 
+      rgba(255, 255, 255, 0.75) 0%, 
+      rgba(238, 232, 248, 0.45) 100%
+    );
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-top: 1px solid rgba(255, 255, 255, 0.95);
+    padding: 42px 35px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(98, 72, 152, 0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+  }
+
+  /* Subtle glossy sheen highlight across upper portion of Why Us cards */
+  .buyin-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 40%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
+    pointer-events: none;
   }
 
   .buyin-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(98, 72, 152, 0.08);
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(98, 72, 152, 0.12);
+    border-color: rgba(163, 130, 215, 0.5);
+  }
+
+  .buyin-card-wide {
+    grid-column: span 2;
+    background: linear-gradient(
+      135deg, 
+      rgba(255, 255, 255, 0.85) 0%, 
+      rgba(232, 224, 246, 0.55) 100%
+    );
   }
 
   .buyin-icon {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--color-accent);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: rgba(98, 72, 152, 0.08);
+    border-radius: 50%;
+    border: 1px solid rgba(98, 72, 152, 0.15);
   }
 
   /* PROCESS SECTION */
@@ -634,7 +722,7 @@
     .iframe-container-mobile { width: 220px; height: 440px; }
     .showcase-info { grid-column: span 1; flex-direction: column; gap: 20px; align-items: flex-start; }
     .buyin-grid, .process-grid, .offer-box { grid-template-columns: 1fr; }
-    .buyin-card[style*="span 2"] { grid-column: span 1 !important; }
+    .buyin-card-wide { grid-column: span 1 !important; }
     .audio-reset-btn { bottom: 20px; right: 20px; padding: 12px 18px; font-size: 10px; }
   }
 </style>
@@ -946,7 +1034,7 @@
     </section>
   </div>
 
-  <!-- CLIENT BUY-IN SECTION (#f3f0f8) — GENERALIZED FOR ALL EVENTS (WEDDINGS, DEBUTS, BIRTHDAYS) -->
+  <!-- REFINED WHY US SECTION WITH RADIANT GLASSMOURPHIC CARDS (#f3f0f8) -->
   <div class="section-l1" id="why-us">
     <section class="buyin-section">
       <div style="text-align:center; max-width:750px; margin:0 auto;">
@@ -957,7 +1045,7 @@
       <div class="buyin-grid">
         <div class="buyin-card">
           <div class="buyin-icon">✦</div>
-          <h3 class="serif" style="font-size:24px; margin-bottom:10px;">Made Around Your Journey</h3>
+          <h3 class="serif" style="font-size:24px; margin-bottom:12px;">Made Around Your Journey</h3>
           <p style="font-size:14px; color:var(--color-charcoal);">
             Your invitation isn’t just where guests find event details. It’s the first glimpse into your celebration — your personality, your milestones, your style, and the atmosphere you want your special day to hold.
           </p>
@@ -965,7 +1053,7 @@
 
         <div class="buyin-card">
           <div class="buyin-icon">✦</div>
-          <h3 class="serif" style="font-size:24px; margin-bottom:10px;">Designed to Feel Like You</h3>
+          <h3 class="serif" style="font-size:24px; margin-bottom:12px;">Designed to Feel Like You</h3>
           <p style="font-size:14px; color:var(--color-charcoal);">
             No two hosts or celebrants have the same story, so no two invitations should feel identical. From visual direction to custom features, we create an experience that feels personal, intentional, and unmistakably yours.
           </p>
@@ -973,7 +1061,7 @@
 
         <div class="buyin-card">
           <div class="buyin-icon">✦</div>
-          <h3 class="serif" style="font-size:24px; margin-bottom:10px;">More Than an Invitation</h3>
+          <h3 class="serif" style="font-size:24px; margin-bottom:12px;">More Than an Invitation</h3>
           <p style="font-size:14px; color:var(--color-charcoal);">
             We bring your story, venue details, photo galleries, background music, and interactive moments together in one seamless experience — so your guests get a memorable preview of your big day.
           </p>
@@ -981,15 +1069,15 @@
 
         <div class="buyin-card">
           <div class="buyin-icon">✦</div>
-          <h3 class="serif" style="font-size:24px; margin-bottom:10px;">Beautiful on Every Screen</h3>
+          <h3 class="serif" style="font-size:24px; margin-bottom:12px;">Beautiful on Every Screen</h3>
           <p style="font-size:14px; color:var(--color-charcoal);">
             Your invitation should look incredible whether opened on a phone, tablet, or desktop. Every design is crafted to feel polished, responsive, immersive, and effortless for every guest to explore.
           </p>
         </div>
 
-        <div class="buyin-card" style="grid-column: span 2;">
+        <div class="buyin-card buyin-card-wide">
           <div class="buyin-icon">✦</div>
-          <h3 class="serif" style="font-size:24px; margin-bottom:10px;">Thoughtful, Not Overdone</h3>
+          <h3 class="serif" style="font-size:24px; margin-bottom:12px;">Thoughtful, Not Overdone</h3>
           <p style="font-size:14px; color:var(--color-charcoal);">
             We believe the best invitations don’t need to clutter the screen. They need to say the right things, in the right way — with enough charm and personality to make your guests stop, smile, and think: <em>“This is so them.”</em>
           </p>

@@ -53,21 +53,21 @@
     position: relative;
   }
 
-  /* VISIBLE NOISE / GRAIN OVERLAY LAYER */
+  /* VISIBLE SCRAPBOOK GRAIN OVERLAY - SITS AT Z-INDEX 1 BELOW INTERACTIVE PREVIEWS */
   body::before {
     content: '';
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
     pointer-events: none;
-    z-index: 999;
-    opacity: 0.35;
+    z-index: 1; /* Positioned below devices & preview frames so embeds stay crystal clear */
+    opacity: 0.38;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
   /* Alternating Lavender Section Styles */
-  .section-l1 { background-color: transparent; }
-  .section-l2 { background-color: var(--bg-lavender-2); }
-  .section-l3 { background-color: var(--bg-lavender-3); }
+  .section-l1 { background-color: transparent; position: relative; z-index: 2; }
+  .section-l2 { background-color: var(--bg-lavender-2); position: relative; z-index: 2; }
+  .section-l3 { background-color: var(--bg-lavender-3); position: relative; z-index: 2; }
 
   /* Typography Utilities */
   .serif { font-family: var(--font-serif); }
@@ -209,7 +209,7 @@
     color: var(--color-accent);
   }
 
-  /* HERO INTRO PAGE WITH RADIANT GLOW & GRAIN */
+  /* HERO INTRO PAGE */
   .hero-container {
     min-height: 100vh;
     padding: 160px 50px 100px;
@@ -220,6 +220,7 @@
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
+    z-index: 2;
   }
 
   /* Vibrant radiant background glow element behind hero text */
@@ -276,14 +277,14 @@
     z-index: 1;
   }
 
-  /* Dual Device Live Embed Stage */
+  /* Dual Device Live Embed Stage - HIGH Z-INDEX PRESERVES CLEARNESS ABOVE GRAIN */
   .hero-device-stage {
     position: relative;
     height: 580px;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1;
+    z-index: 10; /* Elevated above grain overlay */
   }
 
   .device-mockup {
@@ -293,6 +294,7 @@
     overflow: hidden;
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     background: #FFF;
+    z-index: 10;
   }
 
   .device-mockup:hover {
@@ -306,7 +308,7 @@
     left: 10px;
     border: 8px solid #2d2640;
     border-bottom-width: 16px;
-    z-index: 1;
+    z-index: 11;
   }
 
   /* Realistic Mobile View Dimensions */
@@ -317,7 +319,7 @@
     right: 20px;
     border: 10px solid #2d2640;
     border-radius: 36px;
-    z-index: 2;
+    z-index: 12;
   }
 
   /* CSS Transform Scaling for realistic mobile viewport embedding */
@@ -326,12 +328,14 @@
     height: 780px;
     transform: scale(0.666667);
     transform-origin: 0 0;
+    background: #FFF;
   }
 
   .iframe-preview {
     width: 100%;
     height: 100%;
     border: none;
+    background: #FFF;
   }
 
   .device-badge {
@@ -345,7 +349,7 @@
     border-radius: 50px;
     font-size: 10px;
     letter-spacing: 0.2em;
-    z-index: 3;
+    z-index: 13;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -365,6 +369,8 @@
     padding: 120px 50px;
     border-top: 1px solid var(--border-light);
     border-bottom: 1px solid var(--border-light);
+    position: relative;
+    z-index: 2;
   }
 
   .portfolio-header {
@@ -431,6 +437,8 @@
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(30, 23, 48, 0.05);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    z-index: 2;
   }
 
   .unified-template-card:hover {
@@ -512,12 +520,16 @@
     grid-template-columns: 1.8fr 1fr;
     gap: 40px;
     padding: 45px;
+    position: relative;
+    z-index: 5;
   }
 
   .preview-wrapper {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    position: relative;
+    z-index: 10; /* Keeps frame views crisp above texture */
   }
 
   .view-label {
@@ -538,6 +550,8 @@
     border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    position: relative;
+    z-index: 10;
   }
 
   /* Realistic Mobile View Phone Shell in Showcase */
@@ -550,6 +564,8 @@
     margin: 0 auto;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 10;
   }
 
   .showcase-info {
@@ -575,12 +591,13 @@
     margin: 0 auto;
   }
 
-  /* REFINED WHY US SECTION WITH RADIANT LAVENDER GLASS CARDS */
+  /* REFINED WHY US SECTION WITH RADIANT GLASSMOURPHIC CARDS */
   .buyin-section {
     padding: 120px 50px;
     max-width: 1300px;
     margin: 0 auto;
     position: relative;
+    z-index: 2;
   }
 
   /* Radiant ambient lighting sphere behind Why Us section */
@@ -668,6 +685,8 @@
   /* PROCESS SECTION */
   .process-section {
     padding: 120px 50px;
+    position: relative;
+    z-index: 2;
   }
 
   .process-grid {
@@ -683,6 +702,8 @@
     padding: 120px 50px;
     max-width: 1100px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
   }
 
   .offer-box {
@@ -703,6 +724,8 @@
     background: var(--color-ink);
     color: var(--bg-lavender-1);
     padding: 80px 50px 40px;
+    position: relative;
+    z-index: 2;
   }
 
   @media (max-width: 992px) {

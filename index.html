@@ -874,47 +874,40 @@
     color: var(--color-gold-accent);
   }
 
-  /* PUNCHY INCLUSIONS GRID */
-  .offer-inclusions-grid {
+  /* SINGLE OUTLINED BOX FOR ALL OFFERS/INCLUSIONS */
+  .single-outline-inclusions-card {
+    background: rgba(30, 21, 42, 0.5);
+    border: 1px solid rgba(163, 140, 97, 0.35);
+    border-radius: 14px;
+    padding: clamp(20px, 3.5vw, 35px);
+    margin-bottom: 35px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .inclusions-single-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 35px;
+    gap: 16px 24px;
+    list-style: none;
   }
 
-  .inclusion-card {
-    background: rgba(30, 21, 42, 0.5);
-    border: 1px solid rgba(163, 140, 97, 0.2);
-    border-radius: 10px;
-    padding: 16px 15px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-  }
-
-  .inclusion-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--color-gold-accent);
-  }
-
-  .inclusion-title {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--color-gold-accent);
-    letter-spacing: 0.18em;
-    margin-bottom: 4px;
+  .inclusions-single-list li {
+    font-size: 13px;
+    color: var(--color-ink-light);
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
   }
 
-  .inclusion-title::before {
-    content: '—';
+  .inclusions-single-list li::before {
+    content: '✓';
     color: var(--color-gold-accent);
-  }
-
-  .inclusion-desc {
-    font-size: 11.5px;
-    color: var(--color-charcoal-light);
-    line-height: 1.5;
+    font-weight: bold;
+    font-size: 14px;
+    flex-shrink: 0;
   }
 
   /* ALSO INCLUDED PILLS BAR */
@@ -997,7 +990,7 @@
   /* MOBILE RESPONSIVE MEDIA QUERIES */
   @media (max-width: 1200px) {
     .buyin-single-row-grid { grid-template-columns: repeat(3, 1fr); }
-    .offer-inclusions-grid { grid-template-columns: repeat(2, 1fr); }
+    .inclusions-single-list { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 992px) {
@@ -1058,7 +1051,7 @@
       grid-template-columns: repeat(2, 1fr); 
     }
     
-    .process-grid, .offer-inclusions-grid { 
+    .process-grid { 
       grid-template-columns: 1fr; 
     }
     
@@ -1080,6 +1073,10 @@
 
   @media (max-width: 600px) {
     .buyin-single-row-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .inclusions-single-list {
       grid-template-columns: 1fr;
     }
     
@@ -1173,7 +1170,6 @@
         <div class="collection-divider"></div>
         
         <div class="section-story-intro">
-          <p class="story-lead">“No two chapters are ever written the same.”</p>
           <p class="story-sub">Select your event type below to discover interactive digital invitations tailored to your unique atmosphere.</p>
         </div>
       </div>
@@ -1527,54 +1523,24 @@
           </div>
         </div>
 
-        <!-- CATCHY PUNCHY INCLUSIONS GRID -->
-        <h3 class="serif" style="font-size:24px; text-align:center; margin-bottom:25px; font-weight:300;">WHAT'S INCLUDED</h3>
+        <!-- CATCHY PUNCHY INCLUSIONS SINGLE-OUTLINE CONTAINER -->
+        <h3 class="serif" style="font-size:24px; text-align:center; margin-bottom:20px; font-weight:300;">WHAT'S INCLUDED</h3>
         
-        <div class="offer-inclusions-grid">
-          <div class="inclusion-card">
-            <div class="inclusion-title uppercase">Your Concept</div>
-            <p class="inclusion-desc">Bespoke themes built around your personal style, mood, and aesthetic vision.</p>
-          </div>
-
-          <div class="inclusion-card">
-            <div class="inclusion-title uppercase">Your Opening</div>
-            <p class="inclusion-desc">A captivating first-tap reveal with custom music, visuals, and seal opening.</p>
-          </div>
-
-          <div class="inclusion-card">
-            <div class="inclusion-title uppercase">Your Soundtrack</div>
-            <p class="inclusion-desc">Up to 4 curated background tracks that set the emotional tone for guests.</p>
-          </div>
-
-          <div class="inclusion-card">
-            <div class="inclusion-title uppercase">Your Story</div>
-            <p class="inclusion-desc">Interactive timeline chapters highlighting your journey and favorite memories.</p>
-          </div>
-
-          <div class="inclusion-card">
-            <div class="inclusion-title uppercase">Your Details</div>
-            <p class="inclusion-desc">Clear event schedule, Google venue maps, dress code palettes, and timing.</p>
-          </div>
-
-          <div class="inclusion-card">
-            <div class="inclusion-title uppercase">Your Photos</div>
-            <p class="inclusion-desc">Up to 10 curated photos woven naturally into your design story.</p>
-          </div>
-
-          <div class="inclusion-card">
-            <div class="inclusion-title uppercase">Your Entourage</div>
-            <p class="inclusion-desc">Magazine-style spreads spotlighting family, sponsors, and key parties.</p>
-          </div>
-
-          <div class="inclusion-card">
-            <div class="inclusion-title uppercase">Your RSVP & Gifts</div>
-            <p class="inclusion-desc">Instant digital RSVP with entrance QR codes, GCash, bank registry & gifts.</p>
-          </div>
-
-          <div class="inclusion-card">
-            <div class="inclusion-title uppercase">Your Visual Experience</div>
-            <p class="inclusion-desc">Fluid animations, live countdown clock, custom fonts, and rich interactivity.</p>
-          </div>
+        <div class="single-outline-inclusions-card">
+          <ul class="inclusions-single-list">
+            <li>Bespoke Theme & Concept</li>
+            <li>First-Tap Opening Reveal</li>
+            <li>Custom Soundtrack (Up to 4 Songs)</li>
+            <li>Interactive Love Story Timeline</li>
+            <li>Complete Schedule & Google Maps</li>
+            <li>Photo Showcase (Up to 10 Photos)</li>
+            <li>Entourage & Principal Sponsors</li>
+            <li>Digital RSVP & Entrance QR Codes</li>
+            <li>GCash, Bank Registry & Gift Details</li>
+            <li>Live Countdown Clock</li>
+            <li>Custom Fonts & Color Palette</li>
+            <li>Fluid Interactivity & Animations</li>
+          </ul>
         </div>
 
         <!-- ALSO INCLUDED BAR -->

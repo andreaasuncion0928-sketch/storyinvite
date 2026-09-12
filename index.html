@@ -255,6 +255,127 @@
     transform: scale(1.05) translateY(-3px);
   }
 
+  /* EMBEDDED LIVE CHAT WIDGET STYLING */
+  .chat-widget-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 9999;
+    background-color: var(--color-gold-accent);
+    color: #1e152a;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .chat-widget-toggle:hover {
+    background-color: #f3f0f8;
+    transform: scale(1.05) translateY(-3px);
+  }
+
+  .chat-window-box {
+    position: fixed;
+    bottom: 95px;
+    left: 30px;
+    width: 330px;
+    height: 420px;
+    background: rgba(30, 21, 42, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-gold-accent);
+    border-radius: 18px;
+    z-index: 9998;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  }
+
+  .chat-window-box.active {
+    display: flex;
+  }
+
+  .chat-header {
+    background: rgba(163, 140, 97, 0.15);
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .chat-header h4 {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--color-gold-accent);
+  }
+
+  .chat-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-charcoal-light);
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .chat-body {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    font-size: 13px;
+    color: var(--color-charcoal-light);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .chat-msg-agent {
+    background: rgba(163, 140, 97, 0.12);
+    border: 1px solid rgba(163, 140, 97, 0.25);
+    padding: 12px 15px;
+    border-radius: 12px 12px 12px 2px;
+    line-height: 1.5;
+  }
+
+  .chat-footer {
+    padding: 15px;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    gap: 8px;
+  }
+
+  .chat-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    border-radius: 20px;
+    color: #FFF;
+    font-size: 12px;
+    outline: none;
+  }
+
+  .chat-send-btn {
+    background: var(--color-gold-accent);
+    border: none;
+    color: #1e152a;
+    padding: 0 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 11px;
+  }
+
   /* STICKY NAVIGATION HEADER WITH LOGO.PNG INTEGRATED ON TOP AND HOME BUTTON */
   header {
     position: fixed;
@@ -795,36 +916,34 @@
     letter-spacing: 0.05em;
   }
 
-  /* DIRECT INTERACTIVE CONTACT BUTTONS GRID */
-  .contact-buttons-grid {
-    display: flex;
-    justify-content: center;
+  /* SINGLE CLEAN GLASS CONTACT BAR LISTING NUMBER & EMAIL */
+  .single-contact-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 30px;
+    background: rgba(163, 140, 97, 0.12);
+    border: 1px solid var(--color-gold-accent);
+    padding: 16px 36px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
     flex-wrap: wrap;
-    gap: 15px;
+    justify-content: center;
   }
 
-  .contact-action-btn {
+  .contact-info-link {
+    color: var(--color-ink-light);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(163, 140, 97, 0.12);
-    border: 1px solid var(--color-gold-accent);
-    color: var(--color-ink-light);
-    padding: 14px 26px;
-    border-radius: 50px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: color 0.3s ease;
   }
 
-  .contact-action-btn:hover {
-    background: var(--color-gold-accent);
-    color: #1e152a;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(163, 140, 97, 0.3);
+  .contact-info-link:hover {
+    color: var(--color-gold-accent);
   }
 
   /* PUNCHY INCLUSIONS GRID */
@@ -968,7 +1087,7 @@
     .showcase-info { grid-column: span 1; flex-direction: column; gap: 20px; align-items: flex-start; }
     .buyin-single-row-grid, .process-grid, .offer-inclusions-grid { grid-template-columns: 1fr; }
     .offer-box-tailored { padding: 35px 22px; }
-    .contact-buttons-grid { flex-direction: column; align-items: stretch; }
+    .single-contact-bar { flex-direction: column; gap: 15px; padding: 20px; border-radius: 20px; }
     .articulate-title-block { padding: 20px 25px; }
   }
 </style>
@@ -979,6 +1098,27 @@
   <button class="audio-reset-btn uppercase" onclick="stopAllSampleAudio()">
     <span>🔇 Stop All Audio</span>
   </button>
+
+  <!-- INTERACTIVE EMBEDDED CHAT SUPPORT WIDGET -->
+  <button class="chat-widget-toggle uppercase" onclick="toggleChatWindow()">
+    <span>💬 Live Chat</span>
+  </button>
+
+  <div class="chat-window-box" id="liveChatWindow">
+    <div class="chat-header">
+      <h4 class="uppercase">StoryInvites Support</h4>
+      <button class="chat-close-btn" onclick="toggleChatWindow()">✕</button>
+    </div>
+    <div class="chat-body" id="chatMessageBody">
+      <div class="chat-msg-agent">
+        Hello! 👋 Welcome to StoryInvites. How can we help you create your invitation?
+      </div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" class="chat-input" id="chatInputField" placeholder="Type a message..." onkeypress="handleChatKeyPress(event)">
+      <button class="chat-send-btn" onclick="sendChatMessage()">Send</button>
+    </div>
+  </div>
 
   <!-- NAVIGATION HEADER WITH LOGO.PNG INTEGRATED ON TOP AND HOME BUTTON -->
   <header>
@@ -1402,32 +1542,22 @@
 
       <div class="offer-box-tailored">
         
-        <!-- REFINED INQUIRY CARD CONTAINER WITH DIRECT CONTACT LINKS -->
+        <!-- REFINED SINGLE-BAR INQUIRY CARD CONTAINER -->
         <div class="inquiry-hero-card">
           <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:700;">RATES & AVAILABILITY</span>
           <h3 class="inquiry-hero-title serif">Get in Touch for Rates & Inquiries</h3>
           <p class="inquiry-hero-subtitle">Connect with us directly to receive our complete package pricing and reserve your date.</p>
 
-          <div class="contact-buttons-grid">
-            <!-- VIBER DIRECT CHAT LINK -->
-            <a href="viber://chat?number=639260593086" class="contact-action-btn">
-              <span>💬 Message on Viber</span>
-            </a>
-
-            <!-- EMAIL DIRECT LINK -->
-            <a href="mailto:andrea.asuncion0928@gmail.com?subject=StoryInvites%20Rate%20Inquiry" class="contact-action-btn">
-              <span>✉️ Email Us</span>
-            </a>
-
-            <!-- SMS DIRECT LINK -->
-            <a href="sms:+639260593086" class="contact-action-btn">
-              <span>📱 Send SMS</span>
-            </a>
-
-            <!-- PHONE CALL DIRECT LINK -->
-            <a href="tel:+639260593086" class="contact-action-btn">
-              <span>📞 Call Direct</span>
-            </a>
+          <div style="text-align: center;">
+            <div class="single-contact-bar">
+              <a href="tel:+639260593086" class="contact-info-link">
+                <span>📱 09260593086</span>
+              </a>
+              <span style="color:var(--border-light); font-size:12px;">|</span>
+              <a href="mailto:andrea.asuncion0928@gmail.com?subject=StoryInvites%20Inquiry" class="contact-info-link">
+                <span>✉️ andrea.asuncion0928@gmail.com</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -1501,7 +1631,7 @@
             Your invitation is where your event story begins. Before your guests see the venue, the decor, or the celebration, they experience your invitation. So make it feel like you.
           </p>
           <div class="closing-note-quote">“Something that makes your guests say, ‘This is so them.’”</div>
-          <a href="viber://chat?number=639260593086" class="btn-primary" style="margin-top:10px;">Inquire via Viber &rarr;</a>
+          <a href="mailto:andrea.asuncion0928@gmail.com" class="btn-primary" style="margin-top:10px;">Inquire Now &rarr;</a>
         </div>
 
       </div>
@@ -1542,6 +1672,50 @@
         iframe.src = '';
         iframe.src = currentSrc;
       });
+    }
+
+    // TOGGLE CHAT SUPPORT WINDOW
+    function toggleChatWindow() {
+      const chatBox = document.getElementById('liveChatWindow');
+      chatBox.classList.toggle('active');
+    }
+
+    // HANDLE CHAT SEND MESSAGE
+    function sendChatMessage() {
+      const input = document.getElementById('chatInputField');
+      const message = input.value.trim();
+      if (message !== "") {
+        const body = document.getElementById('chatMessageBody');
+        
+        // Append User Message
+        const userDiv = document.createElement('div');
+        userDiv.style.background = 'rgba(163, 140, 97, 0.25)';
+        userDiv.style.border = '1px solid var(--color-gold-accent)';
+        userDiv.style.padding = '10px 14px';
+        userDiv.style.borderRadius = '12px 12px 2px 12px';
+        userDiv.style.alignSelf = 'flex-end';
+        userDiv.style.color = '#FFF';
+        userDiv.innerText = message;
+        body.appendChild(userDiv);
+
+        input.value = "";
+        body.scrollTop = body.scrollHeight;
+
+        // Auto Agent Reply
+        setTimeout(() => {
+          const autoReply = document.createElement('div');
+          autoReply.className = 'chat-msg-agent';
+          autoReply.innerText = "Thank you for reaching out! You can also connect directly via Viber / Call at 09260593086 or Email at andrea.asuncion0928@gmail.com.";
+          body.appendChild(autoReply);
+          body.scrollTop = body.scrollHeight;
+        }, 1000);
+      }
+    }
+
+    function handleChatKeyPress(event) {
+      if (event.key === 'Enter') {
+        sendChatMessage();
+      }
     }
 
     // ARTICULATE-STYLE SCROLL INTERSECTION OBSERVER FOR FADE-IN TITLE BLOCKS

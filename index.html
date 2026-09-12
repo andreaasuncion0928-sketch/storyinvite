@@ -255,7 +255,7 @@
     transform: scale(1.05) translateY(-3px);
   }
 
-  /* STICKY NAVIGATION HEADER WITH LOGO.PNG INTEGRATED ON TOP */
+  /* STICKY NAVIGATION HEADER WITH LOGO.PNG INTEGRATED ON TOP AND HOME BUTTON */
   header {
     position: fixed;
     top: 0;
@@ -741,7 +741,7 @@
     margin: 60px auto 0;
   }
 
-  /* REDESIGNED HIGH-END GLASS PRICING & INQUIRY HUB */
+  /* RESTRUCTURED TAILOR-FIT SIGNATURE PRICING OFFER SECTION WITH DIRECT INQUIRY CTA */
   .offer-section {
     padding: 120px 50px;
     max-width: 1280px;
@@ -751,13 +751,13 @@
   }
 
   .offer-box-tailored {
-    background: linear-gradient(135deg, rgba(94, 83, 104, 0.35) 0%, rgba(30, 21, 42, 0.8) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: linear-gradient(135deg, rgba(94, 83, 104, 0.4) 0%, rgba(30, 21, 42, 0.75) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-light);
-    padding: 65px;
-    border-radius: 24px;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
     position: relative;
     overflow: hidden;
   }
@@ -852,7 +852,7 @@
     font-size: 11px;
     font-weight: 700;
     color: var(--color-gold-accent);
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
     margin-bottom: 6px;
     display: flex;
     align-items: center;
@@ -1041,19 +1041,21 @@
   <div class="section-l2" id="templates">
     <section class="portfolio-section">
       
-      <!-- DISTINCT FADE-IN GLASS CARD PANEL FOR SECTION TITLE -->
-      <div class="articulate-title-block">
+      <!-- UNIFIED COLLECTION HEADER PANEL WITH DISTINCT FADE-IN CLASS -->
+      <div class="collection-unified-header articulate-title-block">
         <span class="articulate-num uppercase">CHAPTER I — THE COLLECTION</span>
         <h2 class="articulate-heading">A Design for Every Personality</h2>
-      </div>
-
-      <div class="section-story-intro">
-        <p class="story-lead">“No two chapters are ever written the same.”</p>
-        <p class="story-sub">Select your event type below to discover interactive digital invitations tailored to your unique atmosphere.</p>
+        
+        <div class="collection-divider"></div>
+        
+        <div class="section-story-intro">
+          <p class="story-lead">“No two chapters are ever written the same.”</p>
+          <p class="story-sub">Select your event type below to discover interactive digital invitations tailored to your unique atmosphere.</p>
+        </div>
       </div>
 
       <!-- Category Filter Tabs Container -->
-      <div style="text-align: center;">
+      <div style="text-align: center; margin-bottom: 70px;">
         <div class="category-tabs-wrapper">
           <div class="category-tabs uppercase">
             <button class="tab-btn active" onclick="switchCategory('wedding', this)">💍 Weddings</button>

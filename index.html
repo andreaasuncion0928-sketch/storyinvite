@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STORYINVITES — Your Story, Beautifully Invited</title>
+<title>STORYINVITES — Digital Invitations for Life's Greatest Moments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -144,7 +144,7 @@
     color: var(--color-accent);
   }
 
-  /* 01. ENHANCED HERO INTRO PAGE */
+  /* HERO INTRO PAGE */
   .hero-container {
     min-height: 100vh;
     padding: 150px 50px 100px;
@@ -190,7 +190,7 @@
     max-width: 500px;
   }
 
-  /* Dual Device Mockup Stage */
+  /* Dual Device Live Embed Stage */
   .hero-device-stage {
     position: relative;
     height: 520px;
@@ -205,6 +205,7 @@
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background: #FFF;
   }
 
   .device-mockup:hover {
@@ -216,7 +217,6 @@
     height: 280px;
     top: 40px;
     left: 10px;
-    background: #FFF;
     border: 8px solid #2d2640;
     border-bottom-width: 16px;
     z-index: 1;
@@ -227,20 +227,17 @@
     height: 340px;
     bottom: 20px;
     right: 30px;
-    background: #FFF;
     border: 6px solid #2d2640;
     border-radius: 28px;
     z-index: 2;
   }
 
-  .mockup-img {
+  .iframe-preview {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
+    border: none;
   }
 
-  /* Device Feature Floating Badge */
   .device-badge {
     position: absolute;
     top: 15px;
@@ -267,7 +264,7 @@
     border-radius: 50%;
   }
 
-  /* 02. CATEGORIZED SAMPLES SECTION */
+  /* CATEGORY TABS & TEMPLATE SECTION */
   .portfolio-section {
     padding: 120px 50px;
     border-top: 1px solid var(--border-light);
@@ -277,12 +274,48 @@
   .portfolio-header {
     text-align: center;
     max-width: 750px;
-    margin: 0 auto 80px;
+    margin: 0 auto 50px;
+  }
+
+  /* Event Type Category Filter Tabs */
+  .category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 70px;
+  }
+
+  .tab-btn {
+    background: var(--bg-lavender-card);
+    border: 1px solid var(--border-light);
+    padding: 14px 32px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--color-charcoal);
+    cursor: pointer;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+  }
+
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--color-ink);
+    color: #FFF;
+    border-color: var(--color-ink);
+    box-shadow: 0 8px 20px rgba(30, 23, 48, 0.15);
+  }
+
+  .event-category-content {
+    display: none;
+  }
+
+  .event-category-content.active {
+    display: block;
   }
 
   .sample-category-block {
     max-width: 1300px;
-    margin: 0 auto 120px;
+    margin: 0 auto 100px;
   }
 
   .category-header {
@@ -304,7 +337,7 @@
     color: var(--color-taupe);
   }
 
-  /* Dual Device Showcase Grid */
+  /* Dual Embedded Showcase Grid */
   .sample-showcase-grid {
     display: grid;
     grid-template-columns: 1.8fr 1fr;
@@ -330,9 +363,9 @@
     gap: 6px;
   }
 
-  .img-frame-desktop {
+  .iframe-container-desktop {
     width: 100%;
-    height: 380px;
+    height: 420px;
     background: #FFF;
     border: 1px solid var(--border-light);
     border-radius: 6px;
@@ -340,10 +373,10 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.03);
   }
 
-  .img-frame-mobile {
+  .iframe-container-mobile {
     width: 100%;
-    max-width: 220px;
-    height: 380px;
+    max-width: 230px;
+    height: 420px;
     background: #FFF;
     border: 6px solid var(--color-ink);
     border-radius: 28px;
@@ -362,7 +395,18 @@
     border-top: 1px dashed var(--border-light);
   }
 
-  /* 03. CLIENT BUY-IN / WHY STORYINVITES */
+  /* Placeholder State for Debut & Birthday */
+  .placeholder-card {
+    background: var(--bg-lavender-card);
+    border: 2px dashed var(--border-light);
+    padding: 80px 40px;
+    text-align: center;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* CLIENT BUY-IN SECTION */
   .buyin-section {
     padding: 120px 50px;
     max-width: 1300px;
@@ -394,7 +438,7 @@
     margin-bottom: 20px;
   }
 
-  /* 04. PROCESS SECTION (#d8d0ed) */
+  /* PROCESS SECTION */
   .process-section {
     padding: 120px 50px;
   }
@@ -407,7 +451,7 @@
     margin: 60px auto 0;
   }
 
-  /* 05. PRICING OFFER SECTION (#f1eff9) */
+  /* PRICING OFFER SECTION */
   .offer-section {
     padding: 120px 50px;
     max-width: 1100px;
@@ -441,6 +485,7 @@
     .device-desktop { width: 300px; height: 200px; left: 5%; }
     .device-mobile { width: 130px; height: 260px; right: 5%; }
     
+    .category-tabs { flex-wrap: wrap; }
     .sample-showcase-grid { grid-template-columns: 1fr; }
     .showcase-info { grid-column: span 1; flex-direction: column; gap: 20px; align-items: flex-start; }
     .buyin-grid, .process-grid, .offer-box { grid-template-columns: 1fr; }
@@ -453,7 +498,7 @@
   <header>
     <a href="#" class="logo uppercase">STORYINVITES</a>
     <ul class="nav-menu uppercase">
-      <li><a href="#samples">Templates</a></li>
+      <li><a href="#templates">Templates</a></li>
       <li><a href="#why-us">Why Us</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#pricing">Pricing</a></li>
@@ -461,228 +506,262 @@
     <a href="#pricing" class="btn-primary" style="padding: 12px 24px; font-size: 9px;">Create Yours</a>
   </header>
 
-  <!-- 01. ENHANCED HERO INTRO PAGE (#f1eff9) -->
+  <!-- HERO INTRO PAGE (#f1eff9) -->
   <div class="section-l1">
     <section class="hero-container">
       <div>
-        <span class="hero-tag uppercase">Digital Wedding Experience</span>
+        <span class="hero-tag uppercase">Digital Event Invitations</span>
         <h1 class="hero-title serif">
           Your story,<br>
           <span>beautifully</span> invited.
         </h1>
         <p class="hero-description">
-          Turn your love story into a breathtaking digital invitation your guests can open, explore, and remember — seamless on both mobile and desktop.
+          Turn your life's greatest milestones—Weddings, Debuts, and Birthdays—into interactive digital invitations your guests can open, explore, and remember.
         </p>
         <div style="display:flex; gap:20px; align-items:center;">
           <a href="#pricing" class="btn-primary">Create Your Invitation &rarr;</a>
-          <a href="#samples" class="btn-secondary uppercase">View Templates &darr;</a>
+          <a href="#templates" class="btn-secondary uppercase">View Templates &darr;</a>
         </div>
       </div>
 
-      <!-- Highlighting Desktop & Mobile Dual Compatibility -->
+      <!-- Live Hero Preview Embed (ws1) -->
       <div class="hero-device-stage">
         <div class="device-badge uppercase">
-          <span>Seamless on Desktop & Mobile</span>
+          <span>Live Interactive Preview</span>
         </div>
 
-        <!-- Desktop Mockup Image -->
         <div class="device-mockup device-desktop">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" alt="Desktop Invitation View" class="mockup-img">
+          <iframe src="https://ws1.storyinvites.com" class="iframe-preview" title="Hero Desktop Live Demo"></iframe>
         </div>
 
-        <!-- Mobile Mockup Image -->
         <div class="device-mockup device-mobile">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Mobile Invitation View" class="mockup-img">
+          <iframe src="https://ws1.storyinvites.com" class="iframe-preview" title="Hero Mobile Live Demo"></iframe>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- 02. CATEGORIZED SAMPLES SECTION (#e5e0f3) -->
-  <div class="section-l2" id="samples">
+  <!-- CATEGORIZED TEMPLATE COLLECTION (#e5e0f3) -->
+  <div class="section-l2" id="templates">
     <section class="portfolio-section">
       <div class="portfolio-header">
         <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">The Collection</span>
-        <h2 class="serif" style="font-size:44px; font-weight:300; margin-top:10px;">Explore Our Curated Template Worlds</h2>
+        <h2 class="serif" style="font-size:44px; font-weight:300; margin-top:10px;">Select Your Event Type</h2>
         <p style="font-size:14px; color:var(--color-charcoal); margin-top:15px;">
-          Every couple is unique. Browse our digital invitation styles across high-definition desktop and responsive mobile previews.
+          Explore live templates designed across desktop and responsive mobile views.
         </p>
       </div>
 
-      <!-- CATEGORY 1: ROMANTIC & EDITORIAL -->
-      <div class="sample-category-block">
-        <div class="category-header">
-          <div>
-            <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Category 01</span>
-            <h3 class="category-title serif">Romantic & Editorial</h3>
-          </div>
-          <p class="category-subtitle uppercase">Cinematic typography, rich story reveals, and timeless layouts.</p>
-        </div>
+      <!-- Category Filter Tabs -->
+      <div class="category-tabs uppercase">
+        <button class="tab-btn active" onclick="switchCategory('wedding', this)">💍 Weddings</button>
+        <button class="tab-btn" onclick="switchCategory('debut', this)">👑 Debuts</button>
+        <button class="tab-btn" onclick="switchCategory('birthday', this)">🎂 Birthdays</button>
+      </div>
+
+      <!-- 1. WEDDING TEMPLATES CATEGORY -->
+      <div id="cat-wedding" class="event-category-content active">
         
-        <div class="sample-showcase-grid">
-          <div class="preview-wrapper">
-            <span class="view-label uppercase">💻 Desktop View — ws1.storyinvite.com</span>
-            <div class="img-frame-desktop">
-              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="ws1 Desktop View" class="mockup-img">
-            </div>
-          </div>
-          <div class="preview-wrapper">
-            <span class="view-label uppercase">📱 Mobile View</span>
-            <div class="img-frame-mobile">
-              <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="ws1 Mobile View" class="mockup-img">
-            </div>
-          </div>
-          <div class="showcase-info">
+        <!-- WEDDING 1 -->
+        <div class="sample-category-block">
+          <div class="category-header">
             <div>
-              <h4 class="serif" style="font-size:26px;">The Classic Story (ws1)</h4>
-              <p style="font-size:13px; color:var(--color-taupe);">Custom story chapters, elegant music integration, and photo gallery reveal.</p>
+              <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 01</span>
+              <h3 class="category-title serif">Romantic & Editorial</h3>
             </div>
-            <a href="https://ws1.storyinvite.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Demo &rarr;</a>
+            <p class="category-subtitle uppercase">ws1.storyinvites.com</p>
           </div>
+          
+          <div class="sample-showcase-grid">
+            <div class="preview-wrapper">
+              <span class="view-label uppercase">💻 Desktop View — ws1.storyinvites.com</span>
+              <div class="iframe-container-desktop">
+                <iframe src="https://ws1.storyinvites.com" class="iframe-preview" title="ws1 Desktop"></iframe>
+              </div>
+            </div>
+            <div class="preview-wrapper">
+              <span class="view-label uppercase">📱 Mobile View</span>
+              <div class="iframe-container-mobile">
+                <iframe src="https://ws1.storyinvites.com" class="iframe-preview" title="ws1 Mobile"></iframe>
+              </div>
+            </div>
+            <div class="showcase-info">
+              <div>
+                <h4 class="serif" style="font-size:26px;">The Classic Story</h4>
+                <p style="font-size:13px; color:var(--color-taupe);">Custom story chapters, soft music integration, and photo gallery reveal.</p>
+              </div>
+              <a href="https://ws1.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Site &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEDDING 2 -->
+        <div class="sample-category-block">
+          <div class="category-header">
+            <div>
+              <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 02</span>
+              <h3 class="category-title serif">Modern Minimalist</h3>
+            </div>
+            <p class="category-subtitle uppercase">ws2.storyinvites.com</p>
+          </div>
+          
+          <div class="sample-showcase-grid">
+            <div class="preview-wrapper">
+              <span class="view-label uppercase">💻 Desktop View — ws2.storyinvites.com</span>
+              <div class="iframe-container-desktop">
+                <iframe src="https://ws2.storyinvites.com" class="iframe-preview" title="ws2 Desktop"></iframe>
+              </div>
+            </div>
+            <div class="preview-wrapper">
+              <span class="view-label uppercase">📱 Mobile View</span>
+              <div class="iframe-container-mobile">
+                <iframe src="https://ws2.storyinvites.com" class="iframe-preview" title="ws2 Mobile"></iframe>
+              </div>
+            </div>
+            <div class="showcase-info">
+              <div>
+                <h4 class="serif" style="font-size:26px;">The Minimalist Luxe</h4>
+                <p style="font-size:13px; color:var(--color-taupe);">Clean typography, spacious layout, and effortless guest clarity.</p>
+              </div>
+              <a href="https://ws2.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Site &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEDDING 3 -->
+        <div class="sample-category-block">
+          <div class="category-header">
+            <div>
+              <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 03</span>
+              <h3 class="category-title serif">Editorial Gazette</h3>
+            </div>
+            <p class="category-subtitle uppercase">ws3.storyinvites.com</p>
+          </div>
+          
+          <div class="sample-showcase-grid">
+            <div class="preview-wrapper">
+              <span class="view-label uppercase">💻 Desktop View — ws3.storyinvites.com</span>
+              <div class="iframe-container-desktop">
+                <iframe src="https://ws3.storyinvites.com" class="iframe-preview" title="ws3 Desktop"></iframe>
+              </div>
+            </div>
+            <div class="preview-wrapper">
+              <span class="view-label uppercase">📱 Mobile View</span>
+              <div class="iframe-container-mobile">
+                <iframe src="https://ws3.storyinvites.com" class="iframe-preview" title="ws3 Mobile"></iframe>
+              </div>
+            </div>
+            <div class="showcase-info">
+              <div>
+                <h4 class="serif" style="font-size:26px;">The Chronicle</h4>
+                <p style="font-size:13px; color:var(--color-taupe);">Magazine-style spreads highlighting entourage details, schedule timelines, and photos.</p>
+              </div>
+              <a href="https://ws3.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Site &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEDDING 4 -->
+        <div class="sample-category-block">
+          <div class="category-header">
+            <div>
+              <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 04</span>
+              <h3 class="category-title serif">Destination Journey</h3>
+            </div>
+            <p class="category-subtitle uppercase">ws4.storyinvites.com</p>
+          </div>
+          
+          <div class="sample-showcase-grid">
+            <div class="preview-wrapper">
+              <span class="view-label uppercase">💻 Desktop View — ws4.storyinvites.com</span>
+              <div class="iframe-container-desktop">
+                <iframe src="https://ws4.storyinvites.com" class="iframe-preview" title="ws4 Desktop"></iframe>
+              </div>
+            </div>
+            <div class="preview-wrapper">
+              <span class="view-label uppercase">📱 Mobile View</span>
+              <div class="iframe-container-mobile">
+                <iframe src="https://ws4.storyinvites.com" class="iframe-preview" title="ws4 Mobile"></iframe>
+              </div>
+            </div>
+            <div class="showcase-info">
+              <div>
+                <h4 class="serif" style="font-size:26px;">The Journey</h4>
+                <p style="font-size:13px; color:var(--color-taupe);">Designed for weekend celebrations, venue maps, travel guides, and instant RSVP.</p>
+              </div>
+              <a href="https://ws4.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Site &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEDDING 5 -->
+        <div class="sample-category-block" style="margin-bottom:0;">
+          <div class="category-header">
+            <div>
+              <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 05</span>
+              <h3 class="category-title serif">Vibrant Celebration</h3>
+            </div>
+            <p class="category-subtitle uppercase">ws5.storyinvites.com</p>
+          </div>
+          
+          <div class="sample-showcase-grid">
+            <div class="preview-wrapper">
+              <span class="view-label uppercase">💻 Desktop View — ws5.storyinvites.com</span>
+              <div class="iframe-container-desktop">
+                <iframe src="https://ws5.storyinvites.com" class="iframe-preview" title="ws5 Desktop"></iframe>
+              </div>
+            </div>
+            <div class="preview-wrapper">
+              <span class="view-label uppercase">📱 Mobile View</span>
+              <div class="iframe-container-mobile">
+                <iframe src="https://ws5.storyinvites.com" class="iframe-preview" title="ws5 Mobile"></iframe>
+              </div>
+            </div>
+            <div class="showcase-info">
+              <div>
+                <h4 class="serif" style="font-size:26px;">The Celebration</h4>
+                <p style="font-size:13px; color:var(--color-taupe);">Rich visual motion, live wedding countdowns, and gift registry details.</p>
+              </div>
+              <a href="https://ws5.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Site &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2. DEBUT TEMPLATES CATEGORY (COMING SOON PLACEHOLDER) -->
+      <div id="cat-debut" class="event-category-content">
+        <div class="placeholder-card">
+          <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">18th Birthday Milestones</span>
+          <h3 class="serif" style="font-size:36px; font-weight:300; margin:15px 0;">Debut Digital Invitations</h3>
+          <p style="font-size:14px; color:var(--color-charcoal); max-width:550px; margin:0 auto 30px;">
+            We are crafting bespoke debut templates featuring 18 Roses, 18 Candles, photo timelines, and dress codes. Custom orders are currently available!
+          </p>
+          <a href="#pricing" class="btn-primary">Request a Custom Debut Invite &rarr;</a>
         </div>
       </div>
 
-      <!-- CATEGORY 2: MODERN MINIMALIST -->
-      <div class="sample-category-block">
-        <div class="category-header">
-          <div>
-            <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Category 02</span>
-            <h3 class="category-title serif">Modern Minimalist</h3>
-          </div>
-          <p class="category-subtitle uppercase">Clean typography, spacious structure, and seamless guest clarity.</p>
-        </div>
-        
-        <div class="sample-showcase-grid">
-          <div class="preview-wrapper">
-            <span class="view-label uppercase">💻 Desktop View — ws2.storyinvite.com</span>
-            <div class="img-frame-desktop">
-              <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80" alt="ws2 Desktop View" class="mockup-img">
-            </div>
-          </div>
-          <div class="preview-wrapper">
-            <span class="view-label uppercase">📱 Mobile View</span>
-            <div class="img-frame-mobile">
-              <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=600&q=80" alt="ws2 Mobile View" class="mockup-img">
-            </div>
-          </div>
-          <div class="showcase-info">
-            <div>
-              <h4 class="serif" style="font-size:26px;">The Minimalist Luxe (ws2)</h4>
-              <p style="font-size:13px; color:var(--color-taupe);">Designed for contemporary couples looking for effortless elegance and clarity.</p>
-            </div>
-            <a href="https://ws2.storyinvite.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Demo &rarr;</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- CATEGORY 3: EDITORIAL JOURNAL & GAZETTE -->
-      <div class="sample-category-block">
-        <div class="category-header">
-          <div>
-            <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Category 03</span>
-            <h3 class="category-title serif">Editorial Journal & Gazette</h3>
-          </div>
-          <p class="category-subtitle uppercase">Magazine-style spreads and newspaper headlines for bold storytelling.</p>
-        </div>
-        
-        <div class="sample-showcase-grid">
-          <div class="preview-wrapper">
-            <span class="view-label uppercase">💻 Desktop View — ws3.storyinvite.com</span>
-            <div class="img-frame-desktop">
-              <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1200&q=80" alt="ws3 Desktop View" class="mockup-img">
-            </div>
-          </div>
-          <div class="preview-wrapper">
-            <span class="view-label uppercase">📱 Mobile View</span>
-            <div class="img-frame-mobile">
-              <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80" alt="ws3 Mobile View" class="mockup-img">
-            </div>
-          </div>
-          <div class="showcase-info">
-            <div>
-              <h4 class="serif" style="font-size:26px;">The Chronicle (ws3)</h4>
-              <p style="font-size:13px; color:var(--color-taupe);">Editorial spreads highlighting entourage details, schedule timelines, and photos.</p>
-            </div>
-            <a href="https://ws3.storyinvite.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Demo &rarr;</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- CATEGORY 4: DESTINATION & ADVENTURE -->
-      <div class="sample-category-block">
-        <div class="category-header">
-          <div>
-            <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Category 04</span>
-            <h3 class="category-title serif">Destination & Adventure</h3>
-          </div>
-          <p class="category-subtitle uppercase">Interactive maps, weekend itineraries, and travel details.</p>
-        </div>
-        
-        <div class="sample-showcase-grid">
-          <div class="preview-wrapper">
-            <span class="view-label uppercase">💻 Desktop View — ws4.storyinvite.com</span>
-            <div class="img-frame-desktop">
-              <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1200&q=80" alt="ws4 Desktop View" class="mockup-img">
-            </div>
-          </div>
-          <div class="preview-wrapper">
-            <span class="view-label uppercase">📱 Mobile View</span>
-            <div class="img-frame-mobile">
-              <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80" alt="ws4 Mobile View" class="mockup-img">
-            </div>
-          </div>
-          <div class="showcase-info">
-            <div>
-              <h4 class="serif" style="font-size:26px;">The Journey (ws4)</h4>
-              <p style="font-size:13px; color:var(--color-taupe);">Perfect for weekend celebrations, venue maps, travel guides, and instant RSVP.</p>
-            </div>
-            <a href="https://ws4.storyinvite.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Demo &rarr;</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- CATEGORY 5: VIBRANT & CELEBRATORY -->
-      <div class="sample-category-block" style="margin-bottom:0;">
-        <div class="category-header">
-          <div>
-            <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Category 05</span>
-            <h3 class="category-title serif">Vibrant & Celebratory</h3>
-          </div>
-          <p class="category-subtitle uppercase">Dynamic animations, live countdowns, and party soundscapes.</p>
-        </div>
-        
-        <div class="sample-showcase-grid">
-          <div class="preview-wrapper">
-            <span class="view-label uppercase">💻 Desktop View — ws5.storyinvite.com</span>
-            <div class="img-frame-desktop">
-              <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80" alt="ws5 Desktop View" class="mockup-img">
-            </div>
-          </div>
-          <div class="preview-wrapper">
-            <span class="view-label uppercase">📱 Mobile View</span>
-            <div class="img-frame-mobile">
-              <img src="https://images.unsplash.com/photo-1545232979-fbf34f5ce947?auto=format&fit=crop&w=600&q=80" alt="ws5 Mobile View" class="mockup-img">
-            </div>
-          </div>
-          <div class="showcase-info">
-            <div>
-              <h4 class="serif" style="font-size:26px;">The Celebration (ws5)</h4>
-              <p style="font-size:13px; color:var(--color-taupe);">Rich visual motion, live wedding countdowns, and gift registry details.</p>
-            </div>
-            <a href="https://ws5.storyinvite.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Demo &rarr;</a>
-          </div>
+      <!-- 3. BIRTHDAY TEMPLATES CATEGORY (COMING SOON PLACEHOLDER) -->
+      <div id="cat-birthday" class="event-category-content">
+        <div class="placeholder-card">
+          <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">Special Celebrations</span>
+          <h3 class="serif" style="font-size:36px; font-weight:300; margin:15px 0;">Birthday Digital Invitations</h3>
+          <p style="font-size:14px; color:var(--color-charcoal); max-width:550px; margin:0 auto 30px;">
+            From milestone birthdays to intimate gatherings, our birthday collection is launching soon. Get early access or commission a custom design.
+          </p>
+          <a href="#pricing" class="btn-primary">Request a Custom Birthday Invite &rarr;</a>
         </div>
       </div>
 
     </section>
   </div>
 
-  <!-- 03. CLIENT BUY-IN SECTION (#f1eff9) -->
+  <!-- CLIENT BUY-IN SECTION (#f1eff9) -->
   <div class="section-l1" id="why-us">
     <section class="buyin-section">
       <div style="text-align:center; max-width:700px; margin:0 auto;">
         <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">The StoryInvites Advantage</span>
-        <h2 class="serif" style="font-size:42px; font-weight:300; margin-top:10px;">Why Couples Choose StoryInvites</h2>
+        <h2 class="serif" style="font-size:42px; font-weight:300; margin-top:10px;">Why Clients Choose StoryInvites</h2>
       </div>
 
       <div class="buyin-grid">
@@ -690,15 +769,15 @@
           <div class="buyin-icon">📱💻</div>
           <h3 class="serif" style="font-size:22px; margin-bottom:10px;">Dual Desktop & Mobile Excellence</h3>
           <p style="font-size:13px; color:var(--color-charcoal);">
-            Whether your guests open your link on a phone or desktop computer, your invitation looks flawless, high-resolution, and perfectly tailored.
+            Whether your guests open your link on a phone or desktop computer, your invitation looks flawless, high-resolution, and perfectly responsive.
           </p>
         </div>
 
         <div class="buyin-card">
           <div class="buyin-icon">💌</div>
-          <h3 class="serif" style="font-size:22px; margin-bottom:10px;">Effortless Guest RSVP</h3>
+          <h3 class="serif" style="font-size:22px; margin-bottom:10px;">Effortless Online RSVP</h3>
           <p style="font-size:13px; color:var(--color-charcoal);">
-            Ditch paper cards. Guests can confirm attendance instantly online, complete with digital QR codes for easy check-in.
+            Skip paper responses. Guests can confirm attendance instantly online, complete with digital QR codes for easy event entrance.
           </p>
         </div>
 
@@ -706,14 +785,14 @@
           <div class="buyin-icon">✨</div>
           <h3 class="serif" style="font-size:22px; margin-bottom:10px;">Tailored Storytelling</h3>
           <p style="font-size:13px; color:var(--color-charcoal);">
-            We incorporate your favorite music, memory timeline, photo galleries, maps, dress codes, and gift registry options into one link.
+            We incorporate your favorite music, memory timelines, photo galleries, venue maps, dress codes, and gift registry options into one link.
           </p>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- 04. PROCESS SECTION (#d8d0ed) -->
+  <!-- PROCESS SECTION (#d8d0ed) -->
   <div class="section-l3" id="process">
     <section class="process-section">
       <div style="text-align:center;">
@@ -741,7 +820,7 @@
     </section>
   </div>
 
-  <!-- 05. PRICING OFFER SECTION (#f1eff9) -->
+  <!-- PRICING OFFER SECTION (#f1eff9) -->
   <div class="section-l1" id="pricing">
     <section class="offer-section">
       <div class="offer-box">
@@ -778,5 +857,20 @@
     </div>
   </footer>
 
+  <script>
+    function switchCategory(category, btn) {
+      // Deactivate all tabs
+      const tabs = document.querySelectorAll('.tab-btn');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      
+      // Deactivate all contents
+      const contents = document.querySelectorAll('.event-category-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // Activate selected
+      btn.classList.add('active');
+      document.getElementById('cat-' + category).classList.add('active');
+    }
+  </script>
 </body>
 </html>

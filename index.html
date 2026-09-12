@@ -45,7 +45,7 @@
     background-attachment: fixed;
     color: var(--color-ink-light);
     font-family: var(--font-sans);
-    line-height: 1.6;
+    line-height: 1.5;
     overflow-x: hidden;
     position: relative;
     width: 100%;
@@ -61,7 +61,6 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
-  /* PAGE LOCK SECTION SNAP SETTINGS */
   .page-section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
@@ -75,58 +74,57 @@
   }
 
   @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
   .animate-on-load {
-    animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   }
 
-  .articulate-title-block {
+  .rise-title-block {
     opacity: 0;
-    transform: translateY(25px);
-    transition: opacity 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
     will-change: opacity, transform;
     text-align: center;
     margin-bottom: 20px;
-    padding: 10px 20px;
+    padding: 0 15px;
     position: relative;
     width: 100%;
   }
 
-  .articulate-title-block::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 1px;
-    background: var(--color-gold-accent);
-    margin: 12px auto 0;
-    opacity: 0.6;
-  }
-
-  .articulate-title-block.is-visible {
+  .rise-title-block.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  .articulate-num {
+  .rise-kicker {
     font-family: var(--font-sans);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.3em;
     color: var(--color-gold-accent);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     display: block;
+    text-transform: uppercase;
   }
 
-  .articulate-heading {
+  .rise-heading {
     font-family: var(--font-serif);
-    font-size: clamp(26px, 3.8vw, 44px);
+    font-size: clamp(28px, 4vw, 44px);
     font-weight: 300;
     color: var(--color-ink-light);
     line-height: 1.15;
     letter-spacing: -0.01em;
+  }
+
+  .rise-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--color-gold-accent);
+    margin: 12px auto 0;
+    opacity: 0.6;
   }
 
   .section-l1 { background-color: transparent; }
@@ -136,47 +134,7 @@
   .serif { font-family: var(--font-serif); }
   .sans { font-family: var(--font-sans); }
   .script { font-family: var(--font-script); }
-  .uppercase { text-transform: uppercase; letter-spacing: 0.22em; }
-
-  .collection-unified-header {
-    max-width: 850px;
-    margin: 0 auto 30px;
-    background: rgba(30, 21, 42, 0.35);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(163, 140, 97, 0.35);
-    border-radius: 18px;
-    padding: clamp(16px, 3vw, 30px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .collection-unified-header::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  }
-
-  .collection-unified-header .articulate-title-block {
-    margin-bottom: 0;
-    padding: 0;
-  }
-
-  .collection-unified-header .articulate-title-block::after {
-    display: none;
-  }
-
-  .collection-divider {
-    width: 50px;
-    height: 1px;
-    background: var(--color-gold-accent);
-    margin: 15px auto;
-    opacity: 0.6;
-  }
+  .uppercase { text-transform: uppercase; letter-spacing: 0.2em; }
 
   .section-story-intro {
     text-align: center;
@@ -189,7 +147,7 @@
     font-size: 12.5px;
     color: var(--color-charcoal-light);
     letter-spacing: 0.05em;
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   .glass-intro-card {
@@ -197,9 +155,9 @@
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(163, 140, 97, 0.3);
-    border-radius: 16px;
-    padding: clamp(18px, 2.5vw, 25px) clamp(15px, 3.5vw, 30px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    padding: clamp(16px, 2.5vw, 22px) clamp(15px, 3.5vw, 28px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -209,19 +167,19 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: clamp(10px, 1.5vw, 14px) clamp(20px, 2.5vw, 28px);
+    gap: 8px;
+    padding: clamp(9px, 1.2vw, 12px) clamp(18px, 2.2vw, 26px);
     background-color: var(--color-gold-accent);
     color: #1e152a;
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 700;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     border: 1px solid var(--color-gold-accent);
     cursor: pointer;
-    transition: all 0.35s ease;
+    transition: all 0.3s ease;
     text-decoration: none;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
     white-space: nowrap;
   }
 
@@ -235,9 +193,9 @@
   .btn-secondary {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    letter-spacing: 0.18em;
+    gap: 6px;
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
     color: var(--color-gold-accent);
     text-decoration: none;
     font-weight: 600;
@@ -253,12 +211,12 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 14px;
+    padding: 6px 12px;
     background-color: rgba(163, 140, 97, 0.12);
     color: var(--color-gold-accent);
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     border: 1px solid rgba(163, 140, 97, 0.25);
     border-radius: 30px;
@@ -275,25 +233,25 @@
 
   .audio-reset-btn {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 16px;
+    right: 16px;
     z-index: 9999;
     background-color: rgba(30, 21, 42, 0.9);
     color: var(--color-gold-accent);
     border: 1px solid var(--color-gold-accent);
-    padding: 10px 18px;
+    padding: 8px 14px;
     border-radius: 50px;
     font-family: var(--font-sans);
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     backdrop-filter: blur(12px);
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.3s ease;
   }
 
   header {
@@ -301,7 +259,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: clamp(10px, 1.5vw, 16px) clamp(16px, 3.5vw, 45px);
+    padding: clamp(8px, 1.2vw, 14px) clamp(14px, 3vw, 40px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -315,19 +273,19 @@
   .logo-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     text-decoration: none;
   }
 
   .logo-img {
-    height: clamp(24px, 3.5vw, 36px);
+    height: clamp(22px, 3vw, 32px);
     width: auto;
     object-fit: contain;
     display: block;
   }
 
   .logo-text {
-    font-size: clamp(12px, 1.8vw, 17px);
+    font-size: clamp(11px, 1.5vw, 15px);
     font-weight: 700;
     letter-spacing: 0.25em;
     color: var(--color-ink-light);
@@ -335,14 +293,14 @@
 
   .nav-menu {
     display: flex;
-    gap: clamp(12px, 2vw, 35px);
+    gap: clamp(10px, 1.8vw, 30px);
     list-style: none;
   }
 
   .nav-menu a {
     text-decoration: none;
     color: var(--color-charcoal-light);
-    font-size: 11px;
+    font-size: 10.5px;
     letter-spacing: 0.15em;
     font-weight: 600;
     transition: color 0.3s;
@@ -358,17 +316,16 @@
     border: none;
     cursor: pointer;
     flex-direction: column;
-    gap: 5px;
-    padding: 6px;
+    gap: 4px;
+    padding: 4px;
     z-index: 1002;
   }
 
   .hamburger-line {
-    width: 22px;
+    width: 20px;
     height: 2px;
     background-color: var(--color-gold-accent);
     border-radius: 2px;
-    transition: all 0.3s ease;
   }
 
   .mobile-nav-drawer {
@@ -382,28 +339,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
   }
 
   .mobile-nav-drawer.active {
     display: flex;
-    animation: fadeInUp 0.4s ease forwards;
+    animation: fadeInUp 0.3s ease forwards;
   }
 
   .mobile-nav-link {
     text-decoration: none;
     color: var(--color-ink-light);
     font-family: var(--font-serif);
-    font-size: 24px;
+    font-size: 22px;
     letter-spacing: 0.15em;
   }
 
-  /* HERO INTRO PAGE - REFINED SINGLE MOBILE PHONE PREVIEW */
+  /* HERO INTRO PAGE */
   .hero-container {
-    padding: clamp(80px, 12vh, 120px) clamp(16px, 3.5vw, 45px) clamp(30px, 4vh, 60px);
+    padding: clamp(75px, 10vh, 100px) clamp(14px, 3vw, 40px) clamp(20px, 4vh, 40px);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(20px, 4vw, 40px);
+    gap: clamp(16px, 3vw, 36px);
     align-items: center;
     max-width: 1300px;
     margin: 0 auto;
@@ -412,45 +369,45 @@
 
   .hero-tag {
     display: inline-block;
-    padding: 5px 14px;
+    padding: 4px 12px;
     background: rgba(163, 140, 97, 0.15);
     border: 1px solid rgba(163, 140, 97, 0.3);
     border-radius: 30px;
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 600;
     color: var(--color-gold-accent);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   .hero-title {
-    font-size: clamp(32px, 4.5vw, 64px);
+    font-size: clamp(30px, 4.2vw, 60px);
     font-weight: 300;
     line-height: 1.05;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     color: var(--color-ink-light);
   }
 
   .hero-title span {
     font-family: var(--font-script);
-    font-size: 1.25em;
+    font-size: 1.2em;
     color: var(--color-gold-accent);
     display: inline-block;
   }
 
   .hero-brand-statement {
     font-family: var(--font-serif);
-    font-size: clamp(15px, 1.8vw, 19px);
+    font-size: clamp(14px, 1.6vw, 18px);
     font-style: italic;
     color: var(--color-gold-accent);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .hero-description {
-    font-size: clamp(12.5px, 1.2vw, 14.5px);
+    font-size: clamp(12px, 1.1vw, 14px);
     color: var(--color-charcoal-light);
-    margin-bottom: 25px;
-    max-width: 480px;
-    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 460px;
+    line-height: 1.55;
   }
 
   .hero-device-stage {
@@ -462,7 +419,6 @@
     width: 100%;
   }
 
-  /* FLUID RESPONSIVE MOBILE PHONE FRAME FOR EMBED */
   .hero-single-phone {
     width: clamp(180px, 22vw, 240px);
     height: clamp(360px, 44vw, 480px);
@@ -484,8 +440,8 @@
 
   /* CATEGORY TABS & TEMPLATE SECTION */
   .portfolio-section {
-    padding: clamp(40px, 6vh, 80px) clamp(16px, 3.5vw, 45px);
-    max-width: 1350px;
+    padding: clamp(30px, 5vh, 60px) clamp(14px, 3vw, 40px);
+    max-width: 1300px;
     margin: 0 auto;
     width: 100%;
   }
@@ -500,6 +456,7 @@
     justify-content: center;
     gap: 6px;
     max-width: 100%;
+    margin-bottom: 20px;
   }
 
   .category-tabs {
@@ -507,16 +464,16 @@
     justify-content: center;
     width: 100%;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 4px;
   }
 
   .tab-btn {
     background: transparent;
     border: none;
-    padding: 8px clamp(12px, 1.8vw, 22px);
-    font-size: 11px;
+    padding: 6px clamp(10px, 1.5vw, 18px);
+    font-size: 10.5px;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     color: var(--color-charcoal-light);
     cursor: pointer;
     border-radius: 40px;
@@ -533,13 +490,13 @@
 
   /* UNIFIED TEMPLATE CARD PANEL */
   .unified-template-card {
-    max-width: 1250px;
-    margin: 0 auto 40px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
     background: rgba(30, 21, 42, 0.5);
     border: 1px solid var(--border-light);
-    border-radius: 14px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 2;
     width: 100%;
@@ -547,77 +504,64 @@
 
   .card-intro-header-glass {
     position: relative;
-    padding: clamp(16px, 2.2vw, 24px) clamp(16px, 3vw, 28px);
+    padding: clamp(12px, 2vw, 18px) clamp(14px, 2.5vw, 22px);
     background: linear-gradient(135deg, rgba(94, 83, 104, 0.4) 0%, rgba(30, 21, 42, 0.7) 100%);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-light);
-    border-left: 5px solid var(--color-gold-accent);
+    border-left: 4px solid var(--color-gold-accent);
   }
 
   .intro-story-title {
-    font-size: clamp(18px, 2.5vw, 26px);
+    font-size: clamp(16px, 2.2vw, 22px);
     font-weight: 300;
     color: var(--color-ink-light);
-  }
-
-  .intro-story-tagline {
-    font-size: 11.5px;
-    font-weight: 600;
-    color: var(--color-gold-accent);
-  }
-
-  .intro-story-writeup {
-    font-size: 12.5px;
-    color: var(--color-charcoal-light);
-    margin-top: 6px;
-    line-height: 1.5;
+    line-height: 1.2;
   }
 
   .intro-story-vibe {
     font-size: 9px;
     font-weight: 700;
     color: var(--color-gold-accent);
-    letter-spacing: 0.15em;
-    margin-top: 6px;
+    letter-spacing: 0.12em;
+    margin-top: 4px;
   }
 
   .card-preview-body {
     display: grid;
     grid-template-columns: 1.8fr 1fr;
-    gap: clamp(12px, 2vw, 24px);
-    padding: clamp(14px, 2vw, 24px);
+    gap: clamp(10px, 1.8vw, 20px);
+    padding: clamp(12px, 2vw, 20px);
   }
 
   .preview-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
     width: 100%;
   }
 
   .view-label {
-    font-size: 9.5px;
+    font-size: 9px;
     color: var(--color-gold-accent);
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     font-weight: 600;
   }
 
-  /* FLUID EMBEDDED CONTAINERS FOR EXACT FIT */
   .iframe-container-desktop {
     width: 100%;
-    height: clamp(200px, 30vw, 380px);
+    height: clamp(180px, 26vw, 340px);
     background: #FFF;
     border: 1px solid var(--border-light);
-    border-radius: 6px;
+    border-radius: 4px;
     overflow: hidden;
   }
 
   .iframe-container-mobile {
-    width: clamp(140px, 18vw, 190px);
-    height: clamp(280px, 36vw, 380px);
+    width: clamp(120px, 15vw, 160px);
+    height: clamp(240px, 30vw, 320px);
     background: #FFF;
     border: 6px solid #000;
-    border-radius: 28px;
+    border-radius: 24px;
     margin: 0 auto;
     overflow: hidden;
   }
@@ -634,14 +578,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 6px;
-    padding-top: 10px;
+    margin-top: 4px;
+    padding-top: 8px;
     border-top: 1px dashed var(--border-light);
     width: 100%;
   }
 
   .showcase-info-url {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--color-gold-accent);
     text-decoration: none;
   }
@@ -651,14 +595,16 @@
   .placeholder-card {
     background: rgba(30, 21, 42, 0.5);
     border: 2px dashed var(--border-light);
-    padding: 35px 16px;
+    padding: 30px 14px;
     text-align: center;
-    border-radius: 12px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
   /* WHY US SECTION */
   .why-us-page-section {
-    padding: clamp(40px, 6vh, 80px) clamp(16px, 3.5vw, 45px);
+    padding: clamp(30px, 5vh, 60px) clamp(14px, 3vw, 40px);
     background-color: #231b2d;
     background-image: 
       radial-gradient(at 0% 0%, #1e152a 0px, transparent 60%),
@@ -669,83 +615,83 @@
     border-bottom: 1px solid var(--border-light);
   }
 
-  .buyin-section { max-width: 1350px; margin: 0 auto; }
+  .buyin-section { max-width: 1300px; margin: 0 auto; }
 
   .buyin-single-row-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 16px;
   }
 
   .buyin-card-row {
     background: rgba(38, 30, 50, 0.75);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(163, 140, 97, 0.25);
-    padding: 16px 12px;
-    border-radius: 12px;
+    padding: 14px 10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
   }
 
   .buyin-icon {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--color-gold-accent);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     background: rgba(163, 140, 97, 0.15);
     border-radius: 50%;
     border: 1px solid rgba(163, 140, 97, 0.3);
   }
 
-  .buyin-title { font-size: 14px; margin-bottom: 4px; color: var(--color-ink-light); }
-  .buyin-desc { font-size: 11px; color: var(--color-charcoal-light); line-height: 1.45; }
+  .buyin-title { font-size: 13.5px; margin-bottom: 3px; color: var(--color-ink-light); }
+  .buyin-desc { font-size: 10.5px; color: var(--color-charcoal-light); line-height: 1.4; }
 
   /* PROCESS SECTION */
-  .process-section { padding: clamp(40px, 6vh, 80px) clamp(16px, 3.5vw, 45px); }
+  .process-section { padding: clamp(30px, 5vh, 60px) clamp(14px, 3vw, 40px); }
 
   .process-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    max-width: 1150px;
-    margin: 20px auto 0;
+    gap: 14px;
+    max-width: 1100px;
+    margin: 18px auto 0;
   }
 
   /* PRICING OFFER SECTION */
-  .offer-section { padding: clamp(40px, 6vh, 80px) clamp(16px, 3.5vw, 45px); max-width: 1250px; margin: 0 auto; }
+  .offer-section { padding: clamp(30px, 5vh, 60px) clamp(14px, 3vw, 40px); max-width: 1200px; margin: 0 auto; }
 
   .offer-box-tailored {
     background: linear-gradient(135deg, rgba(94, 83, 104, 0.4) 0%, rgba(30, 21, 42, 0.75) 100%);
     backdrop-filter: blur(16px);
     border: 1px solid var(--border-light);
-    padding: clamp(18px, 3vw, 35px);
-    border-radius: 16px;
+    padding: clamp(16px, 2.5vw, 30px);
+    border-radius: 14px;
   }
 
   .inquiry-hero-card {
     background: rgba(30, 21, 42, 0.5);
     border: 1px solid var(--color-gold-accent);
     border-radius: 12px;
-    padding: clamp(14px, 2.5vw, 22px);
+    padding: clamp(12px, 2vw, 18px);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
-  .inquiry-hero-title { font-family: var(--font-serif); font-size: clamp(18px, 2.2vw, 25px); color: var(--color-ink-light); font-weight: 300; }
-  .inquiry-hero-subtitle { font-size: 11.5px; color: var(--color-charcoal-light); margin: 4px 0 10px; }
+  .inquiry-hero-title { font-family: var(--font-serif); font-size: clamp(16px, 2vw, 22px); color: var(--color-ink-light); font-weight: 300; }
+  .inquiry-hero-subtitle { font-size: 11px; color: var(--color-charcoal-light); margin: 3px 0 8px; }
 
   .single-contact-bar {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     background: rgba(163, 140, 97, 0.12);
     border: 1px solid var(--color-gold-accent);
-    padding: 8px 18px;
+    padding: 6px 14px;
     border-radius: 50px;
     flex-wrap: wrap;
     justify-content: center;
@@ -754,30 +700,30 @@
   .contact-info-link {
     color: var(--color-ink-light);
     text-decoration: none;
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
   }
 
   .single-outline-inclusions-card {
     background: rgba(30, 21, 42, 0.5);
     border: 1px solid rgba(163, 140, 97, 0.35);
     border-radius: 10px;
-    padding: clamp(14px, 2.5vw, 22px);
-    margin-bottom: 20px;
+    padding: clamp(12px, 2vw, 20px);
+    margin-bottom: 18px;
   }
 
   .inclusions-single-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px 14px;
+    gap: 8px 12px;
     list-style: none;
   }
 
   .inclusions-single-list li {
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--color-ink-light);
     display: flex;
     align-items: center;
@@ -788,28 +734,29 @@
     content: '✓';
     color: var(--color-gold-accent);
     font-weight: bold;
+    font-size: 11px;
   }
 
   .also-included-bar {
     background: rgba(163, 140, 97, 0.1);
     border: 1px dashed var(--border-light);
     border-radius: 8px;
-    padding: 12px 14px;
+    padding: 10px 12px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
-  .also-included-title { font-size: 9px; letter-spacing: 0.15em; color: var(--color-gold-accent); font-weight: 700; margin-bottom: 6px; }
-  .also-included-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 12px; list-style: none; }
-  .also-included-pills li { font-size: 10.5px; color: var(--color-ink-light); display: flex; align-items: center; gap: 4px; }
+  .also-included-title { font-size: 8.5px; letter-spacing: 0.15em; color: var(--color-gold-accent); font-weight: 700; margin-bottom: 4px; }
+  .also-included-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 10px; list-style: none; }
+  .also-included-pills li { font-size: 10px; color: var(--color-ink-light); display: flex; align-items: center; gap: 4px; }
   .also-included-pills li::before { content: '✓'; color: var(--color-gold-accent); font-weight: bold; }
 
-  .pricing-closing-note { text-align: center; border-top: 1px solid var(--border-light); padding-top: 20px; }
-  .closing-note-tag { font-size: 8.5px; color: var(--color-gold-accent); margin-bottom: 2px; }
-  .closing-note-h3 { font-size: clamp(18px, 2vw, 22px); font-weight: 300; margin-bottom: 6px; }
-  .closing-note-quote { font-family: var(--font-serif); font-size: clamp(14px, 1.6vw, 18px); font-style: italic; color: var(--color-gold-accent); margin: 8px 0 14px; }
+  .pricing-closing-note { text-align: center; border-top: 1px solid var(--border-light); padding-top: 16px; }
+  .closing-note-tag { font-size: 8px; color: var(--color-gold-accent); margin-bottom: 2px; }
+  .closing-note-h3 { font-size: clamp(16px, 1.8vw, 20px); font-weight: 300; margin-bottom: 4px; }
+  .closing-note-quote { font-family: var(--font-serif); font-size: clamp(13px, 1.5vw, 16px); font-style: italic; color: var(--color-gold-accent); margin: 6px 0 10px; }
 
-  footer { background: #120d1a; color: var(--color-ink-light); padding: 30px 20px 20px; }
+  footer { background: #120d1a; color: var(--color-ink-light); padding: 25px 16px 16px; }
 
   /* MOBILE RESPONSIVE MEDIA QUERIES */
   @media (max-width: 1200px) {
@@ -824,31 +771,31 @@
     
     .hero-container { 
       grid-template-columns: 1fr; 
-      padding: 90px 14px 30px; 
+      padding: 85px 14px 25px; 
       text-align: center; 
-      gap: 20px;
+      gap: 16px;
     }
     
-    .hero-description { margin: 0 auto 18px; }
+    .hero-description { margin: 0 auto 16px; }
 
     .category-tabs-wrapper { width: 100%; padding: 4px; }
-    .card-preview-body { grid-template-columns: 1fr; padding: 12px; gap: 12px; }
-    .iframe-container-mobile { width: 150px; height: 300px; border-width: 6px; border-radius: 24px; }
-    .iframe-container-mobile .mobile-iframe-wrapper { transform: scale(0.40); }
+    .card-preview-body { grid-template-columns: 1fr; padding: 10px; gap: 10px; }
+    .iframe-container-mobile { width: 140px; height: 280px; border-width: 5px; border-radius: 20px; }
+    .iframe-container-mobile .mobile-iframe-wrapper { transform: scale(0.37); }
     
-    .showcase-info { grid-column: span 1; flex-direction: column; gap: 8px; text-align: center; }
+    .showcase-info { grid-column: span 1; flex-direction: column; gap: 6px; text-align: center; }
     .buyin-single-row-grid { grid-template-columns: repeat(2, 1fr); }
     .process-grid { grid-template-columns: 1fr; }
-    .single-contact-bar { flex-direction: column; gap: 6px; padding: 10px; }
+    .single-contact-bar { flex-direction: column; gap: 4px; padding: 8px; border-radius: 12px; }
     .single-contact-bar span[style*="border-light"] { display: none; }
-    .articulate-title-block { padding: 8px 10px; }
+    .rise-title-block { padding: 4px 8px; }
   }
 
   @media (max-width: 600px) {
     .buyin-single-row-grid { grid-template-columns: 1fr; }
     .inclusions-single-list { grid-template-columns: 1fr; }
-    .hero-single-phone { width: 170px; height: 340px; border-width: 6px; border-radius: 28px; }
-    .hero-phone-wrapper { transform: scale(0.44); }
+    .hero-single-phone { width: 150px; height: 300px; border-width: 5px; border-radius: 24px; }
+    .hero-phone-wrapper { transform: scale(0.38); }
   }
 </style>
 </head>
@@ -880,7 +827,7 @@
       <span class="hamburger-line"></span>
     </button>
 
-    <a href="#pricing" class="btn-primary" style="padding: 7px 14px; font-size: 8.5px;">Create Yours</a>
+    <a href="#pricing" class="btn-primary" style="padding: 6px 12px; font-size: 8px;">Create Yours</a>
   </header>
 
   <!-- MOBILE NAVIGATION DRAWER OVERLAY -->
@@ -907,13 +854,13 @@
         <p class="hero-description">
           A personalized, interactive digital invitation created around who you are — your story, your personality, your favorite things, your memories, and the feeling you want to share with your guests. From the first tap to the final detail, you get to make it yours.
         </p>
-        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; justify-content:center;">
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:center;">
           <a href="#pricing" class="btn-primary">Create Your Invitation &rarr;</a>
           <a href="#templates" class="btn-secondary uppercase">View Templates &darr;</a>
         </div>
       </div>
 
-      <!-- DEDICATED PROPORTIONAL SINGLE PHONE PREVIEW FOR EXACT MOBILE FIT -->
+      <!-- PROPORTIONAL SINGLE PHONE PREVIEW FOR EXACT FIT -->
       <div class="hero-device-stage">
         <div class="hero-single-phone">
           <div class="hero-phone-wrapper">
@@ -924,20 +871,18 @@
     </div>
   </section>
 
-  <!-- PAGE 2: CATEGORIZED TEMPLATE COLLECTION -->
+  <!-- PAGE 2: CATEGORIZED TEMPLATE COLLECTION (CLEAN RISE COURSE TITLE) -->
   <section class="page-section section-l2" id="templates">
     <div class="portfolio-section">
       
-      <div class="collection-unified-header articulate-title-block">
-        <span class="articulate-num uppercase">CHAPTER I — THE COLLECTION</span>
-        <h2 class="articulate-heading">A Design for Every Personality</h2>
-        <div class="collection-divider"></div>
-        <div class="section-story-intro">
-          <p class="story-sub">Select your event type below to discover interactive digital invitations tailored to your unique atmosphere.</p>
-        </div>
+      <!-- CLEAN RISE COURSE STYLE HEADING -->
+      <div class="rise-title-block articulate-title-block">
+        <span class="rise-kicker">Collection</span>
+        <h2 class="rise-heading">Templates</h2>
+        <div class="rise-divider"></div>
       </div>
 
-      <div style="text-align: center; margin-bottom: 25px;">
+      <div style="text-align: center; margin-bottom: 20px;">
         <div class="category-tabs-wrapper">
           <div class="category-tabs uppercase">
             <button class="tab-btn active" onclick="switchCategory('wedding', this)">💍 Weddings</button>
@@ -955,19 +900,18 @@
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Timeless Love Story</h3>
             <p class="intro-story-tagline">For the classic, romantic couple.</p>
-            <p class="intro-story-writeup">You love meaningful details, beautiful photos, and a wedding that feels elegant without trying too hard.</p>
             <p class="intro-story-vibe uppercase">YOUR VIBE: ROMANTIC • REFINED • SENTIMENTAL</p>
           </div>
 
           <div class="card-preview-body">
             <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View — ws1.storyinvites.com</span>
+              <span class="view-label uppercase">💻 Desktop View</span>
               <div class="iframe-container-desktop">
                 <iframe src="https://ws1.storyinvites.com" class="iframe-preview sample-iframe" title="ws1 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Realistic Mobile View</span>
+              <span class="view-label uppercase">📱 Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
                   <iframe src="https://ws1.storyinvites.com" class="iframe-preview sample-iframe" title="ws1 Mobile"></iframe>
@@ -986,19 +930,18 @@
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Cinematic Couple</h3>
             <p class="intro-story-tagline">For the couple who loves a little drama.</p>
-            <p class="intro-story-writeup">Your story feels like a movie — memorable moments, great music, and a strong visual mood from the very first frame.</p>
             <p class="intro-story-vibe uppercase">YOUR VIBE: CINEMATIC • EMOTIONAL • MODERN</p>
           </div>
 
           <div class="card-preview-body">
             <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View — ws4.storyinvites.com</span>
+              <span class="view-label uppercase">💻 Desktop View</span>
               <div class="iframe-container-desktop">
                 <iframe src="https://ws4.storyinvites.com" class="iframe-preview sample-iframe" title="ws4 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Realistic Mobile View</span>
+              <span class="view-label uppercase">📱 Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
                   <iframe src="https://ws4.storyinvites.com" class="iframe-preview sample-iframe" title="ws4 Mobile"></iframe>
@@ -1017,19 +960,18 @@
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Fun & Fearless Couple</h3>
             <p class="intro-story-tagline">For the playful, adventurous two.</p>
-            <p class="intro-story-writeup">You want your invitation to feel as fun and spontaneous as your relationship, with personality woven into every detail.</p>
             <p class="intro-story-vibe uppercase">YOUR VIBE: PLAYFUL • BOLD • ENERGETIC</p>
           </div>
 
           <div class="card-preview-body">
             <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View — ws3.storyinvites.com</span>
+              <span class="view-label uppercase">💻 Desktop View</span>
               <div class="iframe-container-desktop">
                 <iframe src="https://ws3.storyinvites.com" class="iframe-preview sample-iframe" title="ws3 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Realistic Mobile View</span>
+              <span class="view-label uppercase">📱 Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
                   <iframe src="https://ws3.storyinvites.com" class="iframe-preview sample-iframe" title="ws3 Mobile"></iframe>
@@ -1048,19 +990,18 @@
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Classic with a Twist</h3>
             <p class="intro-story-tagline">For the couple who loves tradition, but not the ordinary.</p>
-            <p class="intro-story-writeup">You appreciate timeless wedding elements but want them presented in a fresh, interactive way that feels distinctly yours.</p>
             <p class="intro-story-vibe uppercase">YOUR VIBE: CLASSIC • CREATIVE • ELEGANT</p>
           </div>
 
           <div class="card-preview-body">
             <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View — ws2.storyinvites.com</span>
+              <span class="view-label uppercase">💻 Desktop View</span>
               <div class="iframe-container-desktop">
                 <iframe src="https://ws2.storyinvites.com" class="iframe-preview sample-iframe" title="ws2 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Realistic Mobile View</span>
+              <span class="view-label uppercase">📱 Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
                   <iframe src="https://ws2.storyinvites.com" class="iframe-preview sample-iframe" title="ws2 Mobile"></iframe>
@@ -1079,19 +1020,18 @@
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Storytellers</h3>
             <p class="intro-story-tagline">For the couple whose journey is the heart of it all.</p>
-            <p class="intro-story-writeup">You have places, memories, inside jokes, adventures, and little moments worth sharing. Your invitation lets guests experience the story with you.</p>
             <p class="intro-story-vibe uppercase">YOUR VIBE: PERSONAL • CURIOUS • STORY-DRIVEN</p>
           </div>
 
           <div class="card-preview-body">
             <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View — ws5.storyinvites.com</span>
+              <span class="view-label uppercase">💻 Desktop View</span>
               <div class="iframe-container-desktop">
                 <iframe src="https://ws5.storyinvites.com" class="iframe-preview sample-iframe" title="ws5 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Realistic Mobile View</span>
+              <span class="view-label uppercase">📱 Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
                   <iframe src="https://ws5.storyinvites.com" class="iframe-preview sample-iframe" title="ws5 Mobile"></iframe>
@@ -1113,19 +1053,18 @@
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Grand Debutante</h3>
             <p class="intro-story-tagline">For the debutante celebrating an unforgettable milestone.</p>
-            <p class="intro-story-writeup">Tailored for 18th milestones, featuring 18 Roses, 18 Candles, photo timelines, and dress code palettes.</p>
             <p class="intro-story-vibe uppercase">YOUR VIBE: ELEGANT • YOUTHFUL • CELEBRATORY</p>
           </div>
 
           <div class="card-preview-body">
             <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View — ds1.storyinvites.com</span>
+              <span class="view-label uppercase">💻 Desktop View</span>
               <div class="iframe-container-desktop">
                 <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="ds1 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Realistic Mobile View</span>
+              <span class="view-label uppercase">📱 Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
                   <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="ds1 Mobile"></iframe>
@@ -1144,8 +1083,8 @@
       <div id="cat-birthday" class="event-category-content">
         <div class="placeholder-card">
           <span class="uppercase" style="font-size:10px; color:var(--color-gold-accent); letter-spacing:0.25em; font-weight:600;">Special Celebrations</span>
-          <h3 class="serif" style="font-size:30px; font-weight:300; margin:12px 0;">Birthday Digital Invitations</h3>
-          <p style="font-size:13.5px; color:var(--color-charcoal-light); max-width:500px; margin:0 auto 20px;">
+          <h3 class="serif" style="font-size:26px; font-weight:300; margin:10px 0;">Birthday Digital Invitations</h3>
+          <p style="font-size:12.5px; color:var(--color-charcoal-light); max-width:450px; margin:0 auto 16px;">
             From milestone birthdays to intimate gatherings, our birthday collection is launching soon. Get early access or commission a custom design.
           </p>
           <a href="#pricing" class="btn-primary">Request a Custom Birthday Invite &rarr;</a>
@@ -1159,9 +1098,10 @@
   <section class="page-section why-us-page-section" id="why-us">
     <div class="buyin-section">
       
-      <div class="articulate-title-block">
-        <span class="articulate-num uppercase">CHAPTER II — THE DIFFERENCE</span>
-        <h2 class="articulate-heading">The StoryInvites Difference</h2>
+      <div class="rise-title-block articulate-title-block">
+        <span class="rise-kicker">The Difference</span>
+        <h2 class="rise-heading">Why StoryInvites</h2>
+        <div class="rise-divider"></div>
       </div>
 
       <div class="glass-intro-card">
@@ -1176,7 +1116,7 @@
           <div class="buyin-icon">✦</div>
           <h3 class="serif buyin-title">Designed Around Your Occasion</h3>
           <p class="buyin-desc">
-            Every celebration is different. We build each invitation around the occasion, the mood, and the people behind it — from weddings and debuts to birthdays, anniversaries, and everything worth celebrating.
+            Every celebration is different. We build each invitation around the occasion, the mood, and the people behind it.
           </p>
         </div>
 
@@ -1184,7 +1124,7 @@
           <div class="buyin-icon">✦</div>
           <h3 class="serif buyin-title">Made Personal</h3>
           <p class="buyin-desc">
-            Your photos, colors, music, words, and details come together in a design that's created specifically for you. No generic templates. No two invitations need to look the same.
+            Your photos, colors, music, words, and details come together in a design created specifically for you.
           </p>
         </div>
 
@@ -1192,7 +1132,7 @@
           <div class="buyin-icon">✦</div>
           <h3 class="serif buyin-title">More Than a Link</h3>
           <p class="buyin-desc">
-            Add the things that make your invitation feel alive — photos, music, schedules, stories, RSVP, countdowns, maps, and more — all in one place.
+            Photos, music, schedules, stories, RSVP, countdowns, maps, and details — all in one seamless place.
           </p>
         </div>
 
@@ -1200,7 +1140,7 @@
           <div class="buyin-icon">✦</div>
           <h3 class="serif buyin-title">Easy for Guests</h3>
           <p class="buyin-desc">
-            Designed to be simple to open, explore, and navigate. Whether guests are on their phone, tablet, or desktop, the experience stays beautiful and effortless.
+            Simple to open, explore, and navigate on phone, tablet, or desktop with zero effort.
           </p>
         </div>
 
@@ -1208,8 +1148,8 @@
           <div class="buyin-icon">✦</div>
           <h3 class="serif buyin-title">Beautiful Without the Fuss</h3>
           <p class="buyin-desc">
-            We take care of the design and digital details so you can focus on the occasion itself.<br><br>
-            <em>Your occasion. Your story. Your invitation.</em>
+            We handle design and tech details so you focus on the occasion.<br><br>
+            <em>Your story. Your invitation.</em>
           </p>
         </div>
       </div>
@@ -1220,9 +1160,10 @@
   <section class="page-section section-l3" id="process">
     <div class="process-section">
       
-      <div class="articulate-title-block">
-        <span class="articulate-num uppercase">CHAPTER III — THE PROCESS</span>
-        <h2 class="articulate-heading">From Idea to Invitation</h2>
+      <div class="rise-title-block articulate-title-block">
+        <span class="rise-kicker">Simple Steps</span>
+        <h2 class="rise-heading">The Process</h2>
+        <div class="rise-divider"></div>
       </div>
 
       <div class="section-story-intro">
@@ -1231,20 +1172,20 @@
       </div>
 
       <div class="process-grid">
-        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:20px 16px; border:1px solid var(--border-light); border-radius:8px;">
-          <div class="uppercase" style="font-size:10px; color:var(--color-gold-accent); font-weight:700;">01</div>
+        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:18px 14px; border:1px solid var(--border-light); border-radius:8px;">
+          <div class="uppercase" style="font-size:9.5px; color:var(--color-gold-accent); font-weight:700;">01</div>
           <h3 class="serif" style="font-size:18px; margin:4px 0;">Tell Us Your Story</h3>
-          <p style="font-size:12px; color:var(--color-charcoal-light);">Share your photos, event details, and preferred template style from our collection.</p>
+          <p style="font-size:11.5px; color:var(--color-charcoal-light);">Share your photos, event details, and preferred template style from our collection.</p>
         </div>
-        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:20px 16px; border:1px solid var(--border-light); border-radius:8px;">
-          <div class="uppercase" style="font-size:10px; color:var(--color-gold-accent); font-weight:700;">02</div>
+        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:18px 14px; border:1px solid var(--border-light); border-radius:8px;">
+          <div class="uppercase" style="font-size:9.5px; color:var(--color-gold-accent); font-weight:700;">02</div>
           <h3 class="serif" style="font-size:18px; margin:4px 0;">We Create Your Design</h3>
-          <p style="font-size:12px; color:var(--color-charcoal-light);">We build your personalized digital invitation space with up to 2 rounds of revisions.</p>
+          <p style="font-size:11.5px; color:var(--color-charcoal-light);">We build your personalized digital invitation space with up to 2 rounds of revisions.</p>
         </div>
-        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:20px 16px; border:1px solid var(--border-light); border-radius:8px;">
-          <div class="uppercase" style="font-size:10px; color:var(--color-gold-accent); font-weight:700;">03</div>
+        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:18px 14px; border:1px solid var(--border-light); border-radius:8px;">
+          <div class="uppercase" style="font-size:9.5px; color:var(--color-gold-accent); font-weight:700;">03</div>
           <h3 class="serif" style="font-size:18px; margin:4px 0;">Share With Guests</h3>
-          <p style="font-size:12px; color:var(--color-charcoal-light);">Receive your custom web link ready to send across chat apps, SMS, or social media.</p>
+          <p style="font-size:11.5px; color:var(--color-charcoal-light);">Receive your custom web link ready to send across chat apps, SMS, or social media.</p>
         </div>
       </div>
     </div>
@@ -1254,9 +1195,10 @@
   <section class="page-section section-l1" id="pricing">
     <div class="offer-section">
       
-      <div class="articulate-title-block">
-        <span class="articulate-num uppercase">CHAPTER IV — THE OFFERING</span>
-        <h2 class="articulate-heading">The Signature Invitation</h2>
+      <div class="rise-title-block articulate-title-block">
+        <span class="rise-kicker">Package</span>
+        <h2 class="rise-heading">The Offering</h2>
+        <div class="rise-divider"></div>
       </div>
 
       <div class="offer-box-tailored">
@@ -1279,7 +1221,7 @@
           </div>
         </div>
 
-        <h3 class="serif" style="font-size:20px; text-align:center; margin-bottom:12px; font-weight:300;">WHAT'S INCLUDED</h3>
+        <h3 class="serif" style="font-size:18px; text-align:center; margin-bottom:10px; font-weight:300;">WHAT'S INCLUDED</h3>
         
         <div class="single-outline-inclusions-card">
           <ul class="inclusions-single-list">
@@ -1312,11 +1254,11 @@
         <div class="pricing-closing-note">
           <span class="closing-note-tag uppercase">A CLOSING NOTE</span>
           <h3 class="serif closing-note-h3">More Than an Invitation</h3>
-          <p style="font-size:13px; color:var(--color-charcoal-light); max-width:600px; margin:0 auto; line-height:1.6;">
+          <p style="font-size:12px; color:var(--color-charcoal-light); max-width:550px; margin:0 auto; line-height:1.5;">
             Your invitation is where your event story begins. Before your guests see the venue, the decor, or the celebration, they experience your invitation. So make it feel like you.
           </p>
           <div class="closing-note-quote">“Something that makes your guests say, ‘This is so them.’”</div>
-          <a href="mailto:andrea.asuncion0928@gmail.com" class="btn-primary" style="margin-top:6px;">Inquire Now &rarr;</a>
+          <a href="mailto:andrea.asuncion0928@gmail.com" class="btn-primary" style="margin-top:4px;">Inquire Now &rarr;</a>
         </div>
 
       </div>
@@ -1325,9 +1267,9 @@
 
   <!-- FOOTER -->
   <footer>
-    <div style="display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; flex-wrap:wrap; gap:12px;">
-      <div class="logo uppercase" style="color:#FFF; font-size:15px;">STORYINVITES</div>
-      <p style="font-size:10px; color:var(--color-gold-accent);" class="uppercase">© 2026 STORYINVITES. ALL RIGHTS RESERVED.</p>
+    <div style="display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; flex-wrap:wrap; gap:10px;">
+      <div class="logo uppercase" style="color:#FFF; font-size:14px;">STORYINVITES</div>
+      <p style="font-size:9.5px; color:var(--color-gold-accent);" class="uppercase">© 2026 STORYINVITES. ALL RIGHTS RESERVED.</p>
     </div>
   </footer>
 

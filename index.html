@@ -57,11 +57,11 @@
     border-bottom: 1px solid var(--border-subtle);
   }
 
-  /* BRAND LOGO TEXT */
+  /* BRAND LOGO WITH IMAGE ALIGNED SIDE-BY-SIDE */
   .logo-brand {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     text-decoration: none;
     color: var(--text-primary);
     font-family: var(--font-serif);
@@ -72,10 +72,17 @@
     flex-shrink: 0;
   }
 
-  /* RESPONSIVE NAV MENU WITH BOLD TEXT */
+  .logo-img {
+    height: clamp(22px, 2.8vw, 28px);
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* RESPONSIVE NAV MENU WITH SMALLER BOLD TEXT */
   .nav-menu {
     display: flex;
-    gap: clamp(10px, 1.8vw, 30px);
+    gap: clamp(8px, 1.5vw, 22px);
     list-style: none;
     overflow-x: auto;
     scrollbar-width: none; /* Firefox */
@@ -92,13 +99,13 @@
     border: none;
     cursor: pointer;
     font-family: var(--font-sans);
-    font-size: clamp(10px, 1.25vw, 11.5px);
-    font-weight: 800; /* BOLD MENU TEXT */
-    letter-spacing: clamp(0.08em, 0.12em, 0.16em);
+    font-size: clamp(8.5px, 1.05vw, 10px); /* SMALLER FONT SIZE */
+    font-weight: 700; /* BOLD MENU TEXT */
+    letter-spacing: clamp(0.06em, 0.1em, 0.14em);
     text-transform: uppercase;
     color: var(--text-primary); /* HIGH-VISIBILITY DARK COLOR */
     transition: all 0.3s ease;
-    padding: 6px 4px;
+    padding: 4px 2px;
     border-bottom: 2px solid transparent;
     white-space: nowrap;
   }
@@ -744,9 +751,12 @@
 </head>
 <body>
 
-  <!-- FIXED RESPONSIVE NAVIGATION HEADER WITH BOLD MENU LINKS -->
+  <!-- FIXED RESPONSIVE NAVIGATION HEADER WITH LOGO IMAGE AND COMPACT BOLD MENU -->
   <header>
-    <a href="#" onclick="showPage('page-home')" class="logo-brand">STORYINVITES</a>
+    <a href="#" onclick="showPage('page-home')" class="logo-brand">
+      <img src="logo.png" alt="StoryInvites Logo" class="logo-img" onerror="this.style.display='none'">
+      <span>STORYINVITES</span>
+    </a>
     <ul class="nav-menu">
       <li><button id="nav-home" class="active" onclick="showPage('page-home')">HOME</button></li>
       <li><button id="nav-portfolio" onclick="showPage('page-portfolio')">PORTFOLIO</button></li>

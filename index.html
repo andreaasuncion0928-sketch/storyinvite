@@ -193,7 +193,7 @@
   /* Dual Device Live Embed Stage */
   .hero-device-stage {
     position: relative;
-    height: 520px;
+    height: 580px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -222,14 +222,23 @@
     z-index: 1;
   }
 
+  /* Realistic Mobile View Dimensions */
   .device-mobile {
-    width: 170px;
-    height: 340px;
+    width: 250px;
+    height: 520px;
     bottom: 20px;
-    right: 30px;
-    border: 6px solid #2d2640;
-    border-radius: 28px;
+    right: 20px;
+    border: 10px solid #2d2640;
+    border-radius: 36px;
     z-index: 2;
+  }
+
+  /* CSS Transform Scaling for realistic mobile viewport embedding */
+  .mobile-iframe-wrapper {
+    width: 375px;
+    height: 780px;
+    transform: scale(0.666667);
+    transform-origin: 0 0;
   }
 
   .iframe-preview {
@@ -365,7 +374,7 @@
 
   .iframe-container-desktop {
     width: 100%;
-    height: 420px;
+    height: 520px;
     background: #FFF;
     border: 1px solid var(--border-light);
     border-radius: 6px;
@@ -373,13 +382,13 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.03);
   }
 
+  /* Realistic Mobile View Phone Shell in Showcase */
   .iframe-container-mobile {
-    width: 100%;
-    max-width: 230px;
-    height: 420px;
+    width: 260px;
+    height: 520px;
     background: #FFF;
-    border: 6px solid var(--color-ink);
-    border-radius: 28px;
+    border: 10px solid var(--color-ink);
+    border-radius: 36px;
     margin: 0 auto;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0,0,0,0.08);
@@ -389,13 +398,27 @@
     grid-column: span 2;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 20px;
     padding-top: 25px;
     border-top: 1px dashed var(--border-light);
   }
 
-  /* Placeholder State for Debut & Birthday */
+  .writeup-desc {
+    font-size: 13px;
+    color: var(--color-charcoal);
+    margin: 6px 0 10px;
+    max-width: 750px;
+  }
+
+  .writeup-vibe {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+  }
+
+  /* Placeholder State for Birthday */
   .placeholder-card {
     background: var(--bg-lavender-card);
     border: 2px dashed var(--border-light);
@@ -481,12 +504,14 @@
     .nav-menu { display: none; }
     .hero-container { grid-template-columns: 1fr; padding: 120px 25px 60px; text-align: center; }
     .hero-description { margin: 0 auto 40px; }
-    .hero-device-stage { height: 420px; }
+    .hero-device-stage { height: 500px; }
     .device-desktop { width: 300px; height: 200px; left: 5%; }
-    .device-mobile { width: 130px; height: 260px; right: 5%; }
+    .device-mobile { width: 180px; height: 380px; right: 5%; border-width: 8px; }
+    .mobile-iframe-wrapper { width: 375px; height: 780px; transform: scale(0.48); }
     
     .category-tabs { flex-wrap: wrap; }
     .sample-showcase-grid { grid-template-columns: 1fr; }
+    .iframe-container-mobile { width: 220px; height: 440px; }
     .showcase-info { grid-column: span 1; flex-direction: column; gap: 20px; align-items: flex-start; }
     .buyin-grid, .process-grid, .offer-box { grid-template-columns: 1fr; }
   }
@@ -527,7 +552,7 @@
       <!-- Live Hero Preview Embed (ds1.storyinvites.com) -->
       <div class="hero-device-stage">
         <div class="device-badge uppercase">
-          <span>Live Interactive Preview</span>
+          <span>Live Debut Experience</span>
         </div>
 
         <div class="device-mockup device-desktop">
@@ -535,7 +560,9 @@
         </div>
 
         <div class="device-mockup device-mobile">
-          <iframe src="https://ds1.storyinvites.com" class="iframe-preview" title="Hero Mobile Live Demo"></iframe>
+          <div class="mobile-iframe-wrapper">
+            <iframe src="https://ds1.storyinvites.com" class="iframe-preview" title="Hero Mobile Live Demo"></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -562,12 +589,12 @@
       <!-- 1. WEDDING TEMPLATES CATEGORY -->
       <div id="cat-wedding" class="event-category-content active">
         
-        <!-- WEDDING 1 -->
+        <!-- WS1 -->
         <div class="sample-category-block">
           <div class="category-header">
             <div>
               <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 01</span>
-              <h3 class="category-title serif">Romantic & Editorial</h3>
+              <h3 class="category-title serif">WS1 — The Timeless Love Story</h3>
             </div>
             <p class="category-subtitle uppercase">ws1.storyinvites.com</p>
           </div>
@@ -580,27 +607,31 @@
               </div>
             </div>
             <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Mobile View</span>
+              <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
-                <iframe src="https://ws1.storyinvites.com" class="iframe-preview" title="ws1 Mobile"></iframe>
+                <div class="mobile-iframe-wrapper">
+                  <iframe src="https://ws1.storyinvites.com" class="iframe-preview" title="ws1 Mobile"></iframe>
+                </div>
               </div>
             </div>
             <div class="showcase-info">
               <div>
-                <h4 class="serif" style="font-size:26px;">The Classic Story</h4>
-                <p style="font-size:13px; color:var(--color-taupe);">Custom story chapters, soft music integration, and photo gallery reveal.</p>
+                <h4 class="serif" style="font-size:26px;">WS1 — The Timeless Love Story</h4>
+                <p style="font-size:12px; font-weight:600; color:var(--color-charcoal); margin-top:4px;">For the classic, romantic couple.</p>
+                <p class="writeup-desc">You love meaningful details, beautiful photos, and a wedding that feels elegant without trying too hard.</p>
+                <p class="writeup-vibe">Your vibe: Romantic • Refined • Sentimental</p>
               </div>
-              <a href="https://ws1.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Site &rarr;</a>
+              <a href="https://ws1.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- WEDDING 2 -->
+        <!-- WS2 -->
         <div class="sample-category-block">
           <div class="category-header">
             <div>
               <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 02</span>
-              <h3 class="category-title serif">Modern Minimalist</h3>
+              <h3 class="category-title serif">WS2 — The Cinematic Couple</h3>
             </div>
             <p class="category-subtitle uppercase">ws2.storyinvites.com</p>
           </div>
@@ -613,27 +644,31 @@
               </div>
             </div>
             <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Mobile View</span>
+              <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
-                <iframe src="https://ws2.storyinvites.com" class="iframe-preview" title="ws2 Mobile"></iframe>
+                <div class="mobile-iframe-wrapper">
+                  <iframe src="https://ws2.storyinvites.com" class="iframe-preview" title="ws2 Mobile"></iframe>
+                </div>
               </div>
             </div>
             <div class="showcase-info">
               <div>
-                <h4 class="serif" style="font-size:26px;">The Minimalist Luxe</h4>
-                <p style="font-size:13px; color:var(--color-taupe);">Clean typography, spacious layout, and effortless guest clarity.</p>
+                <h4 class="serif" style="font-size:26px;">WS2 — The Cinematic Couple</h4>
+                <p style="font-size:12px; font-weight:600; color:var(--color-charcoal); margin-top:4px;">For the couple who loves a little drama.</p>
+                <p class="writeup-desc">Your story feels like a movie — memorable moments, great music, and a strong visual mood from the very first frame.</p>
+                <p class="writeup-vibe">Your vibe: Cinematic • Emotional • Modern</p>
               </div>
-              <a href="https://ws2.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Site &rarr;</a>
+              <a href="https://ws2.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- WEDDING 3 -->
+        <!-- WS3 -->
         <div class="sample-category-block">
           <div class="category-header">
             <div>
               <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 03</span>
-              <h3 class="category-title serif">Editorial Gazette</h3>
+              <h3 class="category-title serif">WS3 — The Fun & Fearless Couple</h3>
             </div>
             <p class="category-subtitle uppercase">ws3.storyinvites.com</p>
           </div>
@@ -646,27 +681,31 @@
               </div>
             </div>
             <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Mobile View</span>
+              <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
-                <iframe src="https://ws3.storyinvites.com" class="iframe-preview" title="ws3 Mobile"></iframe>
+                <div class="mobile-iframe-wrapper">
+                  <iframe src="https://ws3.storyinvites.com" class="iframe-preview" title="ws3 Mobile"></iframe>
+                </div>
               </div>
             </div>
             <div class="showcase-info">
               <div>
-                <h4 class="serif" style="font-size:26px;">The Chronicle</h4>
-                <p style="font-size:13px; color:var(--color-taupe);">Magazine-style spreads highlighting entourage details, schedule timelines, and photos.</p>
+                <h4 class="serif" style="font-size:26px;">WS3 — The Fun & Fearless Couple</h4>
+                <p style="font-size:12px; font-weight:600; color:var(--color-charcoal); margin-top:4px;">For the playful, adventurous two.</p>
+                <p class="writeup-desc">You want your invitation to feel as fun and spontaneous as your relationship, with personality woven into every detail.</p>
+                <p class="writeup-vibe">Your vibe: Playful • Bold • Energetic</p>
               </div>
-              <a href="https://ws3.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Site &rarr;</a>
+              <a href="https://ws3.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- WEDDING 4 -->
+        <!-- WS4 -->
         <div class="sample-category-block">
           <div class="category-header">
             <div>
               <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 04</span>
-              <h3 class="category-title serif">Destination Journey</h3>
+              <h3 class="category-title serif">WS4 — The Classic with a Twist</h3>
             </div>
             <p class="category-subtitle uppercase">ws4.storyinvites.com</p>
           </div>
@@ -679,27 +718,31 @@
               </div>
             </div>
             <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Mobile View</span>
+              <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
-                <iframe src="https://ws4.storyinvites.com" class="iframe-preview" title="ws4 Mobile"></iframe>
+                <div class="mobile-iframe-wrapper">
+                  <iframe src="https://ws4.storyinvites.com" class="iframe-preview" title="ws4 Mobile"></iframe>
+                </div>
               </div>
             </div>
             <div class="showcase-info">
               <div>
-                <h4 class="serif" style="font-size:26px;">The Journey</h4>
-                <p style="font-size:13px; color:var(--color-taupe);">Designed for weekend celebrations, venue maps, travel guides, and instant RSVP.</p>
+                <h4 class="serif" style="font-size:26px;">WS4 — The Classic with a Twist</h4>
+                <p style="font-size:12px; font-weight:600; color:var(--color-charcoal); margin-top:4px;">For the couple who loves tradition, but not the ordinary.</p>
+                <p class="writeup-desc">You appreciate timeless wedding elements but want them presented in a fresh, interactive way that feels distinctly yours.</p>
+                <p class="writeup-vibe">Your vibe: Classic • Creative • Elegant</p>
               </div>
-              <a href="https://ws4.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Site &rarr;</a>
+              <a href="https://ws4.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- WEDDING 5 -->
+        <!-- WS5 -->
         <div class="sample-category-block" style="margin-bottom:0;">
           <div class="category-header">
             <div>
               <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 05</span>
-              <h3 class="category-title serif">Vibrant Celebration</h3>
+              <h3 class="category-title serif">WS5 — The Storytellers</h3>
             </div>
             <p class="category-subtitle uppercase">ws5.storyinvites.com</p>
           </div>
@@ -712,36 +755,67 @@
               </div>
             </div>
             <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Mobile View</span>
+              <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
-                <iframe src="https://ws5.storyinvites.com" class="iframe-preview" title="ws5 Mobile"></iframe>
+                <div class="mobile-iframe-wrapper">
+                  <iframe src="https://ws5.storyinvites.com" class="iframe-preview" title="ws5 Mobile"></iframe>
+                </div>
               </div>
             </div>
             <div class="showcase-info">
               <div>
-                <h4 class="serif" style="font-size:26px;">The Celebration</h4>
-                <p style="font-size:13px; color:var(--color-taupe);">Rich visual motion, live wedding countdowns, and gift registry details.</p>
+                <h4 class="serif" style="font-size:26px;">WS5 — The Storytellers</h4>
+                <p style="font-size:12px; font-weight:600; color:var(--color-charcoal); margin-top:4px;">For the couple whose journey is the heart of it all.</p>
+                <p class="writeup-desc">You have places, memories, inside jokes, adventures, and little moments worth sharing. Your invitation lets guests experience the story with you.</p>
+                <p class="writeup-vibe">Your vibe: Personal • Curious • Story-driven</p>
               </div>
-              <a href="https://ws5.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px;">Open Live Site &rarr;</a>
+              <a href="https://ws5.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- 2. DEBUT TEMPLATES CATEGORY (COMING SOON PLACEHOLDER) -->
+      <!-- 2. DEBUT TEMPLATES CATEGORY -->
       <div id="cat-debut" class="event-category-content">
-        <div class="placeholder-card">
-          <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">18th Birthday Milestones</span>
-          <h3 class="serif" style="font-size:36px; font-weight:300; margin:15px 0;">Debut Digital Invitations</h3>
-          <p style="font-size:14px; color:var(--color-charcoal); max-width:550px; margin:0 auto 30px;">
-            We are crafting bespoke debut templates featuring 18 Roses, 18 Candles, photo timelines, and dress codes. Custom orders are currently available!
-          </p>
-          <a href="#pricing" class="btn-primary">Request a Custom Debut Invite &rarr;</a>
+        <div class="sample-category-block" style="margin-bottom:0;">
+          <div class="category-header">
+            <div>
+              <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Debut Template 01</span>
+              <h3 class="category-title serif">The Grand 18th Celebration</h3>
+            </div>
+            <p class="category-subtitle uppercase">ds1.storyinvites.com</p>
+          </div>
+          
+          <div class="sample-showcase-grid">
+            <div class="preview-wrapper">
+              <span class="view-label uppercase">💻 Desktop View — ds1.storyinvites.com</span>
+              <div class="iframe-container-desktop">
+                <iframe src="https://ds1.storyinvites.com" class="iframe-preview" title="ds1 Desktop"></iframe>
+              </div>
+            </div>
+            <div class="preview-wrapper">
+              <span class="view-label uppercase">📱 Realistic Mobile View</span>
+              <div class="iframe-container-mobile">
+                <div class="mobile-iframe-wrapper">
+                  <iframe src="https://ds1.storyinvites.com" class="iframe-preview" title="ds1 Mobile"></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-info">
+              <div>
+                <h4 class="serif" style="font-size:26px;">The Grand Debut (ds1)</h4>
+                <p style="font-size:12px; font-weight:600; color:var(--color-charcoal); margin-top:4px;">For the debutante celebrating an unforgettable milestone.</p>
+                <p class="writeup-desc">Tailored for 18th milestones, featuring 18 Roses, 18 Candles, photo timelines, and dress code palettes.</p>
+                <p class="writeup-vibe">Your vibe: Elegant • Youthful • Celebratory</p>
+              </div>
+              <a href="https://ds1.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- 3. BIRTHDAY TEMPLATES CATEGORY (COMING SOON PLACEHOLDER) -->
+      <!-- 3. BIRTHDAY TEMPLATES CATEGORY -->
       <div id="cat-birthday" class="event-category-content">
         <div class="placeholder-card">
           <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">Special Celebrations</span>

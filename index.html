@@ -14,13 +14,13 @@
     --bg-lavender-1: #f3f0f8; /* Primary Soft Lavender */
     --bg-lavender-2: #e8e2f3; /* Medium Lavender Header/Container Shade */
     --bg-lavender-3: #dad0ec; /* Deeper Accent Shade */
-    --bg-lavender-card: #FAF8FC;
+    --bg-lavender-card: rgba(250, 248, 252, 0.7);
     
     --color-ink: #1e1730;
     --color-charcoal: #433b57;
     --color-taupe: #786d91;
     --color-accent: #624898;
-    --border-light: #d8d2e7;
+    --border-light: rgba(216, 210, 231, 0.6);
     
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Montserrat', sans-serif;
@@ -46,9 +46,9 @@
     overflow-x: hidden;
     /* Ultra-subtle, premium ambient mesh background texture */
     background-image: 
-      radial-gradient(at 0% 0%, rgba(218, 208, 236, 0.4) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(232, 226, 243, 0.5) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, rgba(243, 240, 248, 0.8) 0px, transparent 100%);
+      radial-gradient(at 0% 0%, rgba(218, 208, 236, 0.45) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(232, 226, 243, 0.55) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(243, 240, 248, 0.85) 0px, transparent 100%);
     background-attachment: fixed;
   }
 
@@ -141,28 +141,41 @@
     transform: scale(0.95);
   }
 
-  /* STICKY NAVIGATION HEADER (Next shade of lavender #e8e2f3) */
+  /* STICKY NAVIGATION HEADER WITH LOGO.PNG */
   header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 24px 50px;
+    padding: 18px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: rgba(232, 226, 243, 0.95);
+    background: rgba(232, 226, 243, 0.85);
     backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-light);
   }
 
-  .logo {
+  .logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .logo-text {
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.35em;
     color: var(--color-ink);
-    text-decoration: none;
   }
 
   .nav-menu {
@@ -329,15 +342,17 @@
 
   /* Event Type Category Filter Bar (#e8e2f3) */
   .category-tabs-wrapper {
-    background-color: var(--bg-lavender-2);
-    border: 1px solid var(--border-light);
+    background-color: rgba(232, 226, 243, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     padding: 16px 24px;
     border-radius: 50px;
     display: inline-flex;
     justify-content: center;
     gap: 15px;
     margin-bottom: 70px;
-    box-shadow: 0 10px 25px rgba(30, 23, 48, 0.04);
+    box-shadow: 0 10px 30px rgba(98, 72, 152, 0.08);
   }
 
   .category-tabs {
@@ -373,34 +388,61 @@
     display: block;
   }
 
-  /* UNIFIED TEMPLATE CARD PANEL (CONNECTING INTRO WRITEUP & IMAGE PREVIEWS) */
+  /* UNIFIED TEMPLATE CARD PANEL */
   .unified-template-card {
     max-width: 1300px;
     margin: 0 auto 100px;
-    background: var(--bg-lavender-card);
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
+    background: rgba(250, 248, 252, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(30, 23, 48, 0.04);
+    box-shadow: 0 20px 40px rgba(30, 23, 48, 0.05);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
 
   .unified-template-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 25px 50px rgba(30, 23, 48, 0.08);
+    box-shadow: 0 30px 60px rgba(98, 72, 152, 0.12);
   }
 
-  .card-intro-header {
-    padding: 40px 45px 30px;
-    border-bottom: 1px solid var(--border-light);
-    background: linear-gradient(to right, rgba(232, 226, 243, 0.5), transparent);
-    border-left: 5px solid var(--color-accent);
+  /* LAVENDER GLASSY & GLOSSY CARD HEADER PANEL (GLASSMORPHISM) */
+  .card-intro-header-glass {
+    position: relative;
+    padding: 40px 45px 35px;
+    background: linear-gradient(
+      135deg, 
+      rgba(232, 226, 243, 0.75) 0%, 
+      rgba(218, 208, 236, 0.55) 100%
+    );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    border-left: 6px solid var(--color-accent);
+    overflow: hidden;
+  }
+
+  /* Glossy sheen highlight effect across the title card panel */
+  .card-intro-header-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(
+      to bottom, 
+      rgba(255, 255, 255, 0.45) 0%, 
+      rgba(255, 255, 255, 0) 100%
+    );
+    pointer-events: none;
   }
 
   .intro-story-title {
     font-size: 34px;
     font-weight: 300;
     color: var(--color-ink);
+    position: relative;
+    z-index: 1;
   }
 
   .intro-story-tagline {
@@ -408,6 +450,8 @@
     font-weight: 600;
     color: var(--color-accent);
     margin-top: 4px;
+    position: relative;
+    z-index: 1;
   }
 
   .intro-story-writeup {
@@ -415,6 +459,8 @@
     color: var(--color-charcoal);
     margin-top: 12px;
     line-height: 1.8;
+    position: relative;
+    z-index: 1;
   }
 
   .intro-story-vibe {
@@ -423,6 +469,8 @@
     color: var(--color-taupe);
     letter-spacing: 0.15em;
     margin-top: 15px;
+    position: relative;
+    z-index: 1;
   }
 
   /* Dual Embedded Showcase Grid connected inside the same unified panel */
@@ -483,7 +531,9 @@
 
   /* Placeholder State for Birthday */
   .placeholder-card {
-    background: var(--bg-lavender-card);
+    background: rgba(250, 248, 252, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 2px dashed var(--border-light);
     padding: 80px 40px;
     text-align: center;
@@ -507,16 +557,18 @@
   }
 
   .buyin-card {
-    background: var(--bg-lavender-card);
-    border: 1px solid var(--border-light);
+    background: rgba(250, 248, 252, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
     padding: 40px 30px;
-    border-radius: 8px;
+    border-radius: 12px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
 
   .buyin-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(30, 23, 48, 0.06);
+    box-shadow: 0 20px 40px rgba(98, 72, 152, 0.08);
   }
 
   .buyin-icon {
@@ -546,14 +598,16 @@
   }
 
   .offer-box {
-    background: var(--bg-lavender-card);
-    border: 1px solid var(--border-light);
+    background: rgba(250, 248, 252, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     padding: 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    border-radius: 12px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(30, 23, 48, 0.04);
   }
 
   /* FOOTER */
@@ -564,7 +618,9 @@
   }
 
   @media (max-width: 992px) {
-    header { padding: 20px 25px; }
+    header { padding: 18px 25px; }
+    .logo-img { height: 32px; }
+    .logo-text { font-size: 15px; }
     .nav-menu { display: none; }
     .hero-container { grid-template-columns: 1fr; padding: 140px 25px 60px; text-align: center; }
     .hero-description { margin: 0 auto 40px; }
@@ -590,9 +646,12 @@
     <span>🔇 Stop All Audio</span>
   </button>
 
-  <!-- NAVIGATION HEADER (#e8e2f3) -->
+  <!-- NAVIGATION HEADER WITH LOGO.PNG (#e8e2f3) -->
   <header>
-    <a href="#" class="logo uppercase">STORYINVITES</a>
+    <a href="#" class="logo-brand">
+      <img src="logo.png" alt="StoryInvites Logo" class="logo-img" onerror="this.style.display='none'">
+      <span class="logo-text uppercase">STORYINVITES</span>
+    </a>
     <ul class="nav-menu uppercase">
       <li><a href="#templates">Templates</a></li>
       <li><a href="#why-us">Why Us</a></li>
@@ -664,9 +723,9 @@
       <!-- 1. WEDDING TEMPLATES CATEGORY -->
       <div id="cat-wedding" class="event-category-content active">
         
-        <!-- TEMPLATE 01: UNIFIED CONNECTED CARD PANEL -->
+        <!-- TEMPLATE 01: UNIFIED CONNECTED CARD PANEL WITH LAVENDER GLASSY & GLOSSY HEADER -->
         <div class="unified-template-card">
-          <div class="card-intro-header">
+          <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Timeless Love Story</h3>
             <p class="intro-story-tagline">For the classic, romantic couple.</p>
             <p class="intro-story-writeup">You love meaningful details, beautiful photos, and a wedding that feels elegant without trying too hard.</p>
@@ -698,9 +757,9 @@
           </div>
         </div>
 
-        <!-- TEMPLATE 02: UNIFIED CONNECTED CARD PANEL -->
+        <!-- TEMPLATE 02: UNIFIED CONNECTED CARD PANEL WITH LAVENDER GLASSY & GLOSSY HEADER -->
         <div class="unified-template-card">
-          <div class="card-intro-header">
+          <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Cinematic Couple</h3>
             <p class="intro-story-tagline">For the couple who loves a little drama.</p>
             <p class="intro-story-writeup">Your story feels like a movie — memorable moments, great music, and a strong visual mood from the very first frame.</p>
@@ -732,9 +791,9 @@
           </div>
         </div>
 
-        <!-- TEMPLATE 03: UNIFIED CONNECTED CARD PANEL -->
+        <!-- TEMPLATE 03: UNIFIED CONNECTED CARD PANEL WITH LAVENDER GLASSY & GLOSSY HEADER -->
         <div class="unified-template-card">
-          <div class="card-intro-header">
+          <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Fun & Fearless Couple</h3>
             <p class="intro-story-tagline">For the playful, adventurous two.</p>
             <p class="intro-story-writeup">You want your invitation to feel as fun and spontaneous as your relationship, with personality woven into every detail.</p>
@@ -766,9 +825,9 @@
           </div>
         </div>
 
-        <!-- TEMPLATE 04: UNIFIED CONNECTED CARD PANEL -->
+        <!-- TEMPLATE 04: UNIFIED CONNECTED CARD PANEL WITH LAVENDER GLASSY & GLOSSY HEADER -->
         <div class="unified-template-card">
-          <div class="card-intro-header">
+          <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Classic with a Twist</h3>
             <p class="intro-story-tagline">For the couple who loves tradition, but not the ordinary.</p>
             <p class="intro-story-writeup">You appreciate timeless wedding elements but want them presented in a fresh, interactive way that feels distinctly yours.</p>
@@ -800,9 +859,9 @@
           </div>
         </div>
 
-        <!-- TEMPLATE 05: UNIFIED CONNECTED CARD PANEL -->
+        <!-- TEMPLATE 05: UNIFIED CONNECTED CARD PANEL WITH LAVENDER GLASSY & GLOSSY HEADER -->
         <div class="unified-template-card" style="margin-bottom:0;">
-          <div class="card-intro-header">
+          <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Storytellers</h3>
             <p class="intro-story-tagline">For the couple whose journey is the heart of it all.</p>
             <p class="intro-story-writeup">You have places, memories, inside jokes, adventures, and little moments worth sharing. Your invitation lets guests experience the story with you.</p>
@@ -839,7 +898,7 @@
       <!-- 2. DEBUT TEMPLATES CATEGORY -->
       <div id="cat-debut" class="event-category-content">
         <div class="unified-template-card" style="margin-bottom:0;">
-          <div class="card-intro-header">
+          <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Grand Debutante</h3>
             <p class="intro-story-tagline">For the debutante celebrating an unforgettable milestone.</p>
             <p class="intro-story-writeup">Tailored for 18th milestones, featuring 18 Roses, 18 Candles, photo timelines, and dress code palettes.</p>
@@ -948,17 +1007,17 @@
       </div>
 
       <div class="process-grid">
-        <div style="background:rgba(255,255,255,0.6); padding:35px; border:1px solid var(--border-light); border-radius:8px;">
+        <div style="background:rgba(255,255,255,0.6); backdrop-filter:blur(10px); padding:35px; border:1px solid var(--border-light); border-radius:8px;">
           <div class="uppercase" style="font-size:11px; color:var(--color-accent); font-weight:700;">01</div>
           <h3 class="serif" style="font-size:24px; margin:10px 0;">Tell Us Your Story</h3>
           <p style="font-size:14px; color:var(--color-charcoal);">Share your photos, event details, and preferred template style from our collection.</p>
         </div>
-        <div style="background:rgba(255,255,255,0.6); padding:35px; border:1px solid var(--border-light); border-radius:8px;">
+        <div style="background:rgba(255,255,255,0.6); backdrop-filter:blur(10px); padding:35px; border:1px solid var(--border-light); border-radius:8px;">
           <div class="uppercase" style="font-size:11px; color:var(--color-accent); font-weight:700;">02</div>
           <h3 class="serif" style="font-size:24px; margin:10px 0;">We Create Your Design</h3>
           <p style="font-size:14px; color:var(--color-charcoal);">We build your personalized digital invitation space with up to 2 rounds of revisions.</p>
         </div>
-        <div style="background:rgba(255,255,255,0.6); padding:35px; border:1px solid var(--border-light); border-radius:8px;">
+        <div style="background:rgba(255,255,255,0.6); backdrop-filter:blur(10px); padding:35px; border:1px solid var(--border-light); border-radius:8px;">
           <div class="uppercase" style="font-size:11px; color:var(--color-accent); font-weight:700;">03</div>
           <h3 class="serif" style="font-size:24px; margin:10px 0;">Share With Guests</h3>
           <p style="font-size:14px; color:var(--color-charcoal);">Receive your custom web link ready to send across chat apps, SMS, or social media.</p>

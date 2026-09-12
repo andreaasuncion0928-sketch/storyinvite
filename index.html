@@ -12,7 +12,7 @@
   :root {
     /* Refined Lavender Palette Hierarchy */
     --bg-lavender-1: #f1eff9; /* Primary Light */
-    --bg-lavender-2: #e5e0f3; /* Soft Contrast */
+    --bg-lavender-2: #e5e0f3; /* Soft Contrast Header Shade */
     --bg-lavender-3: #d8d0ed; /* Accent Shade */
     --bg-lavender-card: #FAF8FC;
     
@@ -65,7 +65,7 @@
     padding: 18px 36px;
     background-color: var(--color-ink);
     color: var(--bg-lavender-1);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -88,7 +88,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.2em;
     color: var(--color-accent);
     text-decoration: none;
@@ -101,24 +101,24 @@
     transform: translateX(5px);
   }
 
-  /* Sticky Navigation */
+  /* STICKY NAVIGATION HEADER (Next shade of lavender #e5e0f3) */
   header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 22px 50px;
+    padding: 24px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: rgba(241, 239, 249, 0.92);
+    background: rgba(229, 224, 243, 0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-light);
   }
 
   .logo {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.35em;
     color: var(--color-ink);
@@ -127,16 +127,16 @@
 
   .nav-menu {
     display: flex;
-    gap: 35px;
+    gap: 40px;
     list-style: none;
   }
 
   .nav-menu a {
     text-decoration: none;
     color: var(--color-charcoal);
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 0.2em;
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.3s;
   }
 
@@ -147,7 +147,7 @@
   /* HERO INTRO PAGE */
   .hero-container {
     min-height: 100vh;
-    padding: 150px 50px 100px;
+    padding: 160px 50px 100px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
@@ -159,17 +159,18 @@
 
   .hero-tag {
     display: inline-block;
-    padding: 6px 16px;
+    padding: 8px 18px;
     background: rgba(98, 72, 152, 0.08);
     border: 1px solid rgba(98, 72, 152, 0.2);
     border-radius: 30px;
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: 600;
     color: var(--color-accent);
     margin-bottom: 25px;
   }
 
   .hero-title {
-    font-size: clamp(48px, 5.5vw, 76px);
+    font-size: clamp(52px, 6vw, 82px);
     font-weight: 300;
     line-height: 1.05;
     margin-bottom: 24px;
@@ -178,16 +179,16 @@
 
   .hero-title span {
     font-family: var(--font-script);
-    font-size: 1.2em;
+    font-size: 1.25em;
     color: var(--color-accent);
     display: inline-block;
   }
 
   .hero-description {
-    font-size: 15px;
+    font-size: 17px;
     color: var(--color-charcoal);
     margin-bottom: 40px;
-    max-width: 500px;
+    max-width: 520px;
   }
 
   /* Dual Device Live Embed Stage */
@@ -256,7 +257,7 @@
     backdrop-filter: blur(8px);
     padding: 12px 20px;
     border-radius: 50px;
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.2em;
     z-index: 3;
     display: flex;
@@ -286,19 +287,29 @@
     margin: 0 auto 50px;
   }
 
-  /* Event Type Category Filter Tabs */
-  .category-tabs {
-    display: flex;
+  /* Event Type Category Filter Bar (Shaded Lavender Umbrella Container #e5e0f3) */
+  .category-tabs-wrapper {
+    background-color: var(--bg-lavender-2);
+    border: 1px solid var(--border-light);
+    padding: 16px 24px;
+    border-radius: 50px;
+    display: inline-flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 70px;
   }
 
+  .category-tabs {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
   .tab-btn {
-    background: var(--bg-lavender-card);
-    border: 1px solid var(--border-light);
-    padding: 14px 32px;
-    font-size: 11px;
+    background: transparent;
+    border: none;
+    padding: 14px 36px;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.2em;
     color: var(--color-charcoal);
@@ -310,7 +321,6 @@
   .tab-btn.active, .tab-btn:hover {
     background: var(--color-ink);
     color: #FFF;
-    border-color: var(--color-ink);
     box-shadow: 0 8px 20px rgba(30, 23, 48, 0.15);
   }
 
@@ -324,26 +334,45 @@
 
   .sample-category-block {
     max-width: 1300px;
-    margin: 0 auto 100px;
+    margin: 0 auto 120px;
   }
 
-  .category-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    border-bottom: 1px solid var(--border-light);
-    padding-bottom: 15px;
-    margin-bottom: 40px;
+  /* EMPHASIZED WRITEOUT INTRO SEQUENCE */
+  .intro-story-block {
+    background: var(--bg-lavender-card);
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--color-accent);
+    padding: 35px 40px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 30px;
   }
 
-  .category-title {
-    font-size: 32px;
+  .intro-story-title {
+    font-size: 34px;
     font-weight: 300;
+    color: var(--color-ink);
   }
 
-  .category-subtitle {
-    font-size: 11px;
+  .intro-story-tagline {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-top: 4px;
+  }
+
+  .intro-story-writeup {
+    font-size: 15px;
+    color: var(--color-charcoal);
+    margin-top: 12px;
+    line-height: 1.8;
+  }
+
+  .intro-story-vibe {
+    font-size: 12px;
+    font-weight: 700;
     color: var(--color-taupe);
+    letter-spacing: 0.15em;
+    margin-top: 15px;
   }
 
   /* Dual Embedded Showcase Grid */
@@ -364,12 +393,13 @@
   }
 
   .view-label {
-    font-size: 10px;
+    font-size: 11px;
     color: var(--color-taupe);
     letter-spacing: 0.2em;
     display: flex;
     align-items: center;
     gap: 6px;
+    font-weight: 600;
   }
 
   .iframe-container-desktop {
@@ -398,24 +428,10 @@
     grid-column: span 2;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin-top: 20px;
     padding-top: 25px;
     border-top: 1px dashed var(--border-light);
-  }
-
-  .writeup-desc {
-    font-size: 13px;
-    color: var(--color-charcoal);
-    margin: 6px 0 10px;
-    max-width: 750px;
-  }
-
-  .writeup-vibe {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--color-accent);
-    letter-spacing: 0.05em;
   }
 
   /* Placeholder State for Birthday */
@@ -502,14 +518,14 @@
   @media (max-width: 992px) {
     header { padding: 20px 25px; }
     .nav-menu { display: none; }
-    .hero-container { grid-template-columns: 1fr; padding: 120px 25px 60px; text-align: center; }
+    .hero-container { grid-template-columns: 1fr; padding: 140px 25px 60px; text-align: center; }
     .hero-description { margin: 0 auto 40px; }
     .hero-device-stage { height: 500px; }
     .device-desktop { width: 300px; height: 200px; left: 5%; }
     .device-mobile { width: 180px; height: 380px; right: 5%; border-width: 8px; }
     .mobile-iframe-wrapper { width: 375px; height: 780px; transform: scale(0.48); }
     
-    .category-tabs { flex-wrap: wrap; }
+    .category-tabs-wrapper { flex-direction: column; border-radius: 20px; width: 100%; }
     .sample-showcase-grid { grid-template-columns: 1fr; }
     .iframe-container-mobile { width: 220px; height: 440px; }
     .showcase-info { grid-column: span 1; flex-direction: column; gap: 20px; align-items: flex-start; }
@@ -519,7 +535,7 @@
 </head>
 <body>
 
-  <!-- NAVIGATION HEADER -->
+  <!-- NAVIGATION HEADER (Subtle Contrast Lavender #e5e0f3) -->
   <header>
     <a href="#" class="logo uppercase">STORYINVITES</a>
     <ul class="nav-menu uppercase">
@@ -528,7 +544,7 @@
       <li><a href="#process">Process</a></li>
       <li><a href="#pricing">Pricing</a></li>
     </ul>
-    <a href="#pricing" class="btn-primary" style="padding: 12px 24px; font-size: 9px;">Create Yours</a>
+    <a href="#pricing" class="btn-primary" style="padding: 12px 28px; font-size: 11px;">Create Yours</a>
   </header>
 
   <!-- HERO INTRO PAGE (#f1eff9) -->
@@ -572,33 +588,36 @@
   <div class="section-l2" id="templates">
     <section class="portfolio-section">
       <div class="portfolio-header">
-        <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">The Collection</span>
-        <h2 class="serif" style="font-size:44px; font-weight:300; margin-top:10px;">Select Your Event Type</h2>
-        <p style="font-size:14px; color:var(--color-charcoal); margin-top:15px;">
+        <span class="uppercase" style="font-size:11px; color:var(--color-accent); letter-spacing:0.3em; font-weight:600;">The Collection</span>
+        <h2 class="serif" style="font-size:46px; font-weight:300; margin-top:10px;">Select Your Event Type</h2>
+        <p style="font-size:15px; color:var(--color-charcoal); margin-top:15px;">
           Explore live templates designed across desktop and responsive mobile views.
         </p>
       </div>
 
-      <!-- Category Filter Tabs -->
-      <div class="category-tabs uppercase">
-        <button class="tab-btn active" onclick="switchCategory('wedding', this)">💍 Weddings</button>
-        <button class="tab-btn" onclick="switchCategory('debut', this)">👑 Debuts</button>
-        <button class="tab-btn" onclick="switchCategory('birthday', this)">🎂 Birthdays</button>
+      <!-- Category Filter Tabs in a Shaded Lavender Umbrella Container -->
+      <div style="text-align: center;">
+        <div class="category-tabs-wrapper">
+          <div class="category-tabs uppercase">
+            <button class="tab-btn active" onclick="switchCategory('wedding', this)">💍 Weddings</button>
+            <button class="tab-btn" onclick="switchCategory('debut', this)">👑 Debuts</button>
+            <button class="tab-btn" onclick="switchCategory('birthday', this)">🎂 Birthdays</button>
+          </div>
+        </div>
       </div>
 
       <!-- 1. WEDDING TEMPLATES CATEGORY -->
       <div id="cat-wedding" class="event-category-content active">
         
-        <!-- WS1 -->
+        <!-- TEMPLATE 01 SEQUENCE: INTRO WRITEUP FIRST -> SAMPLES -->
         <div class="sample-category-block">
-          <div class="category-header">
-            <div>
-              <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 01</span>
-              <h3 class="category-title serif">WS1 — The Timeless Love Story</h3>
-            </div>
-            <p class="category-subtitle uppercase">ws1.storyinvites.com</p>
+          <div class="intro-story-block">
+            <h3 class="intro-story-title serif">The Timeless Love Story</h3>
+            <p class="intro-story-tagline">For the classic, romantic couple.</p>
+            <p class="intro-story-writeup">You love meaningful details, beautiful photos, and a wedding that feels elegant without trying too hard.</p>
+            <p class="intro-story-vibe uppercase">YOUR VIBE: ROMANTIC • REFINED • SENTIMENTAL</p>
           </div>
-          
+
           <div class="sample-showcase-grid">
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws1.storyinvites.com</span>
@@ -616,26 +635,23 @@
             </div>
             <div class="showcase-info">
               <div>
-                <h4 class="serif" style="font-size:26px;">WS1 — The Timeless Love Story</h4>
-                <p style="font-size:12px; font-weight:600; color:var(--color-charcoal); margin-top:4px;">For the classic, romantic couple.</p>
-                <p class="writeup-desc">You love meaningful details, beautiful photos, and a wedding that feels elegant without trying too hard.</p>
-                <p class="writeup-vibe">Your vibe: Romantic • Refined • Sentimental</p>
+                <h4 class="serif" style="font-size:26px;">The Timeless Love Story Experience</h4>
+                <p style="font-size:13px; color:var(--color-taupe);">ws1.storyinvites.com</p>
               </div>
               <a href="https://ws1.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- WS2 -->
+        <!-- TEMPLATE 02 SEQUENCE: INTRO WRITEUP FIRST -> SAMPLES -->
         <div class="sample-category-block">
-          <div class="category-header">
-            <div>
-              <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 02</span>
-              <h3 class="category-title serif">WS2 — The Cinematic Couple</h3>
-            </div>
-            <p class="category-subtitle uppercase">ws2.storyinvites.com</p>
+          <div class="intro-story-block">
+            <h3 class="intro-story-title serif">The Cinematic Couple</h3>
+            <p class="intro-story-tagline">For the couple who loves a little drama.</p>
+            <p class="intro-story-writeup">Your story feels like a movie — memorable moments, great music, and a strong visual mood from the very first frame.</p>
+            <p class="intro-story-vibe uppercase">YOUR VIBE: CINEMATIC • EMOTIONAL • MODERN</p>
           </div>
-          
+
           <div class="sample-showcase-grid">
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws2.storyinvites.com</span>
@@ -653,26 +669,23 @@
             </div>
             <div class="showcase-info">
               <div>
-                <h4 class="serif" style="font-size:26px;">WS2 — The Cinematic Couple</h4>
-                <p style="font-size:12px; font-weight:600; color:var(--color-charcoal); margin-top:4px;">For the couple who loves a little drama.</p>
-                <p class="writeup-desc">Your story feels like a movie — memorable moments, great music, and a strong visual mood from the very first frame.</p>
-                <p class="writeup-vibe">Your vibe: Cinematic • Emotional • Modern</p>
+                <h4 class="serif" style="font-size:26px;">The Cinematic Couple Experience</h4>
+                <p style="font-size:13px; color:var(--color-taupe);">ws2.storyinvites.com</p>
               </div>
               <a href="https://ws2.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- WS3 -->
+        <!-- TEMPLATE 03 SEQUENCE: INTRO WRITEUP FIRST -> SAMPLES -->
         <div class="sample-category-block">
-          <div class="category-header">
-            <div>
-              <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 03</span>
-              <h3 class="category-title serif">WS3 — The Fun & Fearless Couple</h3>
-            </div>
-            <p class="category-subtitle uppercase">ws3.storyinvites.com</p>
+          <div class="intro-story-block">
+            <h3 class="intro-story-title serif">The Fun & Fearless Couple</h3>
+            <p class="intro-story-tagline">For the playful, adventurous two.</p>
+            <p class="intro-story-writeup">You want your invitation to feel as fun and spontaneous as your relationship, with personality woven into every detail.</p>
+            <p class="intro-story-vibe uppercase">YOUR VIBE: PLAYFUL • BOLD • ENERGETIC</p>
           </div>
-          
+
           <div class="sample-showcase-grid">
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws3.storyinvites.com</span>
@@ -690,26 +703,23 @@
             </div>
             <div class="showcase-info">
               <div>
-                <h4 class="serif" style="font-size:26px;">WS3 — The Fun & Fearless Couple</h4>
-                <p style="font-size:12px; font-weight:600; color:var(--color-charcoal); margin-top:4px;">For the playful, adventurous two.</p>
-                <p class="writeup-desc">You want your invitation to feel as fun and spontaneous as your relationship, with personality woven into every detail.</p>
-                <p class="writeup-vibe">Your vibe: Playful • Bold • Energetic</p>
+                <h4 class="serif" style="font-size:26px;">The Fun & Fearless Experience</h4>
+                <p style="font-size:13px; color:var(--color-taupe);">ws3.storyinvites.com</p>
               </div>
               <a href="https://ws3.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- WS4 -->
+        <!-- TEMPLATE 04 SEQUENCE: INTRO WRITEUP FIRST -> SAMPLES -->
         <div class="sample-category-block">
-          <div class="category-header">
-            <div>
-              <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 04</span>
-              <h3 class="category-title serif">WS4 — The Classic with a Twist</h3>
-            </div>
-            <p class="category-subtitle uppercase">ws4.storyinvites.com</p>
+          <div class="intro-story-block">
+            <h3 class="intro-story-title serif">The Classic with a Twist</h3>
+            <p class="intro-story-tagline">For the couple who loves tradition, but not the ordinary.</p>
+            <p class="intro-story-writeup">You appreciate timeless wedding elements but want them presented in a fresh, interactive way that feels distinctly yours.</p>
+            <p class="intro-story-vibe uppercase">YOUR VIBE: CLASSIC • CREATIVE • ELEGANT</p>
           </div>
-          
+
           <div class="sample-showcase-grid">
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws4.storyinvites.com</span>
@@ -727,26 +737,23 @@
             </div>
             <div class="showcase-info">
               <div>
-                <h4 class="serif" style="font-size:26px;">WS4 — The Classic with a Twist</h4>
-                <p style="font-size:12px; font-weight:600; color:var(--color-charcoal); margin-top:4px;">For the couple who loves tradition, but not the ordinary.</p>
-                <p class="writeup-desc">You appreciate timeless wedding elements but want them presented in a fresh, interactive way that feels distinctly yours.</p>
-                <p class="writeup-vibe">Your vibe: Classic • Creative • Elegant</p>
+                <h4 class="serif" style="font-size:26px;">The Classic with a Twist Experience</h4>
+                <p style="font-size:13px; color:var(--color-taupe);">ws4.storyinvites.com</p>
               </div>
               <a href="https://ws4.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- WS5 -->
+        <!-- TEMPLATE 05 SEQUENCE: INTRO WRITEUP FIRST -> SAMPLES -->
         <div class="sample-category-block" style="margin-bottom:0;">
-          <div class="category-header">
-            <div>
-              <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Wedding Template 05</span>
-              <h3 class="category-title serif">WS5 — The Storytellers</h3>
-            </div>
-            <p class="category-subtitle uppercase">ws5.storyinvites.com</p>
+          <div class="intro-story-block">
+            <h3 class="intro-story-title serif">The Storytellers</h3>
+            <p class="intro-story-tagline">For the couple whose journey is the heart of it all.</p>
+            <p class="intro-story-writeup">You have places, memories, inside jokes, adventures, and little moments worth sharing. Your invitation lets guests experience the story with you.</p>
+            <p class="intro-story-vibe uppercase">YOUR VIBE: PERSONAL • CURIOUS • STORY-DRIVEN</p>
           </div>
-          
+
           <div class="sample-showcase-grid">
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws5.storyinvites.com</span>
@@ -764,10 +771,8 @@
             </div>
             <div class="showcase-info">
               <div>
-                <h4 class="serif" style="font-size:26px;">WS5 — The Storytellers</h4>
-                <p style="font-size:12px; font-weight:600; color:var(--color-charcoal); margin-top:4px;">For the couple whose journey is the heart of it all.</p>
-                <p class="writeup-desc">You have places, memories, inside jokes, adventures, and little moments worth sharing. Your invitation lets guests experience the story with you.</p>
-                <p class="writeup-vibe">Your vibe: Personal • Curious • Story-driven</p>
+                <h4 class="serif" style="font-size:26px;">The Storytellers Experience</h4>
+                <p style="font-size:13px; color:var(--color-taupe);">ws5.storyinvites.com</p>
               </div>
               <a href="https://ws5.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
@@ -779,14 +784,13 @@
       <!-- 2. DEBUT TEMPLATES CATEGORY -->
       <div id="cat-debut" class="event-category-content">
         <div class="sample-category-block" style="margin-bottom:0;">
-          <div class="category-header">
-            <div>
-              <span class="uppercase" style="font-size:10px; color:var(--color-accent);">Debut Template 01</span>
-              <h3 class="category-title serif">The Grand 18th Celebration</h3>
-            </div>
-            <p class="category-subtitle uppercase">ds1.storyinvites.com</p>
+          <div class="intro-story-block">
+            <h3 class="intro-story-title serif">The Grand Debutante</h3>
+            <p class="intro-story-tagline">For the debutante celebrating an unforgettable milestone.</p>
+            <p class="intro-story-writeup">Tailored for 18th milestones, featuring 18 Roses, 18 Candles, photo timelines, and dress code palettes.</p>
+            <p class="intro-story-vibe uppercase">YOUR VIBE: ELEGANT • YOUTHFUL • CELEBRATORY</p>
           </div>
-          
+
           <div class="sample-showcase-grid">
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ds1.storyinvites.com</span>
@@ -804,10 +808,8 @@
             </div>
             <div class="showcase-info">
               <div>
-                <h4 class="serif" style="font-size:26px;">The Grand Debut (ds1)</h4>
-                <p style="font-size:12px; font-weight:600; color:var(--color-charcoal); margin-top:4px;">For the debutante celebrating an unforgettable milestone.</p>
-                <p class="writeup-desc">Tailored for 18th milestones, featuring 18 Roses, 18 Candles, photo timelines, and dress code palettes.</p>
-                <p class="writeup-vibe">Your vibe: Elegant • Youthful • Celebratory</p>
+                <h4 class="serif" style="font-size:26px;">The Grand 18th Celebration Experience</h4>
+                <p style="font-size:13px; color:var(--color-taupe);">ds1.storyinvites.com</p>
               </div>
               <a href="https://ds1.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
@@ -818,9 +820,9 @@
       <!-- 3. BIRTHDAY TEMPLATES CATEGORY -->
       <div id="cat-birthday" class="event-category-content">
         <div class="placeholder-card">
-          <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">Special Celebrations</span>
+          <span class="uppercase" style="font-size:11px; color:var(--color-accent); letter-spacing:0.3em; font-weight:600;">Special Celebrations</span>
           <h3 class="serif" style="font-size:36px; font-weight:300; margin:15px 0;">Birthday Digital Invitations</h3>
-          <p style="font-size:14px; color:var(--color-charcoal); max-width:550px; margin:0 auto 30px;">
+          <p style="font-size:15px; color:var(--color-charcoal); max-width:550px; margin:0 auto 30px;">
             From milestone birthdays to intimate gatherings, our birthday collection is launching soon. Get early access or commission a custom design.
           </p>
           <a href="#pricing" class="btn-primary">Request a Custom Birthday Invite &rarr;</a>
@@ -834,47 +836,47 @@
   <div class="section-l1" id="why-us">
     <section class="buyin-section">
       <div style="text-align:center; max-width:700px; margin:0 auto;">
-        <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">The StoryInvites Advantage</span>
-        <h2 class="serif" style="font-size:42px; font-weight:300; margin-top:10px;">Why Couples Choose StoryInvites</h2>
+        <span class="uppercase" style="font-size:11px; color:var(--color-accent); letter-spacing:0.3em; font-weight:600;">The StoryInvites Advantage</span>
+        <h2 class="serif" style="font-size:44px; font-weight:300; margin-top:10px;">Why Couples Choose StoryInvites</h2>
       </div>
 
       <div class="buyin-grid">
         <div class="buyin-card">
           <div class="buyin-icon">✦</div>
-          <h3 class="serif" style="font-size:22px; margin-bottom:10px;">Made Around Your Story</h3>
-          <p style="font-size:13px; color:var(--color-charcoal);">
+          <h3 class="serif" style="font-size:24px; margin-bottom:10px;">Made Around Your Story</h3>
+          <p style="font-size:14px; color:var(--color-charcoal);">
             Your invitation isn’t just where guests find the details. It’s the first glimpse into you as a couple — your personality, your memories, your style, and the feeling you want your wedding to have.
           </p>
         </div>
 
         <div class="buyin-card">
           <div class="buyin-icon">✦</div>
-          <h3 class="serif" style="font-size:22px; margin-bottom:10px;">Designed to Feel Like You</h3>
-          <p style="font-size:13px; color:var(--color-charcoal);">
+          <h3 class="serif" style="font-size:24px; margin-bottom:10px;">Designed to Feel Like You</h3>
+          <p style="font-size:14px; color:var(--color-charcoal);">
             No two couples have the same story, so no two invitations should feel the same. From the visual direction to the little details, we create an experience that feels personal, intentional, and unmistakably yours.
           </p>
         </div>
 
         <div class="buyin-card">
           <div class="buyin-icon">✦</div>
-          <h3 class="serif" style="font-size:22px; margin-bottom:10px;">More Than an Invitation</h3>
-          <p style="font-size:13px; color:var(--color-charcoal);">
+          <h3 class="serif" style="font-size:24px; margin-bottom:10px;">More Than an Invitation</h3>
+          <p style="font-size:14px; color:var(--color-charcoal);">
             We bring your story, wedding details, photos, music, and moments together in one beautiful experience — so your guests don’t just read about your wedding. They get a little taste of it.
           </p>
         </div>
 
         <div class="buyin-card">
           <div class="buyin-icon">✦</div>
-          <h3 class="serif" style="font-size:22px; margin-bottom:10px;">Beautiful on Every Screen</h3>
-          <p style="font-size:13px; color:var(--color-charcoal);">
+          <h3 class="serif" style="font-size:24px; margin-bottom:10px;">Beautiful on Every Screen</h3>
+          <p style="font-size:14px; color:var(--color-charcoal);">
             Your story should look just as good whether it’s opened on a phone, tablet, or desktop. Every invitation is designed to feel polished, immersive, and easy to explore.
           </p>
         </div>
 
         <div class="buyin-card" style="grid-column: span 2;">
           <div class="buyin-icon">✦</div>
-          <h3 class="serif" style="font-size:22px; margin-bottom:10px;">Thoughtful, Not Overdone</h3>
-          <p style="font-size:13px; color:var(--color-charcoal);">
+          <h3 class="serif" style="font-size:24px; margin-bottom:10px;">Thoughtful, Not Overdone</h3>
+          <p style="font-size:14px; color:var(--color-charcoal);">
             We believe the best invitations don’t need to say everything. They need to say the right things, in the right way — with enough personality to make your guests stop, smile, and think: <em>“This is so them.”</em>
           </p>
         </div>
@@ -886,25 +888,25 @@
   <div class="section-l3" id="process">
     <section class="process-section">
       <div style="text-align:center;">
-        <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.3em;">How It Works</span>
-        <h2 class="serif" style="font-size:38px; font-weight:300;">From Idea to Invitation</h2>
+        <span class="uppercase" style="font-size:11px; color:var(--color-accent); letter-spacing:0.3em; font-weight:600;">How It Works</span>
+        <h2 class="serif" style="font-size:40px; font-weight:300;">From Idea to Invitation</h2>
       </div>
 
       <div class="process-grid">
         <div style="background:rgba(255,255,255,0.6); padding:35px; border:1px solid var(--border-light); border-radius:6px;">
-          <div class="uppercase" style="font-size:10px; color:var(--color-accent);">01</div>
-          <h3 class="serif" style="font-size:22px; margin:10px 0;">Tell Us Your Story</h3>
-          <p style="font-size:13px; color:var(--color-charcoal);">Share your photos, event details, and preferred template style from our collection.</p>
+          <div class="uppercase" style="font-size:11px; color:var(--color-accent); font-weight:700;">01</div>
+          <h3 class="serif" style="font-size:24px; margin:10px 0;">Tell Us Your Story</h3>
+          <p style="font-size:14px; color:var(--color-charcoal);">Share your photos, event details, and preferred template style from our collection.</p>
         </div>
         <div style="background:rgba(255,255,255,0.6); padding:35px; border:1px solid var(--border-light); border-radius:6px;">
-          <div class="uppercase" style="font-size:10px; color:var(--color-accent);">02</div>
-          <h3 class="serif" style="font-size:22px; margin:10px 0;">We Create Your Design</h3>
-          <p style="font-size:13px; color:var(--color-charcoal);">We build your personalized digital invitation space with up to 2 rounds of revisions.</p>
+          <div class="uppercase" style="font-size:11px; color:var(--color-accent); font-weight:700;">02</div>
+          <h3 class="serif" style="font-size:24px; margin:10px 0;">We Create Your Design</h3>
+          <p style="font-size:14px; color:var(--color-charcoal);">We build your personalized digital invitation space with up to 2 rounds of revisions.</p>
         </div>
         <div style="background:rgba(255,255,255,0.6); padding:35px; border:1px solid var(--border-light); border-radius:6px;">
-          <div class="uppercase" style="font-size:10px; color:var(--color-accent);">03</div>
-          <h3 class="serif" style="font-size:22px; margin:10px 0;">Share With Guests</h3>
-          <p style="font-size:13px; color:var(--color-charcoal);">Receive your custom web link ready to send across chat apps, SMS, or social media.</p>
+          <div class="uppercase" style="font-size:11px; color:var(--color-accent); font-weight:700;">03</div>
+          <h3 class="serif" style="font-size:24px; margin:10px 0;">Share With Guests</h3>
+          <p style="font-size:14px; color:var(--color-charcoal);">Receive your custom web link ready to send across chat apps, SMS, or social media.</p>
         </div>
       </div>
     </section>
@@ -915,10 +917,10 @@
     <section class="offer-section">
       <div class="offer-box">
         <div>
-          <span class="uppercase" style="font-size:10px; color:var(--color-accent); letter-spacing:0.25em;">The Signature Package</span>
-          <h2 class="serif" style="font-size:36px; font-weight:300; margin-top:10px;">THE SIGNATURE INVITATION</h2>
-          <div class="serif" style="font-size:48px; color:var(--color-ink); margin:15px 0;">₱2,500[cite: 1]</div>
-          <p class="serif" style="font-style:italic; color:var(--color-taupe); font-size:16px;">
+          <span class="uppercase" style="font-size:11px; color:var(--color-accent); letter-spacing:0.25em; font-weight:600;">The Signature Package</span>
+          <h2 class="serif" style="font-size:38px; font-weight:300; margin-top:10px;">THE SIGNATURE INVITATION</h2>
+          <div class="serif" style="font-size:52px; color:var(--color-ink); margin:15px 0;">₱2,500[cite: 1]</div>
+          <p class="serif" style="font-style:italic; color:var(--color-taupe); font-size:18px;">
             Your story. Your style. Your invitation.[cite: 1]
           </p>
           <div style="margin-top:30px;">
@@ -927,7 +929,7 @@
         </div>
 
         <div>
-          <ul style="list-style:none; font-size:13px; color:var(--color-charcoal); line-height:2.2;">
+          <ul style="list-style:none; font-size:14px; color:var(--color-charcoal); line-height:2.2;">
             <li>✓ Mobile & Desktop optimized design[cite: 1]</li>
             <li>✓ Custom shareable website link[cite: 1]</li>
             <li>✓ Full website setup & launch[cite: 1]</li>
@@ -942,8 +944,8 @@
   <!-- FOOTER -->
   <footer>
     <div style="display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto;">
-      <div class="logo uppercase" style="color:#FFF;">STORYINVITES</div>
-      <p style="font-size:11px; color:var(--color-taupe);" class="uppercase">© 2026 STORYINVITES. ALL RIGHTS RESERVED.</p>
+      <div class="logo uppercase" style="color:#FFF; font-size:20px;">STORYINVITES</div>
+      <p style="font-size:12px; color:var(--color-taupe);" class="uppercase">© 2026 STORYINVITES. ALL RIGHTS RESERVED.</p>
     </div>
   </footer>
 

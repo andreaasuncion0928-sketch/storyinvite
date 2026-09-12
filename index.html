@@ -31,6 +31,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
     background-color: var(--bg-dark-primary);
   }
 
@@ -60,15 +61,22 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
+  /* PAGE LOCK SECTION SNAP SETTINGS */
+  .page-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
   @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .animate-on-load {
@@ -81,8 +89,8 @@
     transition: opacity 0.9s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.9s cubic-bezier(0.165, 0.84, 0.44, 1);
     will-change: opacity, transform;
     text-align: center;
-    margin-bottom: 25px;
-    padding: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
     position: relative;
     width: 100%;
   }
@@ -93,7 +101,7 @@
     width: 50px;
     height: 1px;
     background: var(--color-gold-accent);
-    margin: 15px auto 0;
+    margin: 12px auto 0;
     opacity: 0.6;
   }
 
@@ -108,22 +116,22 @@
     font-weight: 700;
     letter-spacing: 0.3em;
     color: var(--color-gold-accent);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     display: block;
   }
 
   .articulate-heading {
     font-family: var(--font-serif);
-    font-size: clamp(28px, 4vw, 48px);
+    font-size: clamp(26px, 3.8vw, 44px);
     font-weight: 300;
     color: var(--color-ink-light);
     line-height: 1.15;
     letter-spacing: -0.01em;
   }
 
-  .section-l1 { background-color: transparent; position: relative; z-index: 2; width: 100%; }
-  .section-l2 { background-color: rgba(30, 21, 42, 0.4); position: relative; z-index: 2; backdrop-filter: blur(10px); width: 100%; }
-  .section-l3 { background-color: rgba(45, 40, 33, 0.5); position: relative; z-index: 2; backdrop-filter: blur(10px); width: 100%; }
+  .section-l1 { background-color: transparent; }
+  .section-l2 { background-color: rgba(30, 21, 42, 0.4); backdrop-filter: blur(10px); }
+  .section-l3 { background-color: rgba(45, 40, 33, 0.5); backdrop-filter: blur(10px); }
 
   .serif { font-family: var(--font-serif); }
   .sans { font-family: var(--font-sans); }
@@ -131,15 +139,15 @@
   .uppercase { text-transform: uppercase; letter-spacing: 0.22em; }
 
   .collection-unified-header {
-    max-width: 900px;
-    margin: 0 auto 50px;
+    max-width: 850px;
+    margin: 0 auto 30px;
     background: rgba(30, 21, 42, 0.35);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(163, 140, 97, 0.35);
-    border-radius: 20px;
-    padding: clamp(20px, 4vw, 40px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    border-radius: 18px;
+    padding: clamp(16px, 3vw, 30px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -162,15 +170,11 @@
     display: none;
   }
 
-  .collection-unified-header .section-story-intro {
-    margin-top: 15px;
-  }
-
   .collection-divider {
-    width: 60px;
+    width: 50px;
     height: 1px;
     background: var(--color-gold-accent);
-    margin: 20px auto 25px;
+    margin: 15px auto;
     opacity: 0.6;
   }
 
@@ -181,20 +185,9 @@
     width: 100%;
   }
 
-  .section-story-intro .story-lead {
-    font-family: var(--font-serif);
-    font-size: clamp(18px, 2.5vw, 28px);
-    font-style: italic;
-    color: var(--color-gold-accent);
-    line-height: 1.35;
-    margin-top: 8px;
-    font-weight: 300;
-  }
-
   .section-story-intro .story-sub {
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--color-charcoal-light);
-    margin-top: 8px;
     letter-spacing: 0.05em;
     line-height: 1.5;
   }
@@ -205,19 +198,11 @@
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(163, 140, 97, 0.3);
     border-radius: 16px;
-    padding: clamp(20px, 3vw, 30px) clamp(15px, 4vw, 35px);
+    padding: clamp(18px, 2.5vw, 25px) clamp(15px, 3.5vw, 30px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
     position: relative;
     overflow: hidden;
     width: 100%;
-  }
-
-  .glass-intro-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   }
 
   .btn-primary {
@@ -225,7 +210,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: clamp(12px, 1.8vw, 16px) clamp(22px, 2.8vw, 32px);
+    padding: clamp(10px, 1.5vw, 14px) clamp(20px, 2.5vw, 28px);
     background-color: var(--color-gold-accent);
     color: #1e152a;
     font-size: 11px;
@@ -245,7 +230,6 @@
     border-color: #f3f0f8;
     color: #1e152a;
     transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(163, 140, 97, 0.35);
   }
 
   .btn-secondary {
@@ -269,7 +253,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 7px 16px;
+    padding: 6px 14px;
     background-color: rgba(163, 140, 97, 0.12);
     color: var(--color-gold-accent);
     font-size: 10px;
@@ -287,8 +271,6 @@
     background-color: var(--color-gold-accent);
     border-color: var(--color-gold-accent);
     color: #1e152a;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(163, 140, 97, 0.25);
   }
 
   .audio-reset-btn {
@@ -314,13 +296,6 @@
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  .audio-reset-btn:hover {
-    background-color: var(--color-gold-accent);
-    color: #1e152a;
-    transform: scale(1.05) translateY(-2px);
-  }
-
-  /* STICKY NAVIGATION HEADER & MOBILE 3-LINE HAMBURGER MENU */
   header {
     position: fixed;
     top: 0;
@@ -377,7 +352,6 @@
     color: var(--color-gold-accent);
   }
 
-  /* 3-LINE HAMBURGER BUTTON (MOBILE) */
   .mobile-hamburger-btn {
     display: none;
     background: transparent;
@@ -397,7 +371,6 @@
     transition: all 0.3s ease;
   }
 
-  /* MOBILE NAVIGATION DRAWER OVERLAY */
   .mobile-nav-drawer {
     display: none;
     position: fixed;
@@ -409,8 +382,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    transition: opacity 0.4s ease;
+    gap: 25px;
   }
 
   .mobile-nav-drawer.active {
@@ -422,46 +394,39 @@
     text-decoration: none;
     color: var(--color-ink-light);
     font-family: var(--font-serif);
-    font-size: 26px;
+    font-size: 24px;
     letter-spacing: 0.15em;
-    transition: color 0.3s ease;
   }
 
-  .mobile-nav-link:hover {
-    color: var(--color-gold-accent);
-  }
-
-  /* HERO INTRO PAGE */
+  /* HERO INTRO PAGE - REFINED SINGLE MOBILE PHONE PREVIEW */
   .hero-container {
-    min-height: 100vh;
-    padding: clamp(90px, 12vh, 140px) clamp(16px, 3.5vw, 45px) clamp(40px, 6vh, 80px);
+    padding: clamp(80px, 12vh, 120px) clamp(16px, 3.5vw, 45px) clamp(30px, 4vh, 60px);
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: clamp(20px, 4vw, 50px);
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(20px, 4vw, 40px);
     align-items: center;
-    max-width: 1350px;
+    max-width: 1300px;
     margin: 0 auto;
-    position: relative;
-    z-index: 2;
+    width: 100%;
   }
 
   .hero-tag {
     display: inline-block;
-    padding: 6px 15px;
+    padding: 5px 14px;
     background: rgba(163, 140, 97, 0.15);
     border: 1px solid rgba(163, 140, 97, 0.3);
     border-radius: 30px;
     font-size: 10px;
     font-weight: 600;
     color: var(--color-gold-accent);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 
   .hero-title {
-    font-size: clamp(34px, 4.8vw, 70px);
+    font-size: clamp(32px, 4.5vw, 64px);
     font-weight: 300;
     line-height: 1.05;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     color: var(--color-ink-light);
   }
 
@@ -474,91 +439,37 @@
 
   .hero-brand-statement {
     font-family: var(--font-serif);
-    font-size: clamp(16px, 2vw, 20px);
+    font-size: clamp(15px, 1.8vw, 19px);
     font-style: italic;
     color: var(--color-gold-accent);
-    margin-bottom: 12px;
-    letter-spacing: 0.05em;
+    margin-bottom: 10px;
   }
 
   .hero-description {
-    font-size: clamp(13px, 1.3vw, 15px);
+    font-size: clamp(12.5px, 1.2vw, 14.5px);
     color: var(--color-charcoal-light);
-    margin-bottom: 30px;
-    max-width: 500px;
-    line-height: 1.65;
+    margin-bottom: 25px;
+    max-width: 480px;
+    line-height: 1.6;
   }
 
   .hero-device-stage {
     position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 10;
     width: 100%;
   }
 
-  .hero-device-desktop-box {
-    display: block;
-    width: clamp(260px, 32vw, 460px);
-    aspect-ratio: 500 / 315;
-    background: #000;
-    border: 6px solid #000;
-    border-bottom-width: 12px;
-    border-radius: 12px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-    overflow: hidden;
-  }
-
-  .hero-mobile-trigger-btn {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 24px;
-    background: rgba(30, 21, 42, 0.85);
-    border: 1px solid var(--color-gold-accent);
-    border-radius: 30px;
-    color: var(--color-ink-light);
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    font-weight: 600;
-    cursor: pointer;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    margin-top: 10px;
-  }
-
-  .hero-mobile-trigger-btn::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: #4EED97;
-    border-radius: 50%;
-  }
-
-  .hero-mobile-floating-container {
-    display: none;
-    position: relative;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
-
-  .hero-mobile-floating-container.active {
-    display: flex;
-    animation: fadeInUp 0.5s ease forwards;
-  }
-
+  /* FLUID RESPONSIVE MOBILE PHONE FRAME FOR EMBED */
   .hero-single-phone {
-    width: clamp(200px, 55vw, 260px);
-    height: clamp(400px, 110vw, 520px);
+    width: clamp(180px, 22vw, 240px);
+    height: clamp(360px, 44vw, 480px);
     background: #000;
     border: 8px solid #000;
     border-radius: 36px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     overflow: hidden;
     position: relative;
   }
@@ -566,30 +477,28 @@
   .hero-phone-wrapper {
     width: 375px;
     height: 780px;
-    transform: scale(0.63);
+    transform: scale(calc(clamp(180px, 22vw, 240px) / 375));
     transform-origin: 0 0;
     background: #FFF;
   }
 
   /* CATEGORY TABS & TEMPLATE SECTION */
   .portfolio-section {
-    padding: clamp(40px, 8vh, 90px) clamp(16px, 3.5vw, 45px);
-    border-top: 1px solid var(--border-light);
-    border-bottom: 1px solid var(--border-light);
-    position: relative;
-    z-index: 2;
+    padding: clamp(40px, 6vh, 80px) clamp(16px, 3.5vw, 45px);
+    max-width: 1350px;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .category-tabs-wrapper {
     background-color: rgba(30, 21, 42, 0.6);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border-light);
-    padding: 8px 12px;
+    padding: 6px 10px;
     border-radius: 50px;
     display: inline-flex;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     max-width: 100%;
   }
 
@@ -604,7 +513,7 @@
   .tab-btn {
     background: transparent;
     border: none;
-    padding: 8px clamp(12px, 2vw, 24px);
+    padding: 8px clamp(12px, 1.8vw, 22px);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.15em;
@@ -617,124 +526,100 @@
   .tab-btn.active, .tab-btn:hover {
     background: var(--color-gold-accent);
     color: #1e152a;
-    box-shadow: 0 6px 16px rgba(163, 140, 97, 0.3);
   }
 
-  .event-category-content {
-    display: none;
-  }
+  .event-category-content { display: none; }
+  .event-category-content.active { display: block; }
 
-  .event-category-content.active {
-    display: block;
-  }
-
+  /* UNIFIED TEMPLATE CARD PANEL */
   .unified-template-card {
     max-width: 1250px;
-    margin: 0 auto 50px;
+    margin: 0 auto 40px;
     background: rgba(30, 21, 42, 0.5);
     border: 1px solid var(--border-light);
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.3);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
     position: relative;
     z-index: 2;
     width: 100%;
   }
 
-  .unified-template-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 22px 45px rgba(163, 140, 97, 0.2);
-  }
-
   .card-intro-header-glass {
     position: relative;
-    padding: clamp(18px, 2.5vw, 28px) clamp(18px, 3vw, 32px);
+    padding: clamp(16px, 2.2vw, 24px) clamp(16px, 3vw, 28px);
     background: linear-gradient(135deg, rgba(94, 83, 104, 0.4) 0%, rgba(30, 21, 42, 0.7) 100%);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-light);
     border-left: 5px solid var(--color-gold-accent);
-    overflow: hidden;
   }
 
   .intro-story-title {
-    font-size: clamp(20px, 2.8vw, 28px);
+    font-size: clamp(18px, 2.5vw, 26px);
     font-weight: 300;
     color: var(--color-ink-light);
   }
 
   .intro-story-tagline {
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 600;
     color: var(--color-gold-accent);
-    margin-top: 2px;
   }
 
   .intro-story-writeup {
-    font-size: 13.5px;
+    font-size: 12.5px;
     color: var(--color-charcoal-light);
-    margin-top: 8px;
-    line-height: 1.6;
+    margin-top: 6px;
+    line-height: 1.5;
   }
 
   .intro-story-vibe {
-    font-size: 9.5px;
+    font-size: 9px;
     font-weight: 700;
     color: var(--color-gold-accent);
     letter-spacing: 0.15em;
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
   .card-preview-body {
     display: grid;
     grid-template-columns: 1.8fr 1fr;
-    gap: clamp(14px, 2vw, 28px);
-    padding: clamp(16px, 2.5vw, 30px);
-    position: relative;
-    z-index: 5;
+    gap: clamp(12px, 2vw, 24px);
+    padding: clamp(14px, 2vw, 24px);
   }
 
   .preview-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    position: relative;
-    z-index: 10;
+    gap: 6px;
     width: 100%;
   }
 
   .view-label {
-    font-size: 10px;
+    font-size: 9.5px;
     color: var(--color-gold-accent);
-    letter-spacing: 0.18em;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    letter-spacing: 0.15em;
     font-weight: 600;
   }
 
+  /* FLUID EMBEDDED CONTAINERS FOR EXACT FIT */
   .iframe-container-desktop {
     width: 100%;
-    height: clamp(220px, 35vw, 420px);
+    height: clamp(200px, 30vw, 380px);
     background: #FFF;
     border: 1px solid var(--border-light);
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    position: relative;
   }
 
   .iframe-container-mobile {
-    width: clamp(160px, 22vw, 220px);
-    height: clamp(320px, 42vw, 440px);
+    width: clamp(140px, 18vw, 190px);
+    height: clamp(280px, 36vw, 380px);
     background: #FFF;
-    border: 8px solid #000;
-    border-radius: 32px;
+    border: 6px solid #000;
+    border-radius: 28px;
     margin: 0 auto;
     overflow: hidden;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.4);
-    position: relative;
   }
 
   .iframe-preview {
@@ -749,8 +634,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 8px;
-    padding-top: 12px;
+    margin-top: 6px;
+    padding-top: 10px;
     border-top: 1px dashed var(--border-light);
     width: 100%;
   }
@@ -758,30 +643,22 @@
   .showcase-info-url {
     font-size: 11px;
     color: var(--color-gold-accent);
-    letter-spacing: 0.1em;
-    font-weight: 500;
     text-decoration: none;
   }
 
-  .showcase-info-url:hover {
-    text-decoration: underline;
-  }
+  .showcase-info-url:hover { text-decoration: underline; }
 
   .placeholder-card {
     background: rgba(30, 21, 42, 0.5);
-    backdrop-filter: blur(12px);
     border: 2px dashed var(--border-light);
-    padding: 40px 16px;
+    padding: 35px 16px;
     text-align: center;
     border-radius: 12px;
-    max-width: 850px;
-    margin: 0 auto;
   }
 
+  /* WHY US SECTION */
   .why-us-page-section {
-    padding: clamp(40px, 8vh, 90px) clamp(16px, 3.5vw, 45px);
-    position: relative;
-    z-index: 2;
+    padding: clamp(40px, 6vh, 80px) clamp(16px, 3.5vw, 45px);
     background-color: #231b2d;
     background-image: 
       radial-gradient(at 0% 0%, #1e152a 0px, transparent 60%),
@@ -792,158 +669,86 @@
     border-bottom: 1px solid var(--border-light);
   }
 
-  .why-us-page-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.45;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  }
-
-  .buyin-section {
-    max-width: 1350px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
+  .buyin-section { max-width: 1350px; margin: 0 auto; }
 
   .buyin-single-row-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    margin-top: 24px;
-    position: relative;
-    z-index: 2;
+    gap: 10px;
+    margin-top: 20px;
   }
 
   .buyin-card-row {
-    position: relative;
     background: rgba(38, 30, 50, 0.75);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(163, 140, 97, 0.25);
-    padding: 18px 14px;
+    padding: 16px 12px;
     border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: flex;
     flex-direction: column;
   }
 
-  .buyin-card-row:hover {
-    transform: translateY(-4px);
-    background: rgba(48, 38, 62, 0.85);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
-    border-color: var(--color-gold-accent);
-  }
-
   .buyin-icon {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--color-gold-accent);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     background: rgba(163, 140, 97, 0.15);
     border-radius: 50%;
     border: 1px solid rgba(163, 140, 97, 0.3);
   }
 
-  .buyin-title {
-    font-size: 15px;
-    margin-bottom: 4px;
-    color: var(--color-ink-light);
-    line-height: 1.2;
-  }
+  .buyin-title { font-size: 14px; margin-bottom: 4px; color: var(--color-ink-light); }
+  .buyin-desc { font-size: 11px; color: var(--color-charcoal-light); line-height: 1.45; }
 
-  .buyin-desc {
-    font-size: 11px;
-    color: var(--color-charcoal-light);
-    line-height: 1.45;
-  }
-
-  .process-section {
-    padding: clamp(40px, 8vh, 90px) clamp(16px, 3.5vw, 45px);
-    position: relative;
-    z-index: 2;
-  }
+  /* PROCESS SECTION */
+  .process-section { padding: clamp(40px, 6vh, 80px) clamp(16px, 3.5vw, 45px); }
 
   .process-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
     max-width: 1150px;
-    margin: 25px auto 0;
+    margin: 20px auto 0;
   }
 
-  .offer-section {
-    padding: clamp(40px, 8vh, 90px) clamp(16px, 3.5vw, 45px);
-    max-width: 1250px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
+  /* PRICING OFFER SECTION */
+  .offer-section { padding: clamp(40px, 6vh, 80px) clamp(16px, 3.5vw, 45px); max-width: 1250px; margin: 0 auto; }
 
   .offer-box-tailored {
     background: linear-gradient(135deg, rgba(94, 83, 104, 0.4) 0%, rgba(30, 21, 42, 0.75) 100%);
     backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--border-light);
-    padding: clamp(20px, 3.5vw, 40px);
+    padding: clamp(18px, 3vw, 35px);
     border-radius: 16px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .offer-box-tailored::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--color-gold-accent), transparent);
   }
 
   .inquiry-hero-card {
     background: rgba(30, 21, 42, 0.5);
     border: 1px solid var(--color-gold-accent);
-    border-radius: 14px;
-    padding: clamp(16px, 3vw, 26px);
+    border-radius: 12px;
+    padding: clamp(14px, 2.5vw, 22px);
     text-align: center;
-    margin-bottom: 25px;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
   }
 
-  .inquiry-hero-title {
-    font-family: var(--font-serif);
-    font-size: clamp(20px, 2.5vw, 28px);
-    color: var(--color-ink-light);
-    font-weight: 300;
-  }
-
-  .inquiry-hero-subtitle {
-    font-size: 12px;
-    color: var(--color-charcoal-light);
-    margin: 4px 0 12px;
-    letter-spacing: 0.04em;
-  }
+  .inquiry-hero-title { font-family: var(--font-serif); font-size: clamp(18px, 2.2vw, 25px); color: var(--color-ink-light); font-weight: 300; }
+  .inquiry-hero-subtitle { font-size: 11.5px; color: var(--color-charcoal-light); margin: 4px 0 10px; }
 
   .single-contact-bar {
     display: inline-flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     background: rgba(163, 140, 97, 0.12);
     border: 1px solid var(--color-gold-accent);
-    padding: 10px 20px;
+    padding: 8px 18px;
     border-radius: 50px;
-    backdrop-filter: blur(10px);
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 100%;
   }
 
   .contact-info-link {
@@ -951,126 +756,60 @@
     text-decoration: none;
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.1em;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    transition: color 0.3s ease;
-    word-break: break-word;
-  }
-
-  .contact-info-link:hover {
-    color: var(--color-gold-accent);
+    gap: 5px;
   }
 
   .single-outline-inclusions-card {
     background: rgba(30, 21, 42, 0.5);
     border: 1px solid rgba(163, 140, 97, 0.35);
-    border-radius: 12px;
-    padding: clamp(16px, 3vw, 28px);
-    margin-bottom: 25px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: clamp(14px, 2.5vw, 22px);
+    margin-bottom: 20px;
   }
 
   .inclusions-single-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px 18px;
+    gap: 10px 14px;
     list-style: none;
   }
 
   .inclusions-single-list li {
-    font-size: 12px;
+    font-size: 11.5px;
     color: var(--color-ink-light);
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
+    gap: 6px;
   }
 
   .inclusions-single-list li::before {
     content: '✓';
     color: var(--color-gold-accent);
     font-weight: bold;
-    font-size: 12px;
-    flex-shrink: 0;
   }
 
   .also-included-bar {
     background: rgba(163, 140, 97, 0.1);
     border: 1px dashed var(--border-light);
-    border-radius: 10px;
-    padding: 14px 16px;
+    border-radius: 8px;
+    padding: 12px 14px;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
 
-  .also-included-title {
-    font-size: 9.5px;
-    letter-spacing: 0.18em;
-    color: var(--color-gold-accent);
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
+  .also-included-title { font-size: 9px; letter-spacing: 0.15em; color: var(--color-gold-accent); font-weight: 700; margin-bottom: 6px; }
+  .also-included-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 12px; list-style: none; }
+  .also-included-pills li { font-size: 10.5px; color: var(--color-ink-light); display: flex; align-items: center; gap: 4px; }
+  .also-included-pills li::before { content: '✓'; color: var(--color-gold-accent); font-weight: bold; }
 
-  .also-included-pills {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px 14px;
-    list-style: none;
-  }
+  .pricing-closing-note { text-align: center; border-top: 1px solid var(--border-light); padding-top: 20px; }
+  .closing-note-tag { font-size: 8.5px; color: var(--color-gold-accent); margin-bottom: 2px; }
+  .closing-note-h3 { font-size: clamp(18px, 2vw, 22px); font-weight: 300; margin-bottom: 6px; }
+  .closing-note-quote { font-family: var(--font-serif); font-size: clamp(14px, 1.6vw, 18px); font-style: italic; color: var(--color-gold-accent); margin: 8px 0 14px; }
 
-  .also-included-pills li {
-    font-size: 11px;
-    color: var(--color-ink-light);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .also-included-pills li::before {
-    content: '✓';
-    color: var(--color-gold-accent);
-    font-weight: bold;
-  }
-
-  .pricing-closing-note {
-    text-align: center;
-    border-top: 1px solid var(--border-light);
-    padding-top: 22px;
-  }
-
-  .closing-note-tag {
-    font-size: 9px;
-    letter-spacing: 0.22em;
-    color: var(--color-gold-accent);
-    margin-bottom: 4px;
-  }
-
-  .closing-note-h3 {
-    font-size: clamp(20px, 2.2vw, 25px);
-    font-weight: 300;
-    margin-bottom: 8px;
-  }
-
-  .closing-note-quote {
-    font-family: var(--font-serif);
-    font-size: clamp(15px, 1.8vw, 20px);
-    font-style: italic;
-    color: var(--color-gold-accent);
-    margin: 10px 0 16px;
-  }
-
-  footer {
-    background: #120d1a;
-    color: var(--color-ink-light);
-    padding: clamp(30px, 5vh, 50px) clamp(16px, 3.5vw, 45px) 25px;
-    position: relative;
-    z-index: 2;
-  }
+  footer { background: #120d1a; color: var(--color-ink-light); padding: 30px 20px 20px; }
 
   /* MOBILE RESPONSIVE MEDIA QUERIES */
   @media (max-width: 1200px) {
@@ -1079,99 +818,37 @@
   }
 
   @media (max-width: 992px) {
-    header { padding: 12px 16px; }
+    header { padding: 10px 14px; }
     .nav-menu { display: none; }
     .mobile-hamburger-btn { display: flex; }
     
     .hero-container { 
       grid-template-columns: 1fr; 
-      padding: 100px 16px 35px; 
+      padding: 90px 14px 30px; 
       text-align: center; 
       gap: 20px;
     }
     
-    .hero-description { margin: 0 auto 20px; }
+    .hero-description { margin: 0 auto 18px; }
 
-    .hero-device-desktop-box {
-      display: none;
-    }
-
-    .hero-mobile-trigger-btn {
-      display: inline-flex;
-    }
-
-    .hero-device-stage { 
-      min-height: auto;
-      height: auto;
-      flex-direction: column;
-    }
+    .category-tabs-wrapper { width: 100%; padding: 4px; }
+    .card-preview-body { grid-template-columns: 1fr; padding: 12px; gap: 12px; }
+    .iframe-container-mobile { width: 150px; height: 300px; border-width: 6px; border-radius: 24px; }
+    .iframe-container-mobile .mobile-iframe-wrapper { transform: scale(0.40); }
     
-    .category-tabs-wrapper { 
-      border-radius: 20px; 
-      width: 100%; 
-      padding: 6px;
-    }
-    
-    .card-preview-body { 
-      grid-template-columns: 1fr; 
-      padding: 16px; 
-      gap: 16px;
-    }
-    
-    .iframe-container-mobile { 
-      width: 160px; 
-      height: 320px; 
-    }
-    
-    .showcase-info { 
-      grid-column: span 1; 
-      flex-direction: column; 
-      gap: 10px; 
-      align-items: center; 
-      text-align: center;
-    }
-    
-    .buyin-single-row-grid { 
-      grid-template-columns: repeat(2, 1fr); 
-    }
-    
-    .process-grid { 
-      grid-template-columns: 1fr; 
-    }
-    
-    .single-contact-bar { 
-      flex-direction: column; 
-      gap: 8px; 
-      padding: 12px; 
-      border-radius: 16px; 
-    }
-    
-    .single-contact-bar span[style*="border-light"] {
-      display: none;
-    }
-    
-    .articulate-title-block { 
-      padding: 10px 12px; 
-    }
+    .showcase-info { grid-column: span 1; flex-direction: column; gap: 8px; text-align: center; }
+    .buyin-single-row-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-grid { grid-template-columns: 1fr; }
+    .single-contact-bar { flex-direction: column; gap: 6px; padding: 10px; }
+    .single-contact-bar span[style*="border-light"] { display: none; }
+    .articulate-title-block { padding: 8px 10px; }
   }
 
   @media (max-width: 600px) {
-    .buyin-single-row-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .inclusions-single-list {
-      grid-template-columns: 1fr;
-    }
-
-    .hero-single-phone {
-      width: 180px;
-      height: 360px;
-    }
-
-    .hero-phone-wrapper {
-      transform: scale(0.46);
-    }
+    .buyin-single-row-grid { grid-template-columns: 1fr; }
+    .inclusions-single-list { grid-template-columns: 1fr; }
+    .hero-single-phone { width: 170px; height: 340px; border-width: 6px; border-radius: 28px; }
+    .hero-phone-wrapper { transform: scale(0.44); }
   }
 </style>
 </head>
@@ -1203,7 +880,7 @@
       <span class="hamburger-line"></span>
     </button>
 
-    <a href="#pricing" class="btn-primary" style="padding: 8px 16px; font-size: 9px;">Create Yours</a>
+    <a href="#pricing" class="btn-primary" style="padding: 7px 14px; font-size: 8.5px;">Create Yours</a>
   </header>
 
   <!-- MOBILE NAVIGATION DRAWER OVERLAY -->
@@ -1215,9 +892,9 @@
     <a href="#pricing" class="mobile-nav-link" onclick="toggleMobileMenu()">Pricing</a>
   </div>
 
-  <!-- HERO INTRO PAGE -->
-  <div class="section-l1" id="home">
-    <section class="hero-container animate-on-load">
+  <!-- PAGE 1: HERO INTRO PAGE -->
+  <section class="page-section section-l1" id="home">
+    <div class="hero-container animate-on-load">
       <div>
         <span class="hero-tag uppercase">Digital Event Invitations</span>
         <h1 class="hero-title serif">
@@ -1225,56 +902,42 @@
           <span>beautifully</span> invited.
         </h1>
         
-        <!-- INTEGRATED BRAND STATEMENT -->
         <p class="hero-brand-statement">Your story. Your style. Your invitation.</p>
         
         <p class="hero-description">
           A personalized, interactive digital invitation created around who you are — your story, your personality, your favorite things, your memories, and the feeling you want to share with your guests. From the first tap to the final detail, you get to make it yours.
         </p>
-        <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap; justify-content:center;">
+        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; justify-content:center;">
           <a href="#pricing" class="btn-primary">Create Your Invitation &rarr;</a>
           <a href="#templates" class="btn-secondary uppercase">View Templates &darr;</a>
         </div>
       </div>
 
-      <!-- HERO PREVIEW STAGE -->
+      <!-- DEDICATED PROPORTIONAL SINGLE PHONE PREVIEW FOR EXACT MOBILE FIT -->
       <div class="hero-device-stage">
-        <div class="hero-device-desktop-box">
-          <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Desktop Live Demo"></iframe>
-        </div>
-
-        <button class="hero-mobile-trigger-btn uppercase" onclick="toggleHeroMobileInteractive(this)">
-          <span>Click for Live Interaction Preview</span>
-        </button>
-
-        <div class="hero-mobile-floating-container" id="heroMobileContainer">
-          <div class="hero-single-phone">
-            <div class="hero-phone-wrapper">
-              <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Mobile Live Demo"></iframe>
-            </div>
+        <div class="hero-single-phone">
+          <div class="hero-phone-wrapper">
+            <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Mobile Live Demo"></iframe>
           </div>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <!-- CATEGORIZED TEMPLATE COLLECTION -->
-  <div class="section-l2" id="templates">
-    <section class="portfolio-section">
+  <!-- PAGE 2: CATEGORIZED TEMPLATE COLLECTION -->
+  <section class="page-section section-l2" id="templates">
+    <div class="portfolio-section">
       
       <div class="collection-unified-header articulate-title-block">
         <span class="articulate-num uppercase">CHAPTER I — THE COLLECTION</span>
         <h2 class="articulate-heading">A Design for Every Personality</h2>
-        
         <div class="collection-divider"></div>
-        
         <div class="section-story-intro">
           <p class="story-sub">Select your event type below to discover interactive digital invitations tailored to your unique atmosphere.</p>
         </div>
       </div>
 
-      <!-- Category Filter Tabs Container -->
-      <div style="text-align: center; margin-bottom: 30px;">
+      <div style="text-align: center; margin-bottom: 25px;">
         <div class="category-tabs-wrapper">
           <div class="category-tabs uppercase">
             <button class="tab-btn active" onclick="switchCategory('wedding', this)">💍 Weddings</button>
@@ -1318,7 +981,7 @@
           </div>
         </div>
 
-        <!-- TEMPLATE 02: THE CINEMATIC COUPLE (WS4) -->
+        <!-- TEMPLATE 02 -->
         <div class="unified-template-card">
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Cinematic Couple</h3>
@@ -1380,7 +1043,7 @@
           </div>
         </div>
 
-        <!-- TEMPLATE 04: THE CLASSIC WITH A TWIST (WS2) -->
+        <!-- TEMPLATE 04 -->
         <div class="unified-template-card">
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Classic with a Twist</h3>
@@ -1480,21 +1143,21 @@
       <!-- 3. BIRTHDAY TEMPLATES CATEGORY -->
       <div id="cat-birthday" class="event-category-content">
         <div class="placeholder-card">
-          <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:600;">Special Celebrations</span>
-          <h3 class="serif" style="font-size:36px; font-weight:300; margin:15px 0;">Birthday Digital Invitations</h3>
-          <p style="font-size:15px; color:var(--color-charcoal-light); max-width:550px; margin:0 auto 30px;">
+          <span class="uppercase" style="font-size:10px; color:var(--color-gold-accent); letter-spacing:0.25em; font-weight:600;">Special Celebrations</span>
+          <h3 class="serif" style="font-size:30px; font-weight:300; margin:12px 0;">Birthday Digital Invitations</h3>
+          <p style="font-size:13.5px; color:var(--color-charcoal-light); max-width:500px; margin:0 auto 20px;">
             From milestone birthdays to intimate gatherings, our birthday collection is launching soon. Get early access or commission a custom design.
           </p>
           <a href="#pricing" class="btn-primary">Request a Custom Birthday Invite &rarr;</a>
         </div>
       </div>
 
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <!-- WHY US SECTION -->
-  <div class="why-us-page-section" id="why-us">
-    <section class="buyin-section">
+  <!-- PAGE 3: WHY US SECTION -->
+  <section class="page-section why-us-page-section" id="why-us">
+    <div class="buyin-section">
       
       <div class="articulate-title-block">
         <span class="articulate-num uppercase">CHAPTER II — THE DIFFERENCE</span>
@@ -1550,12 +1213,12 @@
           </p>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <!-- PROCESS SECTION -->
-  <div class="section-l3" id="process">
-    <section class="process-section">
+  <!-- PAGE 4: PROCESS SECTION -->
+  <section class="page-section section-l3" id="process">
+    <div class="process-section">
       
       <div class="articulate-title-block">
         <span class="articulate-num uppercase">CHAPTER III — THE PROCESS</span>
@@ -1568,28 +1231,28 @@
       </div>
 
       <div class="process-grid">
-        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:24px 20px; border:1px solid var(--border-light); border-radius:8px;">
+        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:20px 16px; border:1px solid var(--border-light); border-radius:8px;">
           <div class="uppercase" style="font-size:10px; color:var(--color-gold-accent); font-weight:700;">01</div>
-          <h3 class="serif" style="font-size:20px; margin:6px 0;">Tell Us Your Story</h3>
-          <p style="font-size:12.5px; color:var(--color-charcoal-light);">Share your photos, event details, and preferred template style from our collection.</p>
+          <h3 class="serif" style="font-size:18px; margin:4px 0;">Tell Us Your Story</h3>
+          <p style="font-size:12px; color:var(--color-charcoal-light);">Share your photos, event details, and preferred template style from our collection.</p>
         </div>
-        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:24px 20px; border:1px solid var(--border-light); border-radius:8px;">
+        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:20px 16px; border:1px solid var(--border-light); border-radius:8px;">
           <div class="uppercase" style="font-size:10px; color:var(--color-gold-accent); font-weight:700;">02</div>
-          <h3 class="serif" style="font-size:20px; margin:6px 0;">We Create Your Design</h3>
-          <p style="font-size:12.5px; color:var(--color-charcoal-light);">We build your personalized digital invitation space with up to 2 rounds of revisions.</p>
+          <h3 class="serif" style="font-size:18px; margin:4px 0;">We Create Your Design</h3>
+          <p style="font-size:12px; color:var(--color-charcoal-light);">We build your personalized digital invitation space with up to 2 rounds of revisions.</p>
         </div>
-        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:24px 20px; border:1px solid var(--border-light); border-radius:8px;">
+        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:20px 16px; border:1px solid var(--border-light); border-radius:8px;">
           <div class="uppercase" style="font-size:10px; color:var(--color-gold-accent); font-weight:700;">03</div>
-          <h3 class="serif" style="font-size:20px; margin:6px 0;">Share With Guests</h3>
-          <p style="font-size:12.5px; color:var(--color-charcoal-light);">Receive your custom web link ready to send across chat apps, SMS, or social media.</p>
+          <h3 class="serif" style="font-size:18px; margin:4px 0;">Share With Guests</h3>
+          <p style="font-size:12px; color:var(--color-charcoal-light);">Receive your custom web link ready to send across chat apps, SMS, or social media.</p>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <!-- PRICING OFFER SECTION -->
-  <div class="section-l1" id="pricing">
-    <section class="offer-section">
+  <!-- PAGE 5: PRICING OFFER SECTION -->
+  <section class="page-section section-l1" id="pricing">
+    <div class="offer-section">
       
       <div class="articulate-title-block">
         <span class="articulate-num uppercase">CHAPTER IV — THE OFFERING</span>
@@ -1599,7 +1262,7 @@
       <div class="offer-box-tailored">
         
         <div class="inquiry-hero-card">
-          <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:700;">RATES & AVAILABILITY</span>
+          <span class="uppercase" style="font-size:10px; color:var(--color-gold-accent); letter-spacing:0.25em; font-weight:700;">RATES & AVAILABILITY</span>
           <h3 class="inquiry-hero-title serif">Get in Touch for Rates & Inquiries</h3>
           <p class="inquiry-hero-subtitle">Connect with us directly to receive our complete package pricing and reserve your date.</p>
 
@@ -1616,7 +1279,7 @@
           </div>
         </div>
 
-        <h3 class="serif" style="font-size:22px; text-align:center; margin-bottom:16px; font-weight:300;">WHAT'S INCLUDED</h3>
+        <h3 class="serif" style="font-size:20px; text-align:center; margin-bottom:12px; font-weight:300;">WHAT'S INCLUDED</h3>
         
         <div class="single-outline-inclusions-card">
           <ul class="inclusions-single-list">
@@ -1649,22 +1312,22 @@
         <div class="pricing-closing-note">
           <span class="closing-note-tag uppercase">A CLOSING NOTE</span>
           <h3 class="serif closing-note-h3">More Than an Invitation</h3>
-          <p style="font-size:13.5px; color:var(--color-charcoal-light); max-width:650px; margin:0 auto; line-height:1.65;">
+          <p style="font-size:13px; color:var(--color-charcoal-light); max-width:600px; margin:0 auto; line-height:1.6;">
             Your invitation is where your event story begins. Before your guests see the venue, the decor, or the celebration, they experience your invitation. So make it feel like you.
           </p>
           <div class="closing-note-quote">“Something that makes your guests say, ‘This is so them.’”</div>
-          <a href="mailto:andrea.asuncion0928@gmail.com" class="btn-primary" style="margin-top:8px;">Inquire Now &rarr;</a>
+          <a href="mailto:andrea.asuncion0928@gmail.com" class="btn-primary" style="margin-top:6px;">Inquire Now &rarr;</a>
         </div>
 
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
     <div style="display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; flex-wrap:wrap; gap:12px;">
-      <div class="logo uppercase" style="color:#FFF; font-size:16px;">STORYINVITES</div>
-      <p style="font-size:10.5px; color:var(--color-gold-accent);" class="uppercase">© 2026 STORYINVITES. ALL RIGHTS RESERVED.</p>
+      <div class="logo uppercase" style="color:#FFF; font-size:15px;">STORYINVITES</div>
+      <p style="font-size:10px; color:var(--color-gold-accent);" class="uppercase">© 2026 STORYINVITES. ALL RIGHTS RESERVED.</p>
     </div>
   </footer>
 
@@ -1691,30 +1354,17 @@
       });
     }
 
-    // TOGGLE MOBILE 3-LINE MENU DRAWER
     function toggleMobileMenu() {
       const drawer = document.getElementById('mobileNavDrawer');
       drawer.classList.toggle('active');
     }
 
-    // TOGGLE HERO MOBILE INTERACTIVE PREVIEW
-    function toggleHeroMobileInteractive(btn) {
-      const mobileContainer = document.getElementById('heroMobileContainer');
-      mobileContainer.classList.toggle('active');
-      if(mobileContainer.classList.contains('active')) {
-        btn.innerHTML = '<span>Hide Interaction Preview</span>';
-      } else {
-        btn.innerHTML = '<span>Click for Live Interaction Preview</span>';
-      }
-    }
-
-    // ARTICULATE-STYLE SCROLL INTERSECTION OBSERVER FOR FADE-IN TITLE BLOCKS
     document.addEventListener("DOMContentLoaded", function() {
       const titleBlocks = document.querySelectorAll('.articulate-title-block');
       
       const observerOptions = {
         root: null,
-        rootMargin: '0px 0px -100px 0px',
+        rootMargin: '0px 0px -50px 0px',
         threshold: 0.15
       };
 

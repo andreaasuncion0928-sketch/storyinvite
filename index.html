@@ -34,7 +34,6 @@
     background-color: var(--bg-dark-primary);
   }
 
-  /* CUSTOM WEBSITE BACKGROUND INTEGRATION */
   body, .website-background {
     background-color: #1e152a;
     background-image: 
@@ -51,7 +50,6 @@
     width: 100%;
   }
 
-  /* SCRAPBOOK GRAIN OVERLAY */
   body::before {
     content: '';
     position: fixed;
@@ -62,7 +60,6 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
-  /* SUBTLE ELEGANT ANIMATIONS */
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -78,7 +75,6 @@
     animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   }
 
-  /* ARTICULATE-STYLE SCROLL REVEAL / FADE-IN BANNER BLOCKS */
   .articulate-title-block {
     opacity: 0;
     transform: translateY(25px);
@@ -125,18 +121,15 @@
     letter-spacing: -0.01em;
   }
 
-  /* Section Wrappers */
   .section-l1 { background-color: transparent; position: relative; z-index: 2; width: 100%; }
   .section-l2 { background-color: rgba(30, 21, 42, 0.4); position: relative; z-index: 2; backdrop-filter: blur(10px); width: 100%; }
   .section-l3 { background-color: rgba(45, 40, 33, 0.5); position: relative; z-index: 2; backdrop-filter: blur(10px); width: 100%; }
 
-  /* Typography Utilities */
   .serif { font-family: var(--font-serif); }
   .sans { font-family: var(--font-sans); }
   .script { font-family: var(--font-script); }
   .uppercase { text-transform: uppercase; letter-spacing: 0.22em; }
 
-  /* UNIFIED COLLECTION HEADER PANEL */
   .collection-unified-header {
     max-width: 900px;
     margin: 0 auto 50px;
@@ -181,7 +174,6 @@
     opacity: 0.6;
   }
 
-  /* Section Story Intros */
   .section-story-intro {
     text-align: center;
     max-width: 800px;
@@ -207,7 +199,6 @@
     line-height: 1.5;
   }
 
-  /* ELEGANT 30% OPACITY GLASS PANEL FOR WHY US INTRO */
   .glass-intro-card {
     background: rgba(30, 21, 42, 0.3);
     backdrop-filter: blur(16px);
@@ -229,7 +220,6 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   }
 
-  /* Interactive Buttons */
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -275,7 +265,6 @@
     transform: translateX(4px);
   }
 
-  /* MINIMAL ACTION BUTTON FOR LIVE SITES */
   .btn-live-subtle {
     display: inline-flex;
     align-items: center;
@@ -302,7 +291,6 @@
     box-shadow: 0 5px 12px rgba(163, 140, 97, 0.25);
   }
 
-  /* GLOBAL FLOATING AUDIO RESET BUTTON */
   .audio-reset-btn {
     position: fixed;
     bottom: 20px;
@@ -332,7 +320,7 @@
     transform: scale(1.05) translateY(-2px);
   }
 
-  /* STICKY NAVIGATION HEADER */
+  /* STICKY NAVIGATION HEADER & MOBILE 3-LINE HAMBURGER MENU */
   header {
     position: fixed;
     top: 0;
@@ -386,6 +374,60 @@
   }
 
   .nav-menu a:hover {
+    color: var(--color-gold-accent);
+  }
+
+  /* 3-LINE HAMBURGER BUTTON (MOBILE) */
+  .mobile-hamburger-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px;
+    z-index: 1002;
+  }
+
+  .hamburger-line {
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-gold-accent);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* MOBILE NAVIGATION DRAWER OVERLAY */
+  .mobile-nav-drawer {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(30, 21, 42, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1001;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: opacity 0.4s ease;
+  }
+
+  .mobile-nav-drawer.active {
+    display: flex;
+    animation: fadeInUp 0.4s ease forwards;
+  }
+
+  .mobile-nav-link {
+    text-decoration: none;
+    color: var(--color-ink-light);
+    font-family: var(--font-serif);
+    font-size: 26px;
+    letter-spacing: 0.15em;
+    transition: color 0.3s ease;
+  }
+
+  .mobile-nav-link:hover {
     color: var(--color-gold-accent);
   }
 
@@ -457,7 +499,6 @@
     width: 100%;
   }
 
-  /* DESKTOP DEVICE CONTAINER (SHOWN ON DESKTOP BY DEFAULT) */
   .hero-device-desktop-box {
     display: block;
     width: clamp(260px, 32vw, 460px);
@@ -470,7 +511,6 @@
     overflow: hidden;
   }
 
-  /* MOBILE PREVIEW ACTION TRIGGER BUTTON (VISIBLE ON MOBILE ONLY) */
   .hero-mobile-trigger-btn {
     display: none;
     align-items: center;
@@ -720,6 +760,11 @@
     color: var(--color-gold-accent);
     letter-spacing: 0.1em;
     font-weight: 500;
+    text-decoration: none;
+  }
+
+  .showcase-info-url:hover {
+    text-decoration: underline;
   }
 
   .placeholder-card {
@@ -1036,6 +1081,7 @@
   @media (max-width: 992px) {
     header { padding: 12px 16px; }
     .nav-menu { display: none; }
+    .mobile-hamburger-btn { display: flex; }
     
     .hero-container { 
       grid-template-columns: 1fr; 
@@ -1136,12 +1182,13 @@
     <span>🔇 Stop All Audio</span>
   </button>
 
-  <!-- NAVIGATION HEADER WITH LOGO.PNG INTEGRATED ON TOP AND HOME BUTTON -->
+  <!-- NAVIGATION HEADER WITH 3-LINE MOBILE HAMBURGER MENU -->
   <header>
     <a href="#home" class="logo-brand">
       <img src="logo.png" alt="StoryInvites Logo" class="logo-img" onerror="this.style.display='none'">
       <span class="logo-text uppercase">STORYINVITES</span>
     </a>
+    
     <ul class="nav-menu uppercase">
       <li><a href="#home">Home</a></li>
       <li><a href="#templates">Templates</a></li>
@@ -1149,8 +1196,24 @@
       <li><a href="#process">Process</a></li>
       <li><a href="#pricing">Pricing</a></li>
     </ul>
+
+    <button class="mobile-hamburger-btn" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
     <a href="#pricing" class="btn-primary" style="padding: 8px 16px; font-size: 9px;">Create Yours</a>
   </header>
+
+  <!-- MOBILE NAVIGATION DRAWER OVERLAY -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <a href="#home" class="mobile-nav-link" onclick="toggleMobileMenu()">Home</a>
+    <a href="#templates" class="mobile-nav-link" onclick="toggleMobileMenu()">Templates</a>
+    <a href="#why-us" class="mobile-nav-link" onclick="toggleMobileMenu()">Why Us</a>
+    <a href="#process" class="mobile-nav-link" onclick="toggleMobileMenu()">Process</a>
+    <a href="#pricing" class="mobile-nav-link" onclick="toggleMobileMenu()">Pricing</a>
+  </div>
 
   <!-- HERO INTRO PAGE -->
   <div class="section-l1" id="home">
@@ -1174,19 +1237,16 @@
         </div>
       </div>
 
-      <!-- HERO PREVIEW STAGE WITH INTERACTIVE CLICK-TO-REVEAL ON MOBILE -->
+      <!-- HERO PREVIEW STAGE -->
       <div class="hero-device-stage">
-        <!-- DESKTOP PREVIEW FRAME -->
         <div class="hero-device-desktop-box">
           <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Desktop Live Demo"></iframe>
         </div>
 
-        <!-- MOBILE INTERACTIVE CLICK-TO-REVEAL TRIGGER BUTTON -->
         <button class="hero-mobile-trigger-btn uppercase" onclick="toggleHeroMobileInteractive(this)">
           <span>Click for Live Interaction Preview</span>
         </button>
 
-        <!-- FLOATING MOBILE PHONE PREVIEW -->
         <div class="hero-mobile-floating-container" id="heroMobileContainer">
           <div class="hero-single-phone">
             <div class="hero-phone-wrapper">
@@ -1202,7 +1262,6 @@
   <div class="section-l2" id="templates">
     <section class="portfolio-section">
       
-      <!-- UNIFIED COLLECTION HEADER PANEL WITH DISTINCT FADE-IN CLASS -->
       <div class="collection-unified-header articulate-title-block">
         <span class="articulate-num uppercase">CHAPTER I — THE COLLECTION</span>
         <h2 class="articulate-heading">A Design for Every Personality</h2>
@@ -1253,7 +1312,7 @@
               </div>
             </div>
             <div class="showcase-info">
-              <span class="showcase-info-url">ws1.storyinvites.com</span>
+              <a href="https://ws1.storyinvites.com" target="_blank" class="showcase-info-url">ws1.storyinvites.com</a>
               <a href="https://ws1.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
             </div>
           </div>
@@ -1284,7 +1343,7 @@
               </div>
             </div>
             <div class="showcase-info">
-              <span class="showcase-info-url">ws4.storyinvites.com</span>
+              <a href="https://ws4.storyinvites.com" target="_blank" class="showcase-info-url">ws4.storyinvites.com</a>
               <a href="https://ws4.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
             </div>
           </div>
@@ -1315,7 +1374,7 @@
               </div>
             </div>
             <div class="showcase-info">
-              <span class="showcase-info-url">ws3.storyinvites.com</span>
+              <a href="https://ws3.storyinvites.com" target="_blank" class="showcase-info-url">ws3.storyinvites.com</a>
               <a href="https://ws3.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
             </div>
           </div>
@@ -1346,7 +1405,7 @@
               </div>
             </div>
             <div class="showcase-info">
-              <span class="showcase-info-url">ws2.storyinvites.com</span>
+              <a href="https://ws2.storyinvites.com" target="_blank" class="showcase-info-url">ws2.storyinvites.com</a>
               <a href="https://ws2.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
             </div>
           </div>
@@ -1377,7 +1436,7 @@
               </div>
             </div>
             <div class="showcase-info">
-              <span class="showcase-info-url">ws5.storyinvites.com</span>
+              <a href="https://ws5.storyinvites.com" target="_blank" class="showcase-info-url">ws5.storyinvites.com</a>
               <a href="https://ws5.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
             </div>
           </div>
@@ -1411,7 +1470,7 @@
               </div>
             </div>
             <div class="showcase-info">
-              <span class="showcase-info-url">ds1.storyinvites.com</span>
+              <a href="https://ds1.storyinvites.com" target="_blank" class="showcase-info-url">ds1.storyinvites.com</a>
               <a href="https://ds1.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
             </div>
           </div>
@@ -1433,17 +1492,15 @@
     </section>
   </div>
 
-  <!-- WHY US SECTION WITH REFINED LIGHTWEIGHT CONTENT & SINGLE HORIZONTAL ROW -->
+  <!-- WHY US SECTION -->
   <div class="why-us-page-section" id="why-us">
     <section class="buyin-section">
       
-      <!-- DISTINCT FADE-IN GLASS CARD PANEL FOR WHY US SECTION TITLE -->
       <div class="articulate-title-block">
         <span class="articulate-num uppercase">CHAPTER II — THE DIFFERENCE</span>
         <h2 class="articulate-heading">The StoryInvites Difference</h2>
       </div>
 
-      <!-- REFINED ELEGANT 30% OPACITY GLASS CONTAINER FOR WHY US INTRO -->
       <div class="glass-intro-card">
         <div class="section-story-intro" style="margin-bottom:0;">
           <p class="story-lead">“An invitation that feels like you. Not just an invitation with the details.”</p>
@@ -1451,7 +1508,6 @@
         </div>
       </div>
 
-      <!-- 5 CARDS IN A SINGLE HORIZONTAL ROW WITH REFINED LIGHTWEIGHT TEXT -->
       <div class="buyin-single-row-grid">
         <div class="buyin-card-row">
           <div class="buyin-icon">✦</div>
@@ -1501,7 +1557,6 @@
   <div class="section-l3" id="process">
     <section class="process-section">
       
-      <!-- DISTINCT FADE-IN GLASS CARD PANEL FOR PROCESS SECTION TITLE -->
       <div class="articulate-title-block">
         <span class="articulate-num uppercase">CHAPTER III — THE PROCESS</span>
         <h2 class="articulate-heading">From Idea to Invitation</h2>
@@ -1532,11 +1587,10 @@
     </section>
   </div>
 
-  <!-- RESTRUCTURED TAILOR-FIT SIGNATURE PRICING OFFER SECTION -->
+  <!-- PRICING OFFER SECTION -->
   <div class="section-l1" id="pricing">
     <section class="offer-section">
       
-      <!-- DISTINCT FADE-IN GLASS CARD PANEL FOR PRICING SECTION TITLE -->
       <div class="articulate-title-block">
         <span class="articulate-num uppercase">CHAPTER IV — THE OFFERING</span>
         <h2 class="articulate-heading">The Signature Invitation</h2>
@@ -1544,7 +1598,6 @@
 
       <div class="offer-box-tailored">
         
-        <!-- REFINED SINGLE-BAR INQUIRY CARD CONTAINER -->
         <div class="inquiry-hero-card">
           <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:700;">RATES & AVAILABILITY</span>
           <h3 class="inquiry-hero-title serif">Get in Touch for Rates & Inquiries</h3>
@@ -1563,7 +1616,6 @@
           </div>
         </div>
 
-        <!-- CATCHY PUNCHY INCLUSIONS SINGLE-OUTLINE CONTAINER -->
         <h3 class="serif" style="font-size:22px; text-align:center; margin-bottom:16px; font-weight:300;">WHAT'S INCLUDED</h3>
         
         <div class="single-outline-inclusions-card">
@@ -1583,7 +1635,6 @@
           </ul>
         </div>
 
-        <!-- ALSO INCLUDED BAR -->
         <div class="also-included-bar">
           <div class="also-included-title uppercase">ALSO INCLUDED WITH YOUR PACKAGE</div>
           <ul class="also-included-pills">
@@ -1595,7 +1646,6 @@
           </ul>
         </div>
 
-        <!-- ELEGANT CLOSING NOTE -->
         <div class="pricing-closing-note">
           <span class="closing-note-tag uppercase">A CLOSING NOTE</span>
           <h3 class="serif closing-note-h3">More Than an Invitation</h3>
@@ -1639,6 +1689,12 @@
         iframe.src = '';
         iframe.src = currentSrc;
       });
+    }
+
+    // TOGGLE MOBILE 3-LINE MENU DRAWER
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobileNavDrawer');
+      drawer.classList.toggle('active');
     }
 
     // TOGGLE HERO MOBILE INTERACTIVE PREVIEW

@@ -51,6 +51,7 @@
     width: 100%;
   }
 
+  /* SCRAPBOOK GRAIN OVERLAY */
   body::before {
     content: '';
     position: fixed;
@@ -61,6 +62,7 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
+  /* SUBTLE ELEGANT ANIMATIONS */
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -76,6 +78,7 @@
     animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   }
 
+  /* ARTICULATE-STYLE SCROLL REVEAL / FADE-IN BANNER BLOCKS */
   .articulate-title-block {
     opacity: 0;
     transform: translateY(25px);
@@ -122,15 +125,18 @@
     letter-spacing: -0.01em;
   }
 
+  /* Section Wrappers */
   .section-l1 { background-color: transparent; position: relative; z-index: 2; width: 100%; }
   .section-l2 { background-color: rgba(30, 21, 42, 0.4); position: relative; z-index: 2; backdrop-filter: blur(10px); width: 100%; }
   .section-l3 { background-color: rgba(45, 40, 33, 0.5); position: relative; z-index: 2; backdrop-filter: blur(10px); width: 100%; }
 
+  /* Typography Utilities */
   .serif { font-family: var(--font-serif); }
   .sans { font-family: var(--font-sans); }
   .script { font-family: var(--font-script); }
   .uppercase { text-transform: uppercase; letter-spacing: 0.22em; }
 
+  /* UNIFIED COLLECTION HEADER PANEL */
   .collection-unified-header {
     max-width: 900px;
     margin: 0 auto 50px;
@@ -175,6 +181,7 @@
     opacity: 0.6;
   }
 
+  /* Section Story Intros */
   .section-story-intro {
     text-align: center;
     max-width: 800px;
@@ -200,6 +207,7 @@
     line-height: 1.5;
   }
 
+  /* ELEGANT 30% OPACITY GLASS PANEL FOR WHY US INTRO */
   .glass-intro-card {
     background: rgba(30, 21, 42, 0.3);
     backdrop-filter: blur(16px);
@@ -221,6 +229,7 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   }
 
+  /* Interactive Buttons */
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -266,6 +275,7 @@
     transform: translateX(4px);
   }
 
+  /* MINIMAL ACTION BUTTON FOR LIVE SITES */
   .btn-live-subtle {
     display: inline-flex;
     align-items: center;
@@ -292,6 +302,7 @@
     box-shadow: 0 5px 12px rgba(163, 140, 97, 0.25);
   }
 
+  /* GLOBAL FLOATING AUDIO RESET BUTTON */
   .audio-reset-btn {
     position: fixed;
     bottom: 20px;
@@ -321,6 +332,7 @@
     transform: scale(1.05) translateY(-2px);
   }
 
+  /* STICKY NAVIGATION HEADER */
   header {
     position: fixed;
     top: 0;
@@ -486,7 +498,6 @@
     border-radius: 50%;
   }
 
-  /* MOBILE FLOATING INTERACTIVE PREVIEW MODAL / CONTAINER */
   .hero-mobile-floating-container {
     display: none;
     position: relative;
@@ -666,7 +677,7 @@
   .iframe-container-desktop {
     width: 100%;
     height: clamp(220px, 35vw, 420px);
-    background: #1e152a;
+    background: #FFF;
     border: 1px solid var(--border-light);
     border-radius: 6px;
     overflow: hidden;
@@ -677,7 +688,7 @@
   .iframe-container-mobile {
     width: clamp(160px, 22vw, 220px);
     height: clamp(320px, 42vw, 440px);
-    background: #1e152a;
+    background: #FFF;
     border: 8px solid #000;
     border-radius: 32px;
     margin: 0 auto;
@@ -686,53 +697,11 @@
     position: relative;
   }
 
-  .reveal-overlay-poster {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(30, 21, 42, 0.92);
-    backdrop-filter: blur(10px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 20;
-    cursor: pointer;
-    padding: 20px;
-    text-align: center;
-    transition: opacity 0.4s ease;
-  }
-
-  .reveal-overlay-poster.is-hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .reveal-icon-circle {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(163, 140, 97, 0.2);
-    border: 1px solid var(--color-gold-accent);
-    color: var(--color-gold-accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease;
-  }
-
-  .reveal-overlay-poster:hover .reveal-icon-circle {
-    transform: scale(1.1);
-    background: var(--color-gold-accent);
-    color: #1e152a;
-  }
-
-  .reveal-text {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    color: var(--color-ink-light);
-    font-weight: 600;
+  .iframe-preview {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #FFF;
   }
 
   .showcase-info {
@@ -1077,12 +1046,10 @@
     
     .hero-description { margin: 0 auto 20px; }
 
-    /* HIDE DESKTOP BROWSER PREVIEW ON MOBILE BY DEFAULT */
     .hero-device-desktop-box {
       display: none;
     }
 
-    /* SHOW MOBILE TRIGGER BUTTON ON MOBILE VIEW ONLY */
     .hero-mobile-trigger-btn {
       display: inline-flex;
     }
@@ -1149,6 +1116,15 @@
     
     .inclusions-single-list {
       grid-template-columns: 1fr;
+    }
+
+    .hero-single-phone {
+      width: 180px;
+      height: 360px;
+    }
+
+    .hero-phone-wrapper {
+      transform: scale(0.46);
     }
   }
 </style>
@@ -1265,18 +1241,14 @@
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws1.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <div class="reveal-overlay-poster" onclick="loadLivePreview(this, 'https://ws1.storyinvites.com')">
-                  <div class="reveal-icon-circle">▶</div>
-                  <span class="reveal-text uppercase">Tap to Load Live Preview</span>
-                </div>
+                <iframe src="https://ws1.storyinvites.com" class="iframe-preview sample-iframe" title="ws1 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
-                <div class="reveal-overlay-poster" onclick="loadLivePreview(this, 'https://ws1.storyinvites.com', true)">
-                  <div class="reveal-icon-circle">📱</div>
-                  <span class="reveal-text uppercase">Tap to Load Live Preview</span>
+                <div class="mobile-iframe-wrapper">
+                  <iframe src="https://ws1.storyinvites.com" class="iframe-preview sample-iframe" title="ws1 Mobile"></iframe>
                 </div>
               </div>
             </div>
@@ -1300,18 +1272,14 @@
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws4.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <div class="reveal-overlay-poster" onclick="loadLivePreview(this, 'https://ws4.storyinvites.com')">
-                  <div class="reveal-icon-circle">▶</div>
-                  <span class="reveal-text uppercase">Tap to Load Live Preview</span>
-                </div>
+                <iframe src="https://ws4.storyinvites.com" class="iframe-preview sample-iframe" title="ws4 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
-                <div class="reveal-overlay-poster" onclick="loadLivePreview(this, 'https://ws4.storyinvites.com', true)">
-                  <div class="reveal-icon-circle">📱</div>
-                  <span class="reveal-text uppercase">Tap to Load Live Preview</span>
+                <div class="mobile-iframe-wrapper">
+                  <iframe src="https://ws4.storyinvites.com" class="iframe-preview sample-iframe" title="ws4 Mobile"></iframe>
                 </div>
               </div>
             </div>
@@ -1335,18 +1303,14 @@
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws3.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <div class="reveal-overlay-poster" onclick="loadLivePreview(this, 'https://ws3.storyinvites.com')">
-                  <div class="reveal-icon-circle">▶</div>
-                  <span class="reveal-text uppercase">Tap to Load Live Preview</span>
-                </div>
+                <iframe src="https://ws3.storyinvites.com" class="iframe-preview sample-iframe" title="ws3 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
-                <div class="reveal-overlay-poster" onclick="loadLivePreview(this, 'https://ws3.storyinvites.com', true)">
-                  <div class="reveal-icon-circle">📱</div>
-                  <span class="reveal-text uppercase">Tap to Load Live Preview</span>
+                <div class="mobile-iframe-wrapper">
+                  <iframe src="https://ws3.storyinvites.com" class="iframe-preview sample-iframe" title="ws3 Mobile"></iframe>
                 </div>
               </div>
             </div>
@@ -1370,18 +1334,14 @@
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws2.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <div class="reveal-overlay-poster" onclick="loadLivePreview(this, 'https://ws2.storyinvites.com')">
-                  <div class="reveal-icon-circle">▶</div>
-                  <span class="reveal-text uppercase">Tap to Load Live Preview</span>
-                </div>
+                <iframe src="https://ws2.storyinvites.com" class="iframe-preview sample-iframe" title="ws2 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
-                <div class="reveal-overlay-poster" onclick="loadLivePreview(this, 'https://ws2.storyinvites.com', true)">
-                  <div class="reveal-icon-circle">📱</div>
-                  <span class="reveal-text uppercase">Tap to Load Live Preview</span>
+                <div class="mobile-iframe-wrapper">
+                  <iframe src="https://ws2.storyinvites.com" class="iframe-preview sample-iframe" title="ws2 Mobile"></iframe>
                 </div>
               </div>
             </div>
@@ -1405,18 +1365,14 @@
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws5.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <div class="reveal-overlay-poster" onclick="loadLivePreview(this, 'https://ws5.storyinvites.com')">
-                  <div class="reveal-icon-circle">▶</div>
-                  <span class="reveal-text uppercase">Tap to Load Live Preview</span>
-                </div>
+                <iframe src="https://ws5.storyinvites.com" class="iframe-preview sample-iframe" title="ws5 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
-                <div class="reveal-overlay-poster" onclick="loadLivePreview(this, 'https://ws5.storyinvites.com', true)">
-                  <div class="reveal-icon-circle">📱</div>
-                  <span class="reveal-text uppercase">Tap to Load Live Preview</span>
+                <div class="mobile-iframe-wrapper">
+                  <iframe src="https://ws5.storyinvites.com" class="iframe-preview sample-iframe" title="ws5 Mobile"></iframe>
                 </div>
               </div>
             </div>
@@ -1443,18 +1399,14 @@
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ds1.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <div class="reveal-overlay-poster" onclick="loadLivePreview(this, 'https://ds1.storyinvites.com')">
-                  <div class="reveal-icon-circle">▶</div>
-                  <span class="reveal-text uppercase">Tap to Load Live Preview</span>
-                </div>
+                <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="ds1 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
-                <div class="reveal-overlay-poster" onclick="loadLivePreview(this, 'https://ds1.storyinvites.com', true)">
-                  <div class="reveal-icon-circle">📱</div>
-                  <span class="reveal-text uppercase">Tap to Load Live Preview</span>
+                <div class="mobile-iframe-wrapper">
+                  <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="ds1 Mobile"></iframe>
                 </div>
               </div>
             </div>
@@ -1698,29 +1650,6 @@
       } else {
         btn.innerHTML = '<span>Click for Live Interaction Preview</span>';
       }
-    }
-
-    // INTERACTIVE REVEAL DATA EXPERIENCE FOR TEMPLATES
-    function loadLivePreview(posterEl, targetUrl, isMobile) {
-      const parent = posterEl.parentElement;
-      posterEl.classList.add('is-hidden');
-      
-      let iframe = parent.querySelector('iframe');
-      if (!iframe) {
-        iframe = document.createElement('iframe');
-        iframe.className = 'iframe-preview sample-iframe';
-        iframe.title = 'Live Preview Embed';
-        
-        if (isMobile) {
-          const wrapper = document.createElement('div');
-          wrapper.className = 'mobile-iframe-wrapper';
-          wrapper.appendChild(iframe);
-          parent.appendChild(wrapper);
-        } else {
-          parent.appendChild(iframe);
-        }
-      }
-      iframe.src = targetUrl;
     }
 
     // ARTICULATE-STYLE SCROLL INTERSECTION OBSERVER FOR FADE-IN TITLE BLOCKS

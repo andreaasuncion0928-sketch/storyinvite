@@ -101,7 +101,41 @@
     transform: translateX(5px);
   }
 
-  /* STICKY NAVIGATION HEADER (Next shade of lavender #e5e0f3) */
+  /* GLOBAL FLOATING AUDIO RESET BUTTON */
+  .audio-reset-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    background-color: var(--color-ink);
+    color: var(--bg-lavender-1);
+    border: 1px solid var(--color-accent);
+    padding: 14px 22px;
+    border-radius: 50px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(30, 23, 48, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .audio-reset-btn:hover {
+    background-color: var(--color-accent);
+    color: #FFF;
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 15px 35px rgba(98, 72, 152, 0.35);
+  }
+
+  .audio-reset-btn:active {
+    transform: scale(0.95);
+  }
+
+  /* STICKY NAVIGATION HEADER (Subtle Contrast Lavender #e5e0f3) */
   header {
     position: fixed;
     top: 0;
@@ -530,10 +564,16 @@
     .iframe-container-mobile { width: 220px; height: 440px; }
     .showcase-info { grid-column: span 1; flex-direction: column; gap: 20px; align-items: flex-start; }
     .buyin-grid, .process-grid, .offer-box { grid-template-columns: 1fr; }
+    .audio-reset-btn { bottom: 20px; right: 20px; padding: 12px 18px; font-size: 10px; }
   }
 </style>
 </head>
 <body>
+
+  <!-- GLOBAL AUDIO RESET BUTTON -->
+  <button class="audio-reset-btn uppercase" onclick="stopAllSampleAudio()">
+    <span>🔇 Stop All Audio</span>
+  </button>
 
   <!-- NAVIGATION HEADER (Subtle Contrast Lavender #e5e0f3) -->
   <header>
@@ -572,12 +612,12 @@
         </div>
 
         <div class="device-mockup device-desktop">
-          <iframe src="https://ds1.storyinvites.com" class="iframe-preview" title="Hero Desktop Live Demo"></iframe>
+          <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Desktop Live Demo"></iframe>
         </div>
 
         <div class="device-mockup device-mobile">
           <div class="mobile-iframe-wrapper">
-            <iframe src="https://ds1.storyinvites.com" class="iframe-preview" title="Hero Mobile Live Demo"></iframe>
+            <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Mobile Live Demo"></iframe>
           </div>
         </div>
       </div>
@@ -622,14 +662,14 @@
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws1.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <iframe src="https://ws1.storyinvites.com" class="iframe-preview" title="ws1 Desktop"></iframe>
+                <iframe src="https://ws1.storyinvites.com" class="iframe-preview sample-iframe" title="ws1 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ws1.storyinvites.com" class="iframe-preview" title="ws1 Mobile"></iframe>
+                  <iframe src="https://ws1.storyinvites.com" class="iframe-preview sample-iframe" title="ws1 Mobile"></iframe>
                 </div>
               </div>
             </div>
@@ -656,14 +696,14 @@
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws2.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <iframe src="https://ws2.storyinvites.com" class="iframe-preview" title="ws2 Desktop"></iframe>
+                <iframe src="https://ws2.storyinvites.com" class="iframe-preview sample-iframe" title="ws2 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ws2.storyinvites.com" class="iframe-preview" title="ws2 Mobile"></iframe>
+                  <iframe src="https://ws2.storyinvites.com" class="iframe-preview sample-iframe" title="ws2 Mobile"></iframe>
                 </div>
               </div>
             </div>
@@ -690,14 +730,14 @@
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws3.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <iframe src="https://ws3.storyinvites.com" class="iframe-preview" title="ws3 Desktop"></iframe>
+                <iframe src="https://ws3.storyinvites.com" class="iframe-preview sample-iframe" title="ws3 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ws3.storyinvites.com" class="iframe-preview" title="ws3 Mobile"></iframe>
+                  <iframe src="https://ws3.storyinvites.com" class="iframe-preview sample-iframe" title="ws3 Mobile"></iframe>
                 </div>
               </div>
             </div>
@@ -724,14 +764,14 @@
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws4.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <iframe src="https://ws4.storyinvites.com" class="iframe-preview" title="ws4 Desktop"></iframe>
+                <iframe src="https://ws4.storyinvites.com" class="iframe-preview sample-iframe" title="ws4 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ws4.storyinvites.com" class="iframe-preview" title="ws4 Mobile"></iframe>
+                  <iframe src="https://ws4.storyinvites.com" class="iframe-preview sample-iframe" title="ws4 Mobile"></iframe>
                 </div>
               </div>
             </div>
@@ -758,14 +798,14 @@
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ws5.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <iframe src="https://ws5.storyinvites.com" class="iframe-preview" title="ws5 Desktop"></iframe>
+                <iframe src="https://ws5.storyinvites.com" class="iframe-preview sample-iframe" title="ws5 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ws5.storyinvites.com" class="iframe-preview" title="ws5 Mobile"></iframe>
+                  <iframe src="https://ws5.storyinvites.com" class="iframe-preview sample-iframe" title="ws5 Mobile"></iframe>
                 </div>
               </div>
             </div>
@@ -795,14 +835,14 @@
             <div class="preview-wrapper">
               <span class="view-label uppercase">💻 Desktop View — ds1.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <iframe src="https://ds1.storyinvites.com" class="iframe-preview" title="ds1 Desktop"></iframe>
+                <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="ds1 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ds1.storyinvites.com" class="iframe-preview" title="ds1 Mobile"></iframe>
+                  <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="ds1 Mobile"></iframe>
                 </div>
               </div>
             </div>
@@ -962,6 +1002,19 @@
       // Activate selected
       btn.classList.add('active');
       document.getElementById('cat-' + category).classList.add('active');
+      
+      // Reset iframe audio playback when switching tabs
+      stopAllSampleAudio();
+    }
+
+    // Function to reload all iframes, resetting audio playback immediately
+    function stopAllSampleAudio() {
+      const iframes = document.querySelectorAll('.sample-iframe');
+      iframes.forEach(iframe => {
+        const currentSrc = iframe.src;
+        iframe.src = '';
+        iframe.src = currentSrc;
+      });
     }
   </script>
 </body>

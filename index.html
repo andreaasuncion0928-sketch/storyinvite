@@ -1104,27 +1104,6 @@
     <span>🔇 Stop All Audio</span>
   </button>
 
-  <!-- INTERACTIVE EMBEDDED CHAT SUPPORT WIDGET -->
-  <button class="chat-widget-toggle uppercase" onclick="toggleChatWindow()">
-    <span>💬 Live Chat</span>
-  </button>
-
-  <div class="chat-window-box" id="liveChatWindow">
-    <div class="chat-header">
-      <h4 class="uppercase">StoryInvites Support</h4>
-      <button class="chat-close-btn" onclick="toggleChatWindow()">✕</button>
-    </div>
-    <div class="chat-body" id="chatMessageBody">
-      <div class="chat-msg-agent">
-        Hello! 👋 Welcome to StoryInvites. How can we help you create your invitation?
-      </div>
-    </div>
-    <div class="chat-footer">
-      <input type="text" class="chat-input" id="chatInputField" placeholder="Type a message..." onkeypress="handleChatKeyPress(event)">
-      <button class="chat-send-btn" onclick="sendChatMessage()">Send</button>
-    </div>
-  </div>
-
   <!-- NAVIGATION HEADER WITH LOGO.PNG INTEGRATED ON TOP AND HOME BUTTON -->
   <header>
     <a href="#home" class="logo-brand">
@@ -1244,7 +1223,7 @@
           </div>
         </div>
 
-        <!-- TEMPLATE 02 -->
+        <!-- TEMPLATE 02: THE CINEMATIC COUPLE (UPDATED TO WS4) -->
         <div class="unified-template-card">
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Cinematic Couple</h3>
@@ -1255,22 +1234,22 @@
 
           <div class="card-preview-body">
             <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View — ws2.storyinvites.com</span>
+              <span class="view-label uppercase">💻 Desktop View — ws4.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <iframe src="https://ws2.storyinvites.com" class="iframe-preview sample-iframe" title="ws2 Desktop"></iframe>
+                <iframe src="https://ws4.storyinvites.com" class="iframe-preview sample-iframe" title="ws4 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ws2.storyinvites.com" class="iframe-preview sample-iframe" title="ws2 Mobile"></iframe>
+                  <iframe src="https://ws4.storyinvites.com" class="iframe-preview sample-iframe" title="ws4 Mobile"></iframe>
                 </div>
               </div>
             </div>
             <div class="showcase-info">
-              <span class="showcase-info-url">ws2.storyinvites.com</span>
-              <a href="https://ws2.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
+              <span class="showcase-info-url">ws4.storyinvites.com</span>
+              <a href="https://ws4.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
@@ -1306,7 +1285,7 @@
           </div>
         </div>
 
-        <!-- TEMPLATE 04 -->
+        <!-- TEMPLATE 04: THE CLASSIC WITH A TWIST (UPDATED TO WS2) -->
         <div class="unified-template-card">
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Classic with a Twist</h3>
@@ -1317,22 +1296,22 @@
 
           <div class="card-preview-body">
             <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View — ws4.storyinvites.com</span>
+              <span class="view-label uppercase">💻 Desktop View — ws2.storyinvites.com</span>
               <div class="iframe-container-desktop">
-                <iframe src="https://ws4.storyinvites.com" class="iframe-preview sample-iframe" title="ws4 Desktop"></iframe>
+                <iframe src="https://ws2.storyinvites.com" class="iframe-preview sample-iframe" title="ws2 Desktop"></iframe>
               </div>
             </div>
             <div class="preview-wrapper">
               <span class="view-label uppercase">📱 Realistic Mobile View</span>
               <div class="iframe-container-mobile">
                 <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ws4.storyinvites.com" class="iframe-preview sample-iframe" title="ws4 Mobile"></iframe>
+                  <iframe src="https://ws2.storyinvites.com" class="iframe-preview sample-iframe" title="ws2 Mobile"></iframe>
                 </div>
               </div>
             </div>
             <div class="showcase-info">
-              <span class="showcase-info-url">ws4.storyinvites.com</span>
-              <a href="https://ws4.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
+              <span class="showcase-info-url">ws2.storyinvites.com</span>
+              <a href="https://ws2.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
@@ -1659,50 +1638,6 @@
         iframe.src = '';
         iframe.src = currentSrc;
       });
-    }
-
-    // TOGGLE CHAT SUPPORT WINDOW
-    function toggleChatWindow() {
-      const chatBox = document.getElementById('liveChatWindow');
-      chatBox.classList.toggle('active');
-    }
-
-    // HANDLE CHAT SEND MESSAGE
-    function sendChatMessage() {
-      const input = document.getElementById('chatInputField');
-      const message = input.value.trim();
-      if (message !== "") {
-        const body = document.getElementById('chatMessageBody');
-        
-        // Append User Message
-        const userDiv = document.createElement('div');
-        userDiv.style.background = 'rgba(163, 140, 97, 0.25)';
-        userDiv.style.border = '1px solid var(--color-gold-accent)';
-        userDiv.style.padding = '10px 14px';
-        userDiv.style.borderRadius = '12px 12px 2px 12px';
-        userDiv.style.alignSelf = 'flex-end';
-        userDiv.style.color = '#FFF';
-        userDiv.innerText = message;
-        body.appendChild(userDiv);
-
-        input.value = "";
-        body.scrollTop = body.scrollHeight;
-
-        // Auto Agent Reply
-        setTimeout(() => {
-          const autoReply = document.createElement('div');
-          autoReply.className = 'chat-msg-agent';
-          autoReply.innerText = "Thank you for reaching out! You can also connect directly via Viber / Call at 09260593086 or Email at andrea.asuncion0928@gmail.com.";
-          body.appendChild(autoReply);
-          body.scrollTop = body.scrollHeight;
-        }, 1000);
-      }
-    }
-
-    function handleChatKeyPress(event) {
-      if (event.key === 'Enter') {
-        sendChatMessage();
-      }
     }
 
     // ARTICULATE-STYLE SCROLL INTERSECTION OBSERVER FOR FADE-IN TITLE BLOCKS

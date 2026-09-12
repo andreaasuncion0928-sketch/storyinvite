@@ -725,7 +725,7 @@
     margin: 60px auto 0;
   }
 
-  /* RESTRUCTURED TAILOR-FIT SIGNATURE PRICING OFFER SECTION */
+  /* RESTRUCTURED TAILOR-FIT SIGNATURE PRICING OFFER SECTION WITH DIRECT INQUIRY CTA */
   .offer-section {
     padding: 120px 50px;
     max-width: 1280px;
@@ -761,18 +761,49 @@
     margin-bottom: 50px;
   }
 
-  .offer-price {
-    font-size: clamp(52px, 5vw, 68px);
-    color: var(--color-gold-accent);
-    margin: 10px 0 5px;
-    font-weight: 300;
+  /* INQUIRY GLASS PANEL (REPLACES PRICE VALUE) */
+  .inquiry-badge-card {
+    display: inline-block;
+    background: rgba(163, 140, 97, 0.12);
+    border: 1px solid var(--color-gold-accent);
+    padding: 22px 40px;
+    border-radius: 50px;
+    margin: 20px 0 15px;
+    backdrop-filter: blur(10px);
   }
 
-  /* Grid of Tailored Feature Categories */
+  .inquiry-badge-text {
+    font-family: var(--font-serif);
+    font-size: clamp(22px, 3vw, 28px);
+    color: var(--color-gold-accent);
+    font-style: italic;
+    letter-spacing: 0.05em;
+  }
+
+  /* INQUIRY CONTACT OPTIONS BAR */
+  .inquiry-channels {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
+
+  .channel-pill {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--color-ink-light);
+    background: rgba(30, 21, 42, 0.6);
+    border: 1px solid rgba(163, 140, 97, 0.3);
+    padding: 8px 18px;
+    border-radius: 30px;
+  }
+
+  /* CATCHY PUNCHY INCLUSIONS GRID */
   .offer-inclusions-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 25px;
     margin-bottom: 50px;
   }
 
@@ -780,7 +811,7 @@
     background: rgba(30, 21, 42, 0.5);
     border: 1px solid rgba(163, 140, 97, 0.2);
     border-radius: 12px;
-    padding: 25px 22px;
+    padding: 24px 22px;
     transition: transform 0.3s ease, border-color 0.3s ease;
   }
 
@@ -794,7 +825,7 @@
     font-weight: 700;
     color: var(--color-gold-accent);
     letter-spacing: 0.22em;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -808,7 +839,7 @@
   .inclusion-desc {
     font-size: 13px;
     color: var(--color-charcoal-light);
-    line-height: 1.65;
+    line-height: 1.6;
   }
 
   /* ALSO INCLUDED PILLS BAR */
@@ -1340,60 +1371,71 @@
 
       <div class="offer-box-tailored">
         <div class="offer-main-header">
-          <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:700;">STORYINVITES PACKAGE</span>
-          <div class="offer-price serif">₱2,500</div>
-          <p class="serif" style="font-style:italic; color:var(--color-gold-accent); font-size:22px;">
+          <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:700;">CUSTOM TAILORED RATES</span>
+          
+          <!-- ELEGANT INQUIRY BADGE CARD REPLACING DIRECT PRICE NUMBER -->
+          <div class="inquiry-badge-card">
+            <span class="inquiry-badge-text">Get in touch to receive our rate sheet & availability</span>
+          </div>
+
+          <div class="inquiry-channels uppercase">
+            <span class="channel-pill">📩 Send a Direct Message</span>
+            <span class="channel-pill">✉️ Email Us</span>
+            <span class="channel-pill">📱 Call or SMS</span>
+          </div>
+
+          <p class="serif" style="font-style:italic; color:var(--color-gold-accent); font-size:22px; margin-top:25px;">
             Your story. Your style. Your invitation.
           </p>
         </div>
 
-        <!-- WHAT'S INCLUDED DETAILED GRID -->
+        <!-- CATCHY PUNCHY INCLUSIONS GRID -->
         <h3 class="serif" style="font-size:26px; text-align:center; margin-bottom:30px; font-weight:300;">WHAT'S INCLUDED</h3>
         
         <div class="offer-inclusions-grid">
           <div class="inclusion-card">
             <div class="inclusion-title uppercase">Your Concept</div>
-            <p class="inclusion-desc">Start with an idea that feels like you. Whether romantic, cinematic, playful, minimalist, nostalgic, travel-inspired, music-filled, or something completely your own, we shape the design around you.</p>
+            <p class="inclusion-desc">Bespoke themes built around your personal style, mood, and aesthetic vision.</p>
           </div>
 
           <div class="inclusion-card">
             <div class="inclusion-title uppercase">Your Opening</div>
-            <p class="inclusion-desc">Set the mood from the very first tap. Your names, visuals, music, and a personalized opening experience welcome your guests into your story.</p>
+            <p class="inclusion-desc">A captivating first-tap reveal with custom music, visuals, and seal opening.</p>
           </div>
 
           <div class="inclusion-card">
             <div class="inclusion-title uppercase">Your Soundtrack</div>
-            <p class="inclusion-desc">Choose the music that feels like you. Include up to 4 songs, depending on your concept and how you want your story to unfold.</p>
+            <p class="inclusion-desc">Up to 4 curated background tracks that set the emotional tone for guests.</p>
           </div>
 
           <div class="inclusion-card">
             <div class="inclusion-title uppercase">Your Story</div>
-            <p class="inclusion-desc">Share the moments that brought you here — from how you met to the little memories that mean the most. Your story becomes part of the invitation.</p>
+            <p class="inclusion-desc">Interactive timeline chapters highlighting your journey and favorite memories.</p>
           </div>
 
           <div class="inclusion-card">
             <div class="inclusion-title uppercase">Your Details</div>
-            <p class="inclusion-desc">Everything your guests need to know, beautifully presented: date, time, ceremony, reception, venue, map, dress code, and other important details.</p>
+            <p class="inclusion-desc">Clear event schedule, Google venue maps, dress code palettes, and timing.</p>
           </div>
 
           <div class="inclusion-card">
             <div class="inclusion-title uppercase">Your Photos</div>
-            <p class="inclusion-desc">Up to 10 photos, thoughtfully incorporated into your design to tell your story — not simply displayed in a gallery.</p>
+            <p class="inclusion-desc">Up to 10 curated photos woven naturally into your design story.</p>
           </div>
 
           <div class="inclusion-card">
             <div class="inclusion-title uppercase">Your Entourage</div>
-            <p class="inclusion-desc">Introduce the people who will stand beside you — bridesmaids, groomsmen, principal sponsors, family, and celebration party.</p>
+            <p class="inclusion-desc">Magazine-style spreads spotlighting family, sponsors, and key parties.</p>
           </div>
 
           <div class="inclusion-card">
-            <div class="inclusion-title uppercase">Your RSVP & Gift Details</div>
-            <p class="inclusion-desc">Make it easy for guests to respond with an online RSVP and QR code, plus GCash, bank details, registry, or gift information.</p>
+            <div class="inclusion-title uppercase">Your RSVP & Gifts</div>
+            <p class="inclusion-desc">Instant digital RSVP with entrance QR codes, GCash, bank registry & gifts.</p>
           </div>
 
           <div class="inclusion-card">
             <div class="inclusion-title uppercase">Your Visual Experience</div>
-            <p class="inclusion-desc">Colors, typography, imagery, animations, transitions, live countdown, and interactive details brought together seamlessly.</p>
+            <p class="inclusion-desc">Fluid animations, live countdown clock, custom fonts, and rich interactivity.</p>
           </div>
         </div>
 
@@ -1417,7 +1459,7 @@
             Your invitation is where your event story begins. Before your guests see the venue, the decor, or the celebration, they experience your invitation. So make it feel like you.
           </p>
           <div class="closing-note-quote">“Something that makes your guests say, ‘This is so them.’”</div>
-          <a href="#" class="btn-primary" style="margin-top:10px;">Get Started &rarr;</a>
+          <a href="#" class="btn-primary" style="margin-top:10px;">Inquire Now &rarr;</a>
         </div>
 
       </div>

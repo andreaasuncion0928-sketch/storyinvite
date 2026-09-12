@@ -6,7 +6,7 @@
 <title>STORYINVITES — Digital Invitations for Life's Greatest Moments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -17,6 +17,7 @@
     --text-secondary: #6e655f;
     --text-muted: #948b84;
     --accent-dark: #1a1715;
+    --gold-accent: #9a8057;
     --border-subtle: rgba(44, 38, 35, 0.12);
 
     --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -36,7 +37,7 @@
     background-color: var(--bg-cream-main);
     color: var(--text-primary);
     font-family: var(--font-sans);
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* TOP NAVIGATION BAR */
@@ -45,14 +46,14 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    height: 75px;
     padding: 0 clamp(20px, 4vw, 60px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background-color: rgba(245, 240, 235, 0.92);
-    backdrop-filter: blur(10px);
+    background-color: rgba(245, 240, 235, 0.94);
+    backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-subtle);
   }
 
@@ -63,14 +64,14 @@
     text-decoration: none;
     color: var(--text-primary);
     font-family: var(--font-serif);
-    font-size: 20px;
-    letter-spacing: 0.15em;
+    font-size: 22px;
+    letter-spacing: 0.18em;
     font-weight: 500;
   }
 
   .nav-menu {
     display: flex;
-    gap: clamp(15px, 2.5vw, 40px);
+    gap: clamp(15px, 2vw, 35px);
     list-style: none;
   }
 
@@ -83,13 +84,14 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--text-secondary);
-    transition: color 0.3s ease;
-    padding: 4px 0;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    padding: 6px 0;
+    border-bottom: 1px solid transparent;
   }
 
   .nav-menu button.active, .nav-menu button:hover {
     color: var(--text-primary);
-    border-bottom: 1px solid var(--text-primary);
+    border-bottom-color: var(--text-primary);
   }
 
   /* AUDIO CONTROLLER BUTTON */
@@ -100,26 +102,27 @@
     z-index: 999;
     background-color: var(--accent-dark);
     color: #FFF;
-    border: none;
-    padding: 10px 18px;
+    border: 1px solid var(--accent-dark);
+    padding: 10px 20px;
     border-radius: 40px;
     font-family: var(--font-sans);
     font-size: 10px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    transition: background 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
   }
 
   .audio-reset-btn:hover {
-    background-color: var(--text-secondary);
+    background-color: var(--bg-card-light);
+    color: var(--text-primary);
   }
 
-  /* PAGE CONTAINER ENGINE */
+  /* VIEWPORT & PAGES ENGINE */
   .page-viewport {
     position: absolute;
-    top: 70px;
+    top: 75px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -144,8 +147,8 @@
   .hero-cover-block {
     position: relative;
     width: 100%;
-    height: calc(100vh - 70px);
-    min-height: 500px;
+    height: calc(100vh - 75px);
+    min-height: 550px;
     background-position: center;
     background-size: cover;
     display: flex;
@@ -158,91 +161,123 @@
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.15);
+    background: linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
   }
 
   .hero-text-card {
     position: relative;
     z-index: 2;
-    background: rgba(254, 253, 251, 0.88);
-    backdrop-filter: blur(12px);
-    padding: clamp(30px, 4vw, 60px);
-    max-width: 520px;
-    border-radius: 2px;
+    background: rgba(254, 253, 251, 0.92);
+    backdrop-filter: blur(16px);
+    padding: clamp(35px, 4.5vw, 65px);
+    max-width: 560px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   }
 
   .hero-subtitle {
     font-size: 10px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--gold-accent);
     margin-bottom: 12px;
     display: block;
+    font-weight: 600;
   }
 
   .hero-heading {
     font-family: var(--font-serif);
-    font-size: clamp(32px, 4.5vw, 56px);
+    font-size: clamp(34px, 4.5vw, 58px);
     font-weight: 300;
     line-height: 1.1;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     color: var(--text-primary);
   }
 
   .hero-paragraph {
-    font-size: 12.5px;
+    font-size: 13px;
     color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 24px;
+    line-height: 1.7;
+    margin-bottom: 28px;
   }
 
+  /* BUTTONS & HIGHLIGHTED LINKS */
   .btn-dark {
     display: inline-block;
     background-color: var(--accent-dark);
     color: #FFF;
     text-decoration: none;
-    padding: 12px 28px;
+    padding: 13px 32px;
     font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    border: none;
+    border: 1px solid var(--accent-dark);
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
   }
 
   .btn-dark:hover {
-    background-color: var(--text-secondary);
+    background-color: transparent;
+    color: var(--accent-dark);
+  }
+
+  .btn-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--accent-dark);
+    color: #FFF;
+    padding: 10px 22px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-highlight:hover {
+    background-color: var(--gold-accent);
+    color: #FFF;
+    transform: translateY(-2px);
   }
 
   /* FEATURED SECTION (COLLECTION GRID) */
   .section-block {
-    padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 60px);
+    padding: clamp(50px, 7vw, 90px) clamp(20px, 4vw, 60px);
     max-width: 1300px;
     margin: 0 auto;
   }
 
   .section-header-center {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .section-title {
     font-family: var(--font-serif);
-    font-size: clamp(28px, 3.5vw, 42px);
+    font-size: clamp(32px, 4vw, 46px);
     font-weight: 300;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    line-height: 1.15;
   }
 
   .section-tagline {
-    font-size: 12px;
+    font-size: 12.5px;
     color: var(--text-secondary);
+    line-height: 1.6;
   }
 
   .featured-collection-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: clamp(16px, 2.5vw, 30px);
+    gap: clamp(20px, 2.5vw, 35px);
   }
 
   .collection-item {
@@ -252,74 +287,122 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
   }
 
   .iframe-container-card {
     width: 100%;
-    height: 380px;
+    height: 400px;
     background: #FFF;
     position: relative;
   }
 
   .card-details-box {
-    padding: 20px;
+    padding: 24px 20px;
     text-align: center;
     background-color: var(--bg-card-light);
     border-top: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
   .card-item-title {
     font-family: var(--font-serif);
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 400;
-    margin-bottom: 4px;
   }
 
-  .card-item-link {
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    text-decoration: none;
-  }
-
-  /* ABOUT US TWO-COLUMN LAYOUT */
+  /* ENHANCED ABOUT US SECTION */
   .about-us-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(30px, 5vw, 60px);
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(40px, 6vw, 80px);
     align-items: center;
     background-color: var(--bg-warm-tint);
-    padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 60px);
+    padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 80px);
     margin-top: 40px;
   }
 
   .about-text-column {
-    max-width: 480px;
+    max-width: 580px;
   }
 
   .about-heading {
     font-family: var(--font-serif);
-    font-size: clamp(30px, 4vw, 48px);
+    font-size: clamp(38px, 4.5vw, 56px);
     font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+  }
+
+  .about-quote {
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 2.2vw, 26px);
+    font-style: italic;
+    color: var(--gold-accent);
+    line-height: 1.4;
     margin-bottom: 20px;
+    border-left: 2px solid var(--gold-accent);
+    padding-left: 18px;
   }
 
   .about-desc {
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 24px;
+    line-height: 1.8;
+    margin-bottom: 28px;
   }
 
   .preview-embed-extend {
     width: 100%;
-    height: 520px;
+    height: 600px;
     background: #FFF;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    border-radius: 6px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     border: 1px solid var(--border-subtle);
+  }
+
+  /* REALISTIC PHONE PREVIEW CONTAINER */
+  .realistic-phone-stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .phone-mockup-frame {
+    width: 280px;
+    height: 570px;
+    background: #111;
+    border-radius: 40px;
+    border: 10px solid #222;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 22px;
+    background: #222;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    z-index: 10;
+  }
+
+  .phone-screen-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #FFF;
   }
 
   /* PORTFOLIO TABBED LAYOUT */
@@ -327,13 +410,13 @@
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
   }
 
   .tab-btn {
     background: transparent;
     border: 1px solid var(--border-subtle);
-    padding: 8px 24px;
+    padding: 10px 28px;
     font-family: var(--font-sans);
     font-size: 11px;
     letter-spacing: 0.15em;
@@ -358,62 +441,160 @@
     background: var(--bg-card-light);
     border: 1px solid var(--border-subtle);
     border-radius: 4px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.03);
   }
 
   .detailed-card-header {
-    padding: 24px clamp(20px, 3vw, 40px);
+    padding: 30px clamp(20px, 4vw, 50px);
     border-bottom: 1px solid var(--border-subtle);
-    background-color: rgba(232, 223, 216, 0.3);
+    background-color: rgba(232, 223, 216, 0.35);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
   .detailed-vibe-tag {
-    font-size: 9px;
-    letter-spacing: 0.2em;
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--gold-accent);
     margin-bottom: 4px;
     display: block;
+    font-weight: 600;
   }
 
   .detailed-card-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-    padding: clamp(20px, 3vw, 30px);
+    grid-template-columns: 1.6fr 1fr;
+    gap: 30px;
+    padding: clamp(25px, 4vw, 45px);
+    align-items: center;
   }
 
   .view-label {
-    font-size: 10px;
-    letter-spacing: 0.15em;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--text-secondary);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     display: block;
+    font-weight: 500;
   }
 
   .desktop-frame-box {
     width: 100%;
-    height: 340px;
+    height: 450px;
     border: 1px solid var(--border-subtle);
     background: #FFF;
-  }
-
-  .mobile-frame-box {
-    width: 170px;
-    height: 340px;
-    border: 6px solid #1a1715;
-    border-radius: 20px;
-    margin: 0 auto;
+    border-radius: 4px;
     overflow: hidden;
-    background: #FFF;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
   }
 
-  .iframe-style {
-    width: 100%;
-    height: 100%;
-    border: none;
+  /* INVITATION JOURNEY TIMELINE */
+  .journey-timeline-wrapper {
+    max-width: 800px;
+    margin: 40px auto 0;
+    position: relative;
+  }
+
+  .journey-timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    width: 1px;
+    background: var(--gold-accent);
+    transform: translateX(-50%);
+    opacity: 0.4;
+  }
+
+  .journey-step-node {
+    position: relative;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .journey-step-content {
+    background: var(--bg-card-light);
+    border: 1px solid var(--border-subtle);
+    padding: 16px 28px;
+    border-radius: 40px;
+    text-align: center;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  }
+
+  .journey-step-title {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+  }
+
+  /* PRICING OFFERINGS LAYOUT */
+  .pricing-offer-box {
+    background: var(--bg-card-light);
+    border: 1px solid var(--border-subtle);
+    padding: clamp(30px, 5vw, 60px);
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+  }
+
+  .inclusions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin: 35px 0;
+  }
+
+  .inclusion-card {
+    border-left: 2px solid var(--gold-accent);
+    padding-left: 16px;
+  }
+
+  .inclusion-title {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .inclusion-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .also-included-pill-box {
+    background: var(--bg-warm-tint);
+    padding: 24px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    list-style: none;
+    margin-top: 12px;
+  }
+
+  .pill-list li {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    background: #FFF;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-subtle);
   }
 
   /* FOOTER */
@@ -429,12 +610,21 @@
     text-transform: uppercase;
   }
 
-  /* MEDIA QUERIES */
-  @media (max-width: 900px) {
+  .iframe-style {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* RESPONSIVE MEDIA QUERIES */
+  @media (max-width: 950px) {
     .featured-collection-grid { grid-template-columns: 1fr; }
     .about-us-container { grid-template-columns: 1fr; }
     .detailed-card-grid { grid-template-columns: 1fr; }
     .hero-cover-block { justify-content: center; padding: 20px; }
+    .inclusions-grid { grid-template-columns: 1fr; }
+    .journey-timeline-wrapper::before { left: 20px; }
+    .journey-step-node { justify-content: flex-start; margin-left: 40px; }
   }
 </style>
 </head>
@@ -446,13 +636,13 @@
     <ul class="nav-menu">
       <li><button id="nav-home" class="active" onclick="showPage('page-home')">Home</button></li>
       <li><button id="nav-portfolio" onclick="showPage('page-portfolio')">Portfolio</button></li>
-      <li><button id="nav-prices" onclick="showPage('page-pricing')">Prices</button></li>
+      <li><button id="nav-journey" onclick="showPage('page-journey')">Invitation Journey</button></li>
       <li><button id="nav-pricing" onclick="showPage('page-pricing')">Pricing</button></li>
     </ul>
   </header>
 
   <!-- GLOBAL AUDIO STOP BUTTON -->
-  <button class="audio-reset-btn" onclick="stopAllSampleAudio()">Stop All Sounds</button>
+  <button class="audio-reset-btn" onclick="stopAllSampleAudio()">🔇 Mute All Audio</button>
 
   <div class="page-viewport">
 
@@ -462,12 +652,12 @@
       <!-- HERO COVER PHOTO SECTION -->
       <section class="hero-cover-block" style="background-image: url('cover.png');">
         <div class="hero-text-card">
-          <span class="hero-subtitle">Digital Invitations</span>
-          <h1 class="hero-heading">Simplicity in every detail.</h1>
+          <span class="hero-subtitle">Interactive Event Experience</span>
+          <h1 class="hero-heading">Every love story deserves an introduction.</h1>
           <p class="hero-paragraph">
-            A personalized, interactive digital invitation created around who you are — your story, your personality, your favorite things, your memories, and the feeling you want to share with your guests.
+            Before your guests see the flowers, the venue, or the dress, they experience your invitation. We craft bespoke digital invitation suites that capture your essence, your music, and your memories — inviting your guests into your world from the very first tap.
           </p>
-          <button onclick="showPage('page-portfolio')" class="btn-dark">Explore Collection</button>
+          <button onclick="showPage('page-portfolio')" class="btn-dark">Explore Portfolio</button>
         </div>
       </section>
 
@@ -475,55 +665,58 @@
       <section class="section-block">
         <div class="section-header-center">
           <h2 class="section-title">Featured Invitations</h2>
-          <p class="section-tagline">Thoughtfully curated designs crafted for modern events</p>
+          <p class="section-tagline">Explore our highlighted interactive suites crafted for unforgettable moments</p>
         </div>
 
         <div class="featured-collection-grid">
+          
           <div class="collection-item">
             <div class="iframe-container-card">
-              <iframe src="https://ws3.storyinvites.com" class="iframe-style sample-iframe" title="ws3"></iframe>
+              <iframe src="https://ws3.storyinvites.com" class="iframe-style sample-iframe" title="ws3 Live Sample"></iframe>
             </div>
             <div class="card-details-box">
               <h3 class="card-item-title">The Fun & Fearless</h3>
-              <a href="https://ws3.storyinvites.com" target="_blank" class="card-item-link">Explore &rarr;</a>
+              <a href="https://ws3.storyinvites.com" target="_blank" class="btn-highlight">View Sample Live &rarr;</a>
             </div>
           </div>
 
           <div class="collection-item">
             <div class="iframe-container-card">
-              <iframe src="https://ws4.storyinvites.com" class="iframe-style sample-iframe" title="ws4"></iframe>
+              <iframe src="https://ws4.storyinvites.com" class="iframe-style sample-iframe" title="ws4 Live Sample"></iframe>
             </div>
             <div class="card-details-box">
               <h3 class="card-item-title">The Cinematic Couple</h3>
-              <a href="https://ws4.storyinvites.com" target="_blank" class="card-item-link">Explore &rarr;</a>
+              <a href="https://ws4.storyinvites.com" target="_blank" class="btn-highlight">View Sample Live &rarr;</a>
             </div>
           </div>
 
           <div class="collection-item">
             <div class="iframe-container-card">
-              <iframe src="https://ws5.storyinvites.com" class="iframe-style sample-iframe" title="ws5"></iframe>
+              <iframe src="https://ws5.storyinvites.com" class="iframe-style sample-iframe" title="ws5 Live Sample"></iframe>
             </div>
             <div class="card-details-box">
               <h3 class="card-item-title">The Storytellers</h3>
-              <a href="https://ws5.storyinvites.com" target="_blank" class="card-item-link">Explore &rarr;</a>
+              <a href="https://ws5.storyinvites.com" target="_blank" class="btn-highlight">View Sample Live &rarr;</a>
             </div>
           </div>
+
         </div>
       </section>
 
-      <!-- ABOUT US SECTION WITH EXTENDED EMBED SAMPLE -->
+      <!-- ENHANCED ABOUT US SECTION -->
       <section class="about-us-container">
         <div class="about-text-column">
-          <h2 class="about-heading">About Us</h2>
+          <h2 class="about-heading">We don't just share details. We share your story.</h2>
+          <p class="about-quote">“An invitation that feels like you. Not just an invitation with the details.”</p>
           <p class="about-desc">
-            “An invitation that feels like you. Not just an invitation with the details.”<br><br>
-            A thoughtfully designed digital experience that brings together your style, your moments, and everything your guests need to know. We handle the technical setup and visual placement so you can focus on enjoying your celebration.
+            At <strong>STORYINVITES</strong>, we believe digital invitations should evoke emotion. Beyond dates and venues lies your journey — your shared laughs, favorite songs, cherished photographs, and distinct personal vibe. We combine sleek design, modern interactivity, and seamless guest functionality to craft digital spaces that make your guests pause and whisper, <em>“This is so them.”</em>
           </p>
-          <button onclick="showPage('page-pricing')" class="btn-dark">Learn More</button>
+          <button onclick="showPage('page-pricing')" class="btn-dark">Discover Our Offerings</button>
         </div>
         <div>
+          <!-- EXTENDED EMBED SAMPLE FOR ABOUT US -->
           <div class="preview-embed-extend">
-            <iframe src="https://ds1.storyinvites.com" class="iframe-style sample-iframe" title="ds1 Extended"></iframe>
+            <iframe src="https://ds1.storyinvites.com" class="iframe-style sample-iframe" title="ds1 Extended Live Sample"></iframe>
           </div>
         </div>
       </section>
@@ -538,8 +731,8 @@
     <div id="page-portfolio" class="view-page">
       <section class="section-block">
         <div class="section-header-center">
-          <h2 class="section-title">Our Portfolio</h2>
-          <p class="section-tagline">Browse our full collection of interactive invitation suites</p>
+          <h2 class="section-title">The Portfolio Collection</h2>
+          <p class="section-tagline">Explore live interactive previews across web and mobile viewports</p>
         </div>
 
         <!-- PORTFOLIO CATEGORY TABS -->
@@ -554,21 +747,27 @@
           
           <div class="detailed-portfolio-card">
             <div class="detailed-card-header">
-              <span class="detailed-vibe-tag">ROMANTIC • REFINED • SENTIMENTAL</span>
-              <h3 class="section-title">The Timeless Love Story</h3>
-              <p class="section-tagline">For the classic, romantic couple.</p>
+              <div>
+                <span class="detailed-vibe-tag">ROMANTIC • REFINED • SENTIMENTAL</span>
+                <h3 class="section-title" style="font-size: 26px;">The Timeless Love Story</h3>
+                <p class="section-tagline">For the classic, romantic couple.</p>
+              </div>
+              <a href="https://ws1.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
             <div class="detailed-card-grid">
               <div>
-                <span class="view-label">Browser View</span>
+                <span class="view-label">💻 Desktop Browser Experience</span>
                 <div class="desktop-frame-box">
                   <iframe src="https://ws1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
                 </div>
               </div>
               <div>
-                <span class="view-label">Mobile View</span>
-                <div class="mobile-frame-box">
-                  <iframe src="https://ws1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+                <span class="view-label">📱 Interactive Mobile Device</span>
+                <div class="realistic-phone-stage">
+                  <div class="phone-mockup-frame">
+                    <div class="phone-notch"></div>
+                    <iframe src="https://ws1.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
+                  </div>
                 </div>
               </div>
             </div>
@@ -576,21 +775,27 @@
 
           <div class="detailed-portfolio-card">
             <div class="detailed-card-header">
-              <span class="detailed-vibe-tag">CINEMATIC • EMOTIONAL • MODERN</span>
-              <h3 class="section-title">The Cinematic Couple</h3>
-              <p class="section-tagline">For the couple who loves a little drama.</p>
+              <div>
+                <span class="detailed-vibe-tag">CINEMATIC • EMOTIONAL • MODERN</span>
+                <h3 class="section-title" style="font-size: 26px;">The Cinematic Couple</h3>
+                <p class="section-tagline">For the couple who loves drama and elegance.</p>
+              </div>
+              <a href="https://ws4.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
             <div class="detailed-card-grid">
               <div>
-                <span class="view-label">Browser View</span>
+                <span class="view-label">💻 Desktop Browser Experience</span>
                 <div class="desktop-frame-box">
                   <iframe src="https://ws4.storyinvites.com" class="iframe-style sample-iframe"></iframe>
                 </div>
               </div>
               <div>
-                <span class="view-label">Mobile View</span>
-                <div class="mobile-frame-box">
-                  <iframe src="https://ws4.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+                <span class="view-label">📱 Interactive Mobile Device</span>
+                <div class="realistic-phone-stage">
+                  <div class="phone-mockup-frame">
+                    <div class="phone-notch"></div>
+                    <iframe src="https://ws4.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
+                  </div>
                 </div>
               </div>
             </div>
@@ -602,21 +807,27 @@
         <div id="cat-debut" class="portfolio-tab-content">
           <div class="detailed-portfolio-card">
             <div class="detailed-card-header">
-              <span class="detailed-vibe-tag">ELEGANT • YOUTHFUL • CELEBRATORY</span>
-              <h3 class="section-title">The Grand Debutante</h3>
-              <p class="section-tagline">For the debutante celebrating an unforgettable milestone.</p>
+              <div>
+                <span class="detailed-vibe-tag">ELEGANT • YOUTHFUL • CELEBRATORY</span>
+                <h3 class="section-title" style="font-size: 26px;">The Grand Debutante</h3>
+                <p class="section-tagline">For celebrating milestone moments in style.</p>
+              </div>
+              <a href="https://ds1.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
             <div class="detailed-card-grid">
               <div>
-                <span class="view-label">Browser View</span>
+                <span class="view-label">💻 Desktop Browser Experience</span>
                 <div class="desktop-frame-box">
                   <iframe src="https://ds1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
                 </div>
               </div>
               <div>
-                <span class="view-label">Mobile View</span>
-                <div class="mobile-frame-box">
-                  <iframe src="https://ds1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+                <span class="view-label">📱 Interactive Mobile Device</span>
+                <div class="realistic-phone-stage">
+                  <div class="phone-mockup-frame">
+                    <div class="phone-notch"></div>
+                    <iframe src="https://ds1.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
+                  </div>
                 </div>
               </div>
             </div>
@@ -625,9 +836,11 @@
 
         <!-- BIRTHDAY CATEGORY CONTENT -->
         <div id="cat-birthday" class="portfolio-tab-content">
-          <div class="detailed-portfolio-card" style="padding: 60px 20px; text-align: center;">
-            <h3 class="section-title">Birthday Digital Invitations</h3>
-            <p class="section-tagline" style="margin-top: 10px;">Our birthday collection is launching soon. Reach out to request a bespoke custom design.</p>
+          <div class="detailed-portfolio-card" style="padding: 80px 20px; text-align: center;">
+            <h3 class="section-title">Bespoke Birthday Invitations</h3>
+            <p class="section-tagline" style="margin-top: 10px; max-width: 500px; margin-left: auto; margin-right: auto;">
+              Our birthday collection is crafted individually per request to mirror your theme. Contact us to start your custom concept.
+            </p>
           </div>
         </div>
 
@@ -639,19 +852,167 @@
       </footer>
     </div>
 
-    <!-- PAGE 3: PRICING -->
+    <!-- PAGE 3: INVITATION JOURNEY -->
+    <div id="page-journey" class="view-page">
+      <section class="section-block">
+        <div class="section-header-center">
+          <h2 class="section-title">The Invitation Journey</h2>
+          <p class="section-tagline">A seamless, collaborative creative path from booking to launch day</p>
+        </div>
+
+        <div class="journey-timeline-wrapper">
+          <div class="journey-step-node">
+            <div class="journey-step-content">
+              <div class="journey-step-title">01. BOOKING</div>
+            </div>
+          </div>
+          <div class="journey-step-node">
+            <div class="journey-step-content">
+              <div class="journey-step-title">02. CONTENT & PHOTOS</div>
+            </div>
+          </div>
+          <div class="journey-step-node">
+            <div class="journey-step-content">
+              <div class="journey-step-title">03. CONTENT REVIEW</div>
+            </div>
+          </div>
+          <div class="journey-step-node">
+            <div class="journey-step-content">
+              <div class="journey-step-title">04. CREATIVE DIRECTION</div>
+            </div>
+          </div>
+          <div class="journey-step-node">
+            <div class="journey-step-content">
+              <div class="journey-step-title">05. FIRST DRAFT</div>
+            </div>
+          </div>
+          <div class="journey-step-node">
+            <div class="journey-step-content">
+              <div class="journey-step-title">06. REVISION 1</div>
+            </div>
+          </div>
+          <div class="journey-step-node">
+            <div class="journey-step-content">
+              <div class="journey-step-title">07. REVISION 2</div>
+            </div>
+          </div>
+          <div class="journey-step-node">
+            <div class="journey-step-content">
+              <div class="journey-step-title">08. FINAL APPROVAL</div>
+            </div>
+          </div>
+          <div class="journey-step-node">
+            <div class="journey-step-content">
+              <div class="journey-step-title">09. FINAL PAYMENT</div>
+            </div>
+          </div>
+          <div class="journey-step-node">
+            <div class="journey-step-content">
+              <div class="journey-step-title">10. FINAL CHECK & LAUNCH</div>
+            </div>
+          </div>
+          <div class="journey-step-node">
+            <div class="journey-step-content" style="background: var(--accent-dark); color: #FFF;">
+              <div class="journey-step-title" style="color: #FFF;">✨ YOUR INVITATION IS LIVE</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div>STORYINVITES</div>
+        <div>© 2026 STORYINVITES. ALL RIGHTS RESERVED.</div>
+      </footer>
+    </div>
+
+    <!-- PAGE 4: PRICING -->
     <div id="page-pricing" class="view-page">
       <section class="section-block">
         <div class="section-header-center">
-          <h2 class="section-title">Pricing & Offerings</h2>
-          <p class="section-tagline">Get in touch directly to reserve your date and choose your inclusions</p>
+          <h2 class="section-title">The Signature Invitation</h2>
+          <p class="section-tagline">Your story. Your style. Your invitation.</p>
         </div>
 
-        <div style="background: var(--bg-card-light); border: 1px solid var(--border-subtle); padding: 40px; max-width: 800px; margin: 0 auto;">
-          <h3 class="section-title" style="text-align: center; font-size: 24px;">Inquiries & Contact</h3>
-          <p style="text-align: center; font-size: 13px; color: var(--text-secondary); margin-top: 10px;">
-            📱 09260593086 &nbsp;|&nbsp; ✉️ andrea.asuncion0928@gmail.com
+        <div class="pricing-offer-box">
+          <p style="font-size: 13.5px; color: var(--text-secondary); text-align: center; max-width: 650px; margin: 0 auto 30px; line-height: 1.7;">
+            A personalized, interactive digital suite created around who you are — your story, your personality, your favorite things, your memories, and the feeling you want to share with your guests. From the first tap to the final detail, you get to make it yours.
           </p>
+
+          <h3 class="section-title" style="font-size: 22px; text-align: center; margin-bottom: 25px;">WHAT'S INCLUDED</h3>
+
+          <div class="inclusions-grid">
+            <div class="inclusion-card">
+              <h4 class="inclusion-title">Your Concept</h4>
+              <p class="inclusion-desc">Start with an idea that feels like you — romantic, cinematic, playful, minimalist, nostalgic, or completely unique.</p>
+            </div>
+
+            <div class="inclusion-card">
+              <h4 class="inclusion-title">Your Opening</h4>
+              <p class="inclusion-desc">Set the mood from the very first tap with personalized visuals, music, and an immersive intro experience.</p>
+            </div>
+
+            <div class="inclusion-card">
+              <h4 class="inclusion-title">Your Soundtrack</h4>
+              <p class="inclusion-desc">Include up to 4 songs to guide your story and create a unforgettable atmosphere as guests explore.</p>
+            </div>
+
+            <div class="inclusion-card">
+              <h4 class="inclusion-title">Your Story</h4>
+              <p class="inclusion-desc">Share the moments that brought you here — from how you met to the little memories that mean the most.</p>
+            </div>
+
+            <div class="inclusion-card">
+              <h4 class="inclusion-title">Event Details & Maps</h4>
+              <p class="inclusion-desc">Date, time, ceremony, reception, venue map, dress code, and essential guest information beautifully presented.</p>
+            </div>
+
+            <div class="inclusion-card">
+              <h4 class="inclusion-title">Thoughtful Photo Story</h4>
+              <p class="inclusion-desc">Up to 10 photos woven naturally into your design layout to tell your story — not just stored in a gallery.</p>
+            </div>
+
+            <div class="inclusion-card">
+              <h4 class="inclusion-title">Your Entourage</h4>
+              <p class="inclusion-desc">Introduce your bridesmaids, groomsmen, principal sponsors, and wedding party with elegant detail.</p>
+            </div>
+
+            <div class="inclusion-card">
+              <h4 class="inclusion-title">RSVP & QR Access</h4>
+              <p class="inclusion-desc">Make guest responses effortless with integrated digital RSVP forms and entrance QR codes.</p>
+            </div>
+
+            <div class="inclusion-card">
+              <h4 class="inclusion-title">Live Countdown Clock</h4>
+              <p class="inclusion-desc">Build anticipation and excitement with a live ticking countdown to your special day.</p>
+            </div>
+
+            <div class="inclusion-card">
+              <h4 class="inclusion-title">Registry & Gift Details</h4>
+              <p class="inclusion-desc">Seamlessly share your GCash, bank account, online registry, or gift preferences.</p>
+            </div>
+          </div>
+
+          <div class="also-included-pill-box">
+            <span style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--gold-accent);">ALSO INCLUDED WITH YOUR SUITE</span>
+            <ul class="pill-list">
+              <li>Mobile-optimized responsive design</li>
+              <li>Shareable custom invitation link</li>
+              <li>Full website setup & launch</li>
+              <li>Personalized content placement</li>
+              <li>Up to 2 rounds of revisions</li>
+            </ul>
+          </div>
+
+          <div style="text-align: center; margin-top: 40px; border-top: 1px solid var(--border-subtle); padding-top: 30px;">
+            <p style="font-family: var(--font-serif); font-size: 22px; font-style: italic; color: var(--gold-accent); margin-bottom: 8px;">
+              “Something that makes your guests say, ‘This is so them.’”
+            </p>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;">
+              Reach out to reserve your date and receive our full rate sheet.
+            </p>
+            <a href="mailto:andrea.asuncion0928@gmail.com?subject=StoryInvites%20Inquiry" class="btn-highlight">Inquire Now &rarr;</a>
+          </div>
+
         </div>
       </section>
 
@@ -664,7 +1025,7 @@
   </div>
 
   <script>
-    /* PAGE SWITCHING LOGIC */
+    /* PAGE SWITCHING ENGINE */
     function showPage(pageId) {
       const pages = document.querySelectorAll('.view-page');
       pages.forEach(page => page.classList.remove('active'));
@@ -680,10 +1041,8 @@
 
       if(pageId === 'page-home') document.getElementById('nav-home').classList.add('active');
       if(pageId === 'page-portfolio') document.getElementById('nav-portfolio').classList.add('active');
-      if(pageId === 'page-pricing') {
-        document.getElementById('nav-prices').classList.add('active');
-        document.getElementById('nav-pricing').classList.add('active');
-      }
+      if(pageId === 'page-journey') document.getElementById('nav-journey').classList.add('active');
+      if(pageId === 'page-pricing') document.getElementById('nav-pricing').classList.add('active');
 
       stopAllSampleAudio();
     }

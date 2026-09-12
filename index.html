@@ -669,16 +669,32 @@
 
   .pricing-cta-footer h3 {
     font-family: var(--font-serif);
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 300;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
   }
 
-  .pricing-cta-footer p {
-    font-size: 12.5px;
+  .contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .contact-info-item {
+    font-size: 13.5px;
     color: var(--bg-warm-tint);
-    max-width: 600px;
-    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .contact-info-item:hover {
+    color: #FFF;
   }
 
   /* FOOTER */
@@ -1180,11 +1196,13 @@
         </div>
 
         <div class="pricing-cta-footer">
-          <h3>More Than an Invitation</h3>
-          <p>
-            Your invitation is where your wedding story begins. Before your guests see the venue, the flowers, or the dress, they experience your invitation. Make it something that makes them say, <em>“This is so them.”</em>
-          </p>
-          <a href="mailto:andrea.asuncion0928@gmail.com?subject=StoryInvites%20Inquiry" class="btn-highlight" style="background-color: var(--gold-accent);">Get in Touch for Availability &rarr;</a>
+          <h3>Contact Us</h3>
+          <div class="contact-info-list">
+            <a href="tel:+639260593086" class="contact-info-item">📱 Cell / Viber: +639260593086</a>
+            <a href="mailto:storyinvites.com@gmail.com" class="contact-info-item">✉️ Email Add: storyinvites.com@gmail.com</a>
+            <a href="https://facebook.com/storyinvites" target="_blank" class="contact-info-item">🌐 FB Page: storyinvites</a>
+          </div>
+          <a href="mailto:storyinvites.com@gmail.com?subject=StoryInvites%20Inquiry" class="btn-highlight" style="background-color: var(--gold-accent);">Get in Touch for Availability &rarr;</a>
         </div>
 
       </section>

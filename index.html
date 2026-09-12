@@ -6,7 +6,7 @@
 <title>STORYINVITES — Digital Invitations for Life's Greatest Moments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -14,8 +14,8 @@
     --bg-card-light: #fefdfb;
     --bg-warm-tint: #e8dfd8;
     --text-primary: #2c2623;
-    --text-secondary: #6e655f;
-    --text-muted: #948b84;
+    --text-secondary: #5a524c;
+    --text-muted: #857b73;
     --accent-dark: #1a1715;
     --gold-accent: #9a8057;
     --border-subtle: rgba(44, 38, 35, 0.12);
@@ -40,7 +40,7 @@
     line-height: 1.6;
   }
 
-  /* TOP NAVIGATION BAR */
+  /* FIXED NAVIGATION HEADER */
   header {
     position: fixed;
     top: 0;
@@ -94,7 +94,7 @@
     border-bottom-color: var(--text-primary);
   }
 
-  /* AUDIO CONTROLLER BUTTON */
+  /* AUDIO MUTE BUTTON */
   .audio-reset-btn {
     position: fixed;
     bottom: 24px;
@@ -119,7 +119,7 @@
     color: var(--text-primary);
   }
 
-  /* VIEWPORT & PAGES ENGINE */
+  /* VIEWPORT & PAGE CONTAINERS */
   .page-viewport {
     position: absolute;
     top: 75px;
@@ -143,7 +143,7 @@
     opacity: 1;
   }
 
-  /* HERO BANNER COVER PHOTO SECTION */
+  /* HERO BANNER - 30% OPACITY TRANSPARENT CARD */
   .hero-cover-block {
     position: relative;
     width: 100%;
@@ -161,47 +161,53 @@
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+    background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.45) 100%);
   }
 
   .hero-text-card {
     position: relative;
     z-index: 2;
-    background: rgba(254, 253, 251, 0.92);
-    backdrop-filter: blur(16px);
+    background: rgba(254, 253, 251, 0.30); /* EXACT 30% OPACITY PANEL */
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     padding: clamp(35px, 4.5vw, 65px);
-    max-width: 560px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    max-width: 580px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
   }
 
   .hero-subtitle {
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--gold-accent);
+    color: #FFF;
     margin-bottom: 12px;
     display: block;
-    font-weight: 600;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   }
 
   .hero-heading {
     font-family: var(--font-serif);
     font-size: clamp(34px, 4.5vw, 58px);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.1;
     margin-bottom: 18px;
-    color: var(--text-primary);
+    color: #FFFFFF;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   }
 
   .hero-paragraph {
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.7;
+    font-size: 13.5px;
+    color: #F7F5F2;
+    line-height: 1.75;
     margin-bottom: 28px;
+    font-weight: 400;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
   }
 
-  /* BUTTONS & HIGHLIGHTED LINKS */
+  /* BUTTON STYLING */
   .btn-dark {
     display: inline-block;
     background-color: var(--accent-dark);
@@ -244,17 +250,17 @@
     transform: translateY(-2px);
   }
 
-  /* FEATURED SECTION (COLLECTION GRID) */
+  /* SECTIONS LAYOUT */
   .section-block {
-    padding: clamp(50px, 7vw, 90px) clamp(20px, 4vw, 60px);
-    max-width: 1300px;
+    padding: clamp(50px, 6vw, 80px) clamp(20px, 4vw, 60px);
+    max-width: 1350px;
     margin: 0 auto;
   }
 
   .section-header-center {
     text-align: center;
     margin-bottom: 50px;
-    max-width: 700px;
+    max-width: 750px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -269,11 +275,12 @@
   }
 
   .section-tagline {
-    font-size: 12.5px;
+    font-size: 13px;
     color: var(--text-secondary);
     line-height: 1.6;
   }
 
+  /* FEATURED GRID (HOME) */
   .featured-collection-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -314,7 +321,7 @@
     font-weight: 400;
   }
 
-  /* ENHANCED ABOUT US SECTION */
+  /* ABOUT US SECTION */
   .about-us-container {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
@@ -371,12 +378,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
+    padding: 10px 0;
   }
 
   .phone-mockup-frame {
-    width: 280px;
-    height: 570px;
+    width: 290px;
+    height: 580px;
     background: #111;
     border-radius: 40px;
     border: 10px solid #222;
@@ -487,7 +494,7 @@
 
   .desktop-frame-box {
     width: 100%;
-    height: 450px;
+    height: 460px;
     border: 1px solid var(--border-subtle);
     background: #FFF;
     border-radius: 4px;
@@ -495,106 +502,170 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
   }
 
-  /* INVITATION JOURNEY TIMELINE */
-  .journey-timeline-wrapper {
-    max-width: 800px;
-    margin: 40px auto 0;
-    position: relative;
-  }
-
-  .journey-timeline-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0; left: 50%;
-    width: 1px;
-    background: var(--gold-accent);
-    transform: translateX(-50%);
-    opacity: 0.4;
-  }
-
-  .journey-step-node {
-    position: relative;
-    margin-bottom: 35px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .journey-step-content {
-    background: var(--bg-card-light);
-    border: 1px solid var(--border-subtle);
-    padding: 16px 28px;
-    border-radius: 40px;
-    text-align: center;
-    z-index: 2;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  }
-
-  .journey-step-title {
-    font-family: var(--font-serif);
-    font-size: 18px;
-    letter-spacing: 0.05em;
-    color: var(--text-primary);
-  }
-
-  /* PRICING OFFERINGS LAYOUT */
-  .pricing-offer-box {
-    background: var(--bg-card-light);
-    border: 1px solid var(--border-subtle);
-    padding: clamp(30px, 5vw, 60px);
-    max-width: 900px;
-    margin: 0 auto;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
-  }
-
-  .inclusions-grid {
+  /* INVITATION JOURNEY SNAPSHOT CARDS */
+  .journey-snapshots-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
-    margin: 35px 0;
-  }
-
-  .inclusion-card {
-    border-left: 2px solid var(--gold-accent);
-    padding-left: 16px;
-  }
-
-  .inclusion-title {
-    font-family: var(--font-serif);
-    font-size: 18px;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-
-  .inclusion-desc {
-    font-size: 12px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  .also-included-pill-box {
-    background: var(--bg-warm-tint);
-    padding: 24px;
-    border-radius: 4px;
-    text-align: center;
     margin-top: 30px;
   }
 
-  .pill-list {
+  .journey-snapshot-card {
+    background: var(--bg-card-light);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 32px 28px;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+  }
+
+  .journey-snapshot-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold-accent);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  }
+
+  .snapshot-phase-number {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--gold-accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .snapshot-phase-title {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+
+  .snapshot-phase-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .journey-hero-banner {
+    background: var(--bg-warm-tint);
+    padding: 40px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 40px;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .journey-hero-banner h3 {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .journey-hero-banner p {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  /* OPTIMIZED WIDE PRICING & INCLUSIONS PAGE */
+  .pricing-hero-container {
+    background: var(--bg-card-light);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: clamp(30px, 4vw, 50px);
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  }
+
+  .pricing-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+  }
+
+  .pricing-feature-box {
+    background: var(--bg-card-light);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 28px;
+    border-left: 3px solid var(--gold-accent);
+    transition: transform 0.2s ease;
+  }
+
+  .pricing-feature-box:hover {
+    transform: translateY(-2px);
+  }
+
+  .pricing-feature-title {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+
+  .pricing-feature-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .pricing-bonus-banner {
+    background: var(--bg-warm-tint);
+    border: 1px dashed var(--gold-accent);
+    padding: 30px;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 35px;
+  }
+
+  .bonus-pills-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
+    margin-top: 16px;
     list-style: none;
-    margin-top: 12px;
   }
 
-  .pill-list li {
-    font-size: 11px;
-    letter-spacing: 0.05em;
+  .bonus-pill-item {
     background: #FFF;
-    padding: 6px 16px;
-    border-radius: 20px;
     border: 1px solid var(--border-subtle);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .pricing-cta-footer {
+    text-align: center;
+    background: var(--accent-dark);
+    color: #FFF;
+    padding: 45px 30px;
+    border-radius: 6px;
+    margin-top: 40px;
+  }
+
+  .pricing-cta-footer h3 {
+    font-family: var(--font-serif);
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+
+  .pricing-cta-footer p {
+    font-size: 13px;
+    color: var(--bg-warm-tint);
+    max-width: 600px;
+    margin: 0 auto 24px;
   }
 
   /* FOOTER */
@@ -616,15 +687,13 @@
     border: none;
   }
 
-  /* RESPONSIVE MEDIA QUERIES */
+  /* MEDIA QUERIES */
   @media (max-width: 950px) {
     .featured-collection-grid { grid-template-columns: 1fr; }
     .about-us-container { grid-template-columns: 1fr; }
     .detailed-card-grid { grid-template-columns: 1fr; }
     .hero-cover-block { justify-content: center; padding: 20px; }
-    .inclusions-grid { grid-template-columns: 1fr; }
-    .journey-timeline-wrapper::before { left: 20px; }
-    .journey-step-node { justify-content: flex-start; margin-left: 40px; }
+    .pricing-grid-layout { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -649,10 +718,10 @@
     <!-- PAGE 1: HOME -->
     <div id="page-home" class="view-page active">
       
-      <!-- HERO COVER PHOTO SECTION -->
+      <!-- HERO COVER PHOTO SECTION WITH 30% OPACITY PANEL -->
       <section class="hero-cover-block" style="background-image: url('cover.png');">
         <div class="hero-text-card">
-          <span class="hero-subtitle">Interactive Event Experience</span>
+          <span class="hero-subtitle">Interactive Event Suites</span>
           <h1 class="hero-heading">Every love story deserves an introduction.</h1>
           <p class="hero-paragraph">
             Before your guests see the flowers, the venue, or the dress, they experience your invitation. We craft bespoke digital invitation suites that capture your essence, your music, and your memories — inviting your guests into your world from the very first tap.
@@ -714,7 +783,6 @@
           <button onclick="showPage('page-pricing')" class="btn-dark">Discover Our Offerings</button>
         </div>
         <div>
-          <!-- EXTENDED EMBED SAMPLE FOR ABOUT US -->
           <div class="preview-embed-extend">
             <iframe src="https://ds1.storyinvites.com" class="iframe-style sample-iframe" title="ds1 Extended Live Sample"></iframe>
           </div>
@@ -727,12 +795,12 @@
       </footer>
     </div>
 
-    <!-- PAGE 2: PORTFOLIO -->
+    <!-- PAGE 2: PORTFOLIO (WITH ALL SAMPLES WS1 TO WS5) -->
     <div id="page-portfolio" class="view-page">
       <section class="section-block">
         <div class="section-header-center">
-          <h2 class="section-title">The Portfolio Collection</h2>
-          <p class="section-tagline">Explore live interactive previews across web and mobile viewports</p>
+          <h2 class="section-title">The Complete Portfolio</h2>
+          <p class="section-tagline">Immerse yourself in our live digital invitation suites across desktop and mobile views</p>
         </div>
 
         <!-- PORTFOLIO CATEGORY TABS -->
@@ -742,9 +810,10 @@
           <button class="tab-btn" onclick="switchCategory('birthday', this)">Birthdays</button>
         </div>
 
-        <!-- WEDDING CATEGORY CONTENT -->
+        <!-- WEDDING CATEGORY CONTENT (WS1 TO WS5) -->
         <div id="cat-wedding" class="portfolio-tab-content active">
           
+          <!-- WS1 -->
           <div class="detailed-portfolio-card">
             <div class="detailed-card-header">
               <div>
@@ -756,13 +825,13 @@
             </div>
             <div class="detailed-card-grid">
               <div>
-                <span class="view-label">💻 Desktop Browser Experience</span>
+                <span class="view-label">💻 Desktop Browser View</span>
                 <div class="desktop-frame-box">
                   <iframe src="https://ws1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
                 </div>
               </div>
               <div>
-                <span class="view-label">📱 Interactive Mobile Device</span>
+                <span class="view-label">📱 Mobile Experience</span>
                 <div class="realistic-phone-stage">
                   <div class="phone-mockup-frame">
                     <div class="phone-notch"></div>
@@ -773,28 +842,116 @@
             </div>
           </div>
 
+          <!-- WS2 -->
+          <div class="detailed-portfolio-card">
+            <div class="detailed-card-header">
+              <div>
+                <span class="detailed-vibe-tag">CLASSIC • CREATIVE • ELEGANT</span>
+                <h3 class="section-title" style="font-size: 26px;">The Classic with a Twist</h3>
+                <p class="section-tagline">For the couple who loves tradition, but not the ordinary.</p>
+              </div>
+              <a href="https://ws2.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
+            </div>
+            <div class="detailed-card-grid">
+              <div>
+                <span class="view-label">💻 Desktop Browser View</span>
+                <div class="desktop-frame-box">
+                  <iframe src="https://ws2.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+                </div>
+              </div>
+              <div>
+                <span class="view-label">📱 Mobile Experience</span>
+                <div class="realistic-phone-stage">
+                  <div class="phone-mockup-frame">
+                    <div class="phone-notch"></div>
+                    <iframe src="https://ws2.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WS3 -->
+          <div class="detailed-portfolio-card">
+            <div class="detailed-card-header">
+              <div>
+                <span class="detailed-vibe-tag">PLAYFUL • BOLD • ENERGETIC</span>
+                <h3 class="section-title" style="font-size: 26px;">The Fun & Fearless Couple</h3>
+                <p class="section-tagline">For the playful, adventurous two.</p>
+              </div>
+              <a href="https://ws3.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
+            </div>
+            <div class="detailed-card-grid">
+              <div>
+                <span class="view-label">💻 Desktop Browser View</span>
+                <div class="desktop-frame-box">
+                  <iframe src="https://ws3.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+                </div>
+              </div>
+              <div>
+                <span class="view-label">📱 Mobile Experience</span>
+                <div class="realistic-phone-stage">
+                  <div class="phone-mockup-frame">
+                    <div class="phone-notch"></div>
+                    <iframe src="https://ws3.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WS4 -->
           <div class="detailed-portfolio-card">
             <div class="detailed-card-header">
               <div>
                 <span class="detailed-vibe-tag">CINEMATIC • EMOTIONAL • MODERN</span>
                 <h3 class="section-title" style="font-size: 26px;">The Cinematic Couple</h3>
-                <p class="section-tagline">For the couple who loves drama and elegance.</p>
+                <p class="section-tagline">For the couple who loves a little drama.</p>
               </div>
               <a href="https://ws4.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
             <div class="detailed-card-grid">
               <div>
-                <span class="view-label">💻 Desktop Browser Experience</span>
+                <span class="view-label">💻 Desktop Browser View</span>
                 <div class="desktop-frame-box">
                   <iframe src="https://ws4.storyinvites.com" class="iframe-style sample-iframe"></iframe>
                 </div>
               </div>
               <div>
-                <span class="view-label">📱 Interactive Mobile Device</span>
+                <span class="view-label">📱 Mobile Experience</span>
                 <div class="realistic-phone-stage">
                   <div class="phone-mockup-frame">
                     <div class="phone-notch"></div>
                     <iframe src="https://ws4.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WS5 -->
+          <div class="detailed-portfolio-card">
+            <div class="detailed-card-header">
+              <div>
+                <span class="detailed-vibe-tag">PERSONAL • CURIOUS • STORY-DRIVEN</span>
+                <h3 class="section-title" style="font-size: 26px;">The Storytellers</h3>
+                <p class="section-tagline">For the couple whose journey is the heart of it all.</p>
+              </div>
+              <a href="https://ws5.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
+            </div>
+            <div class="detailed-card-grid">
+              <div>
+                <span class="view-label">💻 Desktop Browser View</span>
+                <div class="desktop-frame-box">
+                  <iframe src="https://ws5.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+                </div>
+              </div>
+              <div>
+                <span class="view-label">📱 Mobile Experience</span>
+                <div class="realistic-phone-stage">
+                  <div class="phone-mockup-frame">
+                    <div class="phone-notch"></div>
+                    <iframe src="https://ws5.storyinvites.com" class="phone-screen-iframe sample-iframe"></iframe>
                   </div>
                 </div>
               </div>
@@ -816,13 +973,13 @@
             </div>
             <div class="detailed-card-grid">
               <div>
-                <span class="view-label">💻 Desktop Browser Experience</span>
+                <span class="view-label">💻 Desktop Browser View</span>
                 <div class="desktop-frame-box">
                   <iframe src="https://ds1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
                 </div>
               </div>
               <div>
-                <span class="view-label">📱 Interactive Mobile Device</span>
+                <span class="view-label">📱 Mobile Experience</span>
                 <div class="realistic-phone-stage">
                   <div class="phone-mockup-frame">
                     <div class="phone-notch"></div>
@@ -852,71 +1009,61 @@
       </footer>
     </div>
 
-    <!-- PAGE 3: INVITATION JOURNEY -->
+    <!-- PAGE 3: INVITATION JOURNEY (COOL SNAPSHOT PHASES) -->
     <div id="page-journey" class="view-page">
       <section class="section-block">
-        <div class="section-header-center">
-          <h2 class="section-title">The Invitation Journey</h2>
-          <p class="section-tagline">A seamless, collaborative creative path from booking to launch day</p>
+        
+        <div class="journey-hero-banner">
+          <span style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 700; color: var(--gold-accent);">CO-CREATION EXPERIENCE</span>
+          <h3>Crafting Together</h3>
+          <p>You bring the love story, vision, and memories. We bring the design direction, technical mastery, and interactive polish. Here is how we build your custom space hand-in-hand.</p>
         </div>
 
-        <div class="journey-timeline-wrapper">
-          <div class="journey-step-node">
-            <div class="journey-step-content">
-              <div class="journey-step-title">01. BOOKING</div>
-            </div>
-          </div>
-          <div class="journey-step-node">
-            <div class="journey-step-content">
-              <div class="journey-step-title">02. CONTENT & PHOTOS</div>
-            </div>
-          </div>
-          <div class="journey-step-node">
-            <div class="journey-step-content">
-              <div class="journey-step-title">03. CONTENT REVIEW</div>
-            </div>
-          </div>
-          <div class="journey-step-node">
-            <div class="journey-step-content">
-              <div class="journey-step-title">04. CREATIVE DIRECTION</div>
-            </div>
-          </div>
-          <div class="journey-step-node">
-            <div class="journey-step-content">
-              <div class="journey-step-title">05. FIRST DRAFT</div>
-            </div>
-          </div>
-          <div class="journey-step-node">
-            <div class="journey-step-content">
-              <div class="journey-step-title">06. REVISION 1</div>
-            </div>
-          </div>
-          <div class="journey-step-node">
-            <div class="journey-step-content">
-              <div class="journey-step-title">07. REVISION 2</div>
-            </div>
-          </div>
-          <div class="journey-step-node">
-            <div class="journey-step-content">
-              <div class="journey-step-title">08. FINAL APPROVAL</div>
-            </div>
-          </div>
-          <div class="journey-step-node">
-            <div class="journey-step-content">
-              <div class="journey-step-title">09. FINAL PAYMENT</div>
-            </div>
-          </div>
-          <div class="journey-step-node">
-            <div class="journey-step-content">
-              <div class="journey-step-title">10. FINAL CHECK & LAUNCH</div>
-            </div>
-          </div>
-          <div class="journey-step-node">
-            <div class="journey-step-content" style="background: var(--accent-dark); color: #FFF;">
-              <div class="journey-step-title" style="color: #FFF;">✨ YOUR INVITATION IS LIVE</div>
-            </div>
-          </div>
+        <div class="section-header-center">
+          <h2 class="section-title">The Creative Journey</h2>
+          <p class="section-tagline">A quick snapshot of how your concept transforms into an online suite</p>
         </div>
+
+        <div class="journey-snapshots-grid">
+          
+          <div class="journey-snapshot-card">
+            <div class="snapshot-phase-number">PHASE 01</div>
+            <h4 class="snapshot-phase-title">Discovery & Onboarding</h4>
+            <p class="snapshot-phase-desc">Secure your event date and share your favorite photos, event schedules, dress codes, music preferences, and vision board with us.</p>
+          </div>
+
+          <div class="journey-snapshot-card">
+            <div class="snapshot-phase-number">PHASE 02</div>
+            <h4 class="snapshot-phase-title">Content Curation</h4>
+            <p class="snapshot-phase-desc">We review your story and photos, organizing entourage lists, venue coordinates, and gift details for harmonious visual placement.</p>
+          </div>
+
+          <div class="journey-snapshot-card">
+            <div class="snapshot-phase-number">PHASE 03</div>
+            <h4 class="snapshot-phase-title">Creative Direction</h4>
+            <p class="snapshot-phase-desc">We establish your custom aesthetic — curating color palettes, typography pairs, entrance animations, and ambient background music.</p>
+          </div>
+
+          <div class="journey-snapshot-card">
+            <div class="snapshot-phase-number">PHASE 04</div>
+            <h4 class="snapshot-phase-title">First Draft Reveal</h4>
+            <p class="snapshot-phase-desc">Step into your live prototype. Explore the interactive opening reveal, live countdown, integrated maps, and photo story layout.</p>
+          </div>
+
+          <div class="journey-snapshot-card">
+            <div class="snapshot-phase-number">PHASE 05</div>
+            <h4 class="snapshot-phase-title">Collaborative Revisions</h4>
+            <p class="snapshot-phase-desc">Fine-tune every detail with up to two dedicated revision rounds to make sure every word, image, and timing feels perfectly aligned.</p>
+          </div>
+
+          <div class="journey-snapshot-card">
+            <div class="snapshot-phase-number">PHASE 06</div>
+            <h4 class="snapshot-phase-title">Launch & Celebration</h4>
+            <p class="snapshot-phase-desc">Final checks completed! Receive your personalized, shareable web link and digital RSVP QR code, ready to send out to family and friends.</p>
+          </div>
+
+        </div>
+
       </section>
 
       <footer>
@@ -925,95 +1072,98 @@
       </footer>
     </div>
 
-    <!-- PAGE 4: PRICING -->
+    <!-- PAGE 4: PRICING (MAXIMIZED & READABLE) -->
     <div id="page-pricing" class="view-page">
       <section class="section-block">
-        <div class="section-header-center">
-          <h2 class="section-title">The Signature Invitation</h2>
-          <p class="section-tagline">Your story. Your style. Your invitation.</p>
+        
+        <div class="pricing-hero-container">
+          <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <span style="font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 700; color: var(--gold-accent);">THE SIGNATURE COLLECTION</span>
+            <h2 class="section-title" style="font-size: 42px; margin-top: 6px;">Your Story. Beautifully Crafted.</h2>
+            <p class="section-tagline" style="font-size: 14px; margin-top: 12px; line-height: 1.8;">
+              A personalized, interactive digital suite created around who you are as a couple — your story, your personality, your favorite things, your memories, and the feeling you want to share with your guests. From the very first tap to the final detail, you get to make it yours.
+            </p>
+          </div>
         </div>
 
-        <div class="pricing-offer-box">
-          <p style="font-size: 13.5px; color: var(--text-secondary); text-align: center; max-width: 650px; margin: 0 auto 30px; line-height: 1.7;">
-            A personalized, interactive digital suite created around who you are — your story, your personality, your favorite things, your memories, and the feeling you want to share with your guests. From the first tap to the final detail, you get to make it yours.
+        <div class="section-header-center" style="margin-bottom: 30px;">
+          <h3 class="section-title" style="font-size: 32px;">What's Included in Your Suite</h3>
+          <p class="section-tagline">Everything designed seamlessly into one fluid digital experience</p>
+        </div>
+
+        <div class="pricing-grid-layout">
+          
+          <div class="pricing-feature-box">
+            <h4 class="pricing-feature-title">Your Concept</h4>
+            <p class="pricing-feature-desc">Start with an idea that feels like you — romantic, cinematic, playful, minimalist, nostalgic, travel-inspired, or music-filled.</p>
+          </div>
+
+          <div class="pricing-feature-box">
+            <h4 class="pricing-feature-title">First-Tap Opening Reveal</h4>
+            <p class="pricing-feature-desc">Set the mood immediately. Your names, custom artwork, music, and opening reveal welcome guests into your story.</p>
+          </div>
+
+          <div class="pricing-feature-box">
+            <h4 class="pricing-feature-title">Your Custom Soundtrack</h4>
+            <p class="pricing-feature-desc">Choose up to 4 songs that resonate with your journey to play ambiently as guests navigate your invitation.</p>
+          </div>
+
+          <div class="pricing-feature-box">
+            <h4 class="pricing-feature-title">Interactive Love Story</h4>
+            <p class="pricing-feature-desc">Share key milestones — from how you met to your favorite memories, woven directly into the digital flow.</p>
+          </div>
+
+          <div class="pricing-feature-box">
+            <h4 class="pricing-feature-title">Event Details & Map Integration</h4>
+            <p class="pricing-feature-desc">Ceremony and reception schedules, venue addresses, direct Google Maps navigation links, and dress code guidance.</p>
+          </div>
+
+          <div class="pricing-feature-box">
+            <h4 class="pricing-feature-title">Thoughtful Photo Storytelling</h4>
+            <p class="pricing-feature-desc">Up to 10 photos naturally integrated throughout the layout to complement your text rather than a plain photo grid.</p>
+          </div>
+
+          <div class="pricing-feature-box">
+            <h4 class="pricing-feature-title">Entourage & Sponsors</h4>
+            <p class="pricing-feature-desc">Honor the people standing beside you — bridesmaids, groomsmen, principal sponsors, and wedding party members.</p>
+          </div>
+
+          <div class="pricing-feature-box">
+            <h4 class="pricing-feature-title">Digital RSVP & Entrance QR</h4>
+            <p class="pricing-feature-desc">Collect responses effortlessly with online RSVP forms and downloadable entrance QR codes for smooth event check-in.</p>
+          </div>
+
+          <div class="pricing-feature-box">
+            <h4 class="pricing-feature-title">Live Countdown Clock</h4>
+            <p class="pricing-feature-desc">Build excitement with a ticking real-time countdown tracking the days, hours, and minutes to your celebration.</p>
+          </div>
+
+          <div class="pricing-feature-box">
+            <h4 class="pricing-feature-title">Registry & Gift Details</h4>
+            <p class="pricing-feature-desc">Elegantly display GCash numbers, bank account details, online registry links, or monetary gift preferences.</p>
+          </div>
+
+        </div>
+
+        <div class="pricing-bonus-banner">
+          <span style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; color: var(--gold-accent);">ALSO INCLUDED WITH EVERY PACKAGE</span>
+          <ul class="bonus-pills-wrapper">
+            <li class="bonus-pill-item">Mobile-Optimized Experience</li>
+            <li class="bonus-pill-item">Shareable Custom Web Link</li>
+            <li class="bonus-pill-item">Website Setup & Launch</li>
+            <li class="bonus-pill-item">Personalized Content Placement</li>
+            <li class="bonus-pill-item">Up to 2 Revision Rounds</li>
+          </ul>
+        </div>
+
+        <div class="pricing-cta-footer">
+          <h3>More Than an Invitation</h3>
+          <p>
+            Your invitation is where your wedding story begins. Before your guests see the venue, the flowers, or the dress, they experience your invitation. Make it something that makes them say, <em>“This is so them.”</em>
           </p>
-
-          <h3 class="section-title" style="font-size: 22px; text-align: center; margin-bottom: 25px;">WHAT'S INCLUDED</h3>
-
-          <div class="inclusions-grid">
-            <div class="inclusion-card">
-              <h4 class="inclusion-title">Your Concept</h4>
-              <p class="inclusion-desc">Start with an idea that feels like you — romantic, cinematic, playful, minimalist, nostalgic, or completely unique.</p>
-            </div>
-
-            <div class="inclusion-card">
-              <h4 class="inclusion-title">Your Opening</h4>
-              <p class="inclusion-desc">Set the mood from the very first tap with personalized visuals, music, and an immersive intro experience.</p>
-            </div>
-
-            <div class="inclusion-card">
-              <h4 class="inclusion-title">Your Soundtrack</h4>
-              <p class="inclusion-desc">Include up to 4 songs to guide your story and create a unforgettable atmosphere as guests explore.</p>
-            </div>
-
-            <div class="inclusion-card">
-              <h4 class="inclusion-title">Your Story</h4>
-              <p class="inclusion-desc">Share the moments that brought you here — from how you met to the little memories that mean the most.</p>
-            </div>
-
-            <div class="inclusion-card">
-              <h4 class="inclusion-title">Event Details & Maps</h4>
-              <p class="inclusion-desc">Date, time, ceremony, reception, venue map, dress code, and essential guest information beautifully presented.</p>
-            </div>
-
-            <div class="inclusion-card">
-              <h4 class="inclusion-title">Thoughtful Photo Story</h4>
-              <p class="inclusion-desc">Up to 10 photos woven naturally into your design layout to tell your story — not just stored in a gallery.</p>
-            </div>
-
-            <div class="inclusion-card">
-              <h4 class="inclusion-title">Your Entourage</h4>
-              <p class="inclusion-desc">Introduce your bridesmaids, groomsmen, principal sponsors, and wedding party with elegant detail.</p>
-            </div>
-
-            <div class="inclusion-card">
-              <h4 class="inclusion-title">RSVP & QR Access</h4>
-              <p class="inclusion-desc">Make guest responses effortless with integrated digital RSVP forms and entrance QR codes.</p>
-            </div>
-
-            <div class="inclusion-card">
-              <h4 class="inclusion-title">Live Countdown Clock</h4>
-              <p class="inclusion-desc">Build anticipation and excitement with a live ticking countdown to your special day.</p>
-            </div>
-
-            <div class="inclusion-card">
-              <h4 class="inclusion-title">Registry & Gift Details</h4>
-              <p class="inclusion-desc">Seamlessly share your GCash, bank account, online registry, or gift preferences.</p>
-            </div>
-          </div>
-
-          <div class="also-included-pill-box">
-            <span style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--gold-accent);">ALSO INCLUDED WITH YOUR SUITE</span>
-            <ul class="pill-list">
-              <li>Mobile-optimized responsive design</li>
-              <li>Shareable custom invitation link</li>
-              <li>Full website setup & launch</li>
-              <li>Personalized content placement</li>
-              <li>Up to 2 rounds of revisions</li>
-            </ul>
-          </div>
-
-          <div style="text-align: center; margin-top: 40px; border-top: 1px solid var(--border-subtle); padding-top: 30px;">
-            <p style="font-family: var(--font-serif); font-size: 22px; font-style: italic; color: var(--gold-accent); margin-bottom: 8px;">
-              “Something that makes your guests say, ‘This is so them.’”
-            </p>
-            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 20px;">
-              Reach out to reserve your date and receive our full rate sheet.
-            </p>
-            <a href="mailto:andrea.asuncion0928@gmail.com?subject=StoryInvites%20Inquiry" class="btn-highlight">Inquire Now &rarr;</a>
-          </div>
-
+          <a href="mailto:andrea.asuncion0928@gmail.com?subject=StoryInvites%20Inquiry" class="btn-highlight" style="background-color: var(--gold-accent);">Get in Touch for Availability &rarr;</a>
         </div>
+
       </section>
 
       <footer>

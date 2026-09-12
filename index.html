@@ -6,21 +6,21 @@
 <title>STORYINVITES — Digital Invitations for Life's Greatest Moments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --bg-dark-primary: #1e152a;
-    --bg-dark-container: rgba(30, 21, 42, 0.7);
-    --color-gold-accent: #a38c61;
-    --color-soft-taupe: #5e5368;
-    --color-ink-light: #f3f0f8;
-    --color-charcoal-light: #dad0ec;
-    --border-light: rgba(163, 140, 97, 0.3);
-    
+    --bg-cream-main: #f5f0eb;
+    --bg-card-light: #fefdfb;
+    --bg-warm-tint: #e8dfd8;
+    --text-primary: #2c2623;
+    --text-secondary: #6e655f;
+    --text-muted: #948b84;
+    --accent-dark: #1a1715;
+    --border-subtle: rgba(44, 38, 35, 0.12);
+
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Montserrat', sans-serif;
-    --font-script: 'Pinyon Script', cursive;
   }
 
   * {
@@ -29,245 +29,31 @@
     padding: 0;
   }
 
-  html {
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    background-color: var(--bg-dark-primary);
-  }
-
-  body, .website-background {
-    background-color: #1e152a;
-    background-image: 
-      radial-gradient(at 0% 0%, #1e152a 0px, transparent 50%),
-      radial-gradient(at 100% 0%, #5e5368 0px, transparent 50%),
-      radial-gradient(at 100% 100%, #a38c61 0px, transparent 50%),
-      radial-gradient(at 0% 100%, #2d2821 0px, transparent 50%);
-    background-attachment: fixed;
-    color: var(--color-ink-light);
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--bg-cream-main);
+    color: var(--text-primary);
     font-family: var(--font-sans);
     line-height: 1.5;
-    overflow-x: hidden;
-    position: relative;
-    width: 100%;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.35;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  }
-
-  .page-section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
-    width: 100%;
-  }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .animate-on-load {
-    animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  }
-
-  .rise-title-block {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-    will-change: opacity, transform;
-    text-align: center;
-    margin-bottom: 20px;
-    padding: 0 15px;
-    position: relative;
-    width: 100%;
-  }
-
-  .rise-title-block.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .rise-kicker {
-    font-family: var(--font-sans);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    color: var(--color-gold-accent);
-    margin-bottom: 4px;
-    display: block;
-    text-transform: uppercase;
-  }
-
-  .rise-heading {
-    font-family: var(--font-serif);
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 300;
-    color: var(--color-ink-light);
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-  }
-
-  .rise-divider {
-    width: 40px;
-    height: 1px;
-    background: var(--color-gold-accent);
-    margin: 12px auto 0;
-    opacity: 0.6;
-  }
-
-  .section-l1 { background-color: transparent; }
-  .section-l2 { background-color: rgba(30, 21, 42, 0.4); backdrop-filter: blur(10px); }
-  .section-l3 { background-color: rgba(45, 40, 33, 0.5); backdrop-filter: blur(10px); }
-
-  .serif { font-family: var(--font-serif); }
-  .sans { font-family: var(--font-sans); }
-  .script { font-family: var(--font-script); }
-  .uppercase { text-transform: uppercase; letter-spacing: 0.2em; }
-
-  .section-story-intro {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .section-story-intro .story-sub {
-    font-size: 12.5px;
-    color: var(--color-charcoal-light);
-    letter-spacing: 0.05em;
-    line-height: 1.4;
-  }
-
-  .glass-intro-card {
-    background: rgba(30, 21, 42, 0.3);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(163, 140, 97, 0.3);
-    border-radius: 14px;
-    padding: clamp(16px, 2.5vw, 22px) clamp(15px, 3.5vw, 28px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: clamp(9px, 1.2vw, 12px) clamp(18px, 2.2vw, 26px);
-    background-color: var(--color-gold-accent);
-    color: #1e152a;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    border: 1px solid var(--color-gold-accent);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-    white-space: nowrap;
-  }
-
-  .btn-primary:hover {
-    background-color: #f3f0f8;
-    border-color: #f3f0f8;
-    color: #1e152a;
-    transform: translateY(-2px);
-  }
-
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 10.5px;
-    letter-spacing: 0.15em;
-    color: var(--color-gold-accent);
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-
-  .btn-secondary:hover {
-    color: var(--color-ink-light);
-    transform: translateX(4px);
-  }
-
-  .btn-live-subtle {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    background-color: rgba(163, 140, 97, 0.12);
-    color: var(--color-gold-accent);
-    font-size: 9.5px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border: 1px solid rgba(163, 140, 97, 0.25);
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-  }
-
-  .btn-live-subtle:hover {
-    background-color: var(--color-gold-accent);
-    border-color: var(--color-gold-accent);
-    color: #1e152a;
-  }
-
-  .audio-reset-btn {
-    position: fixed;
-    bottom: 16px;
-    right: 16px;
-    z-index: 9999;
-    background-color: rgba(30, 21, 42, 0.9);
-    color: var(--color-gold-accent);
-    border: 1px solid var(--color-gold-accent);
-    padding: 8px 14px;
-    border-radius: 50px;
-    font-family: var(--font-sans);
-    font-size: 9.5px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    backdrop-filter: blur(12px);
-    transition: all 0.3s ease;
-  }
-
+  /* TOP NAVIGATION BAR */
   header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: clamp(8px, 1.2vw, 14px) clamp(14px, 3vw, 40px);
+    height: 70px;
+    padding: 0 clamp(20px, 4vw, 60px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: rgba(30, 21, 42, 0.88);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border-light);
+    background-color: rgba(245, 240, 235, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   .logo-brand {
@@ -275,1053 +61,656 @@
     align-items: center;
     gap: 8px;
     text-decoration: none;
-  }
-
-  .logo-img {
-    height: clamp(22px, 3vw, 32px);
-    width: auto;
-    object-fit: contain;
-    display: block;
-  }
-
-  .logo-text {
-    font-size: clamp(11px, 1.5vw, 15px);
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    color: var(--color-ink-light);
+    color: var(--text-primary);
+    font-family: var(--font-serif);
+    font-size: 20px;
+    letter-spacing: 0.15em;
+    font-weight: 500;
   }
 
   .nav-menu {
     display: flex;
-    gap: clamp(10px, 1.8vw, 30px);
+    gap: clamp(15px, 2.5vw, 40px);
     list-style: none;
   }
 
-  .nav-menu a {
-    text-decoration: none;
-    color: var(--color-charcoal-light);
-    font-size: 10.5px;
-    letter-spacing: 0.15em;
-    font-weight: 600;
-    transition: color 0.3s;
-  }
-
-  .nav-menu a:hover {
-    color: var(--color-gold-accent);
-  }
-
-  .mobile-hamburger-btn {
-    display: none;
-    background: transparent;
+  .nav-menu button {
+    background: none;
     border: none;
     cursor: pointer;
-    flex-direction: column;
-    gap: 4px;
-    padding: 4px;
-    z-index: 1002;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+    padding: 4px 0;
   }
 
-  .hamburger-line {
-    width: 20px;
-    height: 2px;
-    background-color: var(--color-gold-accent);
+  .nav-menu button.active, .nav-menu button:hover {
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--text-primary);
+  }
+
+  /* AUDIO CONTROLLER BUTTON */
+  .audio-reset-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    background-color: var(--accent-dark);
+    color: #FFF;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 40px;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s ease;
+  }
+
+  .audio-reset-btn:hover {
+    background-color: var(--text-secondary);
+  }
+
+  /* PAGE CONTAINER ENGINE */
+  .page-viewport {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+
+  .view-page {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    overflow-y: auto;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  .view-page.active {
+    display: block;
+    opacity: 1;
+  }
+
+  /* HERO BANNER COVER PHOTO SECTION */
+  .hero-cover-block {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 70px);
+    min-height: 500px;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: clamp(20px, 6vw, 80px);
+  }
+
+  .hero-cover-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  .hero-text-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(254, 253, 251, 0.88);
+    backdrop-filter: blur(12px);
+    padding: clamp(30px, 4vw, 60px);
+    max-width: 520px;
     border-radius: 2px;
   }
 
-  .mobile-nav-drawer {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(30, 21, 42, 0.96);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 1001;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  .hero-subtitle {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    display: block;
   }
 
-  .mobile-nav-drawer.active {
-    display: flex;
-    animation: fadeInUp 0.3s ease forwards;
-  }
-
-  .mobile-nav-link {
-    text-decoration: none;
-    color: var(--color-ink-light);
+  .hero-heading {
     font-family: var(--font-serif);
-    font-size: 22px;
-    letter-spacing: 0.15em;
+    font-size: clamp(32px, 4.5vw, 56px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: var(--text-primary);
   }
 
-  /* HERO INTRO PAGE */
-  .hero-container {
-    padding: clamp(75px, 10vh, 100px) clamp(14px, 3vw, 40px) clamp(20px, 4vh, 40px);
+  .hero-paragraph {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .btn-dark {
+    display: inline-block;
+    background-color: var(--accent-dark);
+    color: #FFF;
+    text-decoration: none;
+    padding: 12px 28px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .btn-dark:hover {
+    background-color: var(--text-secondary);
+  }
+
+  /* FEATURED SECTION (COLLECTION GRID) */
+  .section-block {
+    padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 60px);
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .section-header-center {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 300;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+
+  .section-tagline {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .featured-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2.5vw, 30px);
+  }
+
+  .collection-item {
+    background-color: var(--bg-card-light);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .iframe-container-card {
+    width: 100%;
+    height: 380px;
+    background: #FFF;
+    position: relative;
+  }
+
+  .card-details-box {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--bg-card-light);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .card-item-title {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+
+  .card-item-link {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  /* ABOUT US TWO-COLUMN LAYOUT */
+  .about-us-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(16px, 3vw, 36px);
+    gap: clamp(30px, 5vw, 60px);
     align-items: center;
-    max-width: 1300px;
-    margin: 0 auto;
-    width: 100%;
+    background-color: var(--bg-warm-tint);
+    padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 60px);
+    margin-top: 40px;
   }
 
-  .hero-tag {
-    display: inline-block;
-    padding: 4px 12px;
-    background: rgba(163, 140, 97, 0.15);
-    border: 1px solid rgba(163, 140, 97, 0.3);
-    border-radius: 30px;
-    font-size: 9.5px;
-    font-weight: 600;
-    color: var(--color-gold-accent);
-    margin-bottom: 10px;
+  .about-text-column {
+    max-width: 480px;
   }
 
-  .hero-title {
-    font-size: clamp(30px, 4.2vw, 60px);
-    font-weight: 300;
-    line-height: 1.05;
-    margin-bottom: 10px;
-    color: var(--color-ink-light);
-  }
-
-  .hero-title span {
-    font-family: var(--font-script);
-    font-size: 1.2em;
-    color: var(--color-gold-accent);
-    display: inline-block;
-  }
-
-  .hero-brand-statement {
+  .about-heading {
     font-family: var(--font-serif);
-    font-size: clamp(14px, 1.6vw, 18px);
-    font-style: italic;
-    color: var(--color-gold-accent);
-    margin-bottom: 8px;
-  }
-
-  .hero-description {
-    font-size: clamp(12px, 1.1vw, 14px);
-    color: var(--color-charcoal-light);
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 300;
     margin-bottom: 20px;
-    max-width: 460px;
-    line-height: 1.55;
   }
 
-  .hero-device-stage {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
+  .about-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .preview-embed-extend {
     width: 100%;
-  }
-
-  .hero-single-phone {
-    width: clamp(180px, 22vw, 240px);
-    height: clamp(360px, 44vw, 480px);
-    background: #000;
-    border: 8px solid #000;
-    border-radius: 36px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-    overflow: hidden;
-    position: relative;
-  }
-
-  .hero-phone-wrapper {
-    width: 375px;
-    height: 780px;
-    transform: scale(calc(clamp(180px, 22vw, 240px) / 375));
-    transform-origin: 0 0;
+    height: 520px;
     background: #FFF;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
   }
 
-  /* CATEGORY TABS & TEMPLATE SECTION */
-  .portfolio-section {
-    padding: clamp(30px, 5vh, 60px) clamp(14px, 3vw, 40px);
-    max-width: 1300px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .category-tabs-wrapper {
-    background-color: rgba(30, 21, 42, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--border-light);
-    padding: 6px 10px;
-    border-radius: 50px;
-    display: inline-flex;
-    justify-content: center;
-    gap: 6px;
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .category-tabs {
+  /* PORTFOLIO TABBED LAYOUT */
+  .portfolio-tabs {
     display: flex;
     justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 4px;
+    gap: 12px;
+    margin-bottom: 40px;
   }
 
   .tab-btn {
     background: transparent;
-    border: none;
-    padding: 6px clamp(10px, 1.5vw, 18px);
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: var(--color-charcoal-light);
+    border: 1px solid var(--border-subtle);
+    padding: 8px 24px;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
     cursor: pointer;
-    border-radius: 40px;
+    border-radius: 30px;
     transition: all 0.3s ease;
   }
 
   .tab-btn.active, .tab-btn:hover {
-    background: var(--color-gold-accent);
-    color: #1e152a;
+    background: var(--accent-dark);
+    color: #FFF;
+    border-color: var(--accent-dark);
   }
 
-  .event-category-content { display: none; }
-  .event-category-content.active { display: block; }
+  .portfolio-tab-content { display: none; }
+  .portfolio-tab-content.active { display: block; }
 
-  /* UNIFIED TEMPLATE CARD PANEL */
-  .unified-template-card {
-    max-width: 1200px;
-    margin: 0 auto 30px;
-    background: rgba(30, 21, 42, 0.5);
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
+  /* DETAILED PORTFOLIO CARD */
+  .detailed-portfolio-card {
+    background: var(--bg-card-light);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    margin-bottom: 50px;
     overflow: hidden;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 2;
-    width: 100%;
   }
 
-  .card-intro-header-glass {
-    position: relative;
-    padding: clamp(12px, 2vw, 18px) clamp(14px, 2.5vw, 22px);
-    background: linear-gradient(135deg, rgba(94, 83, 104, 0.4) 0%, rgba(30, 21, 42, 0.7) 100%);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border-light);
-    border-left: 4px solid var(--color-gold-accent);
+  .detailed-card-header {
+    padding: 24px clamp(20px, 3vw, 40px);
+    border-bottom: 1px solid var(--border-subtle);
+    background-color: rgba(232, 223, 216, 0.3);
   }
 
-  .intro-story-title {
-    font-size: clamp(16px, 2.2vw, 22px);
-    font-weight: 300;
-    color: var(--color-ink-light);
-    line-height: 1.2;
-  }
-
-  .intro-story-vibe {
+  .detailed-vibe-tag {
     font-size: 9px;
-    font-weight: 700;
-    color: var(--color-gold-accent);
-    letter-spacing: 0.12em;
-    margin-top: 4px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    display: block;
   }
 
-  .card-preview-body {
+  .detailed-card-grid {
     display: grid;
-    grid-template-columns: 1.8fr 1fr;
-    gap: clamp(10px, 1.8vw, 20px);
-    padding: clamp(12px, 2vw, 20px);
-  }
-
-  .preview-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    width: 100%;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: clamp(20px, 3vw, 30px);
   }
 
   .view-label {
-    font-size: 9px;
-    color: var(--color-gold-accent);
-    letter-spacing: 0.12em;
-    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    display: block;
   }
 
-  .iframe-container-desktop {
+  .desktop-frame-box {
     width: 100%;
-    height: clamp(180px, 26vw, 340px);
+    height: 340px;
+    border: 1px solid var(--border-subtle);
     background: #FFF;
-    border: 1px solid var(--border-light);
-    border-radius: 4px;
-    overflow: hidden;
   }
 
-  .iframe-container-mobile {
-    width: clamp(120px, 15vw, 160px);
-    height: clamp(240px, 30vw, 320px);
-    background: #FFF;
-    border: 6px solid #000;
-    border-radius: 24px;
+  .mobile-frame-box {
+    width: 170px;
+    height: 340px;
+    border: 6px solid #1a1715;
+    border-radius: 20px;
     margin: 0 auto;
     overflow: hidden;
+    background: #FFF;
   }
 
-  .iframe-preview {
+  .iframe-style {
     width: 100%;
     height: 100%;
     border: none;
-    background: #FFF;
   }
 
-  .showcase-info {
-    grid-column: span 2;
+  /* FOOTER */
+  footer {
+    background-color: var(--accent-dark);
+    color: var(--bg-cream-main);
+    padding: 40px clamp(20px, 4vw, 60px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 4px;
-    padding-top: 8px;
-    border-top: 1px dashed var(--border-light);
-    width: 100%;
-  }
-
-  .showcase-info-url {
     font-size: 10px;
-    color: var(--color-gold-accent);
-    text-decoration: none;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
   }
 
-  .showcase-info-url:hover { text-decoration: underline; }
-
-  .placeholder-card {
-    background: rgba(30, 21, 42, 0.5);
-    border: 2px dashed var(--border-light);
-    padding: 30px 14px;
-    text-align: center;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  /* WHY US SECTION */
-  .why-us-page-section {
-    padding: clamp(30px, 5vh, 60px) clamp(14px, 3vw, 40px);
-    background-color: #231b2d;
-    background-image: 
-      radial-gradient(at 0% 0%, #1e152a 0px, transparent 60%),
-      radial-gradient(at 100% 50%, #4a3e52 0px, transparent 50%),
-      radial-gradient(at 100% 100%, #685741 0px, transparent 60%),
-      radial-gradient(at 0% 100%, #221c27 0px, transparent 50%);
-    border-top: 1px solid var(--border-light);
-    border-bottom: 1px solid var(--border-light);
-  }
-
-  .buyin-section { max-width: 1300px; margin: 0 auto; }
-
-  .buyin-single-row-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    margin-top: 16px;
-  }
-
-  .buyin-card-row {
-    background: rgba(38, 30, 50, 0.75);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(163, 140, 97, 0.25);
-    padding: 14px 10px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .buyin-icon {
-    font-size: 10px;
-    color: var(--color-gold-accent);
-    margin-bottom: 6px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
-    background: rgba(163, 140, 97, 0.15);
-    border-radius: 50%;
-    border: 1px solid rgba(163, 140, 97, 0.3);
-  }
-
-  .buyin-title { font-size: 13.5px; margin-bottom: 3px; color: var(--color-ink-light); }
-  .buyin-desc { font-size: 10.5px; color: var(--color-charcoal-light); line-height: 1.4; }
-
-  /* PROCESS SECTION */
-  .process-section { padding: clamp(30px, 5vh, 60px) clamp(14px, 3vw, 40px); }
-
-  .process-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    max-width: 1100px;
-    margin: 18px auto 0;
-  }
-
-  /* PRICING OFFER SECTION */
-  .offer-section { padding: clamp(30px, 5vh, 60px) clamp(14px, 3vw, 40px); max-width: 1200px; margin: 0 auto; }
-
-  .offer-box-tailored {
-    background: linear-gradient(135deg, rgba(94, 83, 104, 0.4) 0%, rgba(30, 21, 42, 0.75) 100%);
-    backdrop-filter: blur(16px);
-    border: 1px solid var(--border-light);
-    padding: clamp(16px, 2.5vw, 30px);
-    border-radius: 14px;
-  }
-
-  .inquiry-hero-card {
-    background: rgba(30, 21, 42, 0.5);
-    border: 1px solid var(--color-gold-accent);
-    border-radius: 12px;
-    padding: clamp(12px, 2vw, 18px);
-    text-align: center;
-    margin-bottom: 18px;
-  }
-
-  .inquiry-hero-title { font-family: var(--font-serif); font-size: clamp(16px, 2vw, 22px); color: var(--color-ink-light); font-weight: 300; }
-  .inquiry-hero-subtitle { font-size: 11px; color: var(--color-charcoal-light); margin: 3px 0 8px; }
-
-  .single-contact-bar {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(163, 140, 97, 0.12);
-    border: 1px solid var(--color-gold-accent);
-    padding: 6px 14px;
-    border-radius: 50px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .contact-info-link {
-    color: var(--color-ink-light);
-    text-decoration: none;
-    font-size: 10.5px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .single-outline-inclusions-card {
-    background: rgba(30, 21, 42, 0.5);
-    border: 1px solid rgba(163, 140, 97, 0.35);
-    border-radius: 10px;
-    padding: clamp(12px, 2vw, 20px);
-    margin-bottom: 18px;
-  }
-
-  .inclusions-single-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px 12px;
-    list-style: none;
-  }
-
-  .inclusions-single-list li {
-    font-size: 11px;
-    color: var(--color-ink-light);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .inclusions-single-list li::before {
-    content: '✓';
-    color: var(--color-gold-accent);
-    font-weight: bold;
-    font-size: 11px;
-  }
-
-  .also-included-bar {
-    background: rgba(163, 140, 97, 0.1);
-    border: 1px dashed var(--border-light);
-    border-radius: 8px;
-    padding: 10px 12px;
-    text-align: center;
-    margin-bottom: 18px;
-  }
-
-  .also-included-title { font-size: 8.5px; letter-spacing: 0.15em; color: var(--color-gold-accent); font-weight: 700; margin-bottom: 4px; }
-  .also-included-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 10px; list-style: none; }
-  .also-included-pills li { font-size: 10px; color: var(--color-ink-light); display: flex; align-items: center; gap: 4px; }
-  .also-included-pills li::before { content: '✓'; color: var(--color-gold-accent); font-weight: bold; }
-
-  .pricing-closing-note { text-align: center; border-top: 1px solid var(--border-light); padding-top: 16px; }
-  .closing-note-tag { font-size: 8px; color: var(--color-gold-accent); margin-bottom: 2px; }
-  .closing-note-h3 { font-size: clamp(16px, 1.8vw, 20px); font-weight: 300; margin-bottom: 4px; }
-  .closing-note-quote { font-family: var(--font-serif); font-size: clamp(13px, 1.5vw, 16px); font-style: italic; color: var(--color-gold-accent); margin: 6px 0 10px; }
-
-  footer { background: #120d1a; color: var(--color-ink-light); padding: 25px 16px 16px; }
-
-  /* MOBILE RESPONSIVE MEDIA QUERIES */
-  @media (max-width: 1200px) {
-    .buyin-single-row-grid { grid-template-columns: repeat(3, 1fr); }
-    .inclusions-single-list { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 992px) {
-    header { padding: 10px 14px; }
-    .nav-menu { display: none; }
-    .mobile-hamburger-btn { display: flex; }
-    
-    .hero-container { 
-      grid-template-columns: 1fr; 
-      padding: 85px 14px 25px; 
-      text-align: center; 
-      gap: 16px;
-    }
-    
-    .hero-description { margin: 0 auto 16px; }
-
-    .category-tabs-wrapper { width: 100%; padding: 4px; }
-    .card-preview-body { grid-template-columns: 1fr; padding: 10px; gap: 10px; }
-    .iframe-container-mobile { width: 140px; height: 280px; border-width: 5px; border-radius: 20px; }
-    .iframe-container-mobile .mobile-iframe-wrapper { transform: scale(0.37); }
-    
-    .showcase-info { grid-column: span 1; flex-direction: column; gap: 6px; text-align: center; }
-    .buyin-single-row-grid { grid-template-columns: repeat(2, 1fr); }
-    .process-grid { grid-template-columns: 1fr; }
-    .single-contact-bar { flex-direction: column; gap: 4px; padding: 8px; border-radius: 12px; }
-    .single-contact-bar span[style*="border-light"] { display: none; }
-    .rise-title-block { padding: 4px 8px; }
-  }
-
-  @media (max-width: 600px) {
-    .buyin-single-row-grid { grid-template-columns: 1fr; }
-    .inclusions-single-list { grid-template-columns: 1fr; }
-    .hero-single-phone { width: 150px; height: 300px; border-width: 5px; border-radius: 24px; }
-    .hero-phone-wrapper { transform: scale(0.38); }
+  /* MEDIA QUERIES */
+  @media (max-width: 900px) {
+    .featured-collection-grid { grid-template-columns: 1fr; }
+    .about-us-container { grid-template-columns: 1fr; }
+    .detailed-card-grid { grid-template-columns: 1fr; }
+    .hero-cover-block { justify-content: center; padding: 20px; }
   }
 </style>
 </head>
-<body class="website-background">
+<body>
 
-  <!-- GLOBAL AUDIO RESET BUTTON -->
-  <button class="audio-reset-btn uppercase" onclick="stopAllSampleAudio()">
-    <span>🔇 Stop All Audio</span>
-  </button>
-
-  <!-- NAVIGATION HEADER WITH 3-LINE MOBILE HAMBURGER MENU -->
+  <!-- FIXED NAVIGATION HEADER -->
   <header>
-    <a href="#home" class="logo-brand">
-      <img src="logo.png" alt="StoryInvites Logo" class="logo-img" onerror="this.style.display='none'">
-      <span class="logo-text uppercase">STORYINVITES</span>
-    </a>
-    
-    <ul class="nav-menu uppercase">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#templates">Templates</a></li>
-      <li><a href="#why-us">Why Us</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#pricing">Pricing</a></li>
+    <a href="#" onclick="showPage('page-home')" class="logo-brand">STORYINVITES</a>
+    <ul class="nav-menu">
+      <li><button id="nav-home" class="active" onclick="showPage('page-home')">Home</button></li>
+      <li><button id="nav-portfolio" onclick="showPage('page-portfolio')">Portfolio</button></li>
+      <li><button id="nav-prices" onclick="showPage('page-pricing')">Prices</button></li>
+      <li><button id="nav-pricing" onclick="showPage('page-pricing')">Pricing</button></li>
     </ul>
-
-    <button class="mobile-hamburger-btn" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-    </button>
-
-    <a href="#pricing" class="btn-primary" style="padding: 6px 12px; font-size: 8px;">Create Yours</a>
   </header>
 
-  <!-- MOBILE NAVIGATION DRAWER OVERLAY -->
-  <div class="mobile-nav-drawer" id="mobileNavDrawer">
-    <a href="#home" class="mobile-nav-link" onclick="toggleMobileMenu()">Home</a>
-    <a href="#templates" class="mobile-nav-link" onclick="toggleMobileMenu()">Templates</a>
-    <a href="#why-us" class="mobile-nav-link" onclick="toggleMobileMenu()">Why Us</a>
-    <a href="#process" class="mobile-nav-link" onclick="toggleMobileMenu()">Process</a>
-    <a href="#pricing" class="mobile-nav-link" onclick="toggleMobileMenu()">Pricing</a>
+  <!-- GLOBAL AUDIO STOP BUTTON -->
+  <button class="audio-reset-btn" onclick="stopAllSampleAudio()">Stop All Sounds</button>
+
+  <div class="page-viewport">
+
+    <!-- PAGE 1: HOME -->
+    <div id="page-home" class="view-page active">
+      
+      <!-- HERO COVER PHOTO SECTION -->
+      <section class="hero-cover-block" style="background-image: url('cover.png');">
+        <div class="hero-text-card">
+          <span class="hero-subtitle">Digital Invitations</span>
+          <h1 class="hero-heading">Simplicity in every detail.</h1>
+          <p class="hero-paragraph">
+            A personalized, interactive digital invitation created around who you are — your story, your personality, your favorite things, your memories, and the feeling you want to share with your guests.
+          </p>
+          <button onclick="showPage('page-portfolio')" class="btn-dark">Explore Collection</button>
+        </div>
+      </section>
+
+      <!-- FEATURED FLAG SAMPLES -->
+      <section class="section-block">
+        <div class="section-header-center">
+          <h2 class="section-title">Featured Invitations</h2>
+          <p class="section-tagline">Thoughtfully curated designs crafted for modern events</p>
+        </div>
+
+        <div class="featured-collection-grid">
+          <div class="collection-item">
+            <div class="iframe-container-card">
+              <iframe src="https://ws3.storyinvites.com" class="iframe-style sample-iframe" title="ws3"></iframe>
+            </div>
+            <div class="card-details-box">
+              <h3 class="card-item-title">The Fun & Fearless</h3>
+              <a href="https://ws3.storyinvites.com" target="_blank" class="card-item-link">Explore &rarr;</a>
+            </div>
+          </div>
+
+          <div class="collection-item">
+            <div class="iframe-container-card">
+              <iframe src="https://ws4.storyinvites.com" class="iframe-style sample-iframe" title="ws4"></iframe>
+            </div>
+            <div class="card-details-box">
+              <h3 class="card-item-title">The Cinematic Couple</h3>
+              <a href="https://ws4.storyinvites.com" target="_blank" class="card-item-link">Explore &rarr;</a>
+            </div>
+          </div>
+
+          <div class="collection-item">
+            <div class="iframe-container-card">
+              <iframe src="https://ws5.storyinvites.com" class="iframe-style sample-iframe" title="ws5"></iframe>
+            </div>
+            <div class="card-details-box">
+              <h3 class="card-item-title">The Storytellers</h3>
+              <a href="https://ws5.storyinvites.com" target="_blank" class="card-item-link">Explore &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT US SECTION WITH EXTENDED EMBED SAMPLE -->
+      <section class="about-us-container">
+        <div class="about-text-column">
+          <h2 class="about-heading">About Us</h2>
+          <p class="about-desc">
+            “An invitation that feels like you. Not just an invitation with the details.”<br><br>
+            A thoughtfully designed digital experience that brings together your style, your moments, and everything your guests need to know. We handle the technical setup and visual placement so you can focus on enjoying your celebration.
+          </p>
+          <button onclick="showPage('page-pricing')" class="btn-dark">Learn More</button>
+        </div>
+        <div>
+          <div class="preview-embed-extend">
+            <iframe src="https://ds1.storyinvites.com" class="iframe-style sample-iframe" title="ds1 Extended"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div>STORYINVITES</div>
+        <div>© 2026 STORYINVITES. ALL RIGHTS RESERVED.</div>
+      </footer>
+    </div>
+
+    <!-- PAGE 2: PORTFOLIO -->
+    <div id="page-portfolio" class="view-page">
+      <section class="section-block">
+        <div class="section-header-center">
+          <h2 class="section-title">Our Portfolio</h2>
+          <p class="section-tagline">Browse our full collection of interactive invitation suites</p>
+        </div>
+
+        <!-- PORTFOLIO CATEGORY TABS -->
+        <div class="portfolio-tabs">
+          <button class="tab-btn active" onclick="switchCategory('wedding', this)">Weddings</button>
+          <button class="tab-btn" onclick="switchCategory('debut', this)">Debuts</button>
+          <button class="tab-btn" onclick="switchCategory('birthday', this)">Birthdays</button>
+        </div>
+
+        <!-- WEDDING CATEGORY CONTENT -->
+        <div id="cat-wedding" class="portfolio-tab-content active">
+          
+          <div class="detailed-portfolio-card">
+            <div class="detailed-card-header">
+              <span class="detailed-vibe-tag">ROMANTIC • REFINED • SENTIMENTAL</span>
+              <h3 class="section-title">The Timeless Love Story</h3>
+              <p class="section-tagline">For the classic, romantic couple.</p>
+            </div>
+            <div class="detailed-card-grid">
+              <div>
+                <span class="view-label">Browser View</span>
+                <div class="desktop-frame-box">
+                  <iframe src="https://ws1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+                </div>
+              </div>
+              <div>
+                <span class="view-label">Mobile View</span>
+                <div class="mobile-frame-box">
+                  <iframe src="https://ws1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="detailed-portfolio-card">
+            <div class="detailed-card-header">
+              <span class="detailed-vibe-tag">CINEMATIC • EMOTIONAL • MODERN</span>
+              <h3 class="section-title">The Cinematic Couple</h3>
+              <p class="section-tagline">For the couple who loves a little drama.</p>
+            </div>
+            <div class="detailed-card-grid">
+              <div>
+                <span class="view-label">Browser View</span>
+                <div class="desktop-frame-box">
+                  <iframe src="https://ws4.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+                </div>
+              </div>
+              <div>
+                <span class="view-label">Mobile View</span>
+                <div class="mobile-frame-box">
+                  <iframe src="https://ws4.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- DEBUT CATEGORY CONTENT -->
+        <div id="cat-debut" class="portfolio-tab-content">
+          <div class="detailed-portfolio-card">
+            <div class="detailed-card-header">
+              <span class="detailed-vibe-tag">ELEGANT • YOUTHFUL • CELEBRATORY</span>
+              <h3 class="section-title">The Grand Debutante</h3>
+              <p class="section-tagline">For the debutante celebrating an unforgettable milestone.</p>
+            </div>
+            <div class="detailed-card-grid">
+              <div>
+                <span class="view-label">Browser View</span>
+                <div class="desktop-frame-box">
+                  <iframe src="https://ds1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+                </div>
+              </div>
+              <div>
+                <span class="view-label">Mobile View</span>
+                <div class="mobile-frame-box">
+                  <iframe src="https://ds1.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BIRTHDAY CATEGORY CONTENT -->
+        <div id="cat-birthday" class="portfolio-tab-content">
+          <div class="detailed-portfolio-card" style="padding: 60px 20px; text-align: center;">
+            <h3 class="section-title">Birthday Digital Invitations</h3>
+            <p class="section-tagline" style="margin-top: 10px;">Our birthday collection is launching soon. Reach out to request a bespoke custom design.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <footer>
+        <div>STORYINVITES</div>
+        <div>© 2026 STORYINVITES. ALL RIGHTS RESERVED.</div>
+      </footer>
+    </div>
+
+    <!-- PAGE 3: PRICING -->
+    <div id="page-pricing" class="view-page">
+      <section class="section-block">
+        <div class="section-header-center">
+          <h2 class="section-title">Pricing & Offerings</h2>
+          <p class="section-tagline">Get in touch directly to reserve your date and choose your inclusions</p>
+        </div>
+
+        <div style="background: var(--bg-card-light); border: 1px solid var(--border-subtle); padding: 40px; max-width: 800px; margin: 0 auto;">
+          <h3 class="section-title" style="text-align: center; font-size: 24px;">Inquiries & Contact</h3>
+          <p style="text-align: center; font-size: 13px; color: var(--text-secondary); margin-top: 10px;">
+            📱 09260593086 &nbsp;|&nbsp; ✉️ andrea.asuncion0928@gmail.com
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        <div>STORYINVITES</div>
+        <div>© 2026 STORYINVITES. ALL RIGHTS RESERVED.</div>
+      </footer>
+    </div>
+
   </div>
 
-  <!-- PAGE 1: HERO INTRO PAGE -->
-  <section class="page-section section-l1" id="home">
-    <div class="hero-container animate-on-load">
-      <div>
-        <span class="hero-tag uppercase">Digital Event Invitations</span>
-        <h1 class="hero-title serif">
-          Your story,<br>
-          <span>beautifully</span> invited.
-        </h1>
-        
-        <p class="hero-brand-statement">Your story. Your style. Your invitation.</p>
-        
-        <p class="hero-description">
-          A personalized, interactive digital invitation created around who you are — your story, your personality, your favorite things, your memories, and the feeling you want to share with your guests. From the first tap to the final detail, you get to make it yours.
-        </p>
-        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:center;">
-          <a href="#pricing" class="btn-primary">Create Your Invitation &rarr;</a>
-          <a href="#templates" class="btn-secondary uppercase">View Templates &darr;</a>
-        </div>
-      </div>
-
-      <!-- PROPORTIONAL SINGLE PHONE PREVIEW FOR EXACT FIT -->
-      <div class="hero-device-stage">
-        <div class="hero-single-phone">
-          <div class="hero-phone-wrapper">
-            <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Mobile Live Demo"></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAGE 2: CATEGORIZED TEMPLATE COLLECTION (CLEAN RISE COURSE TITLE) -->
-  <section class="page-section section-l2" id="templates">
-    <div class="portfolio-section">
-      
-      <!-- CLEAN RISE COURSE STYLE HEADING -->
-      <div class="rise-title-block articulate-title-block">
-        <span class="rise-kicker">Collection</span>
-        <h2 class="rise-heading">Templates</h2>
-        <div class="rise-divider"></div>
-      </div>
-
-      <div style="text-align: center; margin-bottom: 20px;">
-        <div class="category-tabs-wrapper">
-          <div class="category-tabs uppercase">
-            <button class="tab-btn active" onclick="switchCategory('wedding', this)">💍 Weddings</button>
-            <button class="tab-btn" onclick="switchCategory('debut', this)">👑 Debuts</button>
-            <button class="tab-btn" onclick="switchCategory('birthday', this)">🎂 Birthdays</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 1. WEDDING TEMPLATES CATEGORY -->
-      <div id="cat-wedding" class="event-category-content active">
-        
-        <!-- TEMPLATE 01 -->
-        <div class="unified-template-card">
-          <div class="card-intro-header-glass">
-            <h3 class="intro-story-title serif">The Timeless Love Story</h3>
-            <p class="intro-story-tagline">For the classic, romantic couple.</p>
-            <p class="intro-story-vibe uppercase">YOUR VIBE: ROMANTIC • REFINED • SENTIMENTAL</p>
-          </div>
-
-          <div class="card-preview-body">
-            <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View</span>
-              <div class="iframe-container-desktop">
-                <iframe src="https://ws1.storyinvites.com" class="iframe-preview sample-iframe" title="ws1 Desktop"></iframe>
-              </div>
-            </div>
-            <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Mobile View</span>
-              <div class="iframe-container-mobile">
-                <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ws1.storyinvites.com" class="iframe-preview sample-iframe" title="ws1 Mobile"></iframe>
-                </div>
-              </div>
-            </div>
-            <div class="showcase-info">
-              <a href="https://ws1.storyinvites.com" target="_blank" class="showcase-info-url">ws1.storyinvites.com</a>
-              <a href="https://ws1.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- TEMPLATE 02 -->
-        <div class="unified-template-card">
-          <div class="card-intro-header-glass">
-            <h3 class="intro-story-title serif">The Cinematic Couple</h3>
-            <p class="intro-story-tagline">For the couple who loves a little drama.</p>
-            <p class="intro-story-vibe uppercase">YOUR VIBE: CINEMATIC • EMOTIONAL • MODERN</p>
-          </div>
-
-          <div class="card-preview-body">
-            <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View</span>
-              <div class="iframe-container-desktop">
-                <iframe src="https://ws4.storyinvites.com" class="iframe-preview sample-iframe" title="ws4 Desktop"></iframe>
-              </div>
-            </div>
-            <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Mobile View</span>
-              <div class="iframe-container-mobile">
-                <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ws4.storyinvites.com" class="iframe-preview sample-iframe" title="ws4 Mobile"></iframe>
-                </div>
-              </div>
-            </div>
-            <div class="showcase-info">
-              <a href="https://ws4.storyinvites.com" target="_blank" class="showcase-info-url">ws4.storyinvites.com</a>
-              <a href="https://ws4.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- TEMPLATE 03 -->
-        <div class="unified-template-card">
-          <div class="card-intro-header-glass">
-            <h3 class="intro-story-title serif">The Fun & Fearless Couple</h3>
-            <p class="intro-story-tagline">For the playful, adventurous two.</p>
-            <p class="intro-story-vibe uppercase">YOUR VIBE: PLAYFUL • BOLD • ENERGETIC</p>
-          </div>
-
-          <div class="card-preview-body">
-            <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View</span>
-              <div class="iframe-container-desktop">
-                <iframe src="https://ws3.storyinvites.com" class="iframe-preview sample-iframe" title="ws3 Desktop"></iframe>
-              </div>
-            </div>
-            <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Mobile View</span>
-              <div class="iframe-container-mobile">
-                <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ws3.storyinvites.com" class="iframe-preview sample-iframe" title="ws3 Mobile"></iframe>
-                </div>
-              </div>
-            </div>
-            <div class="showcase-info">
-              <a href="https://ws3.storyinvites.com" target="_blank" class="showcase-info-url">ws3.storyinvites.com</a>
-              <a href="https://ws3.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- TEMPLATE 04 -->
-        <div class="unified-template-card">
-          <div class="card-intro-header-glass">
-            <h3 class="intro-story-title serif">The Classic with a Twist</h3>
-            <p class="intro-story-tagline">For the couple who loves tradition, but not the ordinary.</p>
-            <p class="intro-story-vibe uppercase">YOUR VIBE: CLASSIC • CREATIVE • ELEGANT</p>
-          </div>
-
-          <div class="card-preview-body">
-            <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View</span>
-              <div class="iframe-container-desktop">
-                <iframe src="https://ws2.storyinvites.com" class="iframe-preview sample-iframe" title="ws2 Desktop"></iframe>
-              </div>
-            </div>
-            <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Mobile View</span>
-              <div class="iframe-container-mobile">
-                <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ws2.storyinvites.com" class="iframe-preview sample-iframe" title="ws2 Mobile"></iframe>
-                </div>
-              </div>
-            </div>
-            <div class="showcase-info">
-              <a href="https://ws2.storyinvites.com" target="_blank" class="showcase-info-url">ws2.storyinvites.com</a>
-              <a href="https://ws2.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- TEMPLATE 05 -->
-        <div class="unified-template-card" style="margin-bottom:0;">
-          <div class="card-intro-header-glass">
-            <h3 class="intro-story-title serif">The Storytellers</h3>
-            <p class="intro-story-tagline">For the couple whose journey is the heart of it all.</p>
-            <p class="intro-story-vibe uppercase">YOUR VIBE: PERSONAL • CURIOUS • STORY-DRIVEN</p>
-          </div>
-
-          <div class="card-preview-body">
-            <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View</span>
-              <div class="iframe-container-desktop">
-                <iframe src="https://ws5.storyinvites.com" class="iframe-preview sample-iframe" title="ws5 Desktop"></iframe>
-              </div>
-            </div>
-            <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Mobile View</span>
-              <div class="iframe-container-mobile">
-                <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ws5.storyinvites.com" class="iframe-preview sample-iframe" title="ws5 Mobile"></iframe>
-                </div>
-              </div>
-            </div>
-            <div class="showcase-info">
-              <a href="https://ws5.storyinvites.com" target="_blank" class="showcase-info-url">ws5.storyinvites.com</a>
-              <a href="https://ws5.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- 2. DEBUT TEMPLATES CATEGORY -->
-      <div id="cat-debut" class="event-category-content">
-        <div class="unified-template-card" style="margin-bottom:0;">
-          <div class="card-intro-header-glass">
-            <h3 class="intro-story-title serif">The Grand Debutante</h3>
-            <p class="intro-story-tagline">For the debutante celebrating an unforgettable milestone.</p>
-            <p class="intro-story-vibe uppercase">YOUR VIBE: ELEGANT • YOUTHFUL • CELEBRATORY</p>
-          </div>
-
-          <div class="card-preview-body">
-            <div class="preview-wrapper">
-              <span class="view-label uppercase">💻 Desktop View</span>
-              <div class="iframe-container-desktop">
-                <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="ds1 Desktop"></iframe>
-              </div>
-            </div>
-            <div class="preview-wrapper">
-              <span class="view-label uppercase">📱 Mobile View</span>
-              <div class="iframe-container-mobile">
-                <div class="mobile-iframe-wrapper">
-                  <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="ds1 Mobile"></iframe>
-                </div>
-              </div>
-            </div>
-            <div class="showcase-info">
-              <a href="https://ds1.storyinvites.com" target="_blank" class="showcase-info-url">ds1.storyinvites.com</a>
-              <a href="https://ds1.storyinvites.com" target="_blank" class="btn-live-subtle">Open Live Site &rarr;</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3. BIRTHDAY TEMPLATES CATEGORY -->
-      <div id="cat-birthday" class="event-category-content">
-        <div class="placeholder-card">
-          <span class="uppercase" style="font-size:10px; color:var(--color-gold-accent); letter-spacing:0.25em; font-weight:600;">Special Celebrations</span>
-          <h3 class="serif" style="font-size:26px; font-weight:300; margin:10px 0;">Birthday Digital Invitations</h3>
-          <p style="font-size:12.5px; color:var(--color-charcoal-light); max-width:450px; margin:0 auto 16px;">
-            From milestone birthdays to intimate gatherings, our birthday collection is launching soon. Get early access or commission a custom design.
-          </p>
-          <a href="#pricing" class="btn-primary">Request a Custom Birthday Invite &rarr;</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PAGE 3: WHY US SECTION -->
-  <section class="page-section why-us-page-section" id="why-us">
-    <div class="buyin-section">
-      
-      <div class="rise-title-block articulate-title-block">
-        <span class="rise-kicker">The Difference</span>
-        <h2 class="rise-heading">Why StoryInvites</h2>
-        <div class="rise-divider"></div>
-      </div>
-
-      <div class="glass-intro-card">
-        <div class="section-story-intro" style="margin-bottom:0;">
-          <p class="story-lead">“An invitation that feels like you. Not just an invitation with the details.”</p>
-          <p class="story-sub">A thoughtfully designed digital experience that brings together your style, your moments, and everything your guests need to know.</p>
-        </div>
-      </div>
-
-      <div class="buyin-single-row-grid">
-        <div class="buyin-card-row">
-          <div class="buyin-icon">✦</div>
-          <h3 class="serif buyin-title">Designed Around Your Occasion</h3>
-          <p class="buyin-desc">
-            Every celebration is different. We build each invitation around the occasion, the mood, and the people behind it.
-          </p>
-        </div>
-
-        <div class="buyin-card-row">
-          <div class="buyin-icon">✦</div>
-          <h3 class="serif buyin-title">Made Personal</h3>
-          <p class="buyin-desc">
-            Your photos, colors, music, words, and details come together in a design created specifically for you.
-          </p>
-        </div>
-
-        <div class="buyin-card-row">
-          <div class="buyin-icon">✦</div>
-          <h3 class="serif buyin-title">More Than a Link</h3>
-          <p class="buyin-desc">
-            Photos, music, schedules, stories, RSVP, countdowns, maps, and details — all in one seamless place.
-          </p>
-        </div>
-
-        <div class="buyin-card-row">
-          <div class="buyin-icon">✦</div>
-          <h3 class="serif buyin-title">Easy for Guests</h3>
-          <p class="buyin-desc">
-            Simple to open, explore, and navigate on phone, tablet, or desktop with zero effort.
-          </p>
-        </div>
-
-        <div class="buyin-card-row">
-          <div class="buyin-icon">✦</div>
-          <h3 class="serif buyin-title">Beautiful Without the Fuss</h3>
-          <p class="buyin-desc">
-            We handle design and tech details so you focus on the occasion.<br><br>
-            <em>Your story. Your invitation.</em>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAGE 4: PROCESS SECTION -->
-  <section class="page-section section-l3" id="process">
-    <div class="process-section">
-      
-      <div class="rise-title-block articulate-title-block">
-        <span class="rise-kicker">Simple Steps</span>
-        <h2 class="rise-heading">The Process</h2>
-        <div class="rise-divider"></div>
-      </div>
-
-      <div class="section-story-intro">
-        <p class="story-lead">“Three quiet steps to your personal digital space.”</p>
-        <p class="story-sub">We handle the technical setup and visual placement so you can focus on enjoying your celebration.</p>
-      </div>
-
-      <div class="process-grid">
-        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:18px 14px; border:1px solid var(--border-light); border-radius:8px;">
-          <div class="uppercase" style="font-size:9.5px; color:var(--color-gold-accent); font-weight:700;">01</div>
-          <h3 class="serif" style="font-size:18px; margin:4px 0;">Tell Us Your Story</h3>
-          <p style="font-size:11.5px; color:var(--color-charcoal-light);">Share your photos, event details, and preferred template style from our collection.</p>
-        </div>
-        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:18px 14px; border:1px solid var(--border-light); border-radius:8px;">
-          <div class="uppercase" style="font-size:9.5px; color:var(--color-gold-accent); font-weight:700;">02</div>
-          <h3 class="serif" style="font-size:18px; margin:4px 0;">We Create Your Design</h3>
-          <p style="font-size:11.5px; color:var(--color-charcoal-light);">We build your personalized digital invitation space with up to 2 rounds of revisions.</p>
-        </div>
-        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:18px 14px; border:1px solid var(--border-light); border-radius:8px;">
-          <div class="uppercase" style="font-size:9.5px; color:var(--color-gold-accent); font-weight:700;">03</div>
-          <h3 class="serif" style="font-size:18px; margin:4px 0;">Share With Guests</h3>
-          <p style="font-size:11.5px; color:var(--color-charcoal-light);">Receive your custom web link ready to send across chat apps, SMS, or social media.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PAGE 5: PRICING OFFER SECTION -->
-  <section class="page-section section-l1" id="pricing">
-    <div class="offer-section">
-      
-      <div class="rise-title-block articulate-title-block">
-        <span class="rise-kicker">Package</span>
-        <h2 class="rise-heading">The Offering</h2>
-        <div class="rise-divider"></div>
-      </div>
-
-      <div class="offer-box-tailored">
-        
-        <div class="inquiry-hero-card">
-          <span class="uppercase" style="font-size:10px; color:var(--color-gold-accent); letter-spacing:0.25em; font-weight:700;">RATES & AVAILABILITY</span>
-          <h3 class="inquiry-hero-title serif">Get in Touch for Rates & Inquiries</h3>
-          <p class="inquiry-hero-subtitle">Connect with us directly to receive our complete package pricing and reserve your date.</p>
-
-          <div style="text-align: center;">
-            <div class="single-contact-bar">
-              <a href="tel:+639260593086" class="contact-info-link">
-                <span>📱 09260593086</span>
-              </a>
-              <span style="color:var(--border-light); font-size:12px;">|</span>
-              <a href="mailto:andrea.asuncion0928@gmail.com?subject=StoryInvites%20Inquiry" class="contact-info-link">
-                <span>✉️ andrea.asuncion0928@gmail.com</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="serif" style="font-size:18px; text-align:center; margin-bottom:10px; font-weight:300;">WHAT'S INCLUDED</h3>
-        
-        <div class="single-outline-inclusions-card">
-          <ul class="inclusions-single-list">
-            <li>Bespoke Theme & Concept</li>
-            <li>First-Tap Opening Reveal</li>
-            <li>Custom Soundtrack (Up to 4 Songs)</li>
-            <li>Interactive Love Story Timeline</li>
-            <li>Complete Schedule & Google Maps</li>
-            <li>Photo Showcase (Up to 10 Photos)</li>
-            <li>Entourage & Principal Sponsors</li>
-            <li>Digital RSVP & Entrance QR Codes</li>
-            <li>GCash, Bank Registry & Gift Details</li>
-            <li>Live Countdown Clock</li>
-            <li>Custom Fonts & Color Palette</li>
-            <li>Fluid Interactivity & Animations</li>
-          </ul>
-        </div>
-
-        <div class="also-included-bar">
-          <div class="also-included-title uppercase">ALSO INCLUDED WITH YOUR PACKAGE</div>
-          <ul class="also-included-pills">
-            <li>Mobile-friendly invitation</li>
-            <li>Shareable invitation link</li>
-            <li>Website setup & launch</li>
-            <li>Personalized content placement</li>
-            <li>Up to 2 rounds of revisions</li>
-          </ul>
-        </div>
-
-        <div class="pricing-closing-note">
-          <span class="closing-note-tag uppercase">A CLOSING NOTE</span>
-          <h3 class="serif closing-note-h3">More Than an Invitation</h3>
-          <p style="font-size:12px; color:var(--color-charcoal-light); max-width:550px; margin:0 auto; line-height:1.5;">
-            Your invitation is where your event story begins. Before your guests see the venue, the decor, or the celebration, they experience your invitation. So make it feel like you.
-          </p>
-          <div class="closing-note-quote">“Something that makes your guests say, ‘This is so them.’”</div>
-          <a href="mailto:andrea.asuncion0928@gmail.com" class="btn-primary" style="margin-top:4px;">Inquire Now &rarr;</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div style="display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; flex-wrap:wrap; gap:10px;">
-      <div class="logo uppercase" style="color:#FFF; font-size:14px;">STORYINVITES</div>
-      <p style="font-size:9.5px; color:var(--color-gold-accent);" class="uppercase">© 2026 STORYINVITES. ALL RIGHTS RESERVED.</p>
-    </div>
-  </footer>
-
   <script>
-    function switchCategory(category, btn) {
-      const tabs = document.querySelectorAll('.tab-btn');
-      tabs.forEach(tab => tab.classList.remove('active'));
-      
-      const contents = document.querySelectorAll('.event-category-content');
-      contents.forEach(content => content.classList.remove('active'));
+    /* PAGE SWITCHING LOGIC */
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.view-page');
+      pages.forEach(page => page.classList.remove('active'));
 
-      btn.classList.add('active');
-      document.getElementById('cat-' + category).classList.add('active');
-      
+      const activePage = document.getElementById(pageId);
+      if(activePage) {
+        activePage.classList.add('active');
+        activePage.scrollTop = 0;
+      }
+
+      const navButtons = document.querySelectorAll('.nav-menu button');
+      navButtons.forEach(btn => btn.classList.remove('active'));
+
+      if(pageId === 'page-home') document.getElementById('nav-home').classList.add('active');
+      if(pageId === 'page-portfolio') document.getElementById('nav-portfolio').classList.add('active');
+      if(pageId === 'page-pricing') {
+        document.getElementById('nav-prices').classList.add('active');
+        document.getElementById('nav-pricing').classList.add('active');
+      }
+
       stopAllSampleAudio();
     }
 
+    /* PORTFOLIO TAB SWITCHING LOGIC */
+    function switchCategory(category, btn) {
+      const tabBtns = document.querySelectorAll('.portfolio-tabs .tab-btn');
+      tabBtns.forEach(b => b.classList.remove('active'));
+
+      const tabContents = document.querySelectorAll('.portfolio-tab-content');
+      tabContents.forEach(c => c.classList.remove('active'));
+
+      btn.classList.add('active');
+      document.getElementById('cat-' + category).classList.add('active');
+
+      stopAllSampleAudio();
+    }
+
+    /* GLOBAL AUDIO RESET FUNCTION */
     function stopAllSampleAudio() {
       const iframes = document.querySelectorAll('.sample-iframe');
       iframes.forEach(iframe => {
-        const currentSrc = iframe.src;
+        const src = iframe.src;
         iframe.src = '';
-        iframe.src = currentSrc;
+        iframe.src = src;
       });
     }
-
-    function toggleMobileMenu() {
-      const drawer = document.getElementById('mobileNavDrawer');
-      drawer.classList.toggle('active');
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-      const titleBlocks = document.querySelectorAll('.articulate-title-block');
-      
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -50px 0px',
-        threshold: 0.15
-      };
-
-      const titleObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        });
-      }, observerOptions);
-
-      titleBlocks.forEach(block => {
-        titleObserver.observe(block);
-      });
-    });
   </script>
 </body>
 </html>

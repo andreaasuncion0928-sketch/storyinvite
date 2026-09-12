@@ -10,17 +10,14 @@
 
 <style>
   :root {
-    /* Sophisticated Layered Lavender & Soft Cream Palette */
-    --bg-lavender-1: #f3f0f8; /* Primary Soft Lavender */
-    --bg-lavender-2: #e8e2f3; /* Medium Lavender Header/Container Shade */
-    --bg-lavender-3: #dad0ec; /* Deeper Accent Shade */
-    --bg-lavender-card: rgba(250, 248, 252, 0.7);
-    
-    --color-ink: #1e1730;
-    --color-charcoal: #433b57;
-    --color-taupe: #786d91;
-    --color-accent: #624898;
-    --border-light: rgba(216, 210, 231, 0.6);
+    /* Rich Deep Color Palette derived from custom background */
+    --bg-dark-primary: #1e152a;
+    --bg-dark-container: rgba(30, 21, 42, 0.7);
+    --color-gold-accent: #a38c61;
+    --color-soft-taupe: #5e5368;
+    --color-ink-light: #f3f0f8;
+    --color-charcoal-light: #dad0ec;
+    --border-light: rgba(163, 140, 97, 0.3);
     
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Montserrat', sans-serif;
@@ -35,39 +32,40 @@
 
   html {
     scroll-behavior: smooth;
-    background-color: var(--bg-lavender-1);
+    background-color: var(--bg-dark-primary);
   }
 
-  body {
-    background-color: var(--bg-lavender-1);
-    color: var(--color-ink);
+  /* CUSTOM WEBSITE BACKGROUND INTEGRATION */
+  body, .website-background {
+    background-color: #1e152a;
+    background-image: 
+      radial-gradient(at 0% 0%, #1e152a 0px, transparent 50%),
+      radial-gradient(at 100% 0%, #5e5368 0px, transparent 50%),
+      radial-gradient(at 100% 100%, #a38c61 0px, transparent 50%),
+      radial-gradient(at 0% 100%, #2d2821 0px, transparent 50%);
+    background-attachment: fixed;
+    color: var(--color-ink-light);
     font-family: var(--font-sans);
     line-height: 1.8;
     overflow-x: hidden;
-    /* Rich ambient mesh gradient background */
-    background-image: 
-      radial-gradient(at 0% 0%, rgba(218, 208, 236, 0.5) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(232, 226, 243, 0.6) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, rgba(243, 240, 248, 0.9) 0px, transparent 100%);
-    background-attachment: fixed;
     position: relative;
   }
 
-  /* VISIBLE SCRAPBOOK GRAIN OVERLAY - SITS AT Z-INDEX 1 BELOW INTERACTIVE PREVIEWS */
+  /* SCRAPBOOK GRAIN OVERLAY SITUATED BELOW INTERACTIVE PREVIEWS */
   body::before {
     content: '';
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
     pointer-events: none;
-    z-index: 1; /* Positioned below devices & preview frames so embeds stay crystal clear */
-    opacity: 0.38;
+    z-index: 1;
+    opacity: 0.35;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
-  /* Alternating Lavender Section Styles */
+  /* Section Wrappers */
   .section-l1 { background-color: transparent; position: relative; z-index: 2; }
-  .section-l2 { background-color: var(--bg-lavender-2); position: relative; z-index: 2; }
-  .section-l3 { background-color: var(--bg-lavender-3); position: relative; z-index: 2; }
+  .section-l2 { background-color: rgba(30, 21, 42, 0.4); position: relative; z-index: 2; backdrop-filter: blur(10px); }
+  .section-l3 { background-color: rgba(45, 40, 33, 0.5); position: relative; z-index: 2; backdrop-filter: blur(10px); }
 
   /* Typography Utilities */
   .serif { font-family: var(--font-serif); }
@@ -81,25 +79,25 @@
     align-items: center;
     gap: 12px;
     padding: 18px 36px;
-    background-color: var(--color-ink);
-    color: var(--bg-lavender-1);
+    background-color: var(--color-gold-accent);
+    color: #1e152a;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    border: 1px solid var(--color-ink);
+    border: 1px solid var(--color-gold-accent);
     cursor: pointer;
     transition: all 0.4s ease;
     text-decoration: none;
-    box-shadow: 0 10px 25px rgba(30, 23, 48, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
   }
 
   .btn-primary:hover {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    color: #FFF;
+    background-color: #f3f0f8;
+    border-color: #f3f0f8;
+    color: #1e152a;
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(98, 72, 152, 0.25);
+    box-shadow: 0 15px 30px rgba(163, 140, 97, 0.35);
   }
 
   .btn-secondary {
@@ -108,14 +106,14 @@
     gap: 8px;
     font-size: 12px;
     letter-spacing: 0.2em;
-    color: var(--color-accent);
+    color: var(--color-gold-accent);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
   }
 
   .btn-secondary:hover {
-    color: var(--color-ink);
+    color: var(--color-ink-light);
     transform: translateX(5px);
   }
 
@@ -125,9 +123,9 @@
     bottom: 30px;
     right: 30px;
     z-index: 9999;
-    background-color: var(--color-ink);
-    color: var(--bg-lavender-1);
-    border: 1px solid var(--color-accent);
+    background-color: rgba(30, 21, 42, 0.9);
+    color: var(--color-gold-accent);
+    border: 1px solid var(--color-gold-accent);
     padding: 14px 22px;
     border-radius: 50px;
     font-family: var(--font-sans);
@@ -135,22 +133,18 @@
     font-weight: 600;
     letter-spacing: 0.15em;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(30, 23, 48, 0.25);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     display: flex;
     align-items: center;
     gap: 10px;
+    backdrop-filter: blur(12px);
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
   .audio-reset-btn:hover {
-    background-color: var(--color-accent);
-    color: #FFF;
+    background-color: var(--color-gold-accent);
+    color: #1e152a;
     transform: scale(1.05) translateY(-3px);
-    box-shadow: 0 15px 35px rgba(98, 72, 152, 0.35);
-  }
-
-  .audio-reset-btn:active {
-    transform: scale(0.95);
   }
 
   /* STICKY NAVIGATION HEADER WITH LOGO.PNG */
@@ -164,7 +158,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: rgba(232, 226, 243, 0.85);
+    background: rgba(30, 21, 42, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-light);
@@ -187,7 +181,7 @@
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.35em;
-    color: var(--color-ink);
+    color: var(--color-ink-light);
   }
 
   .nav-menu {
@@ -198,7 +192,7 @@
 
   .nav-menu a {
     text-decoration: none;
-    color: var(--color-charcoal);
+    color: var(--color-charcoal-light);
     font-size: 13px;
     letter-spacing: 0.2em;
     font-weight: 600;
@@ -206,7 +200,7 @@
   }
 
   .nav-menu a:hover {
-    color: var(--color-accent);
+    color: var(--color-gold-accent);
   }
 
   /* HERO INTRO PAGE */
@@ -214,7 +208,7 @@
     min-height: 100vh;
     padding: 160px 50px 100px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.1fr;
     gap: 60px;
     align-items: center;
     max-width: 1400px;
@@ -223,32 +217,16 @@
     z-index: 2;
   }
 
-  /* Vibrant radiant background glow element behind hero text */
-  .hero-container::before {
-    content: '';
-    position: absolute;
-    top: 15%;
-    left: 10%;
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(circle, rgba(170, 140, 220, 0.25) 0%, rgba(218, 208, 236, 0.05) 70%, transparent 100%);
-    filter: blur(50px);
-    pointer-events: none;
-    z-index: 0;
-  }
-
   .hero-tag {
     display: inline-block;
     padding: 8px 18px;
-    background: rgba(98, 72, 152, 0.08);
-    border: 1px solid rgba(98, 72, 152, 0.2);
+    background: rgba(163, 140, 97, 0.15);
+    border: 1px solid rgba(163, 140, 97, 0.3);
     border-radius: 30px;
     font-size: 12px;
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-gold-accent);
     margin-bottom: 25px;
-    position: relative;
-    z-index: 1;
   }
 
   .hero-title {
@@ -256,40 +234,44 @@
     font-weight: 300;
     line-height: 1.05;
     margin-bottom: 24px;
-    color: var(--color-ink);
-    position: relative;
-    z-index: 1;
+    color: var(--color-ink-light);
   }
 
   .hero-title span {
     font-family: var(--font-script);
     font-size: 1.25em;
-    color: var(--color-accent);
+    color: var(--color-gold-accent);
     display: inline-block;
   }
 
   .hero-description {
     font-size: 17px;
-    color: var(--color-charcoal);
+    color: var(--color-charcoal-light);
     margin-bottom: 40px;
     max-width: 520px;
-    position: relative;
-    z-index: 1;
   }
 
-  /* Dual Device Live Embed Stage - HIGH Z-INDEX PRESERVES CLEARNESS ABOVE GRAIN */
+  /* INTRO LANDING PREVIEW HERO STAGE & DESCRIPTION */
   .hero-device-stage {
     position: relative;
-    height: 580px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .hero-preview-devices {
+    position: relative;
+    width: 100%;
+    height: 480px;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10; /* Elevated above grain overlay */
   }
 
   .device-mockup {
     position: absolute;
-    box-shadow: 0 30px 60px rgba(30, 23, 48, 0.12);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -304,29 +286,27 @@
   .device-desktop {
     width: 440px;
     height: 280px;
-    top: 40px;
+    top: 20px;
     left: 10px;
-    border: 8px solid #2d2640;
+    border: 8px solid #000;
     border-bottom-width: 16px;
     z-index: 11;
   }
 
-  /* Realistic Mobile View Dimensions */
   .device-mobile {
-    width: 250px;
-    height: 520px;
-    bottom: 20px;
+    width: 230px;
+    height: 460px;
+    bottom: 0px;
     right: 20px;
-    border: 10px solid #2d2640;
+    border: 10px solid #000;
     border-radius: 36px;
     z-index: 12;
   }
 
-  /* CSS Transform Scaling for realistic mobile viewport embedding */
   .mobile-iframe-wrapper {
     width: 375px;
     height: 780px;
-    transform: scale(0.666667);
+    transform: scale(0.5897);
     transform-origin: 0 0;
     background: #FFF;
   }
@@ -338,30 +318,45 @@
     background: #FFF;
   }
 
-  .device-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(30, 23, 48, 0.85);
-    color: var(--bg-lavender-1);
-    backdrop-filter: blur(8px);
-    padding: 12px 20px;
-    border-radius: 50px;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    z-index: 13;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  /* GLASSY HERO PREVIEW DESCRIPTION BOX MATCHING TEMPLATES */
+  .hero-preview-card-glass {
+    width: 100%;
+    margin-top: 25px;
+    background: linear-gradient(135deg, rgba(94, 83, 104, 0.4) 0%, rgba(30, 21, 42, 0.6) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(163, 140, 97, 0.4);
+    border-left: 5px solid var(--color-gold-accent);
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
   }
 
-  .device-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: #4EED97;
-    border-radius: 50%;
+  .hero-preview-title {
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--color-ink-light);
+  }
+
+  .hero-preview-tagline {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-gold-accent);
+    margin-top: 2px;
+  }
+
+  .hero-preview-writeup {
+    font-size: 14px;
+    color: var(--color-charcoal-light);
+    margin-top: 8px;
+  }
+
+  .hero-preview-vibe {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-gold-accent);
+    letter-spacing: 0.15em;
+    margin-top: 10px;
   }
 
   /* CATEGORY TABS & TEMPLATE SECTION */
@@ -379,19 +374,17 @@
     margin: 0 auto 50px;
   }
 
-  /* Event Type Category Filter Bar (#e8e2f3) */
   .category-tabs-wrapper {
-    background-color: rgba(232, 226, 243, 0.7);
+    background-color: rgba(30, 21, 42, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--border-light);
     padding: 16px 24px;
     border-radius: 50px;
     display: inline-flex;
     justify-content: center;
     gap: 15px;
     margin-bottom: 70px;
-    box-shadow: 0 10px 30px rgba(98, 72, 152, 0.08);
   }
 
   .category-tabs {
@@ -407,16 +400,16 @@
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.2em;
-    color: var(--color-charcoal);
+    color: var(--color-charcoal-light);
     cursor: pointer;
     border-radius: 40px;
     transition: all 0.3s ease;
   }
 
   .tab-btn.active, .tab-btn:hover {
-    background: var(--color-ink);
-    color: #FFF;
-    box-shadow: 0 8px 20px rgba(30, 23, 48, 0.15);
+    background: var(--color-gold-accent);
+    color: #1e152a;
+    box-shadow: 0 8px 20px rgba(163, 140, 97, 0.3);
   }
 
   .event-category-content {
@@ -431,11 +424,11 @@
   .unified-template-card {
     max-width: 1300px;
     margin: 0 auto 100px;
-    background: rgba(250, 248, 252, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(30, 21, 42, 0.5);
+    border: 1px solid var(--border-light);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(30, 23, 48, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     position: relative;
     z-index: 2;
@@ -443,78 +436,48 @@
 
   .unified-template-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 30px 60px rgba(98, 72, 152, 0.12);
+    box-shadow: 0 30px 60px rgba(163, 140, 97, 0.2);
   }
 
-  /* LAVENDER GLASSY & GLOSSY CARD HEADER PANEL (GLASSMORPHISM) */
   .card-intro-header-glass {
     position: relative;
     padding: 40px 45px 35px;
-    background: linear-gradient(
-      135deg, 
-      rgba(232, 226, 243, 0.75) 0%, 
-      rgba(218, 208, 236, 0.55) 100%
-    );
+    background: linear-gradient(135deg, rgba(94, 83, 104, 0.4) 0%, rgba(30, 21, 42, 0.7) 100%);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-    border-left: 6px solid var(--color-accent);
+    border-bottom: 1px solid var(--border-light);
+    border-left: 6px solid var(--color-gold-accent);
     overflow: hidden;
-  }
-
-  /* Glossy sheen highlight effect across the title card panel */
-  .card-intro-header-glass::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(
-      to bottom, 
-      rgba(255, 255, 255, 0.45) 0%, 
-      rgba(255, 255, 255, 0) 100%
-    );
-    pointer-events: none;
   }
 
   .intro-story-title {
     font-size: 34px;
     font-weight: 300;
-    color: var(--color-ink);
-    position: relative;
-    z-index: 1;
+    color: var(--color-ink-light);
   }
 
   .intro-story-tagline {
     font-size: 15px;
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-gold-accent);
     margin-top: 4px;
-    position: relative;
-    z-index: 1;
   }
 
   .intro-story-writeup {
     font-size: 15px;
-    color: var(--color-charcoal);
+    color: var(--color-charcoal-light);
     margin-top: 12px;
     line-height: 1.8;
-    position: relative;
-    z-index: 1;
   }
 
   .intro-story-vibe {
     font-size: 12px;
     font-weight: 700;
-    color: var(--color-taupe);
+    color: var(--color-gold-accent);
     letter-spacing: 0.15em;
     margin-top: 15px;
-    position: relative;
-    z-index: 1;
   }
 
-  /* Dual Embedded Showcase Grid connected inside the same unified panel */
   .card-preview-body {
     display: grid;
     grid-template-columns: 1.8fr 1fr;
@@ -529,12 +492,12 @@
     flex-direction: column;
     gap: 15px;
     position: relative;
-    z-index: 10; /* Keeps frame views crisp above texture */
+    z-index: 10;
   }
 
   .view-label {
     font-size: 11px;
-    color: var(--color-taupe);
+    color: var(--color-gold-accent);
     letter-spacing: 0.2em;
     display: flex;
     align-items: center;
@@ -549,23 +512,18 @@
     border: 1px solid var(--border-light);
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
-    position: relative;
-    z-index: 10;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   }
 
-  /* Realistic Mobile View Phone Shell in Showcase */
   .iframe-container-mobile {
     width: 260px;
     height: 520px;
     background: #FFF;
-    border: 10px solid var(--color-ink);
+    border: 10px solid #000;
     border-radius: 36px;
     margin: 0 auto;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-    position: relative;
-    z-index: 10;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
   }
 
   .showcase-info {
@@ -578,11 +536,9 @@
     border-top: 1px dashed var(--border-light);
   }
 
-  /* Placeholder State for Birthday */
   .placeholder-card {
-    background: rgba(250, 248, 252, 0.6);
+    background: rgba(30, 21, 42, 0.5);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border: 2px dashed var(--border-light);
     padding: 80px 40px;
     text-align: center;
@@ -591,28 +547,13 @@
     margin: 0 auto;
   }
 
-  /* REFINED WHY US SECTION WITH RADIANT GLASSMOURPHIC CARDS */
+  /* WHY US SECTION WITH GLASSMORPHIC CARDS */
   .buyin-section {
     padding: 120px 50px;
     max-width: 1300px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
-  }
-
-  /* Radiant ambient lighting sphere behind Why Us section */
-  .buyin-section::before {
-    content: '';
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(184, 160, 225, 0.22) 0%, rgba(232, 226, 243, 0.05) 70%, transparent 100%);
-    filter: blur(60px);
-    pointer-events: none;
-    z-index: 0;
   }
 
   .buyin-grid {
@@ -624,62 +565,41 @@
     z-index: 1;
   }
 
-  /* Glassmorphic card styling matching intro page aesthetics */
   .buyin-card {
     position: relative;
-    background: linear-gradient(
-      135deg, 
-      rgba(255, 255, 255, 0.75) 0%, 
-      rgba(238, 232, 248, 0.45) 100%
-    );
+    background: linear-gradient(135deg, rgba(94, 83, 104, 0.3) 0%, rgba(30, 21, 42, 0.6) 100%);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    border-top: 1px solid rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--border-light);
     padding: 42px 35px;
     border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(98, 72, 152, 0.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     overflow: hidden;
   }
 
-  /* Subtle glossy sheen highlight across upper portion of Why Us cards */
-  .buyin-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 40%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
-    pointer-events: none;
-  }
-
   .buyin-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(98, 72, 152, 0.12);
-    border-color: rgba(163, 130, 215, 0.5);
+    box-shadow: 0 25px 50px rgba(163, 140, 97, 0.25);
+    border-color: var(--color-gold-accent);
   }
 
   .buyin-card-wide {
     grid-column: span 2;
-    background: linear-gradient(
-      135deg, 
-      rgba(255, 255, 255, 0.85) 0%, 
-      rgba(232, 224, 246, 0.55) 100%
-    );
   }
 
   .buyin-icon {
     font-size: 20px;
-    color: var(--color-accent);
+    color: var(--color-gold-accent);
     margin-bottom: 18px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 42px;
     height: 42px;
-    background: rgba(98, 72, 152, 0.08);
+    background: rgba(163, 140, 97, 0.15);
     border-radius: 50%;
-    border: 1px solid rgba(98, 72, 152, 0.15);
+    border: 1px solid rgba(163, 140, 97, 0.3);
   }
 
   /* PROCESS SECTION */
@@ -707,22 +627,21 @@
   }
 
   .offer-box {
-    background: rgba(250, 248, 252, 0.75);
+    background: linear-gradient(135deg, rgba(94, 83, 104, 0.4) 0%, rgba(30, 21, 42, 0.7) 100%);
     backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--border-light);
     padding: 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(30, 23, 48, 0.04);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
   }
 
   /* FOOTER */
   footer {
-    background: var(--color-ink);
-    color: var(--bg-lavender-1);
+    background: #120d1a;
+    color: var(--color-ink-light);
     padding: 80px 50px 40px;
     position: relative;
     z-index: 2;
@@ -730,15 +649,13 @@
 
   @media (max-width: 992px) {
     header { padding: 18px 25px; }
-    .logo-img { height: 32px; }
-    .logo-text { font-size: 15px; }
     .nav-menu { display: none; }
     .hero-container { grid-template-columns: 1fr; padding: 140px 25px 60px; text-align: center; }
     .hero-description { margin: 0 auto 40px; }
-    .hero-device-stage { height: 500px; }
+    .hero-preview-devices { height: 420px; }
     .device-desktop { width: 300px; height: 200px; left: 5%; }
-    .device-mobile { width: 180px; height: 380px; right: 5%; border-width: 8px; }
-    .mobile-iframe-wrapper { width: 375px; height: 780px; transform: scale(0.48); }
+    .device-mobile { width: 160px; height: 340px; right: 5%; border-width: 8px; }
+    .mobile-iframe-wrapper { width: 375px; height: 780px; transform: scale(0.426); }
     
     .category-tabs-wrapper { flex-direction: column; border-radius: 20px; width: 100%; }
     .card-preview-body { grid-template-columns: 1fr; padding: 25px; }
@@ -746,18 +663,17 @@
     .showcase-info { grid-column: span 1; flex-direction: column; gap: 20px; align-items: flex-start; }
     .buyin-grid, .process-grid, .offer-box { grid-template-columns: 1fr; }
     .buyin-card-wide { grid-column: span 1 !important; }
-    .audio-reset-btn { bottom: 20px; right: 20px; padding: 12px 18px; font-size: 10px; }
   }
 </style>
 </head>
-<body>
+<body class="website-background">
 
   <!-- GLOBAL AUDIO RESET BUTTON -->
   <button class="audio-reset-btn uppercase" onclick="stopAllSampleAudio()">
     <span>🔇 Stop All Audio</span>
   </button>
 
-  <!-- NAVIGATION HEADER WITH LOGO.PNG (#e8e2f3) -->
+  <!-- NAVIGATION HEADER WITH LOGO.PNG -->
   <header>
     <a href="#" class="logo-brand">
       <img src="logo.png" alt="StoryInvites Logo" class="logo-img" onerror="this.style.display='none'">
@@ -772,7 +688,7 @@
     <a href="#pricing" class="btn-primary" style="padding: 12px 28px; font-size: 11px;">Create Yours</a>
   </header>
 
-  <!-- HERO INTRO PAGE (#f3f0f8) -->
+  <!-- HERO INTRO PAGE -->
   <div class="section-l1">
     <section class="hero-container">
       <div>
@@ -790,37 +706,43 @@
         </div>
       </div>
 
-      <!-- Live Hero Preview Embed (ds1.storyinvites.com) -->
+      <!-- Live Hero Preview Embed (ds1.storyinvites.com) with Enchanted Night Glassy Description -->
       <div class="hero-device-stage">
-        <div class="device-badge uppercase">
-          <span>Live Debut Experience</span>
-        </div>
-
-        <div class="device-mockup device-desktop">
-          <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Desktop Live Demo"></iframe>
-        </div>
-
-        <div class="device-mockup device-mobile">
-          <div class="mobile-iframe-wrapper">
-            <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Mobile Live Demo"></iframe>
+        <div class="hero-preview-devices">
+          <div class="device-mockup device-desktop">
+            <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Desktop Live Demo"></iframe>
           </div>
+
+          <div class="device-mockup device-mobile">
+            <div class="mobile-iframe-wrapper">
+              <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Mobile Live Demo"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW GLASSY INTRO DESCRIPTION FOR LANDING PREVIEW -->
+        <div class="hero-preview-card-glass">
+          <h3 class="hero-preview-title serif">Enchanted Night</h3>
+          <p class="hero-preview-tagline">For a celebration wrapped in a little magic.</p>
+          <p class="hero-preview-writeup">Dreamy, romantic, and inspired by moonlit gardens and an unforgettable evening.</p>
+          <p class="hero-preview-vibe uppercase">YOUR VIBE: ENCHANTED • ROMANTIC • DREAMY</p>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- CATEGORIZED TEMPLATE COLLECTION (#e8e2f3) -->
+  <!-- CATEGORIZED TEMPLATE COLLECTION -->
   <div class="section-l2" id="templates">
     <section class="portfolio-section">
       <div class="portfolio-header">
-        <span class="uppercase" style="font-size:11px; color:var(--color-accent); letter-spacing:0.3em; font-weight:600;">The Collection</span>
+        <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:600;">The Collection</span>
         <h2 class="serif" style="font-size:46px; font-weight:300; margin-top:10px;">Select Your Event Type</h2>
-        <p style="font-size:15px; color:var(--color-charcoal); margin-top:15px;">
+        <p style="font-size:15px; color:var(--color-charcoal-light); margin-top:15px;">
           Explore live templates designed across desktop and responsive mobile views.
         </p>
       </div>
 
-      <!-- Category Filter Tabs in a Shaded Lavender Umbrella Container -->
+      <!-- Category Filter Tabs Container -->
       <div style="text-align: center;">
         <div class="category-tabs-wrapper">
           <div class="category-tabs uppercase">
@@ -834,7 +756,7 @@
       <!-- 1. WEDDING TEMPLATES CATEGORY -->
       <div id="cat-wedding" class="event-category-content active">
         
-        <!-- TEMPLATE 01: UNIFIED CONNECTED CARD PANEL WITH LAVENDER GLASSY & GLOSSY HEADER -->
+        <!-- TEMPLATE 01 -->
         <div class="unified-template-card">
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Timeless Love Story</h3>
@@ -861,14 +783,14 @@
             <div class="showcase-info">
               <div>
                 <h4 class="serif" style="font-size:26px;">The Timeless Love Story Experience</h4>
-                <p style="font-size:13px; color:var(--color-taupe);">ws1.storyinvites.com</p>
+                <p style="font-size:13px; color:var(--color-gold-accent);">ws1.storyinvites.com</p>
               </div>
               <a href="https://ws1.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- TEMPLATE 02: UNIFIED CONNECTED CARD PANEL WITH LAVENDER GLASSY & GLOSSY HEADER -->
+        <!-- TEMPLATE 02 -->
         <div class="unified-template-card">
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Cinematic Couple</h3>
@@ -895,14 +817,14 @@
             <div class="showcase-info">
               <div>
                 <h4 class="serif" style="font-size:26px;">The Cinematic Couple Experience</h4>
-                <p style="font-size:13px; color:var(--color-taupe);">ws2.storyinvites.com</p>
+                <p style="font-size:13px; color:var(--color-gold-accent);">ws2.storyinvites.com</p>
               </div>
               <a href="https://ws2.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- TEMPLATE 03: UNIFIED CONNECTED CARD PANEL WITH LAVENDER GLASSY & GLOSSY HEADER -->
+        <!-- TEMPLATE 03 -->
         <div class="unified-template-card">
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Fun & Fearless Couple</h3>
@@ -929,14 +851,14 @@
             <div class="showcase-info">
               <div>
                 <h4 class="serif" style="font-size:26px;">The Fun & Fearless Experience</h4>
-                <p style="font-size:13px; color:var(--color-taupe);">ws3.storyinvites.com</p>
+                <p style="font-size:13px; color:var(--color-gold-accent);">ws3.storyinvites.com</p>
               </div>
               <a href="https://ws3.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- TEMPLATE 04: UNIFIED CONNECTED CARD PANEL WITH LAVENDER GLASSY & GLOSSY HEADER -->
+        <!-- TEMPLATE 04 -->
         <div class="unified-template-card">
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Classic with a Twist</h3>
@@ -963,14 +885,14 @@
             <div class="showcase-info">
               <div>
                 <h4 class="serif" style="font-size:26px;">The Classic with a Twist Experience</h4>
-                <p style="font-size:13px; color:var(--color-taupe);">ws4.storyinvites.com</p>
+                <p style="font-size:13px; color:var(--color-gold-accent);">ws4.storyinvites.com</p>
               </div>
               <a href="https://ws4.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
           </div>
         </div>
 
-        <!-- TEMPLATE 05: UNIFIED CONNECTED CARD PANEL WITH LAVENDER GLASSY & GLOSSY HEADER -->
+        <!-- TEMPLATE 05 -->
         <div class="unified-template-card" style="margin-bottom:0;">
           <div class="card-intro-header-glass">
             <h3 class="intro-story-title serif">The Storytellers</h3>
@@ -997,7 +919,7 @@
             <div class="showcase-info">
               <div>
                 <h4 class="serif" style="font-size:26px;">The Storytellers Experience</h4>
-                <p style="font-size:13px; color:var(--color-taupe);">ws5.storyinvites.com</p>
+                <p style="font-size:13px; color:var(--color-gold-accent);">ws5.storyinvites.com</p>
               </div>
               <a href="https://ws5.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
@@ -1034,7 +956,7 @@
             <div class="showcase-info">
               <div>
                 <h4 class="serif" style="font-size:26px;">The Grand 18th Celebration Experience</h4>
-                <p style="font-size:13px; color:var(--color-taupe);">ds1.storyinvites.com</p>
+                <p style="font-size:13px; color:var(--color-gold-accent);">ds1.storyinvites.com</p>
               </div>
               <a href="https://ds1.storyinvites.com" target="_blank" class="btn-primary" style="padding:12px 24px; font-size:10px; flex-shrink:0;">Open Live Site &rarr;</a>
             </div>
@@ -1045,9 +967,9 @@
       <!-- 3. BIRTHDAY TEMPLATES CATEGORY -->
       <div id="cat-birthday" class="event-category-content">
         <div class="placeholder-card">
-          <span class="uppercase" style="font-size:11px; color:var(--color-accent); letter-spacing:0.3em; font-weight:600;">Special Celebrations</span>
+          <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:600;">Special Celebrations</span>
           <h3 class="serif" style="font-size:36px; font-weight:300; margin:15px 0;">Birthday Digital Invitations</h3>
-          <p style="font-size:15px; color:var(--color-charcoal); max-width:550px; margin:0 auto 30px;">
+          <p style="font-size:15px; color:var(--color-charcoal-light); max-width:550px; margin:0 auto 30px;">
             From milestone birthdays to intimate gatherings, our birthday collection is launching soon. Get early access or commission a custom design.
           </p>
           <a href="#pricing" class="btn-primary">Request a Custom Birthday Invite &rarr;</a>
@@ -1057,11 +979,11 @@
     </section>
   </div>
 
-  <!-- REFINED WHY US SECTION WITH RADIANT GLASSMOURPHIC CARDS (#f3f0f8) -->
+  <!-- WHY US SECTION GENERALIZED FOR ALL EVENTS -->
   <div class="section-l1" id="why-us">
     <section class="buyin-section">
       <div style="text-align:center; max-width:750px; margin:0 auto;">
-        <span class="uppercase" style="font-size:11px; color:var(--color-accent); letter-spacing:0.3em; font-weight:600;">The StoryInvites Advantage</span>
+        <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:600;">The StoryInvites Advantage</span>
         <h2 class="serif" style="font-size:44px; font-weight:300; margin-top:10px;">Why Hosts & Celebrants Choose StoryInvites</h2>
       </div>
 
@@ -1069,7 +991,7 @@
         <div class="buyin-card">
           <div class="buyin-icon">✦</div>
           <h3 class="serif" style="font-size:24px; margin-bottom:12px;">Made Around Your Journey</h3>
-          <p style="font-size:14px; color:var(--color-charcoal);">
+          <p style="font-size:14px; color:var(--color-charcoal-light);">
             Your invitation isn’t just where guests find event details. It’s the first glimpse into your celebration — your personality, your milestones, your style, and the atmosphere you want your special day to hold.
           </p>
         </div>
@@ -1077,7 +999,7 @@
         <div class="buyin-card">
           <div class="buyin-icon">✦</div>
           <h3 class="serif" style="font-size:24px; margin-bottom:12px;">Designed to Feel Like You</h3>
-          <p style="font-size:14px; color:var(--color-charcoal);">
+          <p style="font-size:14px; color:var(--color-charcoal-light);">
             No two hosts or celebrants have the same story, so no two invitations should feel identical. From visual direction to custom features, we create an experience that feels personal, intentional, and unmistakably yours.
           </p>
         </div>
@@ -1085,7 +1007,7 @@
         <div class="buyin-card">
           <div class="buyin-icon">✦</div>
           <h3 class="serif" style="font-size:24px; margin-bottom:12px;">More Than an Invitation</h3>
-          <p style="font-size:14px; color:var(--color-charcoal);">
+          <p style="font-size:14px; color:var(--color-charcoal-light);">
             We bring your story, venue details, photo galleries, background music, and interactive moments together in one seamless experience — so your guests get a memorable preview of your big day.
           </p>
         </div>
@@ -1093,7 +1015,7 @@
         <div class="buyin-card">
           <div class="buyin-icon">✦</div>
           <h3 class="serif" style="font-size:24px; margin-bottom:12px;">Beautiful on Every Screen</h3>
-          <p style="font-size:14px; color:var(--color-charcoal);">
+          <p style="font-size:14px; color:var(--color-charcoal-light);">
             Your invitation should look incredible whether opened on a phone, tablet, or desktop. Every design is crafted to feel polished, responsive, immersive, and effortless for every guest to explore.
           </p>
         </div>
@@ -1101,7 +1023,7 @@
         <div class="buyin-card buyin-card-wide">
           <div class="buyin-icon">✦</div>
           <h3 class="serif" style="font-size:24px; margin-bottom:12px;">Thoughtful, Not Overdone</h3>
-          <p style="font-size:14px; color:var(--color-charcoal);">
+          <p style="font-size:14px; color:var(--color-charcoal-light);">
             We believe the best invitations don’t need to clutter the screen. They need to say the right things, in the right way — with enough charm and personality to make your guests stop, smile, and think: <em>“This is so them.”</em>
           </p>
         </div>
@@ -1109,43 +1031,43 @@
     </section>
   </div>
 
-  <!-- PROCESS SECTION (#dad0ec) -->
+  <!-- PROCESS SECTION -->
   <div class="section-l3" id="process">
     <section class="process-section">
       <div style="text-align:center;">
-        <span class="uppercase" style="font-size:11px; color:var(--color-accent); letter-spacing:0.3em; font-weight:600;">How It Works</span>
+        <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:600;">How It Works</span>
         <h2 class="serif" style="font-size:40px; font-weight:300;">From Idea to Invitation</h2>
       </div>
 
       <div class="process-grid">
-        <div style="background:rgba(255,255,255,0.6); backdrop-filter:blur(10px); padding:35px; border:1px solid var(--border-light); border-radius:8px;">
-          <div class="uppercase" style="font-size:11px; color:var(--color-accent); font-weight:700;">01</div>
+        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:35px; border:1px solid var(--border-light); border-radius:8px;">
+          <div class="uppercase" style="font-size:11px; color:var(--color-gold-accent); font-weight:700;">01</div>
           <h3 class="serif" style="font-size:24px; margin:10px 0;">Tell Us Your Story</h3>
-          <p style="font-size:14px; color:var(--color-charcoal);">Share your photos, event details, and preferred template style from our collection.</p>
+          <p style="font-size:14px; color:var(--color-charcoal-light);">Share your photos, event details, and preferred template style from our collection.</p>
         </div>
-        <div style="background:rgba(255,255,255,0.6); backdrop-filter:blur(10px); padding:35px; border:1px solid var(--border-light); border-radius:8px;">
-          <div class="uppercase" style="font-size:11px; color:var(--color-accent); font-weight:700;">02</div>
+        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:35px; border:1px solid var(--border-light); border-radius:8px;">
+          <div class="uppercase" style="font-size:11px; color:var(--color-gold-accent); font-weight:700;">02</div>
           <h3 class="serif" style="font-size:24px; margin:10px 0;">We Create Your Design</h3>
-          <p style="font-size:14px; color:var(--color-charcoal);">We build your personalized digital invitation space with up to 2 rounds of revisions.</p>
+          <p style="font-size:14px; color:var(--color-charcoal-light);">We build your personalized digital invitation space with up to 2 rounds of revisions.</p>
         </div>
-        <div style="background:rgba(255,255,255,0.6); backdrop-filter:blur(10px); padding:35px; border:1px solid var(--border-light); border-radius:8px;">
-          <div class="uppercase" style="font-size:11px; color:var(--color-accent); font-weight:700;">03</div>
+        <div style="background:rgba(30, 21, 42, 0.6); backdrop-filter:blur(10px); padding:35px; border:1px solid var(--border-light); border-radius:8px;">
+          <div class="uppercase" style="font-size:11px; color:var(--color-gold-accent); font-weight:700;">03</div>
           <h3 class="serif" style="font-size:24px; margin:10px 0;">Share With Guests</h3>
-          <p style="font-size:14px; color:var(--color-charcoal);">Receive your custom web link ready to send across chat apps, SMS, or social media.</p>
+          <p style="font-size:14px; color:var(--color-charcoal-light);">Receive your custom web link ready to send across chat apps, SMS, or social media.</p>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- PRICING OFFER SECTION (#f3f0f8) -->
+  <!-- PRICING OFFER SECTION -->
   <div class="section-l1" id="pricing">
     <section class="offer-section">
       <div class="offer-box">
         <div>
-          <span class="uppercase" style="font-size:11px; color:var(--color-accent); letter-spacing:0.25em; font-weight:600;">The Signature Package</span>
+          <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.25em; font-weight:600;">The Signature Package</span>
           <h2 class="serif" style="font-size:38px; font-weight:300; margin-top:10px;">THE SIGNATURE INVITATION</h2>
-          <div class="serif" style="font-size:52px; color:var(--color-ink); margin:15px 0;">₱2,500[cite: 1]</div>
-          <p class="serif" style="font-style:italic; color:var(--color-taupe); font-size:18px;">
+          <div class="serif" style="font-size:52px; color:var(--color-ink-light); margin:15px 0;">₱2,500[cite: 1]</div>
+          <p class="serif" style="font-style:italic; color:var(--color-gold-accent); font-size:18px;">
             Your story. Your style. Your invitation.[cite: 1]
           </p>
           <div style="margin-top:30px;">
@@ -1154,7 +1076,7 @@
         </div>
 
         <div>
-          <ul style="list-style:none; font-size:14px; color:var(--color-charcoal); line-height:2.2;">
+          <ul style="list-style:none; font-size:14px; color:var(--color-charcoal-light); line-height:2.2;">
             <li>✓ Mobile & Desktop optimized design[cite: 1]</li>
             <li>✓ Custom shareable website link[cite: 1]</li>
             <li>✓ Full website setup & launch[cite: 1]</li>
@@ -1170,7 +1092,7 @@
   <footer>
     <div style="display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto;">
       <div class="logo uppercase" style="color:#FFF; font-size:20px;">STORYINVITES</div>
-      <p style="font-size:12px; color:var(--color-taupe);" class="uppercase">© 2026 STORYINVITES. ALL RIGHTS RESERVED.</p>
+      <p style="font-size:12px; color:var(--color-gold-accent);" class="uppercase">© 2026 STORYINVITES. ALL RIGHTS RESERVED.</p>
     </div>
   </footer>
 

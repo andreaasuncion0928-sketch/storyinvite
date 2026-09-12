@@ -73,6 +73,29 @@
   .script { font-family: var(--font-script); }
   .uppercase { text-transform: uppercase; letter-spacing: 0.22em; }
 
+  /* Section Story Intros */
+  .section-story-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+  }
+
+  .section-story-intro .story-lead {
+    font-family: var(--font-serif);
+    font-size: clamp(22px, 2.5vw, 28px);
+    font-style: italic;
+    color: var(--color-gold-accent);
+    line-height: 1.4;
+    margin-top: 15px;
+  }
+
+  .section-story-intro .story-sub {
+    font-size: 14px;
+    color: var(--color-charcoal-light);
+    margin-top: 12px;
+    letter-spacing: 0.05em;
+  }
+
   /* Interactive Buttons */
   .btn-primary {
     display: inline-flex;
@@ -208,7 +231,7 @@
     min-height: 100vh;
     padding: 160px 50px 100px;
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
+    grid-template-columns: 1fr 1.15fr;
     gap: 60px;
     align-items: center;
     max-width: 1400px;
@@ -230,10 +253,10 @@
   }
 
   .hero-title {
-    font-size: clamp(52px, 6vw, 82px);
+    font-size: clamp(50px, 5.8vw, 78px);
     font-weight: 300;
     line-height: 1.05;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     color: var(--color-ink-light);
   }
 
@@ -244,34 +267,36 @@
     display: inline-block;
   }
 
+  .hero-brand-statement {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--color-gold-accent);
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+
   .hero-description {
-    font-size: 17px;
+    font-size: 16px;
     color: var(--color-charcoal-light);
     margin-bottom: 40px;
     max-width: 520px;
+    line-height: 1.7;
   }
 
-  /* INTRO LANDING PREVIEW HERO STAGE & DESCRIPTION */
+  /* INCREASED SIZE HERO DEVICE STAGE (ENHANCED FOR IMMEDIATE PROMINENCE) */
   .hero-device-stage {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 10;
-  }
-
-  .hero-preview-devices {
-    position: relative;
-    width: 100%;
-    height: 480px;
+    height: 560px;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
   }
 
   .device-mockup {
     position: absolute;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.6);
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -283,30 +308,32 @@
     transform: translateY(-8px) scale(1.02);
   }
 
+  /* Prominently scaled up Desktop Mockup */
   .device-desktop {
-    width: 440px;
-    height: 280px;
+    width: 500px;
+    height: 315px;
     top: 20px;
-    left: 10px;
-    border: 8px solid #000;
-    border-bottom-width: 16px;
+    left: -10px;
+    border: 9px solid #000;
+    border-bottom-width: 18px;
     z-index: 11;
   }
 
+  /* Prominently scaled up Mobile Mockup */
   .device-mobile {
-    width: 230px;
-    height: 460px;
-    bottom: 0px;
-    right: 20px;
-    border: 10px solid #000;
-    border-radius: 36px;
+    width: 260px;
+    height: 520px;
+    bottom: -10px;
+    right: 0px;
+    border: 11px solid #000;
+    border-radius: 40px;
     z-index: 12;
   }
 
   .mobile-iframe-wrapper {
     width: 375px;
     height: 780px;
-    transform: scale(0.5897);
+    transform: scale(0.6346);
     transform-origin: 0 0;
     background: #FFF;
   }
@@ -318,45 +345,31 @@
     background: #FFF;
   }
 
-  /* GLASSY HERO PREVIEW DESCRIPTION BOX MATCHING TEMPLATES */
-  .hero-preview-card-glass {
-    width: 100%;
-    margin-top: 25px;
-    background: linear-gradient(135deg, rgba(94, 83, 104, 0.4) 0%, rgba(30, 21, 42, 0.6) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(163, 140, 97, 0.4);
-    border-left: 5px solid var(--color-gold-accent);
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-  }
-
-  .hero-preview-title {
-    font-size: 26px;
-    font-weight: 300;
+  .device-badge {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background: rgba(30, 21, 42, 0.9);
+    border: 1px solid var(--border-light);
     color: var(--color-ink-light);
+    backdrop-filter: blur(8px);
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    z-index: 13;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
   }
 
-  .hero-preview-tagline {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-gold-accent);
-    margin-top: 2px;
-  }
-
-  .hero-preview-writeup {
-    font-size: 14px;
-    color: var(--color-charcoal-light);
-    margin-top: 8px;
-  }
-
-  .hero-preview-vibe {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--color-gold-accent);
-    letter-spacing: 0.15em;
-    margin-top: 10px;
+  .device-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #4EED97;
+    border-radius: 50%;
   }
 
   /* CATEGORY TABS & TEMPLATE SECTION */
@@ -366,12 +379,6 @@
     border-bottom: 1px solid var(--border-light);
     position: relative;
     z-index: 2;
-  }
-
-  .portfolio-header {
-    text-align: center;
-    max-width: 750px;
-    margin: 0 auto 50px;
   }
 
   .category-tabs-wrapper {
@@ -652,9 +659,9 @@
     .nav-menu { display: none; }
     .hero-container { grid-template-columns: 1fr; padding: 140px 25px 60px; text-align: center; }
     .hero-description { margin: 0 auto 40px; }
-    .hero-preview-devices { height: 420px; }
-    .device-desktop { width: 300px; height: 200px; left: 5%; }
-    .device-mobile { width: 160px; height: 340px; right: 5%; border-width: 8px; }
+    .hero-device-stage { height: 480px; }
+    .device-desktop { width: 320px; height: 215px; left: 0%; top: 0; }
+    .device-mobile { width: 170px; height: 360px; right: 0%; bottom: 0; border-width: 8px; }
     .mobile-iframe-wrapper { width: 375px; height: 780px; transform: scale(0.426); }
     
     .category-tabs-wrapper { flex-direction: column; border-radius: 20px; width: 100%; }
@@ -697,8 +704,12 @@
           Your story,<br>
           <span>beautifully</span> invited.
         </h1>
+        
+        <!-- INTEGRATED BRAND STATEMENT -->
+        <p class="hero-brand-statement">Your story. Your style. Your invitation.</p>
+        
         <p class="hero-description">
-          Turn your life's greatest milestones—Weddings, Debuts, and Birthdays—into interactive digital invitations your guests can open, explore, and remember.
+          Before your guests arrive at your venue, they step into your world. We craft interactive digital spaces that turn life’s greatest milestones into unforgettable beginnings.
         </p>
         <div style="display:flex; gap:20px; align-items:center;">
           <a href="#pricing" class="btn-primary">Create Your Invitation &rarr;</a>
@@ -706,26 +717,20 @@
         </div>
       </div>
 
-      <!-- Live Hero Preview Embed (ds1.storyinvites.com) with Enchanted Night Glassy Description -->
+      <!-- Live Hero Preview Embed (ds1.storyinvites.com) - Prominently Scaled Devices -->
       <div class="hero-device-stage">
-        <div class="hero-preview-devices">
-          <div class="device-mockup device-desktop">
-            <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Desktop Live Demo"></iframe>
-          </div>
-
-          <div class="device-mockup device-mobile">
-            <div class="mobile-iframe-wrapper">
-              <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Mobile Live Demo"></iframe>
-            </div>
-          </div>
+        <div class="device-badge uppercase">
+          <span>Live Interactive Preview</span>
         </div>
 
-        <!-- NEW GLASSY INTRO DESCRIPTION FOR LANDING PREVIEW -->
-        <div class="hero-preview-card-glass">
-          <h3 class="hero-preview-title serif">Enchanted Night</h3>
-          <p class="hero-preview-tagline">For a celebration wrapped in a little magic.</p>
-          <p class="hero-preview-writeup">Dreamy, romantic, and inspired by moonlit gardens and an unforgettable evening.</p>
-          <p class="hero-preview-vibe uppercase">YOUR VIBE: ENCHANTED • ROMANTIC • DREAMY</p>
+        <div class="device-mockup device-desktop">
+          <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Desktop Live Demo"></iframe>
+        </div>
+
+        <div class="device-mockup device-mobile">
+          <div class="mobile-iframe-wrapper">
+            <iframe src="https://ds1.storyinvites.com" class="iframe-preview sample-iframe" title="Hero Mobile Live Demo"></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -734,12 +739,11 @@
   <!-- CATEGORIZED TEMPLATE COLLECTION -->
   <div class="section-l2" id="templates">
     <section class="portfolio-section">
-      <div class="portfolio-header">
+      <div class="section-story-intro">
         <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:600;">The Collection</span>
-        <h2 class="serif" style="font-size:46px; font-weight:300; margin-top:10px;">Select Your Event Type</h2>
-        <p style="font-size:15px; color:var(--color-charcoal-light); margin-top:15px;">
-          Explore live templates designed across desktop and responsive mobile views.
-        </p>
+        <h2 class="serif" style="font-size:46px; font-weight:300; margin-top:10px;">A Design for Every Personality</h2>
+        <p class="story-lead">“No two chapters are ever written the same.”</p>
+        <p class="story-sub">Select your event type below to discover interactive digital invitations tailored to your unique atmosphere.</p>
       </div>
 
       <!-- Category Filter Tabs Container -->
@@ -982,9 +986,11 @@
   <!-- WHY US SECTION GENERALIZED FOR ALL EVENTS -->
   <div class="section-l1" id="why-us">
     <section class="buyin-section">
-      <div style="text-align:center; max-width:750px; margin:0 auto;">
+      <div class="section-story-intro">
         <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:600;">The StoryInvites Advantage</span>
         <h2 class="serif" style="font-size:44px; font-weight:300; margin-top:10px;">Why Hosts & Celebrants Choose StoryInvites</h2>
+        <p class="story-lead">“An invitation is not a notification — it is an open door.”</p>
+        <p class="story-sub">We blend intentional design with digital interactivity to make sure your guests feel the warmth of your event before it even begins.</p>
       </div>
 
       <div class="buyin-grid">
@@ -1034,9 +1040,11 @@
   <!-- PROCESS SECTION -->
   <div class="section-l3" id="process">
     <section class="process-section">
-      <div style="text-align:center;">
+      <div class="section-story-intro">
         <span class="uppercase" style="font-size:11px; color:var(--color-gold-accent); letter-spacing:0.3em; font-weight:600;">How It Works</span>
         <h2 class="serif" style="font-size:40px; font-weight:300;">From Idea to Invitation</h2>
+        <p class="story-lead">“Three quiet steps to your personal digital space.”</p>
+        <p class="story-sub">We handle the technical setup and visual placement so you can focus on enjoying your celebration.</p>
       </div>
 
       <div class="process-grid">

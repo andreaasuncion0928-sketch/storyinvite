@@ -69,7 +69,7 @@
     left: 0;
     width: 100%;
     min-height: 65px;
-    padding: 10px clamp(12px, 3vw, 40px);
+    padding: 10px clamp(16px, 4vw, 50px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -101,10 +101,10 @@
     display: block;
   }
 
-  /* RESPONSIVE NAV MENU WITH SMALLER BOLD TEXT */
+  /* RESPONSIVE NAV MENU WITH SPACED BOLD TEXT */
   .nav-menu {
     display: flex;
-    gap: clamp(8px, 1.5vw, 22px);
+    gap: clamp(14px, 2.8vw, 36px);
     list-style: none;
     overflow-x: auto;
     scrollbar-width: none; /* Firefox */
@@ -123,11 +123,11 @@
     font-family: var(--font-sans);
     font-size: clamp(8.5px, 1.05vw, 10px);
     font-weight: 700;
-    letter-spacing: clamp(0.06em, 0.1em, 0.14em);
+    letter-spacing: clamp(0.08em, 0.12em, 0.16em);
     text-transform: uppercase;
     color: var(--text-primary);
     transition: all 0.3s ease;
-    padding: 4px 2px;
+    padding: 6px 8px;
     border-bottom: 2px solid transparent;
     white-space: nowrap;
   }
@@ -769,7 +769,7 @@
             </div>
             <div class="card-details-box">
               <h3 class="card-item-title">The Fun & Fearless</h3>
-              <a href="https://ws3.storyinvites.com" target="_blank" class="btn-highlight">View Sample Live &rarr;</a>
+              <a href="https://ws3.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Sample Live &rarr;</a>
             </div>
           </div>
 
@@ -779,7 +779,7 @@
             </div>
             <div class="card-details-box">
               <h3 class="card-item-title">The Cinematic Couple</h3>
-              <a href="https://ws4.storyinvites.com" target="_blank" class="btn-highlight">View Sample Live &rarr;</a>
+              <a href="https://ws4.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Sample Live &rarr;</a>
             </div>
           </div>
 
@@ -789,7 +789,7 @@
             </div>
             <div class="card-details-box">
               <h3 class="card-item-title">The Storytellers</h3>
-              <a href="https://ws5.storyinvites.com" target="_blank" class="btn-highlight">View Sample Live &rarr;</a>
+              <a href="https://ws5.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Sample Live &rarr;</a>
             </div>
           </div>
 
@@ -845,7 +845,7 @@
                 <h3 class="section-title" style="font-size: 24px;">The Timeless Love Story</h3>
                 <p class="section-tagline">For the classic, romantic couple.</p>
               </div>
-              <a href="https://ws1.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
+              <a href="https://ws1.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
             <div class="detailed-card-body">
               <div class="desktop-frame-box">
@@ -862,7 +862,7 @@
                 <h3 class="section-title" style="font-size: 24px;">The Classic with a Twist</h3>
                 <p class="section-tagline">For the couple who loves tradition, but not the ordinary.</p>
               </div>
-              <a href="https://ws2.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
+              <a href="https://ws2.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
             <div class="detailed-card-body">
               <div class="desktop-frame-box">
@@ -879,7 +879,7 @@
                 <h3 class="section-title" style="font-size: 24px;">The Fun & Fearless Couple</h3>
                 <p class="section-tagline">For the playful, adventurous two.</p>
               </div>
-              <a href="https://ws3.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
+              <a href="https://ws3.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
             <div class="detailed-card-body">
               <div class="desktop-frame-box">
@@ -896,7 +896,7 @@
                 <h3 class="section-title" style="font-size: 24px;">The Cinematic Couple</h3>
                 <p class="section-tagline">For the couple who loves a little drama.</p>
               </div>
-              <a href="https://ws4.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
+              <a href="https://ws4.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
             <div class="detailed-card-body">
               <div class="desktop-frame-box">
@@ -913,7 +913,7 @@
                 <h3 class="section-title" style="font-size: 24px;">The Storytellers</h3>
                 <p class="section-tagline">For the couple whose journey is the heart of it all.</p>
               </div>
-              <a href="https://ws5.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
+              <a href="https://ws5.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
             <div class="detailed-card-body">
               <div class="desktop-frame-box">
@@ -935,7 +935,7 @@
                 <h3 class="section-title" style="font-size: 24px;">The Grand Debutante</h3>
                 <p class="section-tagline">For celebrating milestone moments in style.</p>
               </div>
-              <a href="https://ds1.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
+              <a href="https://ds1.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
             <div class="detailed-card-body">
               <div class="desktop-frame-box">
@@ -952,7 +952,7 @@
                 <h3 class="section-title" style="font-size: 24px;">The Enchanted & Themed Debut</h3>
                 <p class="section-tagline">For bringing custom magical concepts and immersive themes to life.</p>
               </div>
-              <a href="https://ds2.storyinvites.com" target="_blank" class="btn-highlight">View Actual Website &rarr;</a>
+              <a href="https://ds2.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Actual Website &rarr;</a>
             </div>
             <div class="detailed-card-body">
               <div class="desktop-frame-box">

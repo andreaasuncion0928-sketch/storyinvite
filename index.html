@@ -181,7 +181,7 @@
     background-size: cover;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end; /* Restored back to right alignment */
     padding: clamp(20px, 5vw, 80px);
   }
 
@@ -189,47 +189,7 @@
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.4) 100%);
-  }
-
-  /* LEFT TEXT AREA */
-  .hero-left-text {
-    position: relative;
-    z-index: 2;
-    color: #FFF;
-    max-width: 550px;
-    padding-left: clamp(10px, 3vw, 40px);
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  }
-
-  .hero-left-title {
-    font-family: var(--font-serif);
-    font-size: clamp(42px, 5.5vw, 82px);
-    font-weight: 300;
-    line-height: 1.05;
-    margin-bottom: 20px;
-    color: #FFF;
-  }
-
-  .hero-left-title span {
-    font-style: italic;
-  }
-
-  .hero-left-divider {
-    width: 45px;
-    height: 1px;
-    background-color: #FFF;
-    margin: 24px 0;
-    opacity: 0.8;
-  }
-
-  .hero-left-desc {
-    font-family: var(--font-sans);
-    font-size: clamp(13px, 1.4vw, 16px);
-    font-weight: 300;
-    letter-spacing: 0.03em;
-    line-height: 1.5;
-    opacity: 0.9;
+    background: linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.45) 100%);
   }
 
   /* RIGHT FROSTED GLASS CARD */
@@ -240,7 +200,7 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     padding: clamp(35px, 4vw, 55px) clamp(25px, 3.5vw, 45px);
-    max-width: 540px;
+    max-width: 500px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
@@ -258,11 +218,12 @@
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   }
 
+  /* ADJUSTED FONT SIZES FOR BETTER FIT */
   .hero-heading {
     font-family: var(--font-serif);
-    font-size: clamp(32px, 3.6vw, 46px);
+    font-size: clamp(24px, 3vw, 38px);
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.25;
     margin-bottom: 20px;
     color: #FFFFFF;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
@@ -277,7 +238,7 @@
   }
 
   .hero-paragraph {
-    font-size: clamp(12.5px, 1.3vw, 14px);
+    font-size: clamp(12px, 1.2vw, 13.5px);
     color: #F7F5F2;
     line-height: 1.7;
     margin-bottom: 30px;
@@ -485,7 +446,6 @@
      ========================================= */
   @media (max-width: 850px) {
     
-    /* 1. ELEGANT MOBILE NAVIGATION */
     header {
       flex-direction: column;
       justify-content: center;
@@ -511,37 +471,20 @@
       top: 90px; 
     }
 
-    /* 2. MOBILE HERO IMAGE SECTION */
     .hero-cover-block {
       flex-direction: column;
       justify-content: flex-start;
       padding: 0;
       height: auto;
-      background-position: center top; /* Keeps image nicely framed */
+      background-position: center top; 
     }
 
+    /* Keep enough space so the image text isn't covered */
     .hero-cover-block::before {
       background: rgba(0,0,0,0.25);
+      height: 55vh; /* Keep the top gradient limited */
     }
 
-    /* Fix the text wrapping on mobile */
-    .hero-left-title {
-      font-size: clamp(32px, 9vw, 42px); /* Prevents "Your invitation." from breaking */
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
-
-    .hero-left-text {
-      width: 100%;
-      padding: 40px 24px;
-      text-align: left;
-      min-height: 55vh; /* Allows enough of the photo to show */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    /* 3. SOLID DARK BOTTOM CARD */
     .hero-text-card {
       width: 100%;
       max-width: 100%;
@@ -552,7 +495,9 @@
       box-shadow: none;
       border-radius: 0;
       text-align: center;
-      padding: 50px 24px 90px 24px; /* The 90px bottom padding fixes the mute button overlap completely */
+      /* Adjusted spacing so it sits naturally below the image text */
+      margin-top: 55vh; 
+      padding: 50px 24px 90px 24px; 
     }
     
     .hero-subtitle {
@@ -560,8 +505,9 @@
       letter-spacing: 0.2em;
     }
 
+    /* Adjust font size gracefully on mobile */
     .hero-heading {
-      font-size: 28px;
+      font-size: clamp(22px, 6vw, 26px);
     }
 
     .hero-heading .hero-highlight {
@@ -588,7 +534,6 @@
       color: var(--gold-accent);
     }
 
-    /* 4. MUTE AUDIO BUTTON ADJUSTMENT */
     .audio-reset-btn {
       bottom: 12px;
       right: 12px;
@@ -596,7 +541,6 @@
       font-size: 8px;
     }
 
-    /* Grids */
     .featured-collection-grid { grid-template-columns: 1fr; }
     .about-us-container { grid-template-columns: 1fr; }
     .pricing-grid-layout { grid-template-columns: 1fr; }
@@ -631,17 +575,6 @@
       
       <!-- HERO SECTION -->
       <section class="hero-cover-block" style="background-image: url('cover.png');">
-        
-        <!-- LEFT TYPOGRAPHY -->
-        <div class="hero-left-text">
-          <h2 class="hero-left-title">
-            Your story.<br>
-            Your style.<br>
-            <span>Your invitation.</span>
-          </h2>
-          <div class="hero-left-divider"></div>
-          <p class="hero-left-desc">Digital invitations for life's moments<br>worth celebrating.</p>
-        </div>
 
         <!-- RIGHT FROSTED CARD (Becomes solid dark block on mobile) -->
         <div class="hero-text-card">

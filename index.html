@@ -40,7 +40,7 @@
     --text-muted: #857b73;
     --accent-dark: #1a1715;
     --gold-accent: #9a8057;
-    --gold-bright: #E4C385; /* Brighter gold for better readability on dark overlays */
+    --gold-bright: #E4C385;
     --border-subtle: rgba(44, 38, 35, 0.12);
 
     --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -192,7 +192,6 @@
   .hero-cover-block {
     position: relative;
     width: 100%;
-    /* Adjusted height constraints so it doesn't cover the entire screen */
     height: clamp(500px, 75vh, 750px);
     background-position: center;
     background-size: cover;
@@ -215,7 +214,6 @@
     background: rgba(254, 253, 251, 0.30);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    /* Shrunk the card panel to make it more compact and neat */
     padding: 35px clamp(25px, 3vw, 40px);
     max-width: 520px;
     border: 1px solid rgba(255, 255, 255, 0.4);
@@ -236,7 +234,6 @@
 
   .hero-heading {
     font-family: var(--font-serif);
-    /* Slightly scaled down for the smaller panel */
     font-size: clamp(26px, 3.2vw, 40px);
     font-weight: 400;
     line-height: 1.15;
@@ -248,7 +245,6 @@
   .hero-heading .hero-highlight {
     display: block;
     font-style: italic;
-    /* Updated readable color */
     color: var(--gold-bright);
     margin-top: 6px;
     font-weight: 500;
@@ -354,22 +350,22 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
   }
 
+  .card-details-box {
+    padding: 20px 16px;
+    text-align: center;
+    background-color: rgba(232, 223, 216, 0.25);
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
   .iframe-container-card {
     width: 100%;
     height: 380px;
     background: #FFF;
     position: relative;
-  }
-
-  .card-details-box {
-    padding: 20px 16px;
-    text-align: center;
-    background-color: var(--bg-card-light);
-    border-top: 1px solid var(--border-subtle);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
   }
 
   .card-item-title {
@@ -463,7 +459,7 @@
   .portfolio-tab-content { display: none; }
   .portfolio-tab-content.active { display: block; }
 
-  /* DETAILED PORTFOLIO CARD - FULL BROWSER ONLY */
+  /* DETAILED PORTFOLIO CARD */
   .detailed-portfolio-card {
     background: var(--bg-card-light);
     border: 1px solid var(--border-subtle);
@@ -580,7 +576,7 @@
     margin: 0 auto;
   }
 
-  /* PRICING & INCLUSIONS PAGE */
+  /* PRICING PAGE STYLES */
   .pricing-hero-container {
     background: var(--bg-card-light);
     border: 1px solid var(--border-subtle);
@@ -651,44 +647,53 @@
     color: var(--text-primary);
   }
 
-  .pricing-cta-footer {
+  /* CONTACT PAGE STYLING */
+  .contact-wrapper {
+    background: var(--bg-card-light);
+    border: 1px solid var(--border-subtle);
+    padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 50px);
+    border-radius: 4px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+    max-width: 900px;
+    width: 100%;
     text-align: center;
-    background: var(--accent-dark);
-    color: #FFF;
-    padding: 35px 20px;
-    border-radius: 6px;
-    margin-top: 35px;
+    margin: 0 auto;
   }
 
-  .pricing-cta-footer h3 {
-    font-family: var(--font-serif);
-    font-size: 28px;
-    font-weight: 300;
-    margin-bottom: 16px;
-    letter-spacing: 0.05em;
+  .contact-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    margin: 45px 0;
   }
 
-  .contact-info-list {
+  .contact-method-item {
     display: flex;
     flex-direction: column;
-    gap: 12px;
     align-items: center;
-    margin-bottom: 24px;
+    gap: 10px;
   }
 
-  .contact-info-item {
-    font-size: 13.5px;
-    font-weight: 600;
-    color: var(--bg-warm-tint);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .contact-method-label {
+    font-family: var(--font-sans);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--gold-accent);
+    text-transform: uppercase;
+  }
+
+  .contact-method-value {
+    font-size: 15px;
+    color: var(--text-primary);
+    font-weight: 500;
     text-decoration: none;
+    line-height: 1.6;
     transition: color 0.3s ease;
   }
 
-  .contact-info-item:hover {
-    color: #FFF;
+  .contact-method-value:hover {
+    color: var(--gold-accent);
   }
 
   /* FOOTER */
@@ -730,17 +735,16 @@
       background-size: contain;
       background-position: top center;
       background-repeat: no-repeat;
-      background-color: var(--accent-dark); /* Blends below the image */
+      background-color: var(--accent-dark);
       height: auto;
       min-height: 85vh; 
       padding: 16px;
-      padding-top: 55vw; /* Pushes the card below the contained image */
+      padding-top: 55vw;
       justify-content: center;
       align-items: center;
     }
 
     .hero-cover-block::before {
-      /* Smooth gradient to fade the bottom of the image into the dark card space */
       background: linear-gradient(180deg, rgba(26,23,21,0) 0%, rgba(26,23,21,0.6) 40%, rgba(26,23,21,0.95) 100%);
     }
 
@@ -778,6 +782,7 @@
       <li><button id="nav-portfolio" onclick="showPage('page-portfolio')">PORTFOLIO</button></li>
       <li><button id="nav-journey" onclick="showPage('page-journey')">INVITATION JOURNEY</button></li>
       <li><button id="nav-pricing" onclick="showPage('page-pricing')">PRICING</button></li>
+      <li><button id="nav-contact" onclick="showPage('page-contact')">CONTACT US</button></li>
     </ul>
   </header>
 
@@ -794,7 +799,6 @@
         <div class="hero-text-card">
           <span class="hero-subtitle">Bespoke Digital Invitations</span>
           
-          <!-- SOPHISTICATED MANIFESTO HEADER -->
           <h1 class="hero-heading">
             We don’t fit your event into a template.
             <span class="hero-highlight">We build the design around your concept.</span>
@@ -816,47 +820,45 @@
 
         <div class="featured-collection-grid">
           
+          <!-- Moved card-details-box structurally ABOVE iframe-container-card -->
           <div class="collection-item">
-            <div class="iframe-container-card">
-              <iframe src="https://ws3.storyinvites.com" class="iframe-style sample-iframe" title="ws3 Live Sample"></iframe>
-            </div>
             <div class="card-details-box">
               <h3 class="card-item-title">The Fun & Fearless</h3>
               <a href="https://ws3.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Sample Live &rarr;</a>
             </div>
+            <div class="iframe-container-card">
+              <iframe src="https://ws3.storyinvites.com" class="iframe-style sample-iframe" title="ws3 Live Sample"></iframe>
+            </div>
           </div>
 
           <div class="collection-item">
-            <div class="iframe-container-card">
-              <iframe src="https://ws4.storyinvites.com" class="iframe-style sample-iframe" title="ws4 Live Sample"></iframe>
-            </div>
             <div class="card-details-box">
               <h3 class="card-item-title">The Cinematic Couple</h3>
               <a href="https://ws4.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Sample Live &rarr;</a>
             </div>
+            <div class="iframe-container-card">
+              <iframe src="https://ws4.storyinvites.com" class="iframe-style sample-iframe" title="ws4 Live Sample"></iframe>
+            </div>
           </div>
 
           <div class="collection-item">
-            <div class="iframe-container-card">
-              <iframe src="https://ws5.storyinvites.com" class="iframe-style sample-iframe" title="ws5 Live Sample"></iframe>
-            </div>
             <div class="card-details-box">
               <h3 class="card-item-title">The Storytellers</h3>
               <a href="https://ws5.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Sample Live &rarr;</a>
+            </div>
+            <div class="iframe-container-card">
+              <iframe src="https://ws5.storyinvites.com" class="iframe-style sample-iframe" title="ws5 Live Sample"></iframe>
             </div>
           </div>
 
         </div>
       </section>
 
-      <!-- ENHANCED ABOUT US SECTION -->
+      <!-- ABOUT US SECTION -->
       <section class="about-us-container">
         <div class="about-text-column">
           <h2 class="about-heading">We don't just share details. We share your story.</h2>
-          
-          <!-- REINFORCING THE BRAND MESSAGE HERE -->
           <p class="about-quote">“We don’t fit your event into a template. We build the design around your concept.”</p>
-          
           <p class="about-desc">
             At <strong>STORYINVITES</strong>, we believe digital invitations should evoke emotion. Beyond dates and venues lies your journey — your shared laughs, favorite songs, cherished photographs, and distinct personal vibe. We combine sleek design, modern interactivity, and seamless guest functionality to craft digital spaces that make your guests pause and whisper, <em>“This is so them.”</em>
           </p>
@@ -875,7 +877,7 @@
       </footer>
     </div>
 
-    <!-- PAGE 2: PORTFOLIO (NO MOBILE VIEWS) -->
+    <!-- PAGE 2: PORTFOLIO -->
     <div id="page-portfolio" class="view-page">
       <section class="section-block">
         <div class="section-header-center">
@@ -883,16 +885,13 @@
           <p class="section-tagline">Immerse yourself in our live interactive digital invitation suites</p>
         </div>
 
-        <!-- PORTFOLIO CATEGORY TABS -->
         <div class="portfolio-tabs">
           <button class="tab-btn active" onclick="switchCategory('wedding', this)">Weddings</button>
           <button class="tab-btn" onclick="switchCategory('debut', this)">Debuts</button>
           <button class="tab-btn" onclick="switchCategory('birthday', this)">Birthdays</button>
         </div>
 
-        <!-- WEDDING CATEGORY CONTENT -->
         <div id="cat-wedding" class="portfolio-tab-content active">
-          
           <!-- WS1 -->
           <div class="detailed-portfolio-card">
             <div class="detailed-card-header">
@@ -909,7 +908,6 @@
               </div>
             </div>
           </div>
-
           <!-- WS2 -->
           <div class="detailed-portfolio-card">
             <div class="detailed-card-header">
@@ -926,7 +924,6 @@
               </div>
             </div>
           </div>
-
           <!-- WS3 -->
           <div class="detailed-portfolio-card">
             <div class="detailed-card-header">
@@ -943,7 +940,6 @@
               </div>
             </div>
           </div>
-
           <!-- WS4 -->
           <div class="detailed-portfolio-card">
             <div class="detailed-card-header">
@@ -960,7 +956,6 @@
               </div>
             </div>
           </div>
-
           <!-- WS5 -->
           <div class="detailed-portfolio-card">
             <div class="detailed-card-header">
@@ -977,12 +972,9 @@
               </div>
             </div>
           </div>
-
         </div>
 
-        <!-- DEBUT CATEGORY CONTENT -->
         <div id="cat-debut" class="portfolio-tab-content">
-          
           <!-- DS1 -->
           <div class="detailed-portfolio-card">
             <div class="detailed-card-header">
@@ -999,7 +991,6 @@
               </div>
             </div>
           </div>
-
           <!-- DS2 -->
           <div class="detailed-portfolio-card">
             <div class="detailed-card-header">
@@ -1016,10 +1007,8 @@
               </div>
             </div>
           </div>
-
         </div>
 
-        <!-- BIRTHDAY CATEGORY CONTENT -->
         <div id="cat-birthday" class="portfolio-tab-content">
           <div class="detailed-portfolio-card" style="padding: 70px 20px; text-align: center;">
             <h3 class="section-title">Bespoke Birthday Invitations</h3>
@@ -1053,43 +1042,36 @@
         </div>
 
         <div class="journey-snapshots-grid">
-          
           <div class="journey-snapshot-card">
             <div class="snapshot-phase-number">PHASE 01</div>
             <h4 class="snapshot-phase-title">Discovery & Onboarding</h4>
             <p class="snapshot-phase-desc">Secure your event date and share your favorite photos, event schedules, dress codes, music preferences, and vision board with us.</p>
           </div>
-
           <div class="journey-snapshot-card">
             <div class="snapshot-phase-number">PHASE 02</div>
             <h4 class="snapshot-phase-title">Content Curation</h4>
             <p class="snapshot-phase-desc">We review your story and photos, organizing entourage lists, venue coordinates, and gift details for harmonious visual placement.</p>
           </div>
-
           <div class="journey-snapshot-card">
             <div class="snapshot-phase-number">PHASE 03</div>
             <h4 class="snapshot-phase-title">Creative Direction</h4>
             <p class="snapshot-phase-desc">We establish your custom aesthetic — curating color palettes, typography pairs, entrance animations, and ambient background music.</p>
           </div>
-
           <div class="journey-snapshot-card">
             <div class="snapshot-phase-number">PHASE 04</div>
             <h4 class="snapshot-phase-title">First Draft Reveal</h4>
             <p class="snapshot-phase-desc">Step into your live prototype. Explore the interactive opening reveal, live countdown, integrated maps, and photo story layout.</p>
           </div>
-
           <div class="journey-snapshot-card">
             <div class="snapshot-phase-number">PHASE 05</div>
             <h4 class="snapshot-phase-title">Collaborative Revisions</h4>
             <p class="snapshot-phase-desc">Fine-tune every detail with up to two dedicated revision rounds to make sure every word, image, and timing feels perfectly aligned.</p>
           </div>
-
           <div class="journey-snapshot-card">
             <div class="snapshot-phase-number">PHASE 06</div>
             <h4 class="snapshot-phase-title">Launch & Celebration</h4>
             <p class="snapshot-phase-desc">Final checks completed! Receive your personalized, shareable web link and digital RSVP QR code, ready to send out to family and friends.</p>
           </div>
-
         </div>
 
       </section>
@@ -1120,57 +1102,46 @@
         </div>
 
         <div class="pricing-grid-layout">
-          
           <div class="pricing-feature-box">
             <h4 class="pricing-feature-title">Your Concept</h4>
             <p class="pricing-feature-desc">Start with an idea that feels like you — romantic, cinematic, playful, minimalist, nostalgic, travel-inspired, or music-filled.</p>
           </div>
-
           <div class="pricing-feature-box">
             <h4 class="pricing-feature-title">First-Tap Opening Reveal</h4>
             <p class="pricing-feature-desc">Set the mood immediately. Your names, custom artwork, music, and opening reveal welcome guests into your story.</p>
           </div>
-
           <div class="pricing-feature-box">
             <h4 class="pricing-feature-title">Your Custom Soundtrack</h4>
             <p class="pricing-feature-desc">Choose up to 4 songs that resonate with your journey to play ambiently as guests navigate your invitation.</p>
           </div>
-
           <div class="pricing-feature-box">
             <h4 class="pricing-feature-title">Interactive Love Story</h4>
             <p class="pricing-feature-desc">Share key milestones — from how you met to your favorite memories, woven directly into the digital flow.</p>
           </div>
-
           <div class="pricing-feature-box">
             <h4 class="pricing-feature-title">Event Details & Map Integration</h4>
             <p class="pricing-feature-desc">Ceremony and reception schedules, venue addresses, direct Google Maps navigation links, and dress code guidance.</p>
           </div>
-
           <div class="pricing-feature-box">
             <h4 class="pricing-feature-title">Thoughtful Photo Storytelling</h4>
             <p class="pricing-feature-desc">Up to 10 photos naturally integrated throughout the layout to complement your text rather than a plain photo grid.</p>
           </div>
-
           <div class="pricing-feature-box">
             <h4 class="pricing-feature-title">Entourage & Sponsors</h4>
             <p class="pricing-feature-desc">Honor the people standing beside you — bridesmaids, groomsmen, principal sponsors, and wedding party members.</p>
           </div>
-
           <div class="pricing-feature-box">
             <h4 class="pricing-feature-title">Digital RSVP & Entrance QR</h4>
             <p class="pricing-feature-desc">Collect responses effortlessly with online RSVP forms and downloadable entrance QR codes for smooth event check-in.</p>
           </div>
-
           <div class="pricing-feature-box">
             <h4 class="pricing-feature-title">Live Countdown Clock</h4>
             <p class="pricing-feature-desc">Build excitement with a ticking real-time countdown tracking the days, hours, and minutes to your celebration.</p>
           </div>
-
           <div class="pricing-feature-box">
             <h4 class="pricing-feature-title">Registry & Gift Details</h4>
             <p class="pricing-feature-desc">Elegantly display GCash numbers, bank account details, online registry links, or monetary gift preferences.</p>
           </div>
-
         </div>
 
         <div class="pricing-bonus-banner">
@@ -1183,20 +1154,62 @@
             <li class="bonus-pill-item">Up to 2 Revision Rounds</li>
           </ul>
         </div>
-
-        <div class="pricing-cta-footer">
-          <h3>Contact Us</h3>
-          <div class="contact-info-list">
-            <div class="contact-info-item">📱 Cell/viber: +639260593086 / +639757123945</div>
-            <a href="mailto:storyinvites.com@gmail.com" class="contact-info-item">✉️ email add: storyinvites.com@gmail.com</a>
-            <a href="https://facebook.com/storyinvites" target="_blank" class="contact-info-item">🌐 FB page: storyinvites</a>
-          </div>
-          <a href="mailto:storyinvites.com@gmail.com?subject=StoryInvites%20Inquiry" class="btn-highlight" style="background-color: var(--gold-accent);">Get in Touch for Availability &rarr;</a>
+        
+        <div style="text-align: center; margin-top: 45px;">
+          <button onclick="showPage('page-contact')" class="btn-dark">Ready to start? Contact us here</button>
         </div>
 
       </section>
 
       <footer>
+        <div>STORYINVITES</div>
+        <div>© 2026 STORYINVITES. ALL RIGHTS RESERVED.</div>
+      </footer>
+    </div>
+
+    <!-- PAGE 5: CONTACT US -->
+    <div id="page-contact" class="view-page">
+      <section class="section-block" style="min-height: calc(100vh - 65px); display: flex; align-items: center; justify-content: center; padding-top: 60px;">
+        
+        <div class="contact-wrapper">
+          <span style="font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; color: var(--gold-accent);">Let's Connect</span>
+          <h2 class="section-title" style="margin-top: 12px; margin-bottom: 20px;">Start Your Invitation Journey</h2>
+          <p class="section-tagline" style="max-width: 500px; margin: 0 auto; line-height: 1.7;">
+            Reach out to check our availability, request a custom concept, or simply say hello. We would be absolutely honored to help tell your story.
+          </p>
+
+          <div class="contact-methods-grid">
+            
+            <div class="contact-method-item">
+              <span class="contact-method-label">Inquire via Viber / Mobile</span>
+              <span class="contact-method-value">
+                +63 926 059 3086<br>
+                +63 975 712 3945
+              </span>
+            </div>
+
+            <div class="contact-method-item">
+              <span class="contact-method-label">Email Us Directly</span>
+              <a href="mailto:storyinvites.com@gmail.com" class="contact-method-value">
+                storyinvites.com@gmail.com
+              </a>
+            </div>
+
+            <div class="contact-method-item">
+              <span class="contact-method-label">Message on Facebook</span>
+              <a href="https://facebook.com/storyinvites" target="_blank" class="contact-method-value">
+                @storyinvites
+              </a>
+            </div>
+
+          </div>
+
+          <a href="mailto:storyinvites.com@gmail.com?subject=StoryInvites%20Inquiry" class="btn-dark" style="background-color: var(--accent-dark); color: #FFF; padding: 14px 36px; border-radius: 2px;">Send an Inquiry Email</a>
+        </div>
+
+      </section>
+      
+      <footer style="position: absolute; bottom: 0; width: 100%;">
         <div>STORYINVITES</div>
         <div>© 2026 STORYINVITES. ALL RIGHTS RESERVED.</div>
       </footer>
@@ -1219,10 +1232,12 @@
       const navButtons = document.querySelectorAll('.nav-menu button');
       navButtons.forEach(btn => btn.classList.remove('active'));
 
+      // Highlight the correct menu tab
       if(pageId === 'page-home') document.getElementById('nav-home').classList.add('active');
       if(pageId === 'page-portfolio') document.getElementById('nav-portfolio').classList.add('active');
       if(pageId === 'page-journey') document.getElementById('nav-journey').classList.add('active');
       if(pageId === 'page-pricing') document.getElementById('nav-pricing').classList.add('active');
+      if(pageId === 'page-contact') document.getElementById('nav-contact').classList.add('active');
 
       stopAllSampleAudio();
     }

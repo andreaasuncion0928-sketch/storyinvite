@@ -463,8 +463,11 @@
     .hero-cover-block {
       flex-direction: row; 
       justify-content: flex-start; 
-      align-items: center; 
-      padding: 16px;
+      /* Push the item to the bottom of the container */
+      align-items: flex-end; 
+      
+      /* Added 40px bottom padding to keep it hovering above the bottom edge */
+      padding: 16px 16px 40px 16px; 
       
       /* Retaining the frozen height so the cover image doesn't stretch */
       min-height: 480px; 
@@ -481,10 +484,11 @@
 
     /* Left-Aligned Transparent Card for Mobile */
     .hero-text-card {
-      width: 75%; /* Slightly wider so larger text fits well */
+      width: 75%; 
       min-width: 240px;
       max-width: 320px; 
       
+      /* 20% transparent glass effect */
       background: rgba(254, 253, 251, 0.20); 
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -493,26 +497,25 @@
       border-radius: 4px;
       
       text-align: left; 
-      /* Extended padding downwards to increase card height */
       padding: 30px 20px 35px 20px; 
       margin: 0; 
     }
 
-    /* Increased Font Sizes gracefully inside the extended card */
+    /* Increased Font Sizes gracefully inside the card */
     .hero-heading {
-      font-size: 20px; /* Increased */
+      font-size: 20px; 
       line-height: 1.3;
       margin-bottom: 12px;
     }
 
     .hero-heading .hero-highlight {
       margin-top: 6px;
-      font-size: 17px; /* Increased */
+      font-size: 17px; 
     }
 
     .hero-paragraph {
       margin-bottom: 20px;
-      font-size: 12px; /* Increased */
+      font-size: 12px; 
       line-height: 1.5;
       opacity: 0.95;
     }
@@ -521,8 +524,8 @@
       background-color: transparent;
       color: #FFF;
       border: 1px solid #FFF;
-      font-size: 9px; /* Increased */
-      padding: 10px 18px; /* Added more breathing room */
+      font-size: 9px; 
+      padding: 10px 18px; 
       letter-spacing: 0.15em;
     }
 

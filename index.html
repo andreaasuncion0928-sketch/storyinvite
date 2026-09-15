@@ -192,7 +192,7 @@
     background: linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.45) 100%);
   }
 
-  /* RIGHT FROSTED GLASS CARD */
+  /* RIGHT FROSTED GLASS CARD (DESKTOP) */
   .hero-text-card {
     position: relative;
     z-index: 2;
@@ -205,17 +205,6 @@
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
     text-align: left;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(9px, 1.1vw, 11px);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #FFF;
-    margin-bottom: 16px;
-    display: block;
-    font-weight: 700;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   }
 
   .hero-heading {
@@ -472,68 +461,60 @@
 
     /* Fixed Cover Image and Layout for Mobile */
     .hero-cover-block {
-      flex-direction: column;
-      justify-content: flex-end;   /* Pushes content down */
-      align-items: flex-start;     /* Aligns the card to the LEFT */
-      padding: 20px;
+      flex-direction: row; /* Aligns contents horizontally */
+      justify-content: flex-start; /* Aligns card to the left */
+      align-items: center; /* Centers card vertically inside */
+      padding: 16px;
       
-      /* Sets to contain to guarantee the entire uncropped image fits perfectly */
-      background-size: contain; 
-      background-position: top center; 
+      /* Moderating the height prevents excessive stretching/zooming */
+      min-height: 480px; 
+      height: 60vh;
+      
+      background-size: cover; 
+      background-position: right center; /* Keeps the subject on the right visible */
       background-repeat: no-repeat;
-      
-      /* Dark background beautifully absorbs the space below the fitted image */
-      background-color: var(--accent-dark); 
-      
-      min-height: 85vh; 
-      height: auto;
     }
 
     .hero-cover-block::before {
-      /* Smooth gradient overlay */
-      background: linear-gradient(180deg, rgba(26,23,21,0) 0%, rgba(26,23,21,0.4) 45%, rgba(26,23,21,0.95) 100%);
+      /* Gradient shadow focused on the left to make the card text pop */
+      background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%);
     }
 
     /* Left-Aligned Transparent Card for Mobile */
     .hero-text-card {
-      width: 95%; 
-      max-width: 380px; 
+      width: 70%; /* Takes up left side of the screen */
+      min-width: 220px;
+      max-width: 300px; 
       
-      /* Restoring the 20% transparent glass effect */
+      /* 20% transparent glass effect */
       background: rgba(254, 253, 251, 0.20); 
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       
       border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 4px;
       
-      text-align: left; /* Left align text inside the card */
-      padding: 26px 20px; 
-      margin-bottom: 40px; 
-      
-      /* Pushes the card down so it overlaps lower, leaving the main top image fully visible */
-      margin-top: 60vw; 
-    }
-    
-    .hero-subtitle {
-      color: #FFF;
-      letter-spacing: 0.2em;
+      text-align: left; 
+      padding: 20px 16px; 
+      margin: 0; 
     }
 
-    /* Shrunk Font Sizes to Fit Elegantly */
+    /* Shrunk Font Sizes to Fit Elegantly inside the small left card */
     .hero-heading {
-      font-size: clamp(20px, 6vw, 24px);
-      line-height: 1.2;
-      margin-bottom: 14px;
+      font-size: 17px;
+      line-height: 1.25;
+      margin-bottom: 10px;
     }
 
     .hero-heading .hero-highlight {
-      margin-top: 6px;
+      margin-top: 4px;
+      font-size: 15px;
     }
 
     .hero-paragraph {
-      margin-bottom: 24px;
-      font-size: 12.5px;
+      margin-bottom: 16px;
+      font-size: 10.5px;
+      line-height: 1.45;
       opacity: 0.95;
     }
 
@@ -541,9 +522,9 @@
       background-color: transparent;
       color: #FFF;
       border: 1px solid #FFF;
-      font-size: 9px;
-      padding: 10px 20px;
-      letter-spacing: 0.2em;
+      font-size: 8px;
+      padding: 8px 14px;
+      letter-spacing: 0.15em;
     }
 
     .btn-dark:hover {
@@ -600,7 +581,6 @@
             We don’t fit your event into a template.
             <span class="hero-highlight">We build the design around your concept.</span>
           </h1>
-          <!-- Streamlined sentence to save space on mobile -->
           <p class="hero-paragraph">
             We craft bespoke digital invitation suites that capture your essence, your music, and your memories — inviting your guests into your world from the very first tap.
           </p>

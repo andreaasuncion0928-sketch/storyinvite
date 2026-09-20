@@ -428,12 +428,8 @@
   footer { background-color: var(--accent-dark); color: var(--bg-cream-main); padding: 30px clamp(16px, 4vw, 60px); display: flex; justify-content: space-between; align-items: center; font-size: 9.5px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
   .iframe-style { width: 100%; height: 100%; border: none; }
 
-
-  /* =========================================
-     MOBILE RESPONSIVE CORRECTIONS 
-     ========================================= */
+  /* MOBILE RESPONSIVE CORRECTIONS */
   @media (max-width: 850px) {
-    
     header {
       flex-direction: column;
       justify-content: center;
@@ -459,20 +455,13 @@
       top: 90px; 
     }
 
-    /* Fixed Cover Image and Layout for Mobile */
     .hero-cover-block {
       flex-direction: row; 
       justify-content: flex-start; 
-      /* Push the item to the bottom of the container */
       align-items: flex-end; 
-      
-      /* Added 40px bottom padding to keep it hovering above the bottom edge */
       padding: 16px 16px 40px 16px; 
-      
-      /* Retaining the frozen height so the cover image doesn't stretch */
       min-height: 480px; 
       height: 60vh;
-      
       background-size: cover; 
       background-position: right center; 
       background-repeat: no-repeat;
@@ -482,26 +471,20 @@
       background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%);
     }
 
-    /* Left-Aligned Transparent Card for Mobile */
     .hero-text-card {
       width: 75%; 
       min-width: 240px;
       max-width: 320px; 
-      
-      /* 20% transparent glass effect */
       background: rgba(254, 253, 251, 0.20); 
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      
       border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 4px;
-      
       text-align: left; 
       padding: 30px 20px 35px 20px; 
       margin: 0; 
     }
 
-    /* Increased Font Sizes gracefully inside the card */
     .hero-heading {
       font-size: 20px; 
       line-height: 1.3;
@@ -576,7 +559,6 @@
       
       <!-- HERO SECTION -->
       <section class="hero-cover-block" style="background-image: url('cover.png');">
-
         <!-- TEXT CARD -->
         <div class="hero-text-card">
           <h1 class="hero-heading">
@@ -752,6 +734,7 @@
           </div>
         </div>
 
+        <!-- CATEGORY: DEBUTS -->
         <div id="cat-debut" class="portfolio-tab-content">
           <!-- DS1 -->
           <div class="detailed-portfolio-card">
@@ -782,6 +765,22 @@
             <div class="detailed-card-body">
               <div class="desktop-frame-box">
                 <iframe src="https://ds2.storyinvites.com" class="iframe-style sample-iframe"></iframe>
+              </div>
+            </div>
+          </div>
+          <!-- DS3: THE PERSONAL TOUCH -->
+          <div class="detailed-portfolio-card">
+            <div class="detailed-card-header">
+              <div>
+                <span class="detailed-vibe-tag">INTIMATE • PERSONALIZED • THOUGHTFUL</span>
+                <h3 class="section-title" style="font-size: 24px;">The Personal Touch</h3>
+                <p class="section-tagline">For celebrating eighteen with thoughtful details made just for each guest.</p>
+              </div>
+              <a href="https://ds3.storyinvites.com" target="_blank" onclick="stopAllSampleAudio()" class="btn-highlight">View Actual Website &rarr;</a>
+            </div>
+            <div class="detailed-card-body">
+              <div class="desktop-frame-box">
+                <iframe src="https://ds3.storyinvites.com" class="iframe-style sample-iframe" title="The Personal Touch - DS3 Live Sample"></iframe>
               </div>
             </div>
           </div>
